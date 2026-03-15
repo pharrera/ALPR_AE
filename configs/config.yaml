@@ -1,0 +1,122 @@
+# =============================================================================
+# LPR Autoencoder Project Configuration
+# =============================================================================
+
+project:
+  name: "lpr-autoencoder-resolution-study"
+  seed: 42
+  device: "auto"  # auto-detects: cuda > mps > cpu
+  output_dir: "results"
+
+# --- Dataset Configuration ---
+data:
+  # OpenALPR dataset from Roboflow
+  roboflow_workspace: "your-workspace"
+  roboflow_project: "openalpr"
+  roboflow_version: 1
+  roboflow_api_key: "YOUR_API_KEY"  # Set via env var ROBOFLOW_API_KEY
+
+  # Local paths (after download / extraction)
+  # Point these to the folder containing train/, valid/, test/ subdirectories
+  root_dir: "data"
+  train_dir: "data/train"
+  val_dir: "data/valid"
+  test_dir: "data/test"
+
+  # Image settings
+  base_resolution: 640  # Native training resolution
+  image_format: "jpg"
+
+# --- YOLOv8 Plate Detection ---
+detection:
+  model: "yolov8n.pt"  # Start with nano for quick iteration; swap to yolov8s/m for final
+  pretrained: true
+  epochs: 50
+  batch_size: 16
+  img_size: 640
+  confidence_threshold: 0.5
+  iou_threshold: 0.45
+  optimizer: "Adam"
+  learning_rate: 0.001
+
+# --- Character Classification CNN ---
+classification:
+  num_classes: 36  # 0-9 + A-Z
+  input_size: 64   # Character crop size
+  channels: 1      # Grayscale
+  epochs: 30
+  batch_size: 64
+  learning_rate: 0.001
+  dropout: 0.3
+  architecture:
+    conv_layers: [32, 64, 128]
+    fc_layers: [512, 256]
+    kernel_size: 3
+
+# --- Convolutional Autoencoder ---
+autoencoder:
+  # Architecture
+  latent_dim: 128
+  encoder_channels: [32, 64, 128, 256]
+  decoder_channels: [256, 128, 64, 32]
+  input_size: 128  # Plate crop size (H)
+  input_width: 256  # Plate crop size (W)
+
+  # Training
+  epochs: 100
+  batch_size: 32
+  learning_rate: 0.0001
+  weight_decay: 0.00001
+  loss: "mse+ssim"  # Combined MSE + SSIM loss
+  ssim_weight: 0.5
+
+  # Variants
+  use_skip_connections: true  # U-Net style
+  use_attention: false
+
+# --- Resolution Degradation Experiment ---
+experiment:
+  # Resolutions to test (as fractions of base_resolution)
+  resolution_scales: [1.0, 0.75, 0.5, 0.375, 0.25, 0.125, 0.0625]
+  # Corresponding pixel sizes (for 640 base): [640, 480, 320, 240, 160, 80, 40]
+
+  # Degradation types to test
+  degradation_types:
+    - "bicubic_downsample"
+    - "gaussian_blur"
+    - "jpeg_compression"
+    - "combined"
+
+  # JPEG quality levels (for jpeg_compression degradation)
+  jpeg_qualities: [95, 75, 50, 25, 10]
+
+  # Gaussian blur kernel sizes
+  blur_kernels: [3, 5, 7, 11, 15]
+
+  # Metrics to track
+  metrics:
+    - "mAP"
+    - "detection_accuracy"
+    - "ocr_accuracy"
+    - "character_error_rate"
+    - "psnr"
+    - "ssim"
+
+  # Conditions: with and without autoencoder
+  conditions:
+    - "baseline"           # Direct inference at degraded resolution
+    - "upscale_only"       # Bicubic upscale back to base, then inference
+    - "autoencoder"        # Autoencoder restoration, then inference
+
+# --- Augmentation ---
+augmentation:
+  train:
+    rotation: 15
+    scale: [0.8, 1.2]
+    brightness: 0.2
+    contrast: 0.2
+    noise_std: 0.02
+    horizontal_flip: false  # Plates are not symmetric
+  val:
+    # No augmentation for validation
+    pass: true
