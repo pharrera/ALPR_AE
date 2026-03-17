@@ -1,0 +1,14 @@
+
+Extracting plates from train...
+Extracted 1800 plate crops to data/plates/train
+  -> 1800 plates extracted to data/plates/train
+
+Extracting plates from valid...
+Extracted 900 plate crops to data/plates/val
+  -> 900 plates extracted to data/plates/val
+
+Extracting plates from test...
+Extracted 1800 plate crops to data/plates/test
+  -> 1800 plates extracted to data/plates/test
+
+Done! Plate crops ready for autoencoder training.

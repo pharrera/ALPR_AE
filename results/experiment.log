@@ -1,0 +1,1826 @@
+Device: cuda
+Loading detector...
+Creating new Ultralytics Settings v0.0.6 file ✅ 
+View Ultralytics Settings with 'yolo settings' or at '/root/.config/Ultralytics/settings.json'
+Update Settings with 'yolo settings key=value', i.e. 'yolo settings runs_dir=path/to/dir'. For help see https://docs.ultralytics.com/quickstart/#ultralytics-settings.
+/usr/local/lib/python3.12/dist-packages/easyocr/utils.py:9: UserWarning: A NumPy version >=1.23.5 and <2.3.0 is required for this version of SciPy (detected version 2.4.3)
+  from scipy import ndimage
+Loaded YOLOv8 model from results/detection/plate_detection/weights/best.pt on cuda
+Loading autoencoder...
+EasyOCR loaded for character recognition
+Loading test data...
+  Loaded 4500 verified plate text entries from data/ufpr_yolo/plate_gt.json
+Loaded 100 test images from data/ufpr_yolo/test
+  Verified ground truth text: 100/100 images
+
+============================================================
+RUNNING RESOLUTION DEGRADATION EXPERIMENT
+============================================================
+Running experiments:   0%|          | 0/84 [00:00<?, ?it/s]Running experiments:   1%|          | 1/84 [00:06<09:05,  6.57s/it]Running experiments:   2%|▏         | 2/84 [00:10<06:39,  4.88s/it]Running experiments:   4%|▎         | 3/84 [00:16<07:19,  5.43s/it]Running experiments:   5%|▍         | 4/84 [00:54<24:30, 18.39s/it]Running experiments:   6%|▌         | 5/84 [01:13<24:24, 18.54s/it]Running experiments:   7%|▋         | 6/84 [01:35<25:40, 19.75s/it]Running experiments:   8%|▊         | 7/84 [01:52<24:09, 18.83s/it]Running experiments:  10%|▉         | 8/84 [02:09<23:15, 18.37s/it]Running experiments:  11%|█         | 9/84 [02:28<22:54, 18.32s/it]Running experiments:  12%|█▏        | 10/84 [02:43<21:27, 17.40s/it]Running experiments:  13%|█▎        | 11/84 [02:59<20:35, 16.92s/it]Running experiments:  14%|█▍        | 12/84 [03:15<19:56, 16.62s/it]Running experiments:  15%|█▌        | 13/84 [03:30<19:07, 16.16s/it]Running experiments:  17%|█▋        | 14/84 [03:45<18:32, 15.89s/it]Running experiments:  18%|█▊        | 15/84 [04:00<17:56, 15.60s/it]Running experiments:  19%|█▉        | 16/84 [04:15<17:30, 15.45s/it]Running experiments:  20%|██        | 17/84 [04:30<17:10, 15.38s/it]Running experiments:  21%|██▏       | 18/84 [04:45<16:49, 15.30s/it]Running experiments:  23%|██▎       | 19/84 [05:01<16:37, 15.35s/it]Running experiments:  24%|██▍       | 20/84 [05:17<16:34, 15.53s/it]Running experiments:  25%|██▌       | 21/84 [05:33<16:29, 15.71s/it]Running experiments:  26%|██▌       | 22/84 [05:39<13:06, 12.69s/it]Running experiments:  27%|██▋       | 23/84 [05:42<10:11, 10.02s/it]Running experiments:  29%|██▊       | 24/84 [05:48<08:34,  8.57s/it]Running experiments:  30%|██▉       | 25/84 [06:06<11:22, 11.56s/it]Running experiments:  31%|███       | 26/84 [06:24<13:08, 13.60s/it]Running experiments:  32%|███▏      | 27/84 [06:44<14:28, 15.24s/it]Running experiments:  33%|███▎      | 28/84 [07:01<14:53, 15.95s/it]Running experiments:  35%|███▍      | 29/84 [07:19<15:06, 16.49s/it]Running experiments:  36%|███▌      | 30/84 [07:38<15:33, 17.29s/it]Running experiments:  37%|███▋      | 31/84 [07:55<15:13, 17.24s/it]Running experiments:  38%|███▊      | 32/84 [08:12<14:54, 17.20s/it]Running experiments:  39%|███▉      | 33/84 [08:32<15:08, 17.82s/it]Running experiments:  40%|████      | 34/84 [08:48<14:24, 17.29s/it]Running experiments:  42%|████▏     | 35/84 [09:04<13:50, 16.94s/it]Running experiments:  43%|████▎     | 36/84 [09:20<13:22, 16.73s/it]Running experiments:  44%|████▍     | 37/84 [09:36<12:55, 16.50s/it]Running experiments:  45%|████▌     | 38/84 [09:52<12:31, 16.33s/it]Running experiments:  46%|████▋     | 39/84 [10:08<12:09, 16.21s/it]Running experiments:  48%|████▊     | 40/84 [10:26<12:19, 16.81s/it]Running experiments:  49%|████▉     | 41/84 [10:45<12:24, 17.32s/it]Running experiments:  50%|█████     | 42/84 [11:03<12:18, 17.58s/it]Running experiments:  51%|█████     | 43/84 [11:08<09:34, 14.01s/it]Running experiments:  52%|█████▏    | 44/84 [11:14<07:38, 11.47s/it]Running experiments:  54%|█████▎    | 45/84 [11:19<06:12,  9.56s/it]Running experiments:  55%|█████▍    | 46/84 [11:38<07:53, 12.46s/it]Running experiments:  56%|█████▌    | 47/84 [11:57<08:55, 14.48s/it]Running experiments:  57%|█████▋    | 48/84 [12:17<09:33, 15.94s/it]Running experiments:  58%|█████▊    | 49/84 [12:36<09:52, 16.94s/it]Running experiments:  60%|█████▉    | 50/84 [12:55<09:54, 17.48s/it]Running experiments:  61%|██████    | 51/84 [13:15<10:00, 18.18s/it]Running experiments:  62%|██████▏   | 52/84 [13:33<09:45, 18.30s/it]Running experiments:  63%|██████▎   | 53/84 [13:52<09:30, 18.39s/it]Running experiments:  64%|██████▍   | 54/84 [14:12<09:25, 18.86s/it]Running experiments:  65%|██████▌   | 55/84 [14:31<09:08, 18.90s/it]Running experiments:  67%|██████▋   | 56/84 [14:50<08:49, 18.93s/it]Running experiments:  68%|██████▊   | 57/84 [15:10<08:40, 19.28s/it]Running experiments:  69%|██████▉   | 58/84 [15:29<08:17, 19.13s/it]Running experiments:  70%|███████   | 59/84 [15:48<07:57, 19.09s/it]Running experiments:  71%|███████▏  | 60/84 [16:07<07:43, 19.32s/it]Running experiments:  73%|███████▎  | 61/84 [16:26<07:19, 19.13s/it]Running experiments:  74%|███████▍  | 62/84 [16:44<06:54, 18.84s/it]Running experiments:  75%|███████▌  | 63/84 [17:03<06:33, 18.71s/it]Running experiments:  76%|███████▌  | 64/84 [17:08<04:55, 14.80s/it]Running experiments:  77%|███████▋  | 65/84 [17:14<03:48, 12.01s/it]Running experiments:  79%|███████▊  | 66/84 [17:18<02:54,  9.69s/it]Running experiments:  80%|███████▉  | 67/84 [17:34<03:17, 11.63s/it]Running experiments:  81%|████████  | 68/84 [17:51<03:27, 13.00s/it]Running experiments:  82%|████████▏ | 69/84 [18:07<03:29, 13.97s/it]Running experiments:  83%|████████▎ | 70/84 [18:22<03:21, 14.41s/it]Running experiments:  85%|████████▍ | 71/84 [18:38<03:11, 14.72s/it]Running experiments:  86%|████████▌ | 72/84 [18:53<02:58, 14.91s/it]Running experiments:  87%|████████▋ | 73/84 [19:08<02:44, 14.98s/it]Running experiments:  88%|████████▊ | 74/84 [19:23<02:30, 15.05s/it]Running experiments:  89%|████████▉ | 75/84 [19:39<02:15, 15.11s/it]Running experiments:  90%|█████████ | 76/84 [19:54<02:00, 15.11s/it]Running experiments:  92%|█████████▏| 77/84 [20:09<01:45, 15.14s/it]Running experiments:  93%|█████████▎| 78/84 [20:24<01:30, 15.08s/it]Running experiments:  94%|█████████▍| 79/84 [20:39<01:15, 15.08s/it]Running experiments:  95%|█████████▌| 80/84 [20:54<01:00, 15.19s/it]Running experiments:  96%|█████████▋| 81/84 [21:09<00:45, 15.13s/it]Running experiments:  98%|█████████▊| 82/84 [21:25<00:30, 15.37s/it]Running experiments:  99%|█████████▉| 83/84 [21:41<00:15, 15.58s/it]Running experiments: 100%|██████████| 84/84 [21:57<00:00, 15.65s/it]Running experiments: 100%|██████████| 84/84 [21:57<00:00, 15.69s/it]
+/app/rundir/code/utils/visualization.py:66: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+  ax.legend(fontsize=11)
+
+--- bicubic_downsample | 640px | baseline ---
+
+--- bicubic_downsample | 640px | upscale_only ---
+
+--- bicubic_downsample | 640px | autoencoder ---
+
+--- bicubic_downsample | 480px | baseline ---
+
+--- bicubic_downsample | 480px | upscale_only ---
+
+--- bicubic_downsample | 480px | autoencoder ---
+
+--- bicubic_downsample | 320px | baseline ---
+
+--- bicubic_downsample | 320px | upscale_only ---
+
+--- bicubic_downsample | 320px | autoencoder ---
+
+--- bicubic_downsample | 240px | baseline ---
+
+--- bicubic_downsample | 240px | upscale_only ---
+
+--- bicubic_downsample | 240px | autoencoder ---
+
+--- bicubic_downsample | 160px | baseline ---
+
+--- bicubic_downsample | 160px | upscale_only ---
+
+--- bicubic_downsample | 160px | autoencoder ---
+
+--- bicubic_downsample | 80px | baseline ---
+
+--- bicubic_downsample | 80px | upscale_only ---
+
+--- bicubic_downsample | 80px | autoencoder ---
+
+--- bicubic_downsample | 40px | baseline ---
+
+--- bicubic_downsample | 40px | upscale_only ---
+
+--- bicubic_downsample | 40px | autoencoder ---
+
+--- gaussian_blur | 640px | baseline ---
+
+--- gaussian_blur | 640px | upscale_only ---
+
+--- gaussian_blur | 640px | autoencoder ---
+
+--- gaussian_blur | 480px | baseline ---
+
+--- gaussian_blur | 480px | upscale_only ---
+
+--- gaussian_blur | 480px | autoencoder ---
+
+--- gaussian_blur | 320px | baseline ---
+
+--- gaussian_blur | 320px | upscale_only ---
+
+--- gaussian_blur | 320px | autoencoder ---
+
+--- gaussian_blur | 240px | baseline ---
+
+--- gaussian_blur | 240px | upscale_only ---
+
+--- gaussian_blur | 240px | autoencoder ---
+
+--- gaussian_blur | 160px | baseline ---
+
+--- gaussian_blur | 160px | upscale_only ---
+
+--- gaussian_blur | 160px | autoencoder ---
+
+--- gaussian_blur | 80px | baseline ---
+
+--- gaussian_blur | 80px | upscale_only ---
+
+--- gaussian_blur | 80px | autoencoder ---
+
+--- gaussian_blur | 40px | baseline ---
+
+--- gaussian_blur | 40px | upscale_only ---
+
+--- gaussian_blur | 40px | autoencoder ---
+
+--- jpeg_compression | 640px | baseline ---
+
+--- jpeg_compression | 640px | upscale_only ---
+
+--- jpeg_compression | 640px | autoencoder ---
+
+--- jpeg_compression | 480px | baseline ---
+
+--- jpeg_compression | 480px | upscale_only ---
+
+--- jpeg_compression | 480px | autoencoder ---
+
+--- jpeg_compression | 320px | baseline ---
+
+--- jpeg_compression | 320px | upscale_only ---
+
+--- jpeg_compression | 320px | autoencoder ---
+
+--- jpeg_compression | 240px | baseline ---
+
+--- jpeg_compression | 240px | upscale_only ---
+
+--- jpeg_compression | 240px | autoencoder ---
+
+--- jpeg_compression | 160px | baseline ---
+
+--- jpeg_compression | 160px | upscale_only ---
+
+--- jpeg_compression | 160px | autoencoder ---
+
+--- jpeg_compression | 80px | baseline ---
+
+--- jpeg_compression | 80px | upscale_only ---
+
+--- jpeg_compression | 80px | autoencoder ---
+
+--- jpeg_compression | 40px | baseline ---
+
+--- jpeg_compression | 40px | upscale_only ---
+
+--- jpeg_compression | 40px | autoencoder ---
+
+--- combined | 640px | baseline ---
+
+--- combined | 640px | upscale_only ---
+
+--- combined | 640px | autoencoder ---
+
+--- combined | 480px | baseline ---
+
+--- combined | 480px | upscale_only ---
+
+--- combined | 480px | autoencoder ---
+
+--- combined | 320px | baseline ---
+
+--- combined | 320px | upscale_only ---
+
+--- combined | 320px | autoencoder ---
+
+--- combined | 240px | baseline ---
+
+--- combined | 240px | upscale_only ---
+
+--- combined | 240px | autoencoder ---
+
+--- combined | 160px | baseline ---
+
+--- combined | 160px | upscale_only ---
+
+--- combined | 160px | autoencoder ---
+
+--- combined | 80px | baseline ---
+
+--- combined | 80px | upscale_only ---
+
+--- combined | 80px | autoencoder ---
+
+--- combined | 40px | baseline ---
+
+--- combined | 40px | upscale_only ---
+
+--- combined | 40px | autoencoder ---
+Results saved to results/experiment/experiment_results.json
+Saved plot to results/experiment/plots/mAP_bicubic_downsample.png
+Saved plot to results/experiment/plots/mAP_gaussian_blur.png
+Saved plot to results/experiment/plots/mAP_jpeg_compression.png
+Saved plot to results/experiment/plots/mAP_combined.png
+Saved plot to results/experiment/plots/detection_accuracy_bicubic_downsample.png
+Saved plot to results/experiment/plots/detection_accuracy_gaussian_blur.png
+Saved plot to results/experiment/plots/detection_accuracy_jpeg_compression.png
+Saved plot to results/experiment/plots/detection_accuracy_combined.png
+Saved plot to results/experiment/plots/ocr_accuracy_bicubic_downsample.png
+Saved plot to results/experiment/plots/ocr_accuracy_gaussian_blur.png
+Saved plot to results/experiment/plots/ocr_accuracy_jpeg_compression.png
+Saved plot to results/experiment/plots/ocr_accuracy_combined.png
+======================================================================
+RESOLUTION DEGRADATION EXPERIMENT RESULTS
+======================================================================
+
+
+--- bicubic_downsample_160 ---
+  autoencoder:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 26.1977
+    recall: 0.0000
+    ssim: 0.7904
+  baseline:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 25.9355
+    recall: 0.0000
+    ssim: 0.7892
+  upscale_only:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 26.1977
+    recall: 0.0000
+    ssim: 0.7904
+
+--- bicubic_downsample_240 ---
+  autoencoder:
+    char_change_rate: 1.0000
+    char_consistency: 0.0000
+    detection_accuracy: 0.2500
+    mAP: 0.2500
+    ocr_consistency: 0.0000
+    precision: 0.2500
+    psnr: 27.1476
+    recall: 0.2500
+    ssim: 0.8060
+  baseline:
+    char_change_rate: 1.0000
+    char_consistency: 0.0000
+    detection_accuracy: 0.1100
+    mAP: 0.1100
+    ocr_consistency: 0.0000
+    precision: 0.1100
+    psnr: 26.8735
+    recall: 0.1100
+    ssim: 0.8035
+  upscale_only:
+    char_change_rate: 1.0000
+    char_consistency: 0.0000
+    detection_accuracy: 0.2500
+    mAP: 0.2500
+    ocr_consistency: 0.0000
+    precision: 0.2500
+    psnr: 27.1476
+    recall: 0.2500
+    ssim: 0.8060
+
+--- bicubic_downsample_320 ---
+  autoencoder:
+    char_change_rate: 0.9963
+    char_consistency: 0.0037
+    detection_accuracy: 0.7700
+    mAP: 0.7700
+    ocr_consistency: 0.0000
+    precision: 0.7700
+    psnr: 27.9240
+    recall: 0.7700
+    ssim: 0.8246
+  baseline:
+    char_change_rate: 1.0000
+    char_consistency: 0.0000
+    detection_accuracy: 0.5900
+    mAP: 0.5900
+    ocr_consistency: 0.0000
+    precision: 0.5900
+    psnr: 27.6198
+    recall: 0.5900
+    ssim: 0.8202
+  upscale_only:
+    char_change_rate: 1.0000
+    char_consistency: 0.0000
+    detection_accuracy: 0.7700
+    mAP: 0.7700
+    ocr_consistency: 0.0000
+    precision: 0.7700
+    psnr: 27.9240
+    recall: 0.7700
+    ssim: 0.8246
+
+--- bicubic_downsample_40 ---
+  autoencoder:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 23.1715
+    recall: 0.0000
+    ssim: 0.7750
+  baseline:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 22.8765
+    recall: 0.0000
+    ssim: 0.7745
+  upscale_only:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 23.1715
+    recall: 0.0000
+    ssim: 0.7750
+
+--- bicubic_downsample_480 ---
+  autoencoder:
+    char_change_rate: 0.9929
+    char_consistency: 0.0071
+    detection_accuracy: 0.9850
+    mAP: 0.9850
+    ocr_consistency: 0.0000
+    precision: 0.9850
+    psnr: 29.4576
+    recall: 0.9900
+    ssim: 0.8667
+  baseline:
+    char_change_rate: 1.0000
+    char_consistency: 0.0000
+    detection_accuracy: 0.9700
+    mAP: 0.9700
+    ocr_consistency: 0.0000
+    precision: 0.9700
+    psnr: 29.0266
+    recall: 0.9700
+    ssim: 0.8581
+  upscale_only:
+    char_change_rate: 0.9986
+    char_consistency: 0.0014
+    detection_accuracy: 0.9850
+    mAP: 0.9850
+    ocr_consistency: 0.0000
+    precision: 0.9850
+    psnr: 29.4576
+    recall: 0.9900
+    ssim: 0.8667
+
+--- bicubic_downsample_640 ---
+  autoencoder:
+    char_change_rate: 0.6027
+    char_consistency: 0.3973
+    detection_accuracy: 1.0000
+    mAP: 1.0000
+    ocr_consistency: 0.0000
+    precision: 1.0000
+    psnr: inf
+    recall: 1.0000
+    ssim: 1.0000
+  baseline:
+    char_change_rate: 0.6692
+    char_consistency: 0.3308
+    detection_accuracy: 1.0000
+    mAP: 1.0000
+    ocr_consistency: 0.0000
+    precision: 1.0000
+    psnr: inf
+    recall: 1.0000
+    ssim: 1.0000
+  upscale_only:
+    char_change_rate: 0.6692
+    char_consistency: 0.3308
+    detection_accuracy: 1.0000
+    mAP: 1.0000
+    ocr_consistency: 0.0000
+    precision: 1.0000
+    psnr: inf
+    recall: 1.0000
+    ssim: 1.0000
+
+--- bicubic_downsample_80 ---
+  autoencoder:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 24.7212
+    recall: 0.0000
+    ssim: 0.7796
+  baseline:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 24.4466
+    recall: 0.0000
+    ssim: 0.7791
+  upscale_only:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 24.7212
+    recall: 0.0000
+    ssim: 0.7796
+
+--- combined_160 ---
+  autoencoder:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 24.2718
+    recall: 0.0000
+    ssim: 0.7658
+  baseline:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 24.2748
+    recall: 0.0000
+    ssim: 0.7657
+  upscale_only:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 24.2737
+    recall: 0.0000
+    ssim: 0.7657
+
+--- combined_240 ---
+  autoencoder:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 25.0513
+    recall: 0.0000
+    ssim: 0.7579
+  baseline:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 25.0509
+    recall: 0.0000
+    ssim: 0.7580
+  upscale_only:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 25.0501
+    recall: 0.0000
+    ssim: 0.7579
+
+--- combined_320 ---
+  autoencoder:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 25.6143
+    recall: 0.0000
+    ssim: 0.7496
+  baseline:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 25.6132
+    recall: 0.0000
+    ssim: 0.7496
+  upscale_only:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 25.6123
+    recall: 0.0000
+    ssim: 0.7495
+
+--- combined_40 ---
+  autoencoder:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 21.3732
+    recall: 0.0000
+    ssim: 0.7695
+  baseline:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 21.3619
+    recall: 0.0000
+    ssim: 0.7695
+  upscale_only:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 21.3713
+    recall: 0.0000
+    ssim: 0.7695
+
+--- combined_480 ---
+  autoencoder:
+    char_change_rate: 1.0000
+    char_consistency: 0.0000
+    detection_accuracy: 0.0100
+    mAP: 0.0100
+    ocr_consistency: 0.0000
+    precision: 0.0100
+    psnr: 26.4842
+    recall: 0.0100
+    ssim: 0.7355
+  baseline:
+    char_change_rate: 1.0000
+    char_consistency: 0.0000
+    detection_accuracy: 0.0100
+    mAP: 0.0100
+    ocr_consistency: 0.0000
+    precision: 0.0100
+    psnr: 26.4843
+    recall: 0.0100
+    ssim: 0.7358
+  upscale_only:
+    char_change_rate: 1.0000
+    char_consistency: 0.0000
+    detection_accuracy: 0.0100
+    mAP: 0.0100
+    ocr_consistency: 0.0000
+    precision: 0.0100
+    psnr: 26.4832
+    recall: 0.0100
+    ssim: 0.7357
+
+--- combined_640 ---
+  autoencoder:
+    char_change_rate: 0.6027
+    char_consistency: 0.3973
+    detection_accuracy: 1.0000
+    mAP: 1.0000
+    ocr_consistency: 0.0000
+    precision: 1.0000
+    psnr: inf
+    recall: 1.0000
+    ssim: 1.0000
+  baseline:
+    char_change_rate: 0.6692
+    char_consistency: 0.3308
+    detection_accuracy: 1.0000
+    mAP: 1.0000
+    ocr_consistency: 0.0000
+    precision: 1.0000
+    psnr: inf
+    recall: 1.0000
+    ssim: 1.0000
+  upscale_only:
+    char_change_rate: 0.6692
+    char_consistency: 0.3308
+    detection_accuracy: 1.0000
+    mAP: 1.0000
+    ocr_consistency: 0.0000
+    precision: 1.0000
+    psnr: inf
+    recall: 1.0000
+    ssim: 1.0000
+
+--- combined_80 ---
+  autoencoder:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 22.9071
+    recall: 0.0000
+    ssim: 0.7708
+  baseline:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 22.9045
+    recall: 0.0000
+    ssim: 0.7708
+  upscale_only:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 22.9033
+    recall: 0.0000
+    ssim: 0.7708
+
+--- gaussian_blur_160 ---
+  autoencoder:
+    char_change_rate: 1.0000
+    char_consistency: 0.0000
+    detection_accuracy: 0.3000
+    mAP: 0.3000
+    ocr_consistency: 0.0000
+    precision: 0.3000
+    psnr: 27.4452
+    recall: 0.3000
+    ssim: 0.8141
+  baseline:
+    char_change_rate: 1.0000
+    char_consistency: 0.0000
+    detection_accuracy: 0.3000
+    mAP: 0.3000
+    ocr_consistency: 0.0000
+    precision: 0.3000
+    psnr: 27.4452
+    recall: 0.3000
+    ssim: 0.8141
+  upscale_only:
+    char_change_rate: 1.0000
+    char_consistency: 0.0000
+    detection_accuracy: 0.3000
+    mAP: 0.3000
+    ocr_consistency: 0.0000
+    precision: 0.3000
+    psnr: 27.4452
+    recall: 0.3000
+    ssim: 0.8141
+
+--- gaussian_blur_240 ---
+  autoencoder:
+    char_change_rate: 0.9951
+    char_consistency: 0.0049
+    detection_accuracy: 0.8800
+    mAP: 0.8800
+    ocr_consistency: 0.0000
+    precision: 0.8800
+    psnr: 28.6588
+    recall: 0.8800
+    ssim: 0.8453
+  baseline:
+    char_change_rate: 1.0000
+    char_consistency: 0.0000
+    detection_accuracy: 0.8800
+    mAP: 0.8800
+    ocr_consistency: 0.0000
+    precision: 0.8800
+    psnr: 28.6588
+    recall: 0.8800
+    ssim: 0.8453
+  upscale_only:
+    char_change_rate: 1.0000
+    char_consistency: 0.0000
+    detection_accuracy: 0.8800
+    mAP: 0.8800
+    ocr_consistency: 0.0000
+    precision: 0.8800
+    psnr: 28.6588
+    recall: 0.8800
+    ssim: 0.8453
+
+--- gaussian_blur_320 ---
+  autoencoder:
+    char_change_rate: 0.9293
+    char_consistency: 0.0707
+    detection_accuracy: 0.9700
+    mAP: 0.9700
+    ocr_consistency: 0.0000
+    precision: 0.9700
+    psnr: 29.8407
+    recall: 0.9700
+    ssim: 0.8769
+  baseline:
+    char_change_rate: 0.9883
+    char_consistency: 0.0117
+    detection_accuracy: 0.9700
+    mAP: 0.9700
+    ocr_consistency: 0.0000
+    precision: 0.9700
+    psnr: 29.8407
+    recall: 0.9700
+    ssim: 0.8769
+  upscale_only:
+    char_change_rate: 0.9883
+    char_consistency: 0.0117
+    detection_accuracy: 0.9700
+    mAP: 0.9700
+    ocr_consistency: 0.0000
+    precision: 0.9700
+    psnr: 29.8407
+    recall: 0.9700
+    ssim: 0.8769
+
+--- gaussian_blur_40 ---
+  autoencoder:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 24.3871
+    recall: 0.0000
+    ssim: 0.7796
+  baseline:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 24.3871
+    recall: 0.0000
+    ssim: 0.7796
+  upscale_only:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 24.3871
+    recall: 0.0000
+    ssim: 0.7796
+
+--- gaussian_blur_480 ---
+  autoencoder:
+    char_change_rate: 0.8663
+    char_consistency: 0.1337
+    detection_accuracy: 0.9950
+    mAP: 0.9950
+    ocr_consistency: 0.0000
+    precision: 0.9950
+    psnr: 32.3301
+    recall: 1.0000
+    ssim: 0.9295
+  baseline:
+    char_change_rate: 0.8089
+    char_consistency: 0.1911
+    detection_accuracy: 0.9950
+    mAP: 0.9950
+    ocr_consistency: 0.0000
+    precision: 0.9950
+    psnr: 32.3301
+    recall: 1.0000
+    ssim: 0.9295
+  upscale_only:
+    char_change_rate: 0.8089
+    char_consistency: 0.1911
+    detection_accuracy: 0.9950
+    mAP: 0.9950
+    ocr_consistency: 0.0000
+    precision: 0.9950
+    psnr: 32.3301
+    recall: 1.0000
+    ssim: 0.9295
+
+--- gaussian_blur_640 ---
+  autoencoder:
+    char_change_rate: 0.6027
+    char_consistency: 0.3973
+    detection_accuracy: 1.0000
+    mAP: 1.0000
+    ocr_consistency: 0.0000
+    precision: 1.0000
+    psnr: inf
+    recall: 1.0000
+    ssim: 1.0000
+  baseline:
+    char_change_rate: 0.6692
+    char_consistency: 0.3308
+    detection_accuracy: 1.0000
+    mAP: 1.0000
+    ocr_consistency: 0.0000
+    precision: 1.0000
+    psnr: inf
+    recall: 1.0000
+    ssim: 1.0000
+  upscale_only:
+    char_change_rate: 0.6692
+    char_consistency: 0.3308
+    detection_accuracy: 1.0000
+    mAP: 1.0000
+    ocr_consistency: 0.0000
+    precision: 1.0000
+    psnr: inf
+    recall: 1.0000
+    ssim: 1.0000
+
+--- gaussian_blur_80 ---
+  autoencoder:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 25.8548
+    recall: 0.0000
+    ssim: 0.7882
+  baseline:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 25.8548
+    recall: 0.0000
+    ssim: 0.7882
+  upscale_only:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 25.8548
+    recall: 0.0000
+    ssim: 0.7882
+
+--- jpeg_compression_160 ---
+  autoencoder:
+    char_change_rate: 0.7589
+    char_consistency: 0.2411
+    detection_accuracy: 0.9900
+    mAP: 0.9900
+    ocr_consistency: 0.0000
+    precision: 0.9900
+    psnr: 34.5526
+    recall: 1.0000
+    ssim: 0.9402
+  baseline:
+    char_change_rate: 0.7289
+    char_consistency: 0.2711
+    detection_accuracy: 0.9900
+    mAP: 0.9900
+    ocr_consistency: 0.0000
+    precision: 0.9900
+    psnr: 34.5526
+    recall: 1.0000
+    ssim: 0.9402
+  upscale_only:
+    char_change_rate: 0.7289
+    char_consistency: 0.2711
+    detection_accuracy: 0.9900
+    mAP: 0.9900
+    ocr_consistency: 0.0000
+    precision: 0.9900
+    psnr: 34.5526
+    recall: 1.0000
+    ssim: 0.9402
+
+--- jpeg_compression_240 ---
+  autoencoder:
+    char_change_rate: 0.7446
+    char_consistency: 0.2554
+    detection_accuracy: 1.0000
+    mAP: 1.0000
+    ocr_consistency: 0.0000
+    precision: 1.0000
+    psnr: 36.4890
+    recall: 1.0000
+    ssim: 0.9572
+  baseline:
+    char_change_rate: 0.7209
+    char_consistency: 0.2791
+    detection_accuracy: 1.0000
+    mAP: 1.0000
+    ocr_consistency: 0.0300
+    precision: 1.0000
+    psnr: 36.4890
+    recall: 1.0000
+    ssim: 0.9572
+  upscale_only:
+    char_change_rate: 0.7209
+    char_consistency: 0.2791
+    detection_accuracy: 1.0000
+    mAP: 1.0000
+    ocr_consistency: 0.0300
+    precision: 1.0000
+    psnr: 36.4890
+    recall: 1.0000
+    ssim: 0.9572
+
+--- jpeg_compression_320 ---
+  autoencoder:
+    char_change_rate: 0.6921
+    char_consistency: 0.3079
+    detection_accuracy: 0.9950
+    mAP: 0.9950
+    ocr_consistency: 0.0000
+    precision: 0.9950
+    psnr: 37.5982
+    recall: 1.0000
+    ssim: 0.9660
+  baseline:
+    char_change_rate: 0.6804
+    char_consistency: 0.3196
+    detection_accuracy: 0.9950
+    mAP: 0.9950
+    ocr_consistency: 0.0000
+    precision: 0.9950
+    psnr: 37.5982
+    recall: 1.0000
+    ssim: 0.9660
+  upscale_only:
+    char_change_rate: 0.6804
+    char_consistency: 0.3196
+    detection_accuracy: 0.9950
+    mAP: 0.9950
+    ocr_consistency: 0.0000
+    precision: 0.9950
+    psnr: 37.5982
+    recall: 1.0000
+    ssim: 0.9660
+
+--- jpeg_compression_40 ---
+  autoencoder:
+    char_change_rate: 0.9931
+    char_consistency: 0.0069
+    detection_accuracy: 0.9750
+    mAP: 0.9750
+    ocr_consistency: 0.0000
+    precision: 0.9750
+    psnr: 27.3890
+    recall: 0.9900
+    ssim: 0.8310
+  baseline:
+    char_change_rate: 0.9849
+    char_consistency: 0.0151
+    detection_accuracy: 0.9750
+    mAP: 0.9750
+    ocr_consistency: 0.0000
+    precision: 0.9750
+    psnr: 27.3890
+    recall: 0.9900
+    ssim: 0.8310
+  upscale_only:
+    char_change_rate: 0.9849
+    char_consistency: 0.0151
+    detection_accuracy: 0.9750
+    mAP: 0.9750
+    ocr_consistency: 0.0000
+    precision: 0.9750
+    psnr: 27.3890
+    recall: 0.9900
+    ssim: 0.8310
+
+--- jpeg_compression_480 ---
+  autoencoder:
+    char_change_rate: 0.6477
+    char_consistency: 0.3523
+    detection_accuracy: 1.0000
+    mAP: 1.0000
+    ocr_consistency: 0.0100
+    precision: 1.0000
+    psnr: 40.1274
+    recall: 1.0000
+    ssim: 0.9787
+  baseline:
+    char_change_rate: 0.6650
+    char_consistency: 0.3350
+    detection_accuracy: 1.0000
+    mAP: 1.0000
+    ocr_consistency: 0.0200
+    precision: 1.0000
+    psnr: 40.1274
+    recall: 1.0000
+    ssim: 0.9787
+  upscale_only:
+    char_change_rate: 0.6650
+    char_consistency: 0.3350
+    detection_accuracy: 1.0000
+    mAP: 1.0000
+    ocr_consistency: 0.0200
+    precision: 1.0000
+    psnr: 40.1274
+    recall: 1.0000
+    ssim: 0.9787
+
+--- jpeg_compression_640 ---
+  autoencoder:
+    char_change_rate: 0.6027
+    char_consistency: 0.3973
+    detection_accuracy: 1.0000
+    mAP: 1.0000
+    ocr_consistency: 0.0000
+    precision: 1.0000
+    psnr: inf
+    recall: 1.0000
+    ssim: 1.0000
+  baseline:
+    char_change_rate: 0.6692
+    char_consistency: 0.3308
+    detection_accuracy: 1.0000
+    mAP: 1.0000
+    ocr_consistency: 0.0000
+    precision: 1.0000
+    psnr: inf
+    recall: 1.0000
+    ssim: 1.0000
+  upscale_only:
+    char_change_rate: 0.6692
+    char_consistency: 0.3308
+    detection_accuracy: 1.0000
+    mAP: 1.0000
+    ocr_consistency: 0.0000
+    precision: 1.0000
+    psnr: inf
+    recall: 1.0000
+    ssim: 1.0000
+
+--- jpeg_compression_80 ---
+  autoencoder:
+    char_change_rate: 0.8458
+    char_consistency: 0.1542
+    detection_accuracy: 0.9900
+    mAP: 0.9900
+    ocr_consistency: 0.0000
+    precision: 0.9900
+    psnr: 30.9702
+    recall: 0.9900
+    ssim: 0.8953
+  baseline:
+    char_change_rate: 0.8690
+    char_consistency: 0.1310
+    detection_accuracy: 0.9900
+    mAP: 0.9900
+    ocr_consistency: 0.0000
+    precision: 0.9900
+    psnr: 30.9702
+    recall: 0.9900
+    ssim: 0.8953
+  upscale_only:
+    char_change_rate: 0.8690
+    char_consistency: 0.1310
+    detection_accuracy: 0.9900
+    mAP: 0.9900
+    ocr_consistency: 0.0000
+    precision: 0.9900
+    psnr: 30.9702
+    recall: 0.9900
+    ssim: 0.8953
+
+======================================================================
+RESOLUTION DEGRADATION EXPERIMENT RESULTS
+======================================================================
+
+
+--- bicubic_downsample_160 ---
+  autoencoder:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 26.1977
+    recall: 0.0000
+    ssim: 0.7904
+  baseline:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 25.9355
+    recall: 0.0000
+    ssim: 0.7892
+  upscale_only:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 26.1977
+    recall: 0.0000
+    ssim: 0.7904
+
+--- bicubic_downsample_240 ---
+  autoencoder:
+    char_change_rate: 1.0000
+    char_consistency: 0.0000
+    detection_accuracy: 0.2500
+    mAP: 0.2500
+    ocr_consistency: 0.0000
+    precision: 0.2500
+    psnr: 27.1476
+    recall: 0.2500
+    ssim: 0.8060
+  baseline:
+    char_change_rate: 1.0000
+    char_consistency: 0.0000
+    detection_accuracy: 0.1100
+    mAP: 0.1100
+    ocr_consistency: 0.0000
+    precision: 0.1100
+    psnr: 26.8735
+    recall: 0.1100
+    ssim: 0.8035
+  upscale_only:
+    char_change_rate: 1.0000
+    char_consistency: 0.0000
+    detection_accuracy: 0.2500
+    mAP: 0.2500
+    ocr_consistency: 0.0000
+    precision: 0.2500
+    psnr: 27.1476
+    recall: 0.2500
+    ssim: 0.8060
+
+--- bicubic_downsample_320 ---
+  autoencoder:
+    char_change_rate: 0.9963
+    char_consistency: 0.0037
+    detection_accuracy: 0.7700
+    mAP: 0.7700
+    ocr_consistency: 0.0000
+    precision: 0.7700
+    psnr: 27.9240
+    recall: 0.7700
+    ssim: 0.8246
+  baseline:
+    char_change_rate: 1.0000
+    char_consistency: 0.0000
+    detection_accuracy: 0.5900
+    mAP: 0.5900
+    ocr_consistency: 0.0000
+    precision: 0.5900
+    psnr: 27.6198
+    recall: 0.5900
+    ssim: 0.8202
+  upscale_only:
+    char_change_rate: 1.0000
+    char_consistency: 0.0000
+    detection_accuracy: 0.7700
+    mAP: 0.7700
+    ocr_consistency: 0.0000
+    precision: 0.7700
+    psnr: 27.9240
+    recall: 0.7700
+    ssim: 0.8246
+
+--- bicubic_downsample_40 ---
+  autoencoder:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 23.1715
+    recall: 0.0000
+    ssim: 0.7750
+  baseline:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 22.8765
+    recall: 0.0000
+    ssim: 0.7745
+  upscale_only:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 23.1715
+    recall: 0.0000
+    ssim: 0.7750
+
+--- bicubic_downsample_480 ---
+  autoencoder:
+    char_change_rate: 0.9929
+    char_consistency: 0.0071
+    detection_accuracy: 0.9850
+    mAP: 0.9850
+    ocr_consistency: 0.0000
+    precision: 0.9850
+    psnr: 29.4576
+    recall: 0.9900
+    ssim: 0.8667
+  baseline:
+    char_change_rate: 1.0000
+    char_consistency: 0.0000
+    detection_accuracy: 0.9700
+    mAP: 0.9700
+    ocr_consistency: 0.0000
+    precision: 0.9700
+    psnr: 29.0266
+    recall: 0.9700
+    ssim: 0.8581
+  upscale_only:
+    char_change_rate: 0.9986
+    char_consistency: 0.0014
+    detection_accuracy: 0.9850
+    mAP: 0.9850
+    ocr_consistency: 0.0000
+    precision: 0.9850
+    psnr: 29.4576
+    recall: 0.9900
+    ssim: 0.8667
+
+--- bicubic_downsample_640 ---
+  autoencoder:
+    char_change_rate: 0.6027
+    char_consistency: 0.3973
+    detection_accuracy: 1.0000
+    mAP: 1.0000
+    ocr_consistency: 0.0000
+    precision: 1.0000
+    psnr: inf
+    recall: 1.0000
+    ssim: 1.0000
+  baseline:
+    char_change_rate: 0.6692
+    char_consistency: 0.3308
+    detection_accuracy: 1.0000
+    mAP: 1.0000
+    ocr_consistency: 0.0000
+    precision: 1.0000
+    psnr: inf
+    recall: 1.0000
+    ssim: 1.0000
+  upscale_only:
+    char_change_rate: 0.6692
+    char_consistency: 0.3308
+    detection_accuracy: 1.0000
+    mAP: 1.0000
+    ocr_consistency: 0.0000
+    precision: 1.0000
+    psnr: inf
+    recall: 1.0000
+    ssim: 1.0000
+
+--- bicubic_downsample_80 ---
+  autoencoder:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 24.7212
+    recall: 0.0000
+    ssim: 0.7796
+  baseline:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 24.4466
+    recall: 0.0000
+    ssim: 0.7791
+  upscale_only:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 24.7212
+    recall: 0.0000
+    ssim: 0.7796
+
+--- combined_160 ---
+  autoencoder:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 24.2718
+    recall: 0.0000
+    ssim: 0.7658
+  baseline:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 24.2748
+    recall: 0.0000
+    ssim: 0.7657
+  upscale_only:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 24.2737
+    recall: 0.0000
+    ssim: 0.7657
+
+--- combined_240 ---
+  autoencoder:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 25.0513
+    recall: 0.0000
+    ssim: 0.7579
+  baseline:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 25.0509
+    recall: 0.0000
+    ssim: 0.7580
+  upscale_only:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 25.0501
+    recall: 0.0000
+    ssim: 0.7579
+
+--- combined_320 ---
+  autoencoder:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 25.6143
+    recall: 0.0000
+    ssim: 0.7496
+  baseline:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 25.6132
+    recall: 0.0000
+    ssim: 0.7496
+  upscale_only:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 25.6123
+    recall: 0.0000
+    ssim: 0.7495
+
+--- combined_40 ---
+  autoencoder:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 21.3732
+    recall: 0.0000
+    ssim: 0.7695
+  baseline:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 21.3619
+    recall: 0.0000
+    ssim: 0.7695
+  upscale_only:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 21.3713
+    recall: 0.0000
+    ssim: 0.7695
+
+--- combined_480 ---
+  autoencoder:
+    char_change_rate: 1.0000
+    char_consistency: 0.0000
+    detection_accuracy: 0.0100
+    mAP: 0.0100
+    ocr_consistency: 0.0000
+    precision: 0.0100
+    psnr: 26.4842
+    recall: 0.0100
+    ssim: 0.7355
+  baseline:
+    char_change_rate: 1.0000
+    char_consistency: 0.0000
+    detection_accuracy: 0.0100
+    mAP: 0.0100
+    ocr_consistency: 0.0000
+    precision: 0.0100
+    psnr: 26.4843
+    recall: 0.0100
+    ssim: 0.7358
+  upscale_only:
+    char_change_rate: 1.0000
+    char_consistency: 0.0000
+    detection_accuracy: 0.0100
+    mAP: 0.0100
+    ocr_consistency: 0.0000
+    precision: 0.0100
+    psnr: 26.4832
+    recall: 0.0100
+    ssim: 0.7357
+
+--- combined_640 ---
+  autoencoder:
+    char_change_rate: 0.6027
+    char_consistency: 0.3973
+    detection_accuracy: 1.0000
+    mAP: 1.0000
+    ocr_consistency: 0.0000
+    precision: 1.0000
+    psnr: inf
+    recall: 1.0000
+    ssim: 1.0000
+  baseline:
+    char_change_rate: 0.6692
+    char_consistency: 0.3308
+    detection_accuracy: 1.0000
+    mAP: 1.0000
+    ocr_consistency: 0.0000
+    precision: 1.0000
+    psnr: inf
+    recall: 1.0000
+    ssim: 1.0000
+  upscale_only:
+    char_change_rate: 0.6692
+    char_consistency: 0.3308
+    detection_accuracy: 1.0000
+    mAP: 1.0000
+    ocr_consistency: 0.0000
+    precision: 1.0000
+    psnr: inf
+    recall: 1.0000
+    ssim: 1.0000
+
+--- combined_80 ---
+  autoencoder:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 22.9071
+    recall: 0.0000
+    ssim: 0.7708
+  baseline:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 22.9045
+    recall: 0.0000
+    ssim: 0.7708
+  upscale_only:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 22.9033
+    recall: 0.0000
+    ssim: 0.7708
+
+--- gaussian_blur_160 ---
+  autoencoder:
+    char_change_rate: 1.0000
+    char_consistency: 0.0000
+    detection_accuracy: 0.3000
+    mAP: 0.3000
+    ocr_consistency: 0.0000
+    precision: 0.3000
+    psnr: 27.4452
+    recall: 0.3000
+    ssim: 0.8141
+  baseline:
+    char_change_rate: 1.0000
+    char_consistency: 0.0000
+    detection_accuracy: 0.3000
+    mAP: 0.3000
+    ocr_consistency: 0.0000
+    precision: 0.3000
+    psnr: 27.4452
+    recall: 0.3000
+    ssim: 0.8141
+  upscale_only:
+    char_change_rate: 1.0000
+    char_consistency: 0.0000
+    detection_accuracy: 0.3000
+    mAP: 0.3000
+    ocr_consistency: 0.0000
+    precision: 0.3000
+    psnr: 27.4452
+    recall: 0.3000
+    ssim: 0.8141
+
+--- gaussian_blur_240 ---
+  autoencoder:
+    char_change_rate: 0.9951
+    char_consistency: 0.0049
+    detection_accuracy: 0.8800
+    mAP: 0.8800
+    ocr_consistency: 0.0000
+    precision: 0.8800
+    psnr: 28.6588
+    recall: 0.8800
+    ssim: 0.8453
+  baseline:
+    char_change_rate: 1.0000
+    char_consistency: 0.0000
+    detection_accuracy: 0.8800
+    mAP: 0.8800
+    ocr_consistency: 0.0000
+    precision: 0.8800
+    psnr: 28.6588
+    recall: 0.8800
+    ssim: 0.8453
+  upscale_only:
+    char_change_rate: 1.0000
+    char_consistency: 0.0000
+    detection_accuracy: 0.8800
+    mAP: 0.8800
+    ocr_consistency: 0.0000
+    precision: 0.8800
+    psnr: 28.6588
+    recall: 0.8800
+    ssim: 0.8453
+
+--- gaussian_blur_320 ---
+  autoencoder:
+    char_change_rate: 0.9293
+    char_consistency: 0.0707
+    detection_accuracy: 0.9700
+    mAP: 0.9700
+    ocr_consistency: 0.0000
+    precision: 0.9700
+    psnr: 29.8407
+    recall: 0.9700
+    ssim: 0.8769
+  baseline:
+    char_change_rate: 0.9883
+    char_consistency: 0.0117
+    detection_accuracy: 0.9700
+    mAP: 0.9700
+    ocr_consistency: 0.0000
+    precision: 0.9700
+    psnr: 29.8407
+    recall: 0.9700
+    ssim: 0.8769
+  upscale_only:
+    char_change_rate: 0.9883
+    char_consistency: 0.0117
+    detection_accuracy: 0.9700
+    mAP: 0.9700
+    ocr_consistency: 0.0000
+    precision: 0.9700
+    psnr: 29.8407
+    recall: 0.9700
+    ssim: 0.8769
+
+--- gaussian_blur_40 ---
+  autoencoder:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 24.3871
+    recall: 0.0000
+    ssim: 0.7796
+  baseline:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 24.3871
+    recall: 0.0000
+    ssim: 0.7796
+  upscale_only:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 24.3871
+    recall: 0.0000
+    ssim: 0.7796
+
+--- gaussian_blur_480 ---
+  autoencoder:
+    char_change_rate: 0.8663
+    char_consistency: 0.1337
+    detection_accuracy: 0.9950
+    mAP: 0.9950
+    ocr_consistency: 0.0000
+    precision: 0.9950
+    psnr: 32.3301
+    recall: 1.0000
+    ssim: 0.9295
+  baseline:
+    char_change_rate: 0.8089
+    char_consistency: 0.1911
+    detection_accuracy: 0.9950
+    mAP: 0.9950
+    ocr_consistency: 0.0000
+    precision: 0.9950
+    psnr: 32.3301
+    recall: 1.0000
+    ssim: 0.9295
+  upscale_only:
+    char_change_rate: 0.8089
+    char_consistency: 0.1911
+    detection_accuracy: 0.9950
+    mAP: 0.9950
+    ocr_consistency: 0.0000
+    precision: 0.9950
+    psnr: 32.3301
+    recall: 1.0000
+    ssim: 0.9295
+
+--- gaussian_blur_640 ---
+  autoencoder:
+    char_change_rate: 0.6027
+    char_consistency: 0.3973
+    detection_accuracy: 1.0000
+    mAP: 1.0000
+    ocr_consistency: 0.0000
+    precision: 1.0000
+    psnr: inf
+    recall: 1.0000
+    ssim: 1.0000
+  baseline:
+    char_change_rate: 0.6692
+    char_consistency: 0.3308
+    detection_accuracy: 1.0000
+    mAP: 1.0000
+    ocr_consistency: 0.0000
+    precision: 1.0000
+    psnr: inf
+    recall: 1.0000
+    ssim: 1.0000
+  upscale_only:
+    char_change_rate: 0.6692
+    char_consistency: 0.3308
+    detection_accuracy: 1.0000
+    mAP: 1.0000
+    ocr_consistency: 0.0000
+    precision: 1.0000
+    psnr: inf
+    recall: 1.0000
+    ssim: 1.0000
+
+--- gaussian_blur_80 ---
+  autoencoder:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 25.8548
+    recall: 0.0000
+    ssim: 0.7882
+  baseline:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 25.8548
+    recall: 0.0000
+    ssim: 0.7882
+  upscale_only:
+    detection_accuracy: 0.0000
+    mAP: 0.0000
+    precision: 0.0000
+    psnr: 25.8548
+    recall: 0.0000
+    ssim: 0.7882
+
+--- jpeg_compression_160 ---
+  autoencoder:
+    char_change_rate: 0.7589
+    char_consistency: 0.2411
+    detection_accuracy: 0.9900
+    mAP: 0.9900
+    ocr_consistency: 0.0000
+    precision: 0.9900
+    psnr: 34.5526
+    recall: 1.0000
+    ssim: 0.9402
+  baseline:
+    char_change_rate: 0.7289
+    char_consistency: 0.2711
+    detection_accuracy: 0.9900
+    mAP: 0.9900
+    ocr_consistency: 0.0000
+    precision: 0.9900
+    psnr: 34.5526
+    recall: 1.0000
+    ssim: 0.9402
+  upscale_only:
+    char_change_rate: 0.7289
+    char_consistency: 0.2711
+    detection_accuracy: 0.9900
+    mAP: 0.9900
+    ocr_consistency: 0.0000
+    precision: 0.9900
+    psnr: 34.5526
+    recall: 1.0000
+    ssim: 0.9402
+
+--- jpeg_compression_240 ---
+  autoencoder:
+    char_change_rate: 0.7446
+    char_consistency: 0.2554
+    detection_accuracy: 1.0000
+    mAP: 1.0000
+    ocr_consistency: 0.0000
+    precision: 1.0000
+    psnr: 36.4890
+    recall: 1.0000
+    ssim: 0.9572
+  baseline:
+    char_change_rate: 0.7209
+    char_consistency: 0.2791
+    detection_accuracy: 1.0000
+    mAP: 1.0000
+    ocr_consistency: 0.0300
+    precision: 1.0000
+    psnr: 36.4890
+    recall: 1.0000
+    ssim: 0.9572
+  upscale_only:
+    char_change_rate: 0.7209
+    char_consistency: 0.2791
+    detection_accuracy: 1.0000
+    mAP: 1.0000
+    ocr_consistency: 0.0300
+    precision: 1.0000
+    psnr: 36.4890
+    recall: 1.0000
+    ssim: 0.9572
+
+--- jpeg_compression_320 ---
+  autoencoder:
+    char_change_rate: 0.6921
+    char_consistency: 0.3079
+    detection_accuracy: 0.9950
+    mAP: 0.9950
+    ocr_consistency: 0.0000
+    precision: 0.9950
+    psnr: 37.5982
+    recall: 1.0000
+    ssim: 0.9660
+  baseline:
+    char_change_rate: 0.6804
+    char_consistency: 0.3196
+    detection_accuracy: 0.9950
+    mAP: 0.9950
+    ocr_consistency: 0.0000
+    precision: 0.9950
+    psnr: 37.5982
+    recall: 1.0000
+    ssim: 0.9660
+  upscale_only:
+    char_change_rate: 0.6804
+    char_consistency: 0.3196
+    detection_accuracy: 0.9950
+    mAP: 0.9950
+    ocr_consistency: 0.0000
+    precision: 0.9950
+    psnr: 37.5982
+    recall: 1.0000
+    ssim: 0.9660
+
+--- jpeg_compression_40 ---
+  autoencoder:
+    char_change_rate: 0.9931
+    char_consistency: 0.0069
+    detection_accuracy: 0.9750
+    mAP: 0.9750
+    ocr_consistency: 0.0000
+    precision: 0.9750
+    psnr: 27.3890
+    recall: 0.9900
+    ssim: 0.8310
+  baseline:
+    char_change_rate: 0.9849
+    char_consistency: 0.0151
+    detection_accuracy: 0.9750
+    mAP: 0.9750
+    ocr_consistency: 0.0000
+    precision: 0.9750
+    psnr: 27.3890
+    recall: 0.9900
+    ssim: 0.8310
+  upscale_only:
+    char_change_rate: 0.9849
+    char_consistency: 0.0151
+    detection_accuracy: 0.9750
+    mAP: 0.9750
+    ocr_consistency: 0.0000
+    precision: 0.9750
+    psnr: 27.3890
+    recall: 0.9900
+    ssim: 0.8310
+
+--- jpeg_compression_480 ---
+  autoencoder:
+    char_change_rate: 0.6477
+    char_consistency: 0.3523
+    detection_accuracy: 1.0000
+    mAP: 1.0000
+    ocr_consistency: 0.0100
+    precision: 1.0000
+    psnr: 40.1274
+    recall: 1.0000
+    ssim: 0.9787
+  baseline:
+    char_change_rate: 0.6650
+    char_consistency: 0.3350
+    detection_accuracy: 1.0000
+    mAP: 1.0000
+    ocr_consistency: 0.0200
+    precision: 1.0000
+    psnr: 40.1274
+    recall: 1.0000
+    ssim: 0.9787
+  upscale_only:
+    char_change_rate: 0.6650
+    char_consistency: 0.3350
+    detection_accuracy: 1.0000
+    mAP: 1.0000
+    ocr_consistency: 0.0200
+    precision: 1.0000
+    psnr: 40.1274
+    recall: 1.0000
+    ssim: 0.9787
+
+--- jpeg_compression_640 ---
+  autoencoder:
+    char_change_rate: 0.6027
+    char_consistency: 0.3973
+    detection_accuracy: 1.0000
+    mAP: 1.0000
+    ocr_consistency: 0.0000
+    precision: 1.0000
+    psnr: inf
+    recall: 1.0000
+    ssim: 1.0000
+  baseline:
+    char_change_rate: 0.6692
+    char_consistency: 0.3308
+    detection_accuracy: 1.0000
+    mAP: 1.0000
+    ocr_consistency: 0.0000
+    precision: 1.0000
+    psnr: inf
+    recall: 1.0000
+    ssim: 1.0000
+  upscale_only:
+    char_change_rate: 0.6692
+    char_consistency: 0.3308
+    detection_accuracy: 1.0000
+    mAP: 1.0000
+    ocr_consistency: 0.0000
+    precision: 1.0000
+    psnr: inf
+    recall: 1.0000
+    ssim: 1.0000
+
+--- jpeg_compression_80 ---
+  autoencoder:
+    char_change_rate: 0.8458
+    char_consistency: 0.1542
+    detection_accuracy: 0.9900
+    mAP: 0.9900
+    ocr_consistency: 0.0000
+    precision: 0.9900
+    psnr: 30.9702
+    recall: 0.9900
+    ssim: 0.8953
+  baseline:
+    char_change_rate: 0.8690
+    char_consistency: 0.1310
+    detection_accuracy: 0.9900
+    mAP: 0.9900
+    ocr_consistency: 0.0000
+    precision: 0.9900
+    psnr: 30.9702
+    recall: 0.9900
+    ssim: 0.8953
+  upscale_only:
+    char_change_rate: 0.8690
+    char_consistency: 0.1310
+    detection_accuracy: 0.9900
+    mAP: 0.9900
+    ocr_consistency: 0.0000
+    precision: 0.9900
+    psnr: 30.9702
+    recall: 0.9900
+    ssim: 0.8953
+
+All results saved to: results/experiment
+Experiment complete!

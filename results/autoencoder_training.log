@@ -1,0 +1,117 @@
+Device        : cuda
+GPUs available: 1  
+Architecture  : unet
+Batch size    : 32
+Epochs        : 100
+Found 29708 plate images for autoencoder training
+Train samples : 23767  |  Val samples: 5941
+Model params  : 7,766,051
+
+============================================================
+TRAINING UNET AUTOENCODER
+============================================================
+Epoch [1/100] Train Loss: 0.187936 Val Loss: 0.122385 Val PSNR: 19.88 dB
+Epoch [2/100] Train Loss: 0.127435 Val Loss: 0.107117 Val PSNR: 22.15 dB
+Epoch [3/100] Train Loss: 0.113275 Val Loss: 0.099412 Val PSNR: 22.98 dB
+Epoch [4/100] Train Loss: 0.105079 Val Loss: 0.095337 Val PSNR: 23.23 dB
+Epoch [5/100] Train Loss: 0.098325 Val Loss: 0.088899 Val PSNR: 23.94 dB
+Epoch [6/100] Train Loss: 0.093501 Val Loss: 0.085457 Val PSNR: 23.91 dB
+Epoch [7/100] Train Loss: 0.090661 Val Loss: 0.084194 Val PSNR: 23.80 dB
+Epoch [8/100] Train Loss: 0.087473 Val Loss: 0.085403 Val PSNR: 23.90 dB
+Epoch [9/100] Train Loss: 0.085130 Val Loss: 0.077626 Val PSNR: 24.79 dB
+Epoch [10/100] Train Loss: 0.082874 Val Loss: 0.078538 Val PSNR: 24.67 dB
+Epoch [11/100] Train Loss: 0.081888 Val Loss: 0.075408 Val PSNR: 24.93 dB
+Epoch [12/100] Train Loss: 0.080339 Val Loss: 0.073860 Val PSNR: 25.23 dB
+Epoch [13/100] Train Loss: 0.078628 Val Loss: 0.075359 Val PSNR: 24.59 dB
+Epoch [14/100] Train Loss: 0.078271 Val Loss: 0.073110 Val PSNR: 25.28 dB
+Epoch [15/100] Train Loss: 0.076378 Val Loss: 0.072382 Val PSNR: 25.25 dB
+Epoch [16/100] Train Loss: 0.076067 Val Loss: 0.072895 Val PSNR: 24.98 dB
+Epoch [17/100] Train Loss: 0.075678 Val Loss: 0.071955 Val PSNR: 25.52 dB
+Epoch [18/100] Train Loss: 0.074828 Val Loss: 0.070490 Val PSNR: 25.43 dB
+Epoch [19/100] Train Loss: 0.073798 Val Loss: 0.069808 Val PSNR: 25.49 dB
+Epoch [20/100] Train Loss: 0.073523 Val Loss: 0.069061 Val PSNR: 25.54 dB
+Epoch [21/100] Train Loss: 0.072638 Val Loss: 0.070144 Val PSNR: 25.46 dB
+Epoch [22/100] Train Loss: 0.072717 Val Loss: 0.068562 Val PSNR: 25.90 dB
+Epoch [23/100] Train Loss: 0.071879 Val Loss: 0.068152 Val PSNR: 25.71 dB
+Epoch [24/100] Train Loss: 0.071599 Val Loss: 0.067348 Val PSNR: 25.93 dB
+Epoch [25/100] Train Loss: 0.070543 Val Loss: 0.066877 Val PSNR: 26.03 dB
+Epoch [26/100] Train Loss: 0.069709 Val Loss: 0.068058 Val PSNR: 25.84 dB
+Epoch [27/100] Train Loss: 0.069237 Val Loss: 0.067335 Val PSNR: 25.74 dB
+Epoch [28/100] Train Loss: 0.068972 Val Loss: 0.066706 Val PSNR: 25.91 dB
+Epoch [29/100] Train Loss: 0.068865 Val Loss: 0.066971 Val PSNR: 25.90 dB
+Epoch [30/100] Train Loss: 0.068342 Val Loss: 0.065791 Val PSNR: 26.04 dB
+Epoch [31/100] Train Loss: 0.068094 Val Loss: 0.065347 Val PSNR: 26.22 dB
+Epoch [32/100] Train Loss: 0.067680 Val Loss: 0.066743 Val PSNR: 25.69 dB
+Epoch [33/100] Train Loss: 0.067625 Val Loss: 0.064971 Val PSNR: 26.08 dB
+Epoch [34/100] Train Loss: 0.066883 Val Loss: 0.065693 Val PSNR: 26.07 dB
+Epoch [35/100] Train Loss: 0.066823 Val Loss: 0.065476 Val PSNR: 26.21 dB
+Epoch [36/100] Train Loss: 0.066340 Val Loss: 0.065632 Val PSNR: 26.01 dB
+Epoch [37/100] Train Loss: 0.066040 Val Loss: 0.064153 Val PSNR: 26.15 dB
+Epoch [38/100] Train Loss: 0.066053 Val Loss: 0.063775 Val PSNR: 26.31 dB
+Epoch [39/100] Train Loss: 0.065114 Val Loss: 0.063578 Val PSNR: 26.43 dB
+Epoch [40/100] Train Loss: 0.064837 Val Loss: 0.063908 Val PSNR: 26.34 dB
+Epoch [41/100] Train Loss: 0.064287 Val Loss: 0.064699 Val PSNR: 26.16 dB
+Epoch [42/100] Train Loss: 0.064169 Val Loss: 0.063257 Val PSNR: 26.27 dB
+Epoch [43/100] Train Loss: 0.063929 Val Loss: 0.064210 Val PSNR: 26.34 dB
+Epoch [44/100] Train Loss: 0.064264 Val Loss: 0.065087 Val PSNR: 26.30 dB
+Epoch [45/100] Train Loss: 0.064339 Val Loss: 0.064262 Val PSNR: 26.28 dB
+Epoch [46/100] Train Loss: 0.063913 Val Loss: 0.063233 Val PSNR: 26.42 dB
+Epoch [47/100] Train Loss: 0.063292 Val Loss: 0.062750 Val PSNR: 26.46 dB
+Epoch [48/100] Train Loss: 0.062553 Val Loss: 0.062897 Val PSNR: 26.40 dB
+Epoch [49/100] Train Loss: 0.062535 Val Loss: 0.063369 Val PSNR: 26.45 dB
+Epoch [50/100] Train Loss: 0.062580 Val Loss: 0.062776 Val PSNR: 26.34 dB
+Epoch [51/100] Train Loss: 0.062383 Val Loss: 0.061976 Val PSNR: 26.52 dB
+Epoch [52/100] Train Loss: 0.061977 Val Loss: 0.062080 Val PSNR: 26.54 dB
+Epoch [53/100] Train Loss: 0.062191 Val Loss: 0.062445 Val PSNR: 26.44 dB
+Epoch [54/100] Train Loss: 0.061519 Val Loss: 0.061516 Val PSNR: 26.68 dB
+Epoch [55/100] Train Loss: 0.061995 Val Loss: 0.060980 Val PSNR: 26.61 dB
+Epoch [56/100] Train Loss: 0.061103 Val Loss: 0.061343 Val PSNR: 26.63 dB
+Epoch [57/100] Train Loss: 0.061000 Val Loss: 0.063020 Val PSNR: 26.56 dB
+Epoch [58/100] Train Loss: 0.061124 Val Loss: 0.062723 Val PSNR: 26.49 dB
+Epoch [59/100] Train Loss: 0.060943 Val Loss: 0.061762 Val PSNR: 26.60 dB
+Epoch [60/100] Train Loss: 0.060352 Val Loss: 0.062256 Val PSNR: 26.55 dB
+Epoch [61/100] Train Loss: 0.060474 Val Loss: 0.061652 Val PSNR: 26.69 dB
+Epoch [62/100] Train Loss: 0.059593 Val Loss: 0.061876 Val PSNR: 26.58 dB
+Epoch [63/100] Train Loss: 0.060311 Val Loss: 0.061893 Val PSNR: 26.45 dB
+Epoch [64/100] Train Loss: 0.059578 Val Loss: 0.061120 Val PSNR: 26.76 dB
+Epoch [65/100] Train Loss: 0.060037 Val Loss: 0.062602 Val PSNR: 26.46 dB
+Epoch [66/100] Train Loss: 0.059556 Val Loss: 0.060970 Val PSNR: 26.72 dB
+Epoch [67/100] Train Loss: 0.059778 Val Loss: 0.060497 Val PSNR: 26.65 dB
+Epoch [68/100] Train Loss: 0.059554 Val Loss: 0.061553 Val PSNR: 26.57 dB
+Epoch [69/100] Train Loss: 0.059067 Val Loss: 0.060918 Val PSNR: 26.78 dB
+Epoch [70/100] Train Loss: 0.059222 Val Loss: 0.061470 Val PSNR: 26.73 dB
+Epoch [71/100] Train Loss: 0.058779 Val Loss: 0.061477 Val PSNR: 26.66 dB
+Epoch [72/100] Train Loss: 0.058826 Val Loss: 0.060978 Val PSNR: 26.67 dB
+Epoch [73/100] Train Loss: 0.058819 Val Loss: 0.060556 Val PSNR: 26.72 dB
+Epoch [74/100] Train Loss: 0.058722 Val Loss: 0.061278 Val PSNR: 26.58 dB
+Epoch [75/100] Train Loss: 0.058457 Val Loss: 0.060478 Val PSNR: 26.81 dB
+Epoch [76/100] Train Loss: 0.058409 Val Loss: 0.060342 Val PSNR: 26.83 dB
+Epoch [77/100] Train Loss: 0.057998 Val Loss: 0.061364 Val PSNR: 26.59 dB
+Epoch [78/100] Train Loss: 0.057930 Val Loss: 0.061418 Val PSNR: 26.73 dB
+Epoch [79/100] Train Loss: 0.058058 Val Loss: 0.060691 Val PSNR: 26.76 dB
+Epoch [80/100] Train Loss: 0.057543 Val Loss: 0.060778 Val PSNR: 26.72 dB
+Epoch [81/100] Train Loss: 0.057888 Val Loss: 0.060338 Val PSNR: 26.83 dB
+Epoch [82/100] Train Loss: 0.057967 Val Loss: 0.060903 Val PSNR: 26.73 dB
+Epoch [83/100] Train Loss: 0.057485 Val Loss: 0.060611 Val PSNR: 26.75 dB
+Epoch [84/100] Train Loss: 0.058042 Val Loss: 0.061671 Val PSNR: 26.59 dB
+Epoch [85/100] Train Loss: 0.057768 Val Loss: 0.060523 Val PSNR: 26.80 dB
+Epoch [86/100] Train Loss: 0.057238 Val Loss: 0.060277 Val PSNR: 26.82 dB
+Epoch [87/100] Train Loss: 0.057411 Val Loss: 0.060569 Val PSNR: 26.77 dB
+Epoch [88/100] Train Loss: 0.057398 Val Loss: 0.060296 Val PSNR: 26.89 dB
+Epoch [89/100] Train Loss: 0.057424 Val Loss: 0.061369 Val PSNR: 26.70 dB
+Epoch [90/100] Train Loss: 0.057431 Val Loss: 0.060422 Val PSNR: 26.86 dB
+Epoch [91/100] Train Loss: 0.057177 Val Loss: 0.060417 Val PSNR: 26.80 dB
+Epoch [92/100] Train Loss: 0.056916 Val Loss: 0.060904 Val PSNR: 26.69 dB
+Epoch [93/100] Train Loss: 0.057267 Val Loss: 0.059505 Val PSNR: 26.90 dB
+Epoch [94/100] Train Loss: 0.057269 Val Loss: 0.060675 Val PSNR: 26.81 dB
+Epoch [95/100] Train Loss: 0.057370 Val Loss: 0.060402 Val PSNR: 26.73 dB
+Epoch [96/100] Train Loss: 0.057425 Val Loss: 0.060384 Val PSNR: 26.86 dB
+Epoch [97/100] Train Loss: 0.057241 Val Loss: 0.060281 Val PSNR: 26.79 dB
+Epoch [98/100] Train Loss: 0.057226 Val Loss: 0.059647 Val PSNR: 26.91 dB
+Epoch [99/100] Train Loss: 0.057192 Val Loss: 0.060606 Val PSNR: 26.69 dB
+Epoch [100/100] Train Loss: 0.057029 Val Loss: 0.060603 Val PSNR: 26.83 dB
+Saved unwrapped weights -> best_autoencoder_unwrapped.pth
+
+Best val loss : 0.059505
+Results saved : results/autoencoder/unet
+Training complete!

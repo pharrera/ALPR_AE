@@ -32,20 +32,17 @@ from models.autoencoder import UNetAutoencoder, ConvAutoencoder
 from experiments.resolution_experiment import ResolutionExperiment
 
 
-def load_test_data(test_dir: str, max_images: int = 100, ocr_engine=None):
+def load_test_data(test_dir: str, max_images: int = 100, ocr_engine=None,
+                   plate_gt_path: str = None):
     """
-    Load test images and bounding box annotations from YOLO-format dataset.
+    Load test images, bounding box annotations, and ground truth plate text.
 
-    NOTE ON OCR EVALUATION:
-    This dataset only has bounding box labels (YOLO format), not plate text.
-    True OCR accuracy cannot be measured without verified ground truth text.
+    If plate_gt_path is provided (e.g. plate_gt.json from UFPR-ALPR), verified
+    ground truth plate text is loaded — enabling TRUE OCR accuracy measurement.
 
-    If ocr_engine is provided, we record the OCR output on the clean
-    full-resolution crop as a *reference* reading. This is used to compute
-    OCR CONSISTENCY — how stable the OCR output is as quality degrades —
-    not OCR accuracy. A consistency of 1.0 means the degraded image produces
-    the same OCR output as the clean image; it does not mean that output is
-    correct. The reference reading may itself contain OCR errors.
+    If no plate_gt_path is available and ocr_engine is provided, we fall back to
+    recording OCR output on clean full-resolution crops as a *reference* reading
+    for OCR CONSISTENCY measurement (not accuracy).
     """
     img_dir = Path(test_dir) / "images"
     label_dir = Path(test_dir) / "labels"
@@ -54,9 +51,24 @@ def load_test_data(test_dir: str, max_images: int = 100, ocr_engine=None):
         img_dir = Path(test_dir)
         label_dir = Path(test_dir)
 
+    # Load verified ground truth plate text if available (UFPR-ALPR)
+    plate_gt = {}
+    if plate_gt_path and os.path.exists(plate_gt_path):
+        with open(plate_gt_path) as f:
+            plate_gt = json.load(f)
+        print(f"  Loaded {len(plate_gt)} verified plate text entries from {plate_gt_path}")
+
+    # Determine which split this is (for plate_gt key lookup)
+    # plate_gt keys are like "test/images/track0091_01.png"
+    split_name = ""
+    for candidate in ["test", "valid", "train"]:
+        if candidate in str(test_dir):
+            split_name = candidate
+            break
+
     images = []
     gt_boxes = []
-    reference_texts = []  # renamed: these are OCR reference readings, not ground truth
+    gt_texts = []
 
     for img_path in sorted(img_dir.glob("*"))[:max_images]:
         if img_path.suffix.lower() not in (".jpg", ".jpeg", ".png"):
@@ -90,9 +102,14 @@ def load_test_data(test_dir: str, max_images: int = 100, ocr_engine=None):
 
         gt_boxes.append(boxes)
 
-        # Record OCR reference reading from clean crop (for consistency metric only)
-        ref_text = ""
-        if ocr_engine is not None and boxes:
+        # Get ground truth plate text
+        gt_text = ""
+        # Try verified GT from plate_gt.json first
+        gt_key = f"{split_name}/images/{img_path.name}"
+        if gt_key in plate_gt:
+            gt_text = plate_gt[gt_key]
+        elif ocr_engine is not None and boxes:
+            # Fallback: OCR reference reading from clean crop
             b = boxes[0]["bbox"]
             x1, y1, x2, y2 = int(b[0]), int(b[1]), int(b[2]), int(b[3])
             pad_x = int((x2 - x1) * 0.1)
@@ -102,16 +119,20 @@ def load_test_data(test_dir: str, max_images: int = 100, ocr_engine=None):
             crop = image[y1:y2, x1:x2]
             if crop.size > 0:
                 results = ocr_engine.readtext(crop)
-                ref_text = "".join([r[1] for r in results]).upper()
+                gt_text = "".join([r[1] for r in results]).upper()
 
-        reference_texts.append(ref_text)
+        gt_texts.append(gt_text)
 
-    n_with_ref = sum(1 for t in reference_texts if t)
+    n_with_gt = sum(1 for t in gt_texts if t)
+    n_verified = sum(1 for t in gt_texts if t and any(
+        f"{split_name}/images/" in k for k in plate_gt
+    ))
     print(f"Loaded {len(images)} test images from {test_dir}")
-    if ocr_engine:
-        print(f"  OCR reference readings obtained: {n_with_ref}/{len(images)}")
-        print(f"  NOTE: These are OCR consistency references, not verified ground truth.")
-    return images, gt_boxes, reference_texts
+    if plate_gt:
+        print(f"  Verified ground truth text: {n_with_gt}/{len(images)} images")
+    elif ocr_engine:
+        print(f"  OCR reference readings: {n_with_gt}/{len(images)} (consistency only, not accuracy)")
+    return images, gt_boxes, gt_texts
 
 
 def main():
@@ -178,11 +199,12 @@ def main():
     except ImportError:
         print("EasyOCR not available; OCR metrics will be skipped")
 
-    # Load test data — pass OCR engine to generate pseudo ground-truth text
-    # from clean full-resolution plate crops
+    # Load test data — use verified GT from plate_gt.json if available (UFPR-ALPR)
     print("Loading test data...")
+    plate_gt_path = config.get("data", {}).get("plate_gt_path", None)
     test_images, gt_boxes, gt_texts = load_test_data(
-        args.test_dir, max_images=args.max_images, ocr_engine=ocr_engine
+        args.test_dir, max_images=args.max_images, ocr_engine=ocr_engine,
+        plate_gt_path=plate_gt_path,
     )
 
     # Run experiment

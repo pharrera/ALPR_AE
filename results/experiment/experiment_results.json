@@ -1,730 +1,892 @@
 {
   "bicubic_downsample_640": {
     "baseline": {
-      "detection_accuracy": 0.8266666666666665,
-      "mAP": 0.8066666666666665,
-      "precision": 0.8266666666666665,
-      "recall": 0.87,
+      "detection_accuracy": 1.0,
+      "mAP": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
       "psnr": Infinity,
-      "ssim": 1.0
+      "ssim": 1.0,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.3308270676691729,
+      "char_change_rate": 0.6691729323308271
     },
     "upscale_only": {
-      "detection_accuracy": 0.8266666666666665,
-      "mAP": 0.8066666666666665,
-      "precision": 0.8266666666666665,
-      "recall": 0.87,
+      "detection_accuracy": 1.0,
+      "mAP": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
       "psnr": Infinity,
-      "ssim": 1.0
+      "ssim": 1.0,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.3308270676691729,
+      "char_change_rate": 0.6691729323308271
     },
     "autoencoder": {
-      "detection_accuracy": 0.8266666666666665,
-      "mAP": 0.8066666666666665,
-      "precision": 0.8266666666666665,
-      "recall": 0.87,
+      "detection_accuracy": 1.0,
+      "mAP": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
       "psnr": Infinity,
-      "ssim": 1.0
+      "ssim": 1.0,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.3972602739726027,
+      "char_change_rate": 0.6027397260273972
     }
   },
   "bicubic_downsample_480": {
     "baseline": {
-      "detection_accuracy": 0.8233333333333335,
-      "mAP": 0.8016666666666665,
-      "precision": 0.8233333333333335,
-      "recall": 0.835,
-      "psnr": 33.42688332087479,
-      "ssim": 0.9617342813485317
+      "detection_accuracy": 0.97,
+      "mAP": 0.97,
+      "precision": 0.97,
+      "recall": 0.97,
+      "psnr": 29.02664343842862,
+      "ssim": 0.8580564378889194,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.0,
+      "char_change_rate": 1.0
     },
     "upscale_only": {
-      "detection_accuracy": 0.8283333333333335,
-      "mAP": 0.8066666666666665,
-      "precision": 0.8283333333333335,
-      "recall": 0.845,
-      "psnr": 35.63136625668471,
-      "ssim": 0.975283060057094
+      "detection_accuracy": 0.985,
+      "mAP": 0.985,
+      "precision": 0.985,
+      "recall": 0.99,
+      "psnr": 29.45757141076,
+      "ssim": 0.8667250143034632,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.0014285714285714286,
+      "char_change_rate": 0.9985714285714286
     },
     "autoencoder": {
-      "detection_accuracy": 0.8283333333333335,
-      "mAP": 0.8066666666666665,
-      "precision": 0.8283333333333335,
-      "recall": 0.845,
-      "psnr": 35.63136625668471,
-      "ssim": 0.975283060057094
+      "detection_accuracy": 0.985,
+      "mAP": 0.985,
+      "precision": 0.985,
+      "recall": 0.99,
+      "psnr": 29.45757141076,
+      "ssim": 0.8667250143034632,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.007142857142857143,
+      "char_change_rate": 0.9928571428571429
     }
   },
   "bicubic_downsample_320": {
     "baseline": {
-      "detection_accuracy": 0.8466666666666666,
-      "mAP": 0.8233333333333333,
-      "precision": 0.8466666666666666,
-      "recall": 0.8366666666666666,
-      "psnr": 30.239134163332114,
-      "ssim": 0.9206333063294975
+      "detection_accuracy": 0.59,
+      "mAP": 0.59,
+      "precision": 0.59,
+      "recall": 0.59,
+      "psnr": 27.619754667752122,
+      "ssim": 0.8202280398287917,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.0,
+      "char_change_rate": 1.0
     },
     "upscale_only": {
-      "detection_accuracy": 0.825,
-      "mAP": 0.8016666666666665,
-      "precision": 0.825,
-      "recall": 0.8366666666666666,
-      "psnr": 31.847384254923824,
-      "ssim": 0.9401715208823969
+      "detection_accuracy": 0.77,
+      "mAP": 0.77,
+      "precision": 0.77,
+      "recall": 0.77,
+      "psnr": 27.924000464234723,
+      "ssim": 0.8245645893025616,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.0,
+      "char_change_rate": 1.0
     },
     "autoencoder": {
-      "detection_accuracy": 0.825,
-      "mAP": 0.8016666666666665,
-      "precision": 0.825,
-      "recall": 0.8366666666666666,
-      "psnr": 31.847384254923824,
-      "ssim": 0.9401715208823969
+      "detection_accuracy": 0.77,
+      "mAP": 0.77,
+      "precision": 0.77,
+      "recall": 0.77,
+      "psnr": 27.924000464234723,
+      "ssim": 0.8245645893025616,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.0037105751391465678,
+      "char_change_rate": 0.9962894248608535
     }
   },
   "bicubic_downsample_240": {
     "baseline": {
-      "detection_accuracy": 0.82,
-      "mAP": 0.8083333333333332,
-      "precision": 0.82,
-      "recall": 0.8283333333333333,
-      "psnr": 27.941457215939554,
-      "ssim": 0.8738320828337706
+      "detection_accuracy": 0.11,
+      "mAP": 0.11,
+      "precision": 0.11,
+      "recall": 0.11,
+      "psnr": 26.873503035041832,
+      "ssim": 0.8034965648295831,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.0,
+      "char_change_rate": 1.0
     },
     "upscale_only": {
-      "detection_accuracy": 0.815,
-      "mAP": 0.8033333333333332,
-      "precision": 0.815,
-      "recall": 0.8183333333333332,
-      "psnr": 29.18326444853382,
-      "ssim": 0.895418212989616
+      "detection_accuracy": 0.25,
+      "mAP": 0.25,
+      "precision": 0.25,
+      "recall": 0.25,
+      "psnr": 27.147597089284563,
+      "ssim": 0.8059892921280646,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.0,
+      "char_change_rate": 1.0
     },
     "autoencoder": {
-      "detection_accuracy": 0.815,
-      "mAP": 0.8033333333333332,
-      "precision": 0.815,
-      "recall": 0.8183333333333332,
-      "psnr": 29.18326444853382,
-      "ssim": 0.895418212989616
+      "detection_accuracy": 0.25,
+      "mAP": 0.25,
+      "precision": 0.25,
+      "recall": 0.25,
+      "psnr": 27.147597089284563,
+      "ssim": 0.8059892921280646,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.0,
+      "char_change_rate": 1.0
     }
   },
   "bicubic_downsample_160": {
     "baseline": {
-      "detection_accuracy": 0.77,
-      "mAP": 0.765,
-      "precision": 0.77,
-      "recall": 0.775,
-      "psnr": 25.427997651102046,
-      "ssim": 0.800799065532715
+      "detection_accuracy": 0.0,
+      "mAP": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "psnr": 25.935457299984126,
+      "ssim": 0.7891899161291017
     },
     "upscale_only": {
-      "detection_accuracy": 0.785,
-      "mAP": 0.775,
-      "precision": 0.785,
-      "recall": 0.79,
-      "psnr": 26.279071075066522,
-      "ssim": 0.8192419679578704
+      "detection_accuracy": 0.0,
+      "mAP": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "psnr": 26.19771222373986,
+      "ssim": 0.7904353270267608
     },
     "autoencoder": {
-      "detection_accuracy": 0.785,
-      "mAP": 0.775,
-      "precision": 0.785,
-      "recall": 0.79,
-      "psnr": 26.279071075066522,
-      "ssim": 0.8192419679578704
+      "detection_accuracy": 0.0,
+      "mAP": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "psnr": 26.19771222373986,
+      "ssim": 0.7904353270267608
     }
   },
   "bicubic_downsample_80": {
     "baseline": {
-      "detection_accuracy": 0.67,
-      "mAP": 0.665,
-      "precision": 0.67,
-      "recall": 0.665,
-      "psnr": 22.011877349301905,
-      "ssim": 0.6816616254467401
+      "detection_accuracy": 0.0,
+      "mAP": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "psnr": 24.44664704942001,
+      "ssim": 0.7790718982525807
     },
     "upscale_only": {
-      "detection_accuracy": 0.69,
-      "mAP": 0.685,
-      "precision": 0.69,
-      "recall": 0.685,
-      "psnr": 22.518545029303244,
-      "ssim": 0.688097535014653
+      "detection_accuracy": 0.0,
+      "mAP": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "psnr": 24.721183870186955,
+      "ssim": 0.7795674984450425
     },
     "autoencoder": {
-      "detection_accuracy": 0.69,
-      "mAP": 0.685,
-      "precision": 0.69,
-      "recall": 0.685,
-      "psnr": 22.518545029303244,
-      "ssim": 0.688097535014653
+      "detection_accuracy": 0.0,
+      "mAP": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "psnr": 24.721183870186955,
+      "ssim": 0.7795674984450425
     }
   },
   "bicubic_downsample_40": {
     "baseline": {
-      "detection_accuracy": 0.16,
-      "mAP": 0.16,
-      "precision": 0.16,
-      "recall": 0.16,
-      "psnr": 19.496454845388886,
-      "ssim": 0.6146166155110867
+      "detection_accuracy": 0.0,
+      "mAP": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "psnr": 22.87645643790277,
+      "ssim": 0.7745432926288166
     },
     "upscale_only": {
-      "detection_accuracy": 0.19,
-      "mAP": 0.19,
-      "precision": 0.19,
-      "recall": 0.19,
-      "psnr": 19.882788524212845,
-      "ssim": 0.6169662721881843
+      "detection_accuracy": 0.0,
+      "mAP": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "psnr": 23.171469904379574,
+      "ssim": 0.775016501485875
     },
     "autoencoder": {
-      "detection_accuracy": 0.19,
-      "mAP": 0.19,
-      "precision": 0.19,
-      "recall": 0.19,
-      "psnr": 19.882788524212845,
-      "ssim": 0.6169662721881843
+      "detection_accuracy": 0.0,
+      "mAP": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "psnr": 23.171469904379574,
+      "ssim": 0.775016501485875
     }
   },
   "gaussian_blur_640": {
     "baseline": {
-      "detection_accuracy": 0.8266666666666665,
-      "mAP": 0.8066666666666665,
-      "precision": 0.8266666666666665,
-      "recall": 0.87,
+      "detection_accuracy": 1.0,
+      "mAP": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
       "psnr": Infinity,
-      "ssim": 1.0
+      "ssim": 1.0,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.3308270676691729,
+      "char_change_rate": 0.6691729323308271
     },
     "upscale_only": {
-      "detection_accuracy": 0.8266666666666665,
-      "mAP": 0.8066666666666665,
-      "precision": 0.8266666666666665,
-      "recall": 0.87,
+      "detection_accuracy": 1.0,
+      "mAP": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
       "psnr": Infinity,
-      "ssim": 1.0
+      "ssim": 1.0,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.3308270676691729,
+      "char_change_rate": 0.6691729323308271
     },
     "autoencoder": {
-      "detection_accuracy": 0.8266666666666665,
-      "mAP": 0.8066666666666665,
-      "precision": 0.8266666666666665,
-      "recall": 0.87,
+      "detection_accuracy": 1.0,
+      "mAP": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
       "psnr": Infinity,
-      "ssim": 1.0
+      "ssim": 1.0,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.3972602739726027,
+      "char_change_rate": 0.6027397260273972
     }
   },
   "gaussian_blur_480": {
     "baseline": {
-      "detection_accuracy": 0.825,
-      "mAP": 0.8133333333333332,
-      "precision": 0.825,
-      "recall": 0.8283333333333333,
-      "psnr": 29.301680896152263,
-      "ssim": 0.902742435685271
+      "detection_accuracy": 0.995,
+      "mAP": 0.995,
+      "precision": 0.995,
+      "recall": 1.0,
+      "psnr": 32.330052841469545,
+      "ssim": 0.9294866444814838,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.1911170928667564,
+      "char_change_rate": 0.8088829071332436
     },
     "upscale_only": {
-      "detection_accuracy": 0.825,
-      "mAP": 0.8133333333333332,
-      "precision": 0.825,
-      "recall": 0.8283333333333333,
-      "psnr": 29.301680896152263,
-      "ssim": 0.902742435685271
+      "detection_accuracy": 0.995,
+      "mAP": 0.995,
+      "precision": 0.995,
+      "recall": 1.0,
+      "psnr": 32.330052841469545,
+      "ssim": 0.9294866444814838,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.1911170928667564,
+      "char_change_rate": 0.8088829071332436
     },
     "autoencoder": {
-      "detection_accuracy": 0.825,
-      "mAP": 0.8133333333333332,
-      "precision": 0.825,
-      "recall": 0.8283333333333333,
-      "psnr": 29.301680896152263,
-      "ssim": 0.902742435685271
+      "detection_accuracy": 0.995,
+      "mAP": 0.995,
+      "precision": 0.995,
+      "recall": 1.0,
+      "psnr": 32.330052841469545,
+      "ssim": 0.9294866444814838,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.13367609254498714,
+      "char_change_rate": 0.8663239074550129
     }
   },
   "gaussian_blur_320": {
     "baseline": {
-      "detection_accuracy": 0.79,
-      "mAP": 0.78,
-      "precision": 0.79,
-      "recall": 0.8,
-      "psnr": 26.59361022404016,
-      "ssim": 0.8351062108196194
+      "detection_accuracy": 0.97,
+      "mAP": 0.97,
+      "precision": 0.97,
+      "recall": 0.97,
+      "psnr": 29.840677838099765,
+      "ssim": 0.8769245340496914,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.01171303074670571,
+      "char_change_rate": 0.9882869692532943
     },
     "upscale_only": {
-      "detection_accuracy": 0.79,
-      "mAP": 0.78,
-      "precision": 0.79,
-      "recall": 0.8,
-      "psnr": 26.59361022404016,
-      "ssim": 0.8351062108196194
+      "detection_accuracy": 0.97,
+      "mAP": 0.97,
+      "precision": 0.97,
+      "recall": 0.97,
+      "psnr": 29.840677838099765,
+      "ssim": 0.8769245340496914,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.01171303074670571,
+      "char_change_rate": 0.9882869692532943
     },
     "autoencoder": {
-      "detection_accuracy": 0.79,
-      "mAP": 0.78,
-      "precision": 0.79,
-      "recall": 0.8,
-      "psnr": 26.59361022404016,
-      "ssim": 0.8351062108196194
+      "detection_accuracy": 0.97,
+      "mAP": 0.97,
+      "precision": 0.97,
+      "recall": 0.97,
+      "psnr": 29.840677838099765,
+      "ssim": 0.8769245340496914,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.0707070707070707,
+      "char_change_rate": 0.9292929292929293
     }
   },
   "gaussian_blur_240": {
     "baseline": {
-      "detection_accuracy": 0.77,
-      "mAP": 0.76,
-      "precision": 0.77,
-      "recall": 0.77,
-      "psnr": 24.94641927313455,
-      "ssim": 0.7809038299044124
+      "detection_accuracy": 0.88,
+      "mAP": 0.88,
+      "precision": 0.88,
+      "recall": 0.88,
+      "psnr": 28.658750452954255,
+      "ssim": 0.845267295890431,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.0,
+      "char_change_rate": 1.0
     },
     "upscale_only": {
-      "detection_accuracy": 0.77,
-      "mAP": 0.76,
-      "precision": 0.77,
-      "recall": 0.77,
-      "psnr": 24.94641927313455,
-      "ssim": 0.7809038299044124
+      "detection_accuracy": 0.88,
+      "mAP": 0.88,
+      "precision": 0.88,
+      "recall": 0.88,
+      "psnr": 28.658750452954255,
+      "ssim": 0.845267295890431,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.0,
+      "char_change_rate": 1.0
     },
     "autoencoder": {
-      "detection_accuracy": 0.77,
-      "mAP": 0.76,
-      "precision": 0.77,
-      "recall": 0.77,
-      "psnr": 24.94641927313455,
-      "ssim": 0.7809038299044124
+      "detection_accuracy": 0.88,
+      "mAP": 0.88,
+      "precision": 0.88,
+      "recall": 0.88,
+      "psnr": 28.658750452954255,
+      "ssim": 0.845267295890431,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.00487012987012987,
+      "char_change_rate": 0.9951298701298701
     }
   },
   "gaussian_blur_160": {
     "baseline": {
-      "detection_accuracy": 0.725,
-      "mAP": 0.72,
-      "precision": 0.725,
-      "recall": 0.725,
-      "psnr": 23.00113595717279,
-      "ssim": 0.7107327068904425
+      "detection_accuracy": 0.3,
+      "mAP": 0.3,
+      "precision": 0.3,
+      "recall": 0.3,
+      "psnr": 27.445210323803522,
+      "ssim": 0.8140810487539234,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.0,
+      "char_change_rate": 1.0
     },
     "upscale_only": {
-      "detection_accuracy": 0.725,
-      "mAP": 0.72,
-      "precision": 0.725,
-      "recall": 0.725,
-      "psnr": 23.00113595717279,
-      "ssim": 0.7107327068904425
+      "detection_accuracy": 0.3,
+      "mAP": 0.3,
+      "precision": 0.3,
+      "recall": 0.3,
+      "psnr": 27.445210323803522,
+      "ssim": 0.8140810487539234,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.0,
+      "char_change_rate": 1.0
     },
     "autoencoder": {
-      "detection_accuracy": 0.725,
-      "mAP": 0.72,
-      "precision": 0.725,
-      "recall": 0.725,
-      "psnr": 23.00113595717279,
-      "ssim": 0.7107327068904425
+      "detection_accuracy": 0.3,
+      "mAP": 0.3,
+      "precision": 0.3,
+      "recall": 0.3,
+      "psnr": 27.445210323803522,
+      "ssim": 0.8140810487539234,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.0,
+      "char_change_rate": 1.0
     }
   },
   "gaussian_blur_80": {
     "baseline": {
-      "detection_accuracy": 0.31,
-      "mAP": 0.31,
-      "precision": 0.31,
-      "recall": 0.31,
-      "psnr": 20.369352995741643,
-      "ssim": 0.6334400641234766
+      "detection_accuracy": 0.0,
+      "mAP": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "psnr": 25.85480081199246,
+      "ssim": 0.7881671222023412
     },
     "upscale_only": {
-      "detection_accuracy": 0.31,
-      "mAP": 0.31,
-      "precision": 0.31,
-      "recall": 0.31,
-      "psnr": 20.369352995741643,
-      "ssim": 0.6334400641234766
+      "detection_accuracy": 0.0,
+      "mAP": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "psnr": 25.85480081199246,
+      "ssim": 0.7881671222023412
     },
     "autoencoder": {
-      "detection_accuracy": 0.31,
-      "mAP": 0.31,
-      "precision": 0.31,
-      "recall": 0.31,
-      "psnr": 20.369352995741643,
-      "ssim": 0.6334400641234766
+      "detection_accuracy": 0.0,
+      "mAP": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "psnr": 25.85480081199246,
+      "ssim": 0.7881671222023412
     }
   },
   "gaussian_blur_40": {
     "baseline": {
-      "detection_accuracy": 0.02,
-      "mAP": 0.02,
-      "precision": 0.02,
-      "recall": 0.02,
-      "psnr": 18.152182625198233,
-      "ssim": 0.5936517484339999
+      "detection_accuracy": 0.0,
+      "mAP": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "psnr": 24.387079417134206,
+      "ssim": 0.779552579256598
     },
     "upscale_only": {
-      "detection_accuracy": 0.02,
-      "mAP": 0.02,
-      "precision": 0.02,
-      "recall": 0.02,
-      "psnr": 18.152182625198233,
-      "ssim": 0.5936517484339999
+      "detection_accuracy": 0.0,
+      "mAP": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "psnr": 24.387079417134206,
+      "ssim": 0.779552579256598
     },
     "autoencoder": {
-      "detection_accuracy": 0.02,
-      "mAP": 0.02,
-      "precision": 0.02,
-      "recall": 0.02,
-      "psnr": 18.152182625198233,
-      "ssim": 0.5936517484339999
+      "detection_accuracy": 0.0,
+      "mAP": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "psnr": 24.387079417134206,
+      "ssim": 0.779552579256598
     }
   },
   "jpeg_compression_640": {
     "baseline": {
-      "detection_accuracy": 0.8266666666666665,
-      "mAP": 0.8066666666666665,
-      "precision": 0.8266666666666665,
-      "recall": 0.87,
+      "detection_accuracy": 1.0,
+      "mAP": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
       "psnr": Infinity,
-      "ssim": 1.0
+      "ssim": 1.0,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.3308270676691729,
+      "char_change_rate": 0.6691729323308271
     },
     "upscale_only": {
-      "detection_accuracy": 0.8266666666666665,
-      "mAP": 0.8066666666666665,
-      "precision": 0.8266666666666665,
-      "recall": 0.87,
+      "detection_accuracy": 1.0,
+      "mAP": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
       "psnr": Infinity,
-      "ssim": 1.0
+      "ssim": 1.0,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.3308270676691729,
+      "char_change_rate": 0.6691729323308271
     },
     "autoencoder": {
-      "detection_accuracy": 0.8266666666666665,
-      "mAP": 0.8066666666666665,
-      "precision": 0.8266666666666665,
-      "recall": 0.87,
+      "detection_accuracy": 1.0,
+      "mAP": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
       "psnr": Infinity,
-      "ssim": 1.0
+      "ssim": 1.0,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.3972602739726027,
+      "char_change_rate": 0.6027397260273972
     }
   },
   "jpeg_compression_480": {
     "baseline": {
-      "detection_accuracy": 0.8266666666666665,
-      "mAP": 0.8066666666666665,
-      "precision": 0.8266666666666665,
-      "recall": 0.87,
-      "psnr": 44.000853465049666,
-      "ssim": 0.9953130868002149
+      "detection_accuracy": 1.0,
+      "mAP": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "psnr": 40.12741458706266,
+      "ssim": 0.9786577339579607,
+      "ocr_consistency": 0.02,
+      "char_consistency": 0.33504492939666236,
+      "char_change_rate": 0.6649550706033376
     },
     "upscale_only": {
-      "detection_accuracy": 0.8266666666666665,
-      "mAP": 0.8066666666666665,
-      "precision": 0.8266666666666665,
-      "recall": 0.87,
-      "psnr": 44.000853465049666,
-      "ssim": 0.9953130868002149
+      "detection_accuracy": 1.0,
+      "mAP": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "psnr": 40.12741458706266,
+      "ssim": 0.9786577339579607,
+      "ocr_consistency": 0.02,
+      "char_consistency": 0.33504492939666236,
+      "char_change_rate": 0.6649550706033376
     },
     "autoencoder": {
-      "detection_accuracy": 0.8266666666666665,
-      "mAP": 0.8066666666666665,
-      "precision": 0.8266666666666665,
-      "recall": 0.87,
-      "psnr": 44.000853465049666,
-      "ssim": 0.9953130868002149
+      "detection_accuracy": 1.0,
+      "mAP": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "psnr": 40.12741458706266,
+      "ssim": 0.9786577339579607,
+      "ocr_consistency": 0.01,
+      "char_consistency": 0.3522727272727273,
+      "char_change_rate": 0.6477272727272727
     }
   },
   "jpeg_compression_320": {
     "baseline": {
-      "detection_accuracy": 0.8333333333333333,
-      "mAP": 0.81,
-      "precision": 0.8333333333333333,
-      "recall": 0.8666666666666666,
-      "psnr": 34.65257881080469,
-      "ssim": 0.9470660511012055
+      "detection_accuracy": 0.995,
+      "mAP": 0.995,
+      "precision": 0.995,
+      "recall": 1.0,
+      "psnr": 37.59819542926625,
+      "ssim": 0.9659908152505909,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.3196405648267009,
+      "char_change_rate": 0.6803594351732991
     },
     "upscale_only": {
-      "detection_accuracy": 0.8333333333333333,
-      "mAP": 0.81,
-      "precision": 0.8333333333333333,
-      "recall": 0.8666666666666666,
-      "psnr": 34.65257881080469,
-      "ssim": 0.9470660511012055
+      "detection_accuracy": 0.995,
+      "mAP": 0.995,
+      "precision": 0.995,
+      "recall": 1.0,
+      "psnr": 37.59819542926625,
+      "ssim": 0.9659908152505909,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.3196405648267009,
+      "char_change_rate": 0.6803594351732991
     },
     "autoencoder": {
-      "detection_accuracy": 0.8333333333333333,
-      "mAP": 0.81,
-      "precision": 0.8333333333333333,
-      "recall": 0.8666666666666666,
-      "psnr": 34.65257881080469,
-      "ssim": 0.9470660511012055
+      "detection_accuracy": 0.995,
+      "mAP": 0.995,
+      "precision": 0.995,
+      "recall": 1.0,
+      "psnr": 37.59819542926625,
+      "ssim": 0.9659908152505909,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.3078848560700876,
+      "char_change_rate": 0.6921151439299125
     }
   },
   "jpeg_compression_240": {
     "baseline": {
-      "detection_accuracy": 0.8266666666666665,
-      "mAP": 0.8066666666666665,
-      "precision": 0.8266666666666665,
-      "recall": 0.87,
-      "psnr": 34.019793530234125,
-      "ssim": 0.9401883333303221
+      "detection_accuracy": 1.0,
+      "mAP": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "psnr": 36.48898284721789,
+      "ssim": 0.95717899740946,
+      "ocr_consistency": 0.03,
+      "char_consistency": 0.27906976744186046,
+      "char_change_rate": 0.7209302325581395
     },
     "upscale_only": {
-      "detection_accuracy": 0.8266666666666665,
-      "mAP": 0.8066666666666665,
-      "precision": 0.8266666666666665,
-      "recall": 0.87,
-      "psnr": 34.019793530234125,
-      "ssim": 0.9401883333303221
+      "detection_accuracy": 1.0,
+      "mAP": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "psnr": 36.48898284721789,
+      "ssim": 0.95717899740946,
+      "ocr_consistency": 0.03,
+      "char_consistency": 0.27906976744186046,
+      "char_change_rate": 0.7209302325581395
     },
     "autoencoder": {
-      "detection_accuracy": 0.8266666666666665,
-      "mAP": 0.8066666666666665,
-      "precision": 0.8266666666666665,
-      "recall": 0.87,
-      "psnr": 34.019793530234125,
-      "ssim": 0.9401883333303221
+      "detection_accuracy": 1.0,
+      "mAP": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "psnr": 36.48898284721789,
+      "ssim": 0.95717899740946,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.2553729456384324,
+      "char_change_rate": 0.7446270543615676
     }
   },
   "jpeg_compression_160": {
     "baseline": {
-      "detection_accuracy": 0.8033333333333332,
-      "mAP": 0.78,
-      "precision": 0.8033333333333332,
-      "recall": 0.8366666666666666,
-      "psnr": 31.920190074284328,
-      "ssim": 0.9130186391142497
+      "detection_accuracy": 0.99,
+      "mAP": 0.99,
+      "precision": 0.99,
+      "recall": 1.0,
+      "psnr": 34.552579647649885,
+      "ssim": 0.9401722619604804,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.2710997442455243,
+      "char_change_rate": 0.7289002557544757
     },
     "upscale_only": {
-      "detection_accuracy": 0.8033333333333332,
-      "mAP": 0.78,
-      "precision": 0.8033333333333332,
-      "recall": 0.8366666666666666,
-      "psnr": 31.920190074284328,
-      "ssim": 0.9130186391142497
+      "detection_accuracy": 0.99,
+      "mAP": 0.99,
+      "precision": 0.99,
+      "recall": 1.0,
+      "psnr": 34.552579647649885,
+      "ssim": 0.9401722619604804,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.2710997442455243,
+      "char_change_rate": 0.7289002557544757
     },
     "autoencoder": {
-      "detection_accuracy": 0.8033333333333332,
-      "mAP": 0.78,
-      "precision": 0.8033333333333332,
-      "recall": 0.8366666666666666,
-      "psnr": 31.920190074284328,
-      "ssim": 0.9130186391142497
+      "detection_accuracy": 0.99,
+      "mAP": 0.99,
+      "precision": 0.99,
+      "recall": 1.0,
+      "psnr": 34.552579647649885,
+      "ssim": 0.9401722619604804,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.24111675126903553,
+      "char_change_rate": 0.7588832487309645
     }
   },
   "jpeg_compression_80": {
     "baseline": {
-      "detection_accuracy": 0.8083333333333332,
-      "mAP": 0.7916666666666665,
-      "precision": 0.8083333333333332,
-      "recall": 0.8433333333333333,
-      "psnr": 28.843429438957575,
-      "ssim": 0.8560993880468963
+      "detection_accuracy": 0.99,
+      "mAP": 0.99,
+      "precision": 0.99,
+      "recall": 0.99,
+      "psnr": 30.970238898180646,
+      "ssim": 0.8953021641753596,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.13096862210095497,
+      "char_change_rate": 0.869031377899045
     },
     "upscale_only": {
-      "detection_accuracy": 0.8083333333333332,
-      "mAP": 0.7916666666666665,
-      "precision": 0.8083333333333332,
-      "recall": 0.8433333333333333,
-      "psnr": 28.843429438957575,
-      "ssim": 0.8560993880468963
+      "detection_accuracy": 0.99,
+      "mAP": 0.99,
+      "precision": 0.99,
+      "recall": 0.99,
+      "psnr": 30.970238898180646,
+      "ssim": 0.8953021641753596,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.13096862210095497,
+      "char_change_rate": 0.869031377899045
     },
     "autoencoder": {
-      "detection_accuracy": 0.8083333333333332,
-      "mAP": 0.7916666666666665,
-      "precision": 0.8083333333333332,
-      "recall": 0.8433333333333333,
-      "psnr": 28.843429438957575,
-      "ssim": 0.8560993880468963
+      "detection_accuracy": 0.99,
+      "mAP": 0.99,
+      "precision": 0.99,
+      "recall": 0.99,
+      "psnr": 30.970238898180646,
+      "ssim": 0.8953021641753596,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.15416098226466576,
+      "char_change_rate": 0.8458390177353342
     }
   },
   "jpeg_compression_40": {
     "baseline": {
-      "detection_accuracy": 0.79,
-      "mAP": 0.7783333333333333,
-      "precision": 0.79,
-      "recall": 0.7883333333333333,
-      "psnr": 25.303491550548532,
-      "ssim": 0.7696662214834177
+      "detection_accuracy": 0.975,
+      "mAP": 0.975,
+      "precision": 0.975,
+      "recall": 0.99,
+      "psnr": 27.38900486805082,
+      "ssim": 0.8309970261594342,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.015130674002751032,
+      "char_change_rate": 0.984869325997249
     },
     "upscale_only": {
-      "detection_accuracy": 0.79,
-      "mAP": 0.7783333333333333,
-      "precision": 0.79,
-      "recall": 0.7883333333333333,
-      "psnr": 25.303491550548532,
-      "ssim": 0.7696662214834177
+      "detection_accuracy": 0.975,
+      "mAP": 0.975,
+      "precision": 0.975,
+      "recall": 0.99,
+      "psnr": 27.38900486805082,
+      "ssim": 0.8309970261594342,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.015130674002751032,
+      "char_change_rate": 0.984869325997249
     },
     "autoencoder": {
-      "detection_accuracy": 0.79,
-      "mAP": 0.7783333333333333,
-      "precision": 0.79,
-      "recall": 0.7883333333333333,
-      "psnr": 25.303491550548532,
-      "ssim": 0.7696662214834177
+      "detection_accuracy": 0.975,
+      "mAP": 0.975,
+      "precision": 0.975,
+      "recall": 0.99,
+      "psnr": 27.38900486805082,
+      "ssim": 0.8309970261594342,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.006934812760055479,
+      "char_change_rate": 0.9930651872399445
     }
   },
   "combined_640": {
     "baseline": {
-      "detection_accuracy": 0.8266666666666665,
-      "mAP": 0.8066666666666665,
-      "precision": 0.8266666666666665,
-      "recall": 0.87,
+      "detection_accuracy": 1.0,
+      "mAP": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
       "psnr": Infinity,
-      "ssim": 1.0
+      "ssim": 1.0,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.3308270676691729,
+      "char_change_rate": 0.6691729323308271
     },
     "upscale_only": {
-      "detection_accuracy": 0.8266666666666665,
-      "mAP": 0.8066666666666665,
-      "precision": 0.8266666666666665,
-      "recall": 0.87,
+      "detection_accuracy": 1.0,
+      "mAP": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
       "psnr": Infinity,
-      "ssim": 1.0
+      "ssim": 1.0,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.3308270676691729,
+      "char_change_rate": 0.6691729323308271
     },
     "autoencoder": {
-      "detection_accuracy": 0.8266666666666665,
-      "mAP": 0.8066666666666665,
-      "precision": 0.8266666666666665,
-      "recall": 0.87,
+      "detection_accuracy": 1.0,
+      "mAP": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
       "psnr": Infinity,
-      "ssim": 1.0
+      "ssim": 1.0,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.3972602739726027,
+      "char_change_rate": 0.6027397260273972
     }
   },
   "combined_480": {
     "baseline": {
-      "detection_accuracy": 0.75,
-      "mAP": 0.745,
-      "precision": 0.75,
-      "recall": 0.765,
-      "psnr": 28.138168091175334,
-      "ssim": 0.7661940902451696
-    },
-    "upscale_only": {
-      "detection_accuracy": 0.7525,
-      "mAP": 0.74625,
-      "precision": 0.7525,
-      "recall": 0.77,
-      "psnr": 28.13837498569144,
-      "ssim": 0.7662337609875409
-    },
-    "autoencoder": {
-      "detection_accuracy": 0.745,
-      "mAP": 0.74,
-      "precision": 0.745,
-      "recall": 0.765,
-      "psnr": 28.13997735061429,
-      "ssim": 0.7663648388286692
-    }
-  },
-  "combined_320": {
-    "baseline": {
-      "detection_accuracy": 0.7483333333333334,
-      "mAP": 0.7416666666666666,
-      "precision": 0.7483333333333334,
-      "recall": 0.77,
-      "psnr": 25.98179179542868,
-      "ssim": 0.7241486330591256
-    },
-    "upscale_only": {
-      "detection_accuracy": 0.75,
-      "mAP": 0.745,
-      "precision": 0.75,
-      "recall": 0.765,
-      "psnr": 25.982445679809686,
-      "ssim": 0.7240079283816118
-    },
-    "autoencoder": {
-      "detection_accuracy": 0.7616666666666666,
-      "mAP": 0.7566666666666666,
-      "precision": 0.7616666666666666,
-      "recall": 0.785,
-      "psnr": 25.980582467553894,
-      "ssim": 0.724084073963565
-    }
-  },
-  "combined_240": {
-    "baseline": {
-      "detection_accuracy": 0.775,
-      "mAP": 0.765,
-      "precision": 0.775,
-      "recall": 0.77,
-      "psnr": 24.351454821377366,
-      "ssim": 0.6867657238341931
-    },
-    "upscale_only": {
-      "detection_accuracy": 0.73,
-      "mAP": 0.7225,
-      "precision": 0.73,
-      "recall": 0.74,
-      "psnr": 24.351608899622473,
-      "ssim": 0.6865559706567214
-    },
-    "autoencoder": {
-      "detection_accuracy": 0.76,
-      "mAP": 0.755,
-      "precision": 0.76,
-      "recall": 0.765,
-      "psnr": 24.353601321214146,
-      "ssim": 0.6866368414898983
-    }
-  },
-  "combined_160": {
-    "baseline": {
-      "detection_accuracy": 0.625,
-      "mAP": 0.62,
-      "precision": 0.625,
-      "recall": 0.625,
-      "psnr": 22.501508362093972,
-      "ssim": 0.6470690095120973
-    },
-    "upscale_only": {
-      "detection_accuracy": 0.645,
-      "mAP": 0.64,
-      "precision": 0.645,
-      "recall": 0.645,
-      "psnr": 22.502857869440053,
-      "ssim": 0.6468976477678382
-    },
-    "autoencoder": {
-      "detection_accuracy": 0.665,
-      "mAP": 0.66,
-      "precision": 0.665,
-      "recall": 0.665,
-      "psnr": 22.501048499391803,
-      "ssim": 0.6468664681898049
-    }
-  },
-  "combined_80": {
-    "baseline": {
-      "detection_accuracy": 0.19,
-      "mAP": 0.19,
-      "precision": 0.19,
-      "recall": 0.19,
-      "psnr": 19.891073352368537,
-      "ssim": 0.6043200678768385
-    },
-    "upscale_only": {
-      "detection_accuracy": 0.19,
-      "mAP": 0.19,
-      "precision": 0.19,
-      "recall": 0.19,
-      "psnr": 19.893262359171505,
-      "ssim": 0.6049773496939532
-    },
-    "autoencoder": {
-      "detection_accuracy": 0.19,
-      "mAP": 0.19,
-      "precision": 0.19,
-      "recall": 0.19,
-      "psnr": 19.89606842603683,
-      "ssim": 0.6048812267896568
-    }
-  },
-  "combined_40": {
-    "baseline": {
-      "detection_accuracy": 0.03,
-      "mAP": 0.03,
-      "precision": 0.03,
-      "recall": 0.03,
-      "psnr": 17.774012622827062,
-      "ssim": 0.582092515389349
+      "detection_accuracy": 0.01,
+      "mAP": 0.01,
+      "precision": 0.01,
+      "recall": 0.01,
+      "psnr": 26.4842878699303,
+      "ssim": 0.73576494527066,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.0,
+      "char_change_rate": 1.0
     },
     "upscale_only": {
       "detection_accuracy": 0.01,
       "mAP": 0.01,
       "precision": 0.01,
       "recall": 0.01,
-      "psnr": 17.776585539062918,
-      "ssim": 0.5821159921632169
+      "psnr": 26.483152011157785,
+      "ssim": 0.7357318052062989,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.0,
+      "char_change_rate": 1.0
     },
     "autoencoder": {
-      "detection_accuracy": 0.02,
-      "mAP": 0.02,
-      "precision": 0.02,
-      "recall": 0.02,
-      "psnr": 17.777866349170676,
-      "ssim": 0.5820760128732632
+      "detection_accuracy": 0.01,
+      "mAP": 0.01,
+      "precision": 0.01,
+      "recall": 0.01,
+      "psnr": 26.484193253095746,
+      "ssim": 0.735500793905688,
+      "ocr_consistency": 0.0,
+      "char_consistency": 0.0,
+      "char_change_rate": 1.0
+    }
+  },
+  "combined_320": {
+    "baseline": {
+      "detection_accuracy": 0.0,
+      "mAP": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "psnr": 25.61318414470861,
+      "ssim": 0.7495838407237508
+    },
+    "upscale_only": {
+      "detection_accuracy": 0.0,
+      "mAP": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "psnr": 25.612295069040165,
+      "ssim": 0.7495144237698399
+    },
+    "autoencoder": {
+      "detection_accuracy": 0.0,
+      "mAP": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "psnr": 25.614307129898915,
+      "ssim": 0.7496337371401051
+    }
+  },
+  "combined_240": {
+    "baseline": {
+      "detection_accuracy": 0.0,
+      "mAP": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "psnr": 25.05086674348404,
+      "ssim": 0.7579634115995547
+    },
+    "upscale_only": {
+      "detection_accuracy": 0.0,
+      "mAP": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "psnr": 25.05011478110082,
+      "ssim": 0.7579225278973937
+    },
+    "autoencoder": {
+      "detection_accuracy": 0.0,
+      "mAP": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "psnr": 25.05125802056434,
+      "ssim": 0.7579215806754334
+    }
+  },
+  "combined_160": {
+    "baseline": {
+      "detection_accuracy": 0.0,
+      "mAP": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "psnr": 24.274768468205043,
+      "ssim": 0.765710146685256
+    },
+    "upscale_only": {
+      "detection_accuracy": 0.0,
+      "mAP": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "psnr": 24.2736659250837,
+      "ssim": 0.7656710176265823
+    },
+    "autoencoder": {
+      "detection_accuracy": 0.0,
+      "mAP": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "psnr": 24.271807487280512,
+      "ssim": 0.7657536490749572
+    }
+  },
+  "combined_80": {
+    "baseline": {
+      "detection_accuracy": 0.0,
+      "mAP": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "psnr": 22.90448352080753,
+      "ssim": 0.7707652456013873
+    },
+    "upscale_only": {
+      "detection_accuracy": 0.0,
+      "mAP": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "psnr": 22.90329423796698,
+      "ssim": 0.7707846741825551
+    },
+    "autoencoder": {
+      "detection_accuracy": 0.0,
+      "mAP": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "psnr": 22.90706366409425,
+      "ssim": 0.7707675158742195
+    }
+  },
+  "combined_40": {
+    "baseline": {
+      "detection_accuracy": 0.0,
+      "mAP": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "psnr": 21.361914697854996,
+      "ssim": 0.7694502552099862
+    },
+    "upscale_only": {
+      "detection_accuracy": 0.0,
+      "mAP": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "psnr": 21.371255277870528,
+      "ssim": 0.7694997957013296
+    },
+    "autoencoder": {
+      "detection_accuracy": 0.0,
+      "mAP": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "psnr": 21.37320935280306,
+      "ssim": 0.7695009524113103
     }
   }
 }

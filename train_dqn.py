@@ -29,6 +29,7 @@ from pathlib import Path
 from utils.data_loader import load_config
 from utils.device import resolve_device
 from utils.degradation import ImageDegrader, compute_image_quality_metrics
+from utils.ufpr_data_loader import compute_plate_accuracy
 from models.autoencoder import UNetAutoencoder
 from models.dqn_agent import DQNRestorationAgent
 
@@ -37,34 +38,45 @@ def compute_reward(
     original: np.ndarray,
     restored: np.ndarray,
     action: int,
+    ocr_engine=None,
+    gt_text: str = "",
 ) -> float:
     """
     Compute reward for a restoration action.
 
-    Reward = image quality improvement (PSNR gain) with a small penalty
-    for choosing expensive actions when they're not needed.
+    If ocr_engine and gt_text are provided, reward is based on TRUE OCR
+    accuracy against verified ground truth (UFPR-ALPR). Otherwise falls
+    back to PSNR-based image quality reward.
 
     Args:
-        original: Clean plate crop (ground truth)
+        original: Clean plate crop (ground truth image)
         restored: Plate crop after applying the agent's action
         action: The action taken (0=pass, 1=upscale, 2=autoencoder)
+        ocr_engine: Optional EasyOCR reader for OCR-based reward
+        gt_text: Verified ground truth plate text (e.g. 'MLS5511')
 
     Returns:
         Scalar reward value
     """
-    # Resize restored to match original for fair comparison
-    if restored.shape[:2] != original.shape[:2]:
-        restored = cv2.resize(restored, (original.shape[1], original.shape[0]))
+    reward = 0.0
 
-    # PSNR between restored and original
-    mse = np.mean((original.astype(float) - restored.astype(float)) ** 2)
-    if mse == 0:
-        psnr = 50.0  # cap at 50 dB
+    # OCR-based reward (preferred — uses true ground truth)
+    if ocr_engine is not None and gt_text:
+        results = ocr_engine.readtext(restored)
+        predicted = "".join([r[1] for r in results]).upper()
+        ocr_accuracy = compute_plate_accuracy(predicted, gt_text)
+        reward = ocr_accuracy  # [0, 1] range
     else:
-        psnr = min(50.0, 10 * np.log10(255.0 ** 2 / mse))
+        # Fallback: PSNR-based reward
+        if restored.shape[:2] != original.shape[:2]:
+            restored = cv2.resize(restored, (original.shape[1], original.shape[0]))
 
-    # Normalize PSNR to roughly [0, 1]
-    reward = psnr / 50.0
+        mse = np.mean((original.astype(float) - restored.astype(float)) ** 2)
+        if mse == 0:
+            psnr = 50.0
+        else:
+            psnr = min(50.0, 10 * np.log10(255.0 ** 2 / mse))
+        reward = psnr / 50.0
 
     # Small cost for more expensive actions (encourages efficiency)
     action_cost = {0: 0.0, 1: 0.01, 2: 0.03}
@@ -73,17 +85,41 @@ def compute_reward(
     return reward
 
 
-def load_plate_images(plate_dir: str, max_images: int = 2000) -> list:
-    """Load plate crop images for training."""
-    paths = sorted(Path(plate_dir).glob("*.jpg"))[:max_images]
-    images = []
+def load_plate_images(plate_dir: str, max_images: int = 2000,
+                      plate_gt: dict = None) -> list:
+    """
+    Load plate crop images for training.
+
+    Returns list of (image, gt_text) tuples. gt_text is '' if no GT available.
+    """
+    paths = sorted(
+        p for p in Path(plate_dir).glob("*")
+        if p.suffix.lower() in (".jpg", ".jpeg", ".png")
+    )[:max_images]
+    samples = []
     for p in paths:
         img = cv2.imread(str(p))
         if img is not None:
             img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-            images.append(img)
-    print(f"Loaded {len(images)} plate crops from {plate_dir}")
-    return images
+            # Try to find GT text: plate crops are named like track0091_01_plate0.jpg
+            # The original image was track0091_01.png → key "train/images/track0091_01.png"
+            gt_text = ""
+            if plate_gt:
+                # Strip _plateN suffix to recover original image stem
+                stem = p.stem
+                if "_plate" in stem:
+                    stem = stem[:stem.rindex("_plate")]
+                # Try all splits
+                for split in ["train", "valid", "test"]:
+                    key = f"{split}/images/{stem}.png"
+                    if key in plate_gt:
+                        gt_text = plate_gt[key]
+                        break
+            samples.append((img, gt_text))
+    n_with_gt = sum(1 for _, t in samples if t)
+    print(f"Loaded {len(samples)} plate crops from {plate_dir} "
+          f"({n_with_gt} with verified GT text)")
+    return samples
 
 
 def main():
@@ -133,8 +169,26 @@ def main():
         target_update=50,
     )
 
+    # Load ground truth plate text (UFPR-ALPR)
+    plate_gt = {}
+    plate_gt_path = config.get("data", {}).get("plate_gt_path", None)
+    if plate_gt_path and os.path.exists(plate_gt_path):
+        with open(plate_gt_path) as f:
+            plate_gt = json.load(f)
+        print(f"Loaded {len(plate_gt)} verified plate text entries")
+
+    # Optional: load EasyOCR for OCR-based reward
+    ocr_engine = None
+    if plate_gt:
+        try:
+            import easyocr
+            ocr_engine = easyocr.Reader(["en"], gpu=(device == "cuda"))
+            print("EasyOCR loaded — using true OCR accuracy for reward")
+        except ImportError:
+            print("EasyOCR not available — falling back to PSNR-based reward")
+
     # Load training plates
-    plates = load_plate_images(args.plate_dir)
+    plates = load_plate_images(args.plate_dir, plate_gt=plate_gt)
     if not plates:
         print("ERROR: No plate images found. Run extract_plates.py first.")
         return
@@ -158,7 +212,7 @@ def main():
 
         for step in range(args.steps_per_episode):
             # Sample a random plate and degradation level
-            original = random.choice(plates)
+            original, gt_text = random.choice(plates)
             original_resized = cv2.resize(original, (256, 128))
             scale = random.choice(resolution_scales)
             target_res = int(256 * scale)
@@ -193,8 +247,11 @@ def main():
             # Apply action
             restored = agent.apply_action(degraded, action)
 
-            # Compute reward
-            reward = compute_reward(original_resized, restored, action)
+            # Compute reward (OCR-based if GT available, else PSNR-based)
+            reward = compute_reward(
+                original_resized, restored, action,
+                ocr_engine=ocr_engine, gt_text=gt_text,
+            )
             episode_reward += reward
 
             # Next state (after action)

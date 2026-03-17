@@ -68,9 +68,9 @@ class AutoencoderFeatureExtractor(nn.Module):
 
     def __init__(self, autoencoder: UNetAutoencoder):
         super().__init__()
-        # Grab encoder blocks + bottleneck from the trained autoencoder
+        # Grab encoder blocks + pools + bottleneck from the trained autoencoder
         self.encoders = autoencoder.encoders
-        self.pool = autoencoder.pool
+        self.pools = autoencoder.pools        # ModuleList of MaxPool2d layers
         self.bottleneck = autoencoder.bottleneck
 
         # Freeze all encoder weights
@@ -84,9 +84,9 @@ class AutoencoderFeatureExtractor(nn.Module):
             self.feature_dim = feat.shape[1]
 
     def _encode(self, x: torch.Tensor) -> torch.Tensor:
-        for encoder in self.encoders:
+        for encoder, pool in zip(self.encoders, self.pools):
             x = encoder(x)
-            x = self.pool(x)
+            x = pool(x)
         x = self.bottleneck(x)
         # Global average pool to get a fixed-length vector
         x = x.mean(dim=[2, 3])  # (B, C)
@@ -242,15 +242,19 @@ class DQNRestorationAgent:
             return cv2.resize(image, (256, 128), interpolation=cv2.INTER_CUBIC)
         elif action == 2:
             # Autoencoder restoration
+            # Preprocess: normalize to [-1, 1] (matching PlateImageDataset transform)
             resized = cv2.resize(image, (256, 128))
             inp = torch.from_numpy(resized).permute(2, 0, 1).float() / 255.0
+            inp = (inp - 0.5) / 0.5  # Map [0,1] → [-1,1]
             inp = inp.unsqueeze(0).to(self.device)
             with torch.no_grad():
                 out = self.autoencoder(inp)
                 if isinstance(out, tuple):
                     out = out[0]
+            # Post-process: denormalize from Tanh [-1,1] → [0,255]
             restored = out.squeeze(0).permute(1, 2, 0).cpu().numpy()
-            restored = np.clip(restored * 255, 0, 255).astype(np.uint8)
+            restored = (restored * 0.5 + 0.5) * 255.0  # [-1,1] → [0,255]
+            restored = np.clip(restored, 0, 255).astype(np.uint8)
             return restored
         else:
             raise ValueError(f"Unknown action: {action}")

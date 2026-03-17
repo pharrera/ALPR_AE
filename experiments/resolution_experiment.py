@@ -401,7 +401,9 @@ def run_quick_experiment(
     img_dir = Path(test_dir) / "images"
     label_dir = Path(test_dir) / "labels"
 
-    for img_path in sorted(img_dir.glob("*.jpg"))[:50]:  # First 50 for quick test
+    for img_path in sorted(
+        p for p in img_dir.glob("*") if p.suffix.lower() in (".jpg", ".jpeg", ".png")
+    )[:50]:  # First 50 for quick test
         image = cv2.imread(str(img_path))
         image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         test_images.append(image)

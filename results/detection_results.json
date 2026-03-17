@@ -1,0 +1,7 @@
+{
+  "mAP50": 0.977251380591565,
+  "mAP50_95": 0.6882207308821074,
+  "precision": 0.991906244856692,
+  "recall": 0.92,
+  "best_model": "/app/rundir/code/results/detection/plate_detection/weights/best.pt"
+}
