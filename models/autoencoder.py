@@ -132,10 +132,14 @@ class VGGPerceptualLoss(nn.Module):
         """Convert from [-1,1] (Tanh output) to ImageNet-normalized."""
         # [-1, 1] -> [0, 1]
         x = x * 0.5 + 0.5
-        # ImageNet normalization
-        return (x - self.mean) / self.std
+        # ImageNet normalization (move buffers to input device)
+        return (x - self.mean.to(x.device)) / self.std.to(x.device)
 
     def forward(self, pred: torch.Tensor, target: torch.Tensor) -> torch.Tensor:
+        # Move VGG blocks to input device if needed
+        if pred.device != next(self.blocks[0].parameters()).device:
+            self.to(pred.device)
+
         # Normalize to ImageNet scale
         pred = self._normalize(pred)
         target = self._normalize(target)
