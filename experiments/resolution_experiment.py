@@ -122,16 +122,97 @@ class ResolutionExperiment:
 
         return result
 
+    def _apply_autoencoder_to_full_image(self, image: np.ndarray) -> np.ndarray:
+        """
+        Apply autoencoder restoration to the full image by processing it
+        in overlapping tiles at the autoencoder's native resolution.
+
+        This allows the autoencoder to improve the full image before detection,
+        not just plate crops before OCR.
+        """
+        if self.autoencoder is None:
+            return image
+
+        ae_h = self.config.get("autoencoder", {}).get("input_size", 128)
+        ae_w = self.config.get("autoencoder", {}).get("input_width", 256)
+        h, w = image.shape[:2]
+
+        # If image is small enough, process directly
+        if h <= ae_h * 2 and w <= ae_w * 2:
+            resized = cv2.resize(image, (ae_w, ae_h))
+            restored = self._apply_autoencoder(resized)
+            return cv2.resize(restored, (w, h))
+
+        # For larger images, process in overlapping tiles
+        # Use stride of 75% of tile size for overlap
+        stride_h = max(ae_h // 2, 1)
+        stride_w = max(ae_w // 2, 1)
+
+        output = np.zeros_like(image, dtype=np.float32)
+        weight_map = np.zeros((h, w, 1), dtype=np.float32)
+
+        for y in range(0, h - ae_h + 1, stride_h):
+            for x in range(0, w - ae_w + 1, stride_w):
+                tile = image[y:y+ae_h, x:x+ae_w]
+                restored_tile = self._apply_autoencoder(tile)
+                output[y:y+ae_h, x:x+ae_w] += restored_tile.astype(np.float32)
+                weight_map[y:y+ae_h, x:x+ae_w] += 1.0
+
+        # Handle right and bottom edges
+        if (h - ae_h) % stride_h != 0:
+            y = h - ae_h
+            for x in range(0, w - ae_w + 1, stride_w):
+                tile = image[y:y+ae_h, x:x+ae_w]
+                restored_tile = self._apply_autoencoder(tile)
+                output[y:y+ae_h, x:x+ae_w] += restored_tile.astype(np.float32)
+                weight_map[y:y+ae_h, x:x+ae_w] += 1.0
+
+        if (w - ae_w) % stride_w != 0:
+            x = w - ae_w
+            for y in range(0, h - ae_h + 1, stride_h):
+                tile = image[y:y+ae_h, x:x+ae_w]
+                restored_tile = self._apply_autoencoder(tile)
+                output[y:y+ae_h, x:x+ae_w] += restored_tile.astype(np.float32)
+                weight_map[y:y+ae_h, x:x+ae_w] += 1.0
+
+        # Bottom-right corner
+        if (h - ae_h) % stride_h != 0 and (w - ae_w) % stride_w != 0:
+            y, x = h - ae_h, w - ae_w
+            tile = image[y:y+ae_h, x:x+ae_w]
+            restored_tile = self._apply_autoencoder(tile)
+            output[y:y+ae_h, x:x+ae_w] += restored_tile.astype(np.float32)
+            weight_map[y:y+ae_h, x:x+ae_w] += 1.0
+
+        # Average overlapping regions
+        weight_map = np.maximum(weight_map, 1.0)
+        output = (output / weight_map).clip(0, 255).astype(np.uint8)
+
+        # Fill any unprocessed borders with original
+        mask = (weight_map.squeeze() == 0)
+        if mask.any():
+            output[mask] = image[mask]
+
+        return output
+
     def _run_ocr(self, plate_crop: np.ndarray) -> str:
-        """Run OCR on a plate crop image."""
+        """Run OCR on a plate crop image with preprocessing pipeline."""
         if self.ocr_engine is not None:
-            # EasyOCR
-            results = self.ocr_engine.readtext(plate_crop)
-            text = "".join([r[1] for r in results]).upper()
-            return text
+            try:
+                from utils.ocr_utils import run_ocr_with_preprocessing, PLATE_CHARS_ALPHANUMERIC
+                text, confidence = run_ocr_with_preprocessing(
+                    plate_crop,
+                    self.ocr_engine,
+                    allowlist=PLATE_CHARS_ALPHANUMERIC,
+                    confidence_threshold=0.2,
+                    use_ensemble=True,
+                )
+                return text
+            except ImportError:
+                # Fallback to basic OCR
+                results = self.ocr_engine.readtext(plate_crop)
+                text = "".join([r[1] for r in results]).upper()
+                return text
         else:
-            # Fallback: use classifier on individual characters
-            # This is a simplified version; real pipeline would segment characters first
             return ""
 
     def run_single_condition(
@@ -200,14 +281,16 @@ class ResolutionExperiment:
                     else:
                         processed = degradation_fn(image.copy())
                 elif condition == "autoencoder":
-                    # Same as upscale_only for the full image (detection),
-                    # but plate crops get autoencoder restoration for OCR
+                    # Degrade, upscale, then apply autoencoder to full image
+                    # before detection — this is the key difference from upscale_only
                     if degradation_type == "bicubic_downsample":
                         processed = self.degrader.bicubic_downsample(
                             image.copy(), resolution, upscale_back=True
                         )
                     else:
                         processed = degradation_fn(image.copy())
+                    # Apply autoencoder restoration to the full image
+                    processed = self._apply_autoencoder_to_full_image(processed)
                 else:
                     raise ValueError(f"Unknown condition: {condition}")
 

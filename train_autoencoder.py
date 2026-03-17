@@ -76,7 +76,7 @@ def main():
     def train_degradation(image):
         """Random mix of downsample + noise + JPEG compression."""
         h, w = image.shape[:2]
-        factor = np.random.choice([2, 3, 4, 6, 8])
+        factor = np.random.choice([2, 3, 4, 6, 8, 10, 12, 16])
         small = cv2.resize(
             image, (max(w // factor, 8), max(h // factor, 8)),
             interpolation=cv2.INTER_AREA,
@@ -91,6 +91,11 @@ def main():
             quality = np.random.randint(20, 80)
             _, encoded = cv2.imencode(".jpg", degraded, [cv2.IMWRITE_JPEG_QUALITY, quality])
             degraded = cv2.imdecode(encoded, cv2.IMREAD_COLOR)
+
+        # Random blur
+        if np.random.random() > 0.6:
+            k = np.random.choice([3, 5, 7])
+            degraded = cv2.GaussianBlur(degraded, (k, k), 0)
 
         return degraded
 
@@ -165,6 +170,8 @@ def main():
         weight_decay=ae_config["weight_decay"],
         loss_type=ae_config["loss"],
         ssim_weight=ae_config["ssim_weight"],
+        perceptual_weight=ae_config.get("perceptual_weight", 0.1),
+        scheduler_T_max=ae_config.get("scheduler_T_max", 50),
     )
 
     save_dir = f"results/autoencoder/{args.model}"
@@ -223,11 +230,7 @@ def main():
 
     # --- Save JSON results ---
     with open(os.path.join(save_dir, "training_results.json"), "w") as f:
-        json.dump(
-            {k: v for k, v in history.items()
-             if not isinstance(v, list) or len(v) < 200},
-            f, indent=2,
-        )
+        json.dump(history, f, indent=2)
 
     print(f"\nBest val loss : {history['best_val_loss']:.6f}")
     print(f"Results saved : {save_dir}")

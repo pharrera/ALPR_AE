@@ -30,6 +30,7 @@ from utils.visualization import plot_resolution_comparison, plot_degradation_gri
 from models.detector import PlateDetector
 from models.autoencoder import UNetAutoencoder, ConvAutoencoder
 from experiments.resolution_experiment import ResolutionExperiment
+from utils.ocr_utils import create_ocr_engine, run_ocr_with_preprocessing
 
 
 def load_test_data(test_dir: str, max_images: int = 100, ocr_engine=None,
@@ -190,12 +191,14 @@ def main():
     autoencoder = autoencoder.to(device)
     autoencoder.eval()
 
-    # Optional: load EasyOCR
+    # Load EasyOCR with multi-language support
     ocr_engine = None
     try:
-        import easyocr
-        ocr_engine = easyocr.Reader(["en"], gpu=(device == "cuda"))
-        print("EasyOCR loaded for character recognition")
+        ocr_engine = create_ocr_engine(
+            languages=["en", "pt"],  # English + Portuguese for Brazilian plates
+            gpu=(device == "cuda"),
+        )
+        print("EasyOCR loaded (en+pt) for character recognition")
     except ImportError:
         print("EasyOCR not available; OCR metrics will be skipped")
 

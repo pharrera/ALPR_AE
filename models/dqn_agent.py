@@ -101,28 +101,52 @@ class AutoencoderFeatureExtractor(nn.Module):
 # ══════════════════════════════════════════════════════════════════════
 class QNetwork(nn.Module):
     """
-    Small MLP Q-network.
+    Dueling DQN Q-network.
 
-    Input:  autoencoder features (latent_dim) + quality metrics (3: psnr, ssim, resolution_scale)
+    Separates state value V(s) and action advantage A(s,a) streams,
+    then combines: Q(s,a) = V(s) + A(s,a) - mean(A).
+
+    This helps the agent learn which states are valuable regardless
+    of the action taken, improving sample efficiency.
+
+    Input:  autoencoder features (latent_dim) + quality metrics (5: psnr, ssim, res_scale, edge_density, contrast)
     Output: Q-values for each action
     """
 
     NUM_ACTIONS = 3  # pass-through, bicubic upscale, autoencoder restore
 
-    def __init__(self, feature_dim: int, hidden_dim: int = 128, num_quality_features: int = 3):
+    def __init__(self, feature_dim: int, hidden_dim: int = 256, num_quality_features: int = 5):
         super().__init__()
         input_dim = feature_dim + num_quality_features
-        self.net = nn.Sequential(
+
+        # Shared feature layer
+        self.shared = nn.Sequential(
             nn.Linear(input_dim, hidden_dim),
             nn.ReLU(),
-            nn.Linear(hidden_dim, hidden_dim),
+        )
+
+        # Value stream
+        self.value_stream = nn.Sequential(
+            nn.Linear(hidden_dim, hidden_dim // 2),
             nn.ReLU(),
-            nn.Linear(hidden_dim, self.NUM_ACTIONS),
+            nn.Linear(hidden_dim // 2, 1),
+        )
+
+        # Advantage stream
+        self.advantage_stream = nn.Sequential(
+            nn.Linear(hidden_dim, hidden_dim // 2),
+            nn.ReLU(),
+            nn.Linear(hidden_dim // 2, self.NUM_ACTIONS),
         )
 
     def forward(self, features: torch.Tensor, quality: torch.Tensor) -> torch.Tensor:
         x = torch.cat([features, quality], dim=-1)
-        return self.net(x)
+        shared = self.shared(x)
+        value = self.value_stream(shared)
+        advantage = self.advantage_stream(shared)
+        # Dueling combination: Q = V + (A - mean(A))
+        q_values = value + advantage - advantage.mean(dim=-1, keepdim=True)
+        return q_values
 
 
 # ══════════════════════════════════════════════════════════════════════
@@ -177,8 +201,8 @@ class DQNRestorationAgent:
 
         # Q-networks
         feat_dim = self.feature_extractor.feature_dim
-        self.q_network = QNetwork(feat_dim).to(device)
-        self.target_network = QNetwork(feat_dim).to(device)
+        self.q_network = QNetwork(feat_dim, num_quality_features=5).to(device)
+        self.target_network = QNetwork(feat_dim, num_quality_features=5).to(device)
         self.target_network.load_state_dict(self.q_network.state_dict())
         self.target_network.eval()
 
@@ -201,15 +225,20 @@ class DQNRestorationAgent:
     def _compute_quality_features(
         self, image: np.ndarray, resolution_scale: float
     ) -> torch.Tensor:
-        """Compute simple image quality features as part of the state."""
+        """Compute rich image quality features as part of the state."""
         gray = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY) if len(image.shape) == 3 else image
         # Laplacian variance (sharpness proxy)
         laplacian_var = cv2.Laplacian(gray, cv2.CV_64F).var() / 1000.0
         # Mean intensity (brightness)
         mean_intensity = gray.mean() / 255.0
+        # Edge density (Canny edge ratio)
+        edges = cv2.Canny(gray, 50, 150)
+        edge_density = edges.mean() / 255.0
+        # Local contrast (std of local patches)
+        contrast = gray.astype(float).std() / 255.0
         # Resolution scale
         return torch.tensor(
-            [laplacian_var, mean_intensity, resolution_scale],
+            [laplacian_var, mean_intensity, edge_density, contrast, resolution_scale],
             dtype=torch.float32,
         ).unsqueeze(0).to(self.device)
 

@@ -20,6 +20,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from typing import Dict, List, Optional, Tuple
 import math
+import torchvision.models as models
 
 
 # =========================================================================
@@ -88,19 +89,97 @@ class SSIMLoss(nn.Module):
         return 1.0 - ssim_map.mean()
 
 
-class CombinedLoss(nn.Module):
-    """MSE + SSIM combined loss."""
+class VGGPerceptualLoss(nn.Module):
+    """
+    VGG-based perceptual loss (feature matching loss).
 
-    def __init__(self, ssim_weight: float = 0.5):
+    Compares feature representations from a pre-trained VGG16 network
+    rather than raw pixel values. This encourages the autoencoder to
+    preserve perceptual quality (edges, textures, structure) rather
+    than just minimising pixel-level error.
+
+    Uses features from layers: relu1_2, relu2_2, relu3_3, relu4_3
+    """
+
+    def __init__(self, resize: bool = True):
+        super().__init__()
+        vgg = models.vgg16(weights=models.VGG16_Weights.IMAGENET1K_V1)
+        blocks = []
+        blocks.append(vgg.features[:4].eval())   # relu1_2
+        blocks.append(vgg.features[4:9].eval())   # relu2_2
+        blocks.append(vgg.features[9:16].eval())  # relu3_3
+        blocks.append(vgg.features[16:23].eval()) # relu4_3
+
+        self.blocks = nn.ModuleList(blocks)
+        self.resize = resize
+
+        # Freeze VGG weights
+        for param in self.parameters():
+            param.requires_grad = False
+
+        # ImageNet normalization (VGG expects ImageNet-normalized inputs)
+        self.register_buffer(
+            "mean", torch.tensor([0.485, 0.456, 0.406]).view(1, 3, 1, 1)
+        )
+        self.register_buffer(
+            "std", torch.tensor([0.229, 0.224, 0.225]).view(1, 3, 1, 1)
+        )
+
+        # Weights for each layer's contribution
+        self.layer_weights = [1.0 / 32, 1.0 / 16, 1.0 / 8, 1.0 / 4]
+
+    def _normalize(self, x: torch.Tensor) -> torch.Tensor:
+        """Convert from [-1,1] (Tanh output) to ImageNet-normalized."""
+        # [-1, 1] -> [0, 1]
+        x = x * 0.5 + 0.5
+        # ImageNet normalization
+        return (x - self.mean) / self.std
+
+    def forward(self, pred: torch.Tensor, target: torch.Tensor) -> torch.Tensor:
+        # Normalize to ImageNet scale
+        pred = self._normalize(pred)
+        target = self._normalize(target)
+
+        # Resize to minimum VGG input size if needed
+        if self.resize and (pred.shape[2] < 32 or pred.shape[3] < 32):
+            pred = F.interpolate(pred, size=(64, 128), mode="bilinear", align_corners=False)
+            target = F.interpolate(target, size=(64, 128), mode="bilinear", align_corners=False)
+
+        loss = 0.0
+        x = pred
+        y = target
+        for block, weight in zip(self.blocks, self.layer_weights):
+            x = block(x)
+            y = block(y)
+            loss += weight * F.l1_loss(x, y)
+
+        return loss
+
+
+class CombinedLoss(nn.Module):
+    """MSE + SSIM + optional VGG perceptual loss."""
+
+    def __init__(self, ssim_weight: float = 0.5, perceptual_weight: float = 0.0):
         super().__init__()
         self.mse = nn.MSELoss()
         self.ssim = SSIMLoss()
         self.ssim_weight = ssim_weight
+        self.perceptual_weight = perceptual_weight
+
+        self.perceptual = None
+        if perceptual_weight > 0:
+            self.perceptual = VGGPerceptualLoss()
 
     def forward(self, pred: torch.Tensor, target: torch.Tensor) -> torch.Tensor:
         mse_loss = self.mse(pred, target)
         ssim_loss = self.ssim(pred, target)
-        return (1 - self.ssim_weight) * mse_loss + self.ssim_weight * ssim_loss
+
+        total = (1 - self.ssim_weight) * mse_loss + self.ssim_weight * ssim_loss
+
+        if self.perceptual is not None:
+            total = total + self.perceptual_weight * self.perceptual(pred, target)
+
+        return total
 
 
 # =========================================================================
@@ -336,12 +415,14 @@ class AutoencoderTrainer:
         weight_decay: float = 1e-5,
         loss_type: str = "mse+ssim",
         ssim_weight: float = 0.5,
+        perceptual_weight: float = 0.0,
+        scheduler_T_max: int = 100,
     ):
         self.model = model.to(device)
         self.device = device
 
         if loss_type == "mse+ssim":
-            self.criterion = CombinedLoss(ssim_weight=ssim_weight)
+            self.criterion = CombinedLoss(ssim_weight=ssim_weight, perceptual_weight=perceptual_weight)
         elif loss_type == "mse":
             self.criterion = nn.MSELoss()
         elif loss_type == "l1":
@@ -352,8 +433,8 @@ class AutoencoderTrainer:
         self.optimizer = torch.optim.AdamW(
             model.parameters(), lr=learning_rate, weight_decay=weight_decay
         )
-        self.scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
-            self.optimizer, T_max=100, eta_min=1e-6
+        self.scheduler = torch.optim.lr_scheduler.CosineAnnealingWarmRestarts(
+            self.optimizer, T_0=scheduler_T_max, T_mult=2, eta_min=1e-6
         )
 
     def train_epoch(self, dataloader) -> Dict[str, float]:

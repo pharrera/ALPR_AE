@@ -22,7 +22,7 @@ data/UFPR-ALPR dataset/
 data/ufpr_yolo/train/
 data/ufpr_yolo/valid/
 data/ufpr_yolo/test/
-
+data/CCPD2019
 # ── CCPD dataset (if downloaded) ────────────────────────────────────────────
 data/ccpd/
 data/ccpd_green/
