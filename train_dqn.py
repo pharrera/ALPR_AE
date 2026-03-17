@@ -181,11 +181,14 @@ def main():
     ocr_engine = None
     if plate_gt:
         try:
-            import easyocr
-            ocr_engine = easyocr.Reader(["en"], gpu=(device == "cuda"))
-            print("EasyOCR loaded — using true OCR accuracy for reward")
+            from utils.ocr_utils import create_ocr_engine
+            ocr_engine = create_ocr_engine(
+                languages=["en", "pt"],  # Portuguese for Brazilian plates
+                gpu=(device == "cuda"),
+            )
+            print("EasyOCR loaded (en+pt) — using true OCR accuracy for reward")
         except ImportError:
-            print("EasyOCR not available — falling back to PSNR-based reward")
+            print("EasyOCR/ocr_utils not available — falling back to PSNR-based reward")
 
     # Load training plates
     plates = load_plate_images(args.plate_dir, plate_gt=plate_gt)
