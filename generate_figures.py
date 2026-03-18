@@ -12,12 +12,18 @@ Creates:
   8. DQN Training Curves (Reward, Loss, Epsilon)
   9. DQN Learned Policy Action Distribution
  10. OCR Before & After Restoration Examples
+ 11. GAN vs Autoencoder Reconstruction Comparison
+ 12. GAN Training Curves (G/D losses, PSNR, component losses)
+ 13. Experiment Version Comparison (v2 vs v3 results)
 
 Usage:
     python generate_figures.py \
-        --results results/experiment/experiment_results.json \
+        --results results/experiment_v3/experiment_results.json \
+        --results-v2 results/experiment_v2/experiment_results.json \
         --dqn-history results/dqn/dqn_training_history.json \
         --autoencoder-weights results/autoencoder/unet/best_autoencoder.pth \
+        --gan-weights results/autoencoder/gan/best_generator.pth \
+        --gan-history results/autoencoder/gan/gan_training_results.json \
         --detector-weights results/detection/plate_detection/weights/best.pt \
         --test-dir data/ufpr_yolo/test \
         --plate-dir data/plates/test \
@@ -58,13 +64,15 @@ COLORS = {
     "baseline":     "#e74c3c",
     "upscale_only": "#3498db",
     "autoencoder":  "#2ecc71",
+    "gan":          "#9b59b6",
 }
 LABELS = {
     "baseline":     "Baseline (degraded)",
     "upscale_only": "Bicubic upscale",
     "autoencoder":  "Autoencoder restoration",
+    "gan":          "GAN restoration",
 }
-MARKERS = {"baseline": "o", "upscale_only": "s", "autoencoder": "D"}
+MARKERS = {"baseline": "o", "upscale_only": "s", "autoencoder": "D", "gan": "^"}
 DEG_LABELS = {
     "bicubic_downsample": "Bicubic Down-sample",
     "gaussian_blur":      "Gaussian Blur",
@@ -405,19 +413,27 @@ def fig10_before_after_ocr(plate_dir, autoencoder, device, save_dir):
     """Show heavily degraded plates alongside AE restored versions + OCR outputs."""
     from utils.degradation import ImageDegrader
     try:
-        import easyocr
-        reader = easyocr.Reader(['en'], gpu=(device != "cpu"))
-    except ImportError:
-        print("  ✗ Skipping fig10: EasyOCR not installed")
+        from utils.ocr_utils import create_ocr_engine, run_ocr_with_preprocessing
+        ocr_engine = create_ocr_engine(
+            languages=["en", "pt"], gpu=(device != "cpu")
+        )
+    except (ImportError, Exception):
+        print("  ✗ Skipping fig10: OCR engine not available")
         return
 
     degrader = ImageDegrader(base_resolution=256)
     plates = list(Path(plate_dir).rglob("*.jpg")) + list(Path(plate_dir).rglob("*.png"))
     plates = sorted(plates)[:4]
-    
+
     if not plates:
         print("  ✗ Skipping fig10: no plate crops found")
         return
+
+    def _ocr(img):
+        text, conf = run_ocr_with_preprocessing(
+            ocr_engine, img, allowlist="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        )
+        return text if text else "[FAILED]"
 
     fig, axes = plt.subplots(len(plates), 2, figsize=(9, 2.5 * len(plates)))
     if len(plates) == 1: axes = axes[np.newaxis, :]
@@ -432,8 +448,7 @@ def fig10_before_after_ocr(plate_dir, autoencoder, device, save_dir):
         degraded_up = cv2.resize(degraded, (256, 128), interpolation=cv2.INTER_CUBIC)
 
         # Baseline OCR (Before)
-        bl_result = reader.readtext(degraded_up, detail=0)
-        bl_text = bl_result[0] if bl_result else "[FAILED]"
+        bl_text = _ocr(degraded_up)
 
         # Autoencoder Restore
         inp = torch.from_numpy(degraded_up).permute(2, 0, 1).float() / 255.0
@@ -445,8 +460,7 @@ def fig10_before_after_ocr(plate_dir, autoencoder, device, save_dir):
         restored = ((restored * 0.5 + 0.5) * 255).clip(0, 255).astype(np.uint8)
 
         # AE OCR (After)
-        ae_result = reader.readtext(restored, detail=0)
-        ae_text = ae_result[0] if ae_result else "[FAILED]"
+        ae_text = _ocr(restored)
 
         # Plot Before
         ax1 = axes[row, 0]
@@ -460,7 +474,7 @@ def fig10_before_after_ocr(plate_dir, autoencoder, device, save_dir):
         ax2.axis("off")
         ax2.set_title(f"Autoencoder Restored\nOCR: '{ae_text}'", color="#27ae60", fontweight="bold")
 
-    fig.suptitle("End-to-End Impact: Autoencoder Restoration Rescues OCR", 
+    fig.suptitle("End-to-End Impact: Autoencoder Restoration Rescues OCR",
                  fontsize=14, fontweight="bold", y=1.02)
     plt.tight_layout()
     plt.savefig(os.path.join(save_dir, "fig10_before_after_ocr.png"))
@@ -469,13 +483,305 @@ def fig10_before_after_ocr(plate_dir, autoencoder, device, save_dir):
 
 
 # ══════════════════════════════════════════════════════════════════════
+# FIGURE 11 — GAN vs Autoencoder Reconstruction Comparison
+# ══════════════════════════════════════════════════════════════════════
+def fig11_gan_vs_ae_gallery(plate_dir, autoencoder, gan_generator, device, save_dir):
+    """Side-by-side: Degraded → AE Restored → GAN Restored → Original."""
+    from utils.degradation import ImageDegrader
+    degrader = ImageDegrader(base_resolution=256)
+
+    plates = list(Path(plate_dir).rglob("*.jpg")) + list(Path(plate_dir).rglob("*.png"))
+    plates = sorted(plates)[:6]
+
+    if not plates:
+        print("  ✗ Skipping fig11: no plate crops found")
+        return
+
+    n_plates = min(5, len(plates))
+    resolutions = [128, 64, 32]  # Focus on challenging resolutions
+
+    fig, axes = plt.subplots(n_plates, 4 * len(resolutions),
+                             figsize=(4 * len(resolutions) * 2.0, n_plates * 2.2))
+    if n_plates == 1:
+        axes = axes[np.newaxis, :]
+
+    def _restore(model, img, dev):
+        """Run a model on a single plate image."""
+        inp = torch.from_numpy(img).permute(2, 0, 1).float() / 255.0
+        inp = (inp - 0.5) / 0.5
+        inp = inp.unsqueeze(0).to(dev)
+        with torch.no_grad():
+            out = model(inp)
+            if isinstance(out, tuple):
+                out = out[0]
+        result = out.squeeze(0).permute(1, 2, 0).cpu().numpy()
+        return ((result * 0.5 + 0.5) * 255).clip(0, 255).astype(np.uint8)
+
+    for row, plate_path in enumerate(plates[:n_plates]):
+        plate = cv2.imread(str(plate_path))
+        plate = cv2.cvtColor(plate, cv2.COLOR_BGR2RGB)
+        plate_resized = cv2.resize(plate, (256, 128))
+
+        for ri, res in enumerate(resolutions):
+            degraded = degrader.bicubic_downsample(plate_resized, res, upscale_back=True)
+            ae_restored = _restore(autoencoder, degraded, device)
+            gan_restored = _restore(gan_generator, degraded, device)
+
+            col_base = ri * 4
+            panels = [
+                (degraded,      f"Degraded ({res}px)"),
+                (ae_restored,   "AE Restored"),
+                (gan_restored,  "GAN Restored"),
+                (plate_resized, "Original"),
+            ]
+            for ci, (img, title) in enumerate(panels):
+                ax = axes[row, col_base + ci]
+                ax.imshow(img)
+                ax.axis("off")
+                if row == 0:
+                    fw = "bold" if ci in (1, 2) else "normal"
+                    color = COLORS["autoencoder"] if ci == 1 else \
+                            COLORS["gan"] if ci == 2 else "black"
+                    ax.set_title(title, fontsize=9, fontweight=fw, color=color)
+
+    fig.suptitle("GAN vs Autoencoder Plate Restoration Comparison",
+                 fontsize=14, fontweight="bold", y=1.02)
+    plt.tight_layout()
+    plt.savefig(os.path.join(save_dir, "fig11_gan_vs_ae_gallery.png"))
+    plt.close()
+    print("  ✓ fig11_gan_vs_ae_gallery.png")
+
+
+# ══════════════════════════════════════════════════════════════════════
+# FIGURE 12 — GAN Training Curves
+# ══════════════════════════════════════════════════════════════════════
+def fig12_gan_training_curves(gan_history_path, save_dir):
+    """6-panel GAN training history: G/D losses, Val PSNR, component losses."""
+    if not gan_history_path or not os.path.exists(gan_history_path):
+        print("  ✗ Skipping fig12: GAN history file not found")
+        return
+
+    with open(gan_history_path, "r") as f:
+        history = json.load(f)
+
+    fig, axes = plt.subplots(2, 3, figsize=(18, 9))
+
+    plot_configs = [
+        ("g_loss",   "Generator Total Loss",   "#2ecc71", axes[0, 0]),
+        ("d_loss",   "Discriminator Loss",      "#e74c3c", axes[0, 1]),
+        ("val_psnr", "Validation PSNR (dB)",    "#3498db", axes[0, 2]),
+        ("g_pixel",  "G Pixel Loss (L1)",       "#f39c12", axes[1, 0]),
+        ("g_vgg",    "G VGG Perceptual Loss",   "#9b59b6", axes[1, 1]),
+        ("g_adv",    "G Adversarial Loss",      "#1abc9c", axes[1, 2]),
+    ]
+
+    for key, title, color, ax in plot_configs:
+        data = history.get(key, [])
+        if not data:
+            ax.text(0.5, 0.5, "No data", ha="center", va="center",
+                    transform=ax.transAxes, fontsize=12, color="gray")
+            ax.set_title(title, fontweight="bold")
+            continue
+
+        ax.plot(data, color=color, alpha=0.3, linewidth=0.8)
+        window = min(10, len(data))
+        if window > 1:
+            smoothed = np.convolve(data, np.ones(window) / window, mode="valid")
+            ax.plot(range(window - 1, len(data)), smoothed,
+                    color=color, linewidth=2)
+        ax.set_title(title, fontweight="bold")
+        ax.set_xlabel("Epoch")
+        ax.grid(True, alpha=0.3)
+
+    # Add best PSNR annotation
+    best_psnr = history.get("best_val_psnr", None)
+    if best_psnr:
+        axes[0, 2].axhline(y=best_psnr, color="#3498db", linestyle="--",
+                            alpha=0.5, linewidth=1)
+        axes[0, 2].text(0.02, 0.95, f"Best: {best_psnr:.2f} dB",
+                        transform=axes[0, 2].transAxes, fontsize=10,
+                        verticalalignment="top", color="#3498db",
+                        fontweight="bold")
+
+    fig.suptitle("Plate Restoration GAN — Training History",
+                 fontsize=16, fontweight="bold")
+    plt.tight_layout()
+    plt.savefig(os.path.join(save_dir, "fig12_gan_training_curves.png"))
+    plt.close()
+    print("  ✓ fig12_gan_training_curves.png")
+
+
+# ══════════════════════════════════════════════════════════════════════
+# FIGURE 13 — Experiment Version Comparison (v2 vs v3)
+# ══════════════════════════════════════════════════════════════════════
+def fig13_version_comparison(data_v2, data_v3, save_dir):
+    """Compare v2 (AE only) vs v3 (GAN) experiment results side by side."""
+    if not data_v2 or not data_v3:
+        print("  ✗ Skipping fig13: Need both v2 and v3 results")
+        return
+
+    deg_types = ["bicubic_downsample", "gaussian_blur", "jpeg_compression", "combined"]
+    fig, axes = plt.subplots(2, 2, figsize=(14, 10), sharey=True)
+    axes = axes.ravel()
+
+    for ax, deg in zip(axes, deg_types):
+        # Extract resolution→mAP for autoencoder condition from both versions
+        for version_data, version_label, color, marker, ls in [
+            (data_v2, "v2 (AE)", "#2ecc71", "D", "--"),
+            (data_v3, "v3 (GAN)", "#9b59b6", "^", "-"),
+        ]:
+            resolutions, maps = [], []
+            for key, val in sorted(version_data.items()):
+                if key.startswith(deg + "_"):
+                    res = int(key.split("_")[-1])
+                    resolutions.append(res)
+                    maps.append(val.get("autoencoder", {}).get("mAP", 0))
+            if resolutions:
+                ax.plot(resolutions, maps, color=color, marker=marker,
+                        linewidth=2, markersize=7, linestyle=ls,
+                        label=f"{version_label}")
+
+        # Also plot shared baseline for reference
+        resolutions, maps = [], []
+        for key, val in sorted(data_v3.items()):
+            if key.startswith(deg + "_"):
+                res = int(key.split("_")[-1])
+                resolutions.append(res)
+                maps.append(val.get("baseline", {}).get("mAP", 0))
+        if resolutions:
+            ax.plot(resolutions, maps, color=COLORS["baseline"], marker="o",
+                    linewidth=1.5, markersize=5, alpha=0.5, linestyle=":",
+                    label="Baseline (shared)")
+
+        ax.set_title(DEG_LABELS[deg], fontweight="bold")
+        ax.set_xlabel("Resolution (px)")
+        ax.set_ylabel("mAP")
+        ax.set_ylim(-0.02, 1.0)
+        ax.invert_xaxis()
+
+    axes[0].legend(loc="lower left", framealpha=0.9)
+    fig.suptitle("Experiment Comparison: Autoencoder (v2) vs GAN (v3)",
+                 fontsize=15, fontweight="bold", y=1.01)
+    plt.tight_layout()
+    plt.savefig(os.path.join(save_dir, "fig13_version_comparison.png"))
+    plt.close()
+    print("  ✓ fig13_version_comparison.png")
+
+
+# ══════════════════════════════════════════════════════════════════════
+# FIGURE 14 — OCR Accuracy: AE vs GAN Before & After
+# ══════════════════════════════════════════════════════════════════════
+def fig14_gan_ocr_comparison(plate_dir, autoencoder, gan_generator, device, save_dir):
+    """Show OCR output for heavily degraded plates: AE vs GAN restored."""
+    from utils.degradation import ImageDegrader
+    try:
+        from utils.ocr_utils import create_ocr_engine, run_ocr_with_preprocessing
+    except ImportError:
+        print("  ✗ Skipping fig14: ocr_utils not available")
+        return
+
+    degrader = ImageDegrader(base_resolution=256)
+    plates = list(Path(plate_dir).rglob("*.jpg")) + list(Path(plate_dir).rglob("*.png"))
+    plates = sorted(plates)[:4]
+    if not plates:
+        print("  ✗ Skipping fig14: no plate crops found")
+        return
+
+    try:
+        ocr_engine = create_ocr_engine(
+            languages=["en", "pt"], gpu=(device != "cpu")
+        )
+    except Exception:
+        print("  ✗ Skipping fig14: Could not load OCR engine")
+        return
+
+    def _restore(model, img, dev):
+        inp = torch.from_numpy(img).permute(2, 0, 1).float() / 255.0
+        inp = (inp - 0.5) / 0.5
+        inp = inp.unsqueeze(0).to(dev)
+        with torch.no_grad():
+            out = model(inp)
+            if isinstance(out, tuple):
+                out = out[0]
+        result = out.squeeze(0).permute(1, 2, 0).cpu().numpy()
+        return ((result * 0.5 + 0.5) * 255).clip(0, 255).astype(np.uint8)
+
+    def _ocr(img):
+        text, conf = run_ocr_with_preprocessing(
+            ocr_engine, img, allowlist="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        )
+        return text if text else "[FAILED]"
+
+    n = len(plates)
+    fig, axes = plt.subplots(n, 3, figsize=(13, 2.8 * n))
+    if n == 1:
+        axes = axes[np.newaxis, :]
+
+    for row, plate_path in enumerate(plates):
+        plate = cv2.imread(str(plate_path))
+        plate = cv2.cvtColor(plate, cv2.COLOR_BGR2RGB)
+        plate_resized = cv2.resize(plate, (256, 128))
+
+        degraded = degrader.combined_degradation(plate_resized, target_resolution=64)
+        degraded_up = cv2.resize(degraded, (256, 128), interpolation=cv2.INTER_CUBIC)
+
+        ae_restored = _restore(autoencoder, degraded_up, device)
+        gan_restored = _restore(gan_generator, degraded_up, device)
+
+        bl_text = _ocr(degraded_up)
+        ae_text = _ocr(ae_restored)
+        gan_text = _ocr(gan_restored)
+
+        panels = [
+            (degraded_up, f"Degraded\nOCR: '{bl_text}'", "#c0392b"),
+            (ae_restored, f"AE Restored\nOCR: '{ae_text}'", "#27ae60"),
+            (gan_restored, f"GAN Restored\nOCR: '{gan_text}'", "#8e44ad"),
+        ]
+        for ci, (img, title, color) in enumerate(panels):
+            ax = axes[row, ci]
+            ax.imshow(img)
+            ax.axis("off")
+            ax.set_title(title, color=color, fontweight="bold", fontsize=10)
+
+    fig.suptitle("OCR Recovery: Degraded → AE → GAN Restoration",
+                 fontsize=14, fontweight="bold", y=1.02)
+    plt.tight_layout()
+    plt.savefig(os.path.join(save_dir, "fig14_gan_ocr_comparison.png"))
+    plt.close()
+    print("  ✓ fig14_gan_ocr_comparison.png")
+
+
+# ══════════════════════════════════════════════════════════════════════
 # MAIN
 # ══════════════════════════════════════════════════════════════════════
+def _load_model(weights_path, config, device):
+    """Load a UNetAutoencoder from weights file."""
+    from models.autoencoder import UNetAutoencoder
+    ae_cfg = config["autoencoder"]
+    model = UNetAutoencoder(
+        in_channels=3,
+        base_features=ae_cfg["encoder_channels"][0],
+        depth=len(ae_cfg["encoder_channels"]),
+    )
+    state_dict = torch.load(weights_path, map_location=device)
+    if any(k.startswith("module.") for k in state_dict):
+        state_dict = {k[len("module."):]: v for k, v in state_dict.items()}
+    model.load_state_dict(state_dict)
+    return model.to(device).eval()
+
+
 def main():
     parser = argparse.ArgumentParser(description="Generate paper figures")
-    parser.add_argument("--results", default="results/experiment/experiment_results.json")
+    parser.add_argument("--results", default="results/experiment/experiment_results.json",
+                        help="Primary experiment results JSON (latest version)")
+    parser.add_argument("--results-v2", default=None,
+                        help="Previous experiment results for v2-vs-v3 comparison")
     parser.add_argument("--dqn-history", default="results/dqn/dqn_training_history.json")
     parser.add_argument("--autoencoder-weights", default=None)
+    parser.add_argument("--gan-weights", default=None,
+                        help="GAN generator weights for comparison figures")
+    parser.add_argument("--gan-history", default=None,
+                        help="GAN training history JSON for training curves")
     parser.add_argument("--detector-weights", default=None)
     parser.add_argument("--test-dir", default="data/ufpr_yolo/test")
     parser.add_argument("--plate-dir", default="data/plates/test")
@@ -484,54 +790,100 @@ def main():
     args = parser.parse_args()
 
     os.makedirs(args.output_dir, exist_ok=True)
+    print("=" * 60)
+    print("Generating Publication Figures")
+    print("=" * 60)
 
-    # 1. Load experiment results
+    # ── 1. Experiment result stat plots ───────────────────────────────
+    data = None
     if os.path.exists(args.results):
         with open(args.results) as f:
             data = json.load(f)
-        print(f"Loaded results: {len(data)} conditions")
-        
-        # Stat Plots
+        print(f"\nLoaded results: {len(data)} conditions from {args.results}")
+
         fig1_resolution_curves(data, args.output_dir)
         fig3_heatmap(data, args.output_dir)
         fig4_quality_accuracy(data, args.output_dir)
         fig5_improvement_bars(data, args.output_dir)
     else:
-        print(f"  ✗ Skipping results plots: {args.results} not found")
+        print(f"\n  ✗ Skipping results plots: {args.results} not found")
 
-    # 2. DQN Plots
+    # ── 2. DQN plots ─────────────────────────────────────────────────
     fig8_dqn_training_curves(args.dqn_history, args.output_dir)
     fig9_dqn_action_dist(args.dqn_history, args.output_dir)
 
-    # 3. Simple Image visualizers
+    # ── 3. Simple image visualizers ──────────────────────────────────
     fig6_degradation_strip(args.test_dir, args.output_dir)
 
-    # 4. Neural Network Image Visualizers (Require loading models)
+    # ── 4. Load models for neural network figures ────────────────────
+    from utils.device import resolve_device
+    from utils.data_loader import load_config
+    device = resolve_device(args.device)
+    config = load_config("configs/config.yaml")
+
+    autoencoder = None
     if args.autoencoder_weights and os.path.exists(args.autoencoder_weights):
-        from utils.device import resolve_device
-        from models.autoencoder import UNetAutoencoder
-        from utils.data_loader import load_config
-
-        device = resolve_device(args.device)
-        config = load_config("configs/config.yaml")
-        ae_cfg = config["autoencoder"]
-
-        autoencoder = UNetAutoencoder(
-            in_channels=3,
-            base_features=ae_cfg["encoder_channels"][0],
-            depth=len(ae_cfg["encoder_channels"]),
-        )
-        state_dict = torch.load(args.autoencoder_weights, map_location=device)
-        if any(k.startswith("module.") for k in state_dict):
-            state_dict = {k[len("module."):]: v for k, v in state_dict.items()}
-        autoencoder.load_state_dict(state_dict)
-        autoencoder = autoencoder.to(device).eval()
+        autoencoder = _load_model(args.autoencoder_weights, config, device)
+        print(f"\n  Loaded autoencoder from {args.autoencoder_weights}")
 
         fig2_reconstruction_gallery(args.plate_dir, autoencoder, device, args.output_dir)
         fig10_before_after_ocr(args.plate_dir, autoencoder, device, args.output_dir)
     else:
-        print("  ✗ Skipping fig2 and fig10: no autoencoder weights provided")
+        print("\n  ✗ Skipping fig2/fig10: no autoencoder weights provided")
 
+    # ── 5. GAN-specific figures ──────────────────────────────────────
+    gan_generator = None
+    if args.gan_weights and os.path.exists(args.gan_weights):
+        gan_generator = _load_model(args.gan_weights, config, device)
+        print(f"  Loaded GAN generator from {args.gan_weights}")
+
+    # Fig 11: GAN vs AE reconstruction gallery
+    if autoencoder is not None and gan_generator is not None:
+        fig11_gan_vs_ae_gallery(
+            args.plate_dir, autoencoder, gan_generator, device, args.output_dir
+        )
+        fig14_gan_ocr_comparison(
+            args.plate_dir, autoencoder, gan_generator, device, args.output_dir
+        )
+    else:
+        print("  ✗ Skipping fig11/fig14: need both AE and GAN weights")
+
+    # Fig 12: GAN training curves
+    gan_hist = args.gan_history
+    if not gan_hist:
+        # Auto-detect common paths
+        for candidate in [
+            "results/autoencoder/gan/gan_training_results.json",
+            "results/gan/gan_training_results.json",
+        ]:
+            if os.path.exists(candidate):
+                gan_hist = candidate
+                break
+    fig12_gan_training_curves(gan_hist, args.output_dir)
+
+    # ── 6. Version comparison (v2 vs v3) ─────────────────────────────
+    data_v2 = None
+    v2_path = args.results_v2
+    if not v2_path:
+        # Auto-detect v2 results
+        for candidate in [
+            "results/experiment_v2/experiment_results.json",
+            "results/experiment/experiment_results.json",
+        ]:
+            if os.path.exists(candidate) and candidate != args.results:
+                v2_path = candidate
+                break
+    if v2_path and os.path.exists(v2_path):
+        with open(v2_path) as f:
+            data_v2 = json.load(f)
+        print(f"  Loaded v2 results from {v2_path}")
+
+    if data_v2 and data:
+        fig13_version_comparison(data_v2, data, args.output_dir)
+    else:
+        print("  ✗ Skipping fig13: need both v2 and v3 results for comparison")
+
+    # ── 7. Detection comparison ──────────────────────────────────────
     if args.detector_weights and os.path.exists(args.detector_weights):
         from models.detector import PlateDetector
         detector = PlateDetector(
@@ -543,7 +895,9 @@ def main():
     else:
         print("  ✗ Skipping fig7: no detector weights provided")
 
-    print(f"\nAll figures saved to {args.output_dir}/")
+    print(f"\n{'=' * 60}")
+    print(f"All figures saved to {args.output_dir}/")
+    print(f"{'=' * 60}")
 
 
 if __name__ == "__main__":

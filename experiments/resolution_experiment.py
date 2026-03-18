@@ -289,8 +289,11 @@ class ResolutionExperiment:
                         )
                     else:
                         processed = degradation_fn(image.copy())
-                    # Apply autoencoder restoration to the full image
-                    processed = self._apply_autoencoder_to_full_image(processed)
+                    # Only apply autoencoder when image is actually degraded.
+                    # Skipping at full resolution prevents tiling artefacts on
+                    # clean images that would hurt OCR.
+                    if resolution < self.base_resolution:
+                        processed = self._apply_autoencoder_to_full_image(processed)
                 else:
                     raise ValueError(f"Unknown condition: {condition}")
 
