@@ -19,7 +19,6 @@ The key experiment compares three conditions at each resolution:
 ## Student Information
 
 - **Name**: Peter Herrera
-- **ID**: [YOUR_STUDENT_ID]
 - **Group Collaborators**: [LIST_COLLABORATORS]
 - **Resources**: See references section below
 
