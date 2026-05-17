@@ -149,16 +149,6 @@ code/
 └── results/                     # outputs (not committed)
 ```
 
-## Submission Notes
-
-- The Assignment 1 writeup is in `writeup/assignment1.tex`. Build with:
-  ```bash
-  cd writeup && latexmk -pdf assignment1.tex
-  ```
-- The domain-expert section in the LaTeX source is a placeholder — fill in before submitting.
-- **GitHub repository**: https://github.com/pharrera/ALPR_AE
-  > Code is not accepted via Canvas — submit only the PDF write-up and this README.
-
 ## References
 
 - Laroca, R. et al., *A Robust Real-Time Automatic License Plate Recognition Based on the YOLO Detector*, IJCNN, 2018. (UFPR-ALPR)
