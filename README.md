@@ -1,6 +1,6 @@
 # License Plate Recognition via Adaptive Deep Learning Restoration
 
-**CPSC 393 — Assignment 1**
+**CPSC 543 — Assignment 1**
 
 Can a learned restorer (U-Net + GAN) plus an adaptive RL policy (DQN) recover license-plate detection and OCR accuracy lost to image degradation? This repo measures the answer on the UFPR-ALPR benchmark.
 
@@ -9,7 +9,7 @@ Can a learned restorer (U-Net + GAN) plus an adaptive RL policy (DQN) recover li
 - **Name**: Peter Herrera
 - **Email**: peherrera@chapman.edu
 - **Group Collaborators**: None
-- **Course**: CPSC 393, Spring 2026
+- **Course**: CPSC 543, Spring 2026
 
 ## Pipeline
 
