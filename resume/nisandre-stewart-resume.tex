@@ -1,0 +1,185 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+%
+% Nisandre Stewart — one-page résumé
+%
+% Built on the Awesome-CV LaTeX template by Claud D. Park
+% https://github.com/posquit0/Awesome-CV  (CC BY-SA 4.0)
+%
+% BUILD:  make        (or: lualatex nisandre-stewart-resume.tex)
+% OVERLEAF: upload this file together with awesome-cv.cls, then set the
+%           compiler to LuaLaTeX or XeLaTeX (Menu > Compiler).
+%
+
+%-------------------------------------------------------------------------------
+% CONFIGURATION
+%-------------------------------------------------------------------------------
+\documentclass[10pt, letterpaper]{awesome-cv}
+
+\geometry{left=1.3cm, top=.55cm, right=1.3cm, bottom=.75cm, footskip=.4cm}
+
+% Accent color. Swap for awesome-emerald, awesome-skyblue, awesome-red,
+% awesome-pink, awesome-orange, awesome-nephritis, awesome-concrete,
+% awesome-darknight — or define your own with \definecolor.
+\colorlet{awesome}{awesome-darknight}
+
+\setbool{acvSectionColorHighlight}{true}
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+% Tighten the vertical rhythm slightly for a dense one-pager. Keep
+% acvSectionContentTopSkip at 2.5mm or above: several Awesome-CV environments
+% subtract up to 3mm from it, so smaller values collide with the section rule.
+\renewcommand{\acvSectionTopSkip}{1.6mm}
+\renewcommand{\acvHeaderAfterSocialSkip}{3mm}
+
+
+%-------------------------------------------------------------------------------
+% PERSONAL INFORMATION
+%-------------------------------------------------------------------------------
+\name{Nisandre}{Stewart}
+\position{Fine Dining Server{\enskip\cdotp\enskip}Sommelier-Trained{\enskip\cdotp\enskip}Bartender}
+\address{Los Angeles, CA 90068}
+\mobile{(+1) 760-898-4449}
+\email{nisquiks@gmail.com}
+
+
+%-------------------------------------------------------------------------------
+\begin{document}
+
+\makecvheader[C]
+
+
+%-------------------------------------------------------------------------------
+% PROFILE
+%-------------------------------------------------------------------------------
+\cvsection{Profile}
+\par
+\begin{cvparagraph}
+Sommelier-trained server with 8+ years across fine dining, high-volume nightlife, and resort beverage
+service. Working command of Old and New World regions, food-and-wine pairing, and tableside bottle
+service, with the composure to hold formal standards in a chef-driven dining room or on a
+1{,}200-guest night.
+\end{cvparagraph}
+
+
+%-------------------------------------------------------------------------------
+% EXPERIENCE
+%-------------------------------------------------------------------------------
+\cvsection{Experience}
+
+\begin{cventries}
+
+%---------------------------------------------------------
+  \cventry
+    {Server}
+    {The Penmar}
+    {Venice, CA}
+    {Jan. 2022 -- Present}
+    {
+      \begin{cvitems}
+        \item {Run full table service in a high-volume dining room, sustaining pace and ticket accuracy through live-music nights drawing crowds of 1{,}200+ guests.}
+        \item {Own opening and closing as a trusted key holder --- floor and station setup, stocking, cash handling, and end-of-shift reconciliation.}
+        \item {Power user of Toast POS (coursing, modifiers, comps, split checks); cross-cover the espresso bar at brunch without pulling coverage off assigned sections.}
+      \end{cvitems}
+    }
+
+%---------------------------------------------------------
+  \cventry
+    {Server}
+    {BlackBook}
+    {Palm Springs, CA}
+    {May 2021 -- Nov. 2021}
+    {
+      \begin{cvitems}
+        \item {Flexed between server, host, and food-runner roles within the same shift, absorbing coverage gaps through peak season without added labor hours.}
+        \item {Paced seating and guest flow at the door on full-book nights to protect kitchen ticket times; ran opening and closing checklists with a clean drawer record.}
+      \end{cvitems}
+    }
+
+%---------------------------------------------------------
+  \cventry
+    {Server --- Fine Dining}
+    {Del Rey}
+    {Palm Springs, CA}
+    {Mar. 2021 -- Jul. 2021}
+    {
+      \begin{cvitems}
+        \item {Delivered coursed fine-dining service in a chef-driven dining room --- synchronized drops, crumbing, silverware marking, and French-style table maintenance held to formal standards.}
+        \item {Completed in-house sommelier training under the beverage director: Old and New World regions, viticulture and vinification, tasting methodology, and structured food-and-wine pairing.}
+        \item {Guided guests through an extensive by-the-glass and reserve bottle list, translating tasting notes into plain language and matching selections to palate, course, and budget rather than price point.}
+        \item {Performed tableside bottle service end to end --- presentation, still and sparkling opening, decanting of age-worthy reds, correct glassware, and temperature management.}
+        \item {Grew beverage attachment by pairing proactively at the point of ordering, and held full menu and allergen fluency across a rotating seasonal menu, fielding sourcing and dietary questions without leaving the table.}
+        \item {Trained incoming servers on service sequence and wine fundamentals; regularly waited full sections and, on short-staffed shifts, the entire dining room while covering expo and bussing.}
+      \end{cvitems}
+    }
+
+%---------------------------------------------------------
+  \cventry
+    {Bartender \& Pool Attendant}
+    {Infusion Beach Club}
+    {Palm Springs, CA}
+    {Jul. 2019 -- Jul. 2020}
+    {
+      \begin{cvitems}
+        \item {Built cocktails, frozen drinks, beer, and wine for a high-volume resort pool deck --- solo behind the bar through shoulder hours, barbacking and running support at capacity.}
+        \item {Balanced beverage service against deck operations, held par levels and batched mixes ahead of service, and monitored consumption per California responsible-service standards.}
+      \end{cvitems}
+    }
+
+%---------------------------------------------------------
+  \cventry
+    {Server, Host \& Busser}
+    {Wildest Greens}
+    {Palm Desert, CA}
+    {Jan. 2018 -- Jul. 2019}
+    {
+      \begin{cvitems}
+        \item {Opened the floor daily and served a scratch-kitchen health concept front to back --- greeting, seating, juice and smoothie station --- holding turn times down by clearing, resetting, and re-seating in a single pass at peak.}
+      \end{cvitems}
+    }
+
+\end{cventries}
+
+
+%-------------------------------------------------------------------------------
+% SKILLS
+%-------------------------------------------------------------------------------
+\cvsection{Skills}
+
+\begin{cvskills}
+
+  \cvskill
+    {Wine \& Beverage}
+    {Sommelier training, Old \& New World regions, food-and-wine pairing, decanting, tableside bottle service, cocktails}
+
+  \cvskill
+    {Service}
+    {Fine dining and coursed service, guest relations, upselling, allergen accommodation, host flow, expediting}
+
+  \cvskill
+    {Systems \& Operations}
+    {Toast POS, Aloha POS, cash handling, opening and closing, inventory and par levels, food safety, server training}
+
+\end{cvskills}
+
+
+%-------------------------------------------------------------------------------
+% EDUCATION & CERTIFICATIONS
+%-------------------------------------------------------------------------------
+\cvsection{Education \& Certifications}
+
+\begin{cvskills}
+
+  \cvskill
+    {Education}
+    {A.A. Theater Arts --- College of the Desert, Cathedral City, CA (Aug. 2019 -- May 2021)}
+
+  \cvskill
+    {Certifications}
+    {In-house sommelier training, Del Rey (2021) \enskip\textbullet\enskip California Food Handler Card}
+
+\end{cvskills}
+
+
+%-------------------------------------------------------------------------------
+\end{document}
