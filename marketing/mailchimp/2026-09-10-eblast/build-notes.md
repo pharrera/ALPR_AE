@@ -5,14 +5,34 @@ plus the open items that must be resolved before scheduling.
 
 ---
 
-## 1. Blocking items (must be resolved before send)
+## 1. Link inventory
 
-| # | Item | Where | Why it blocks |
-|---|---|---|---|
-| 1 | **Tech Week Sponsorship Packet URL** | Section 3 button | The draft says "Explore the Sponsorship Packet" with no link. The whole section is a sponsorship ask with no way to act on it. |
-| 2 | **Business advising intake form URL** | Section 4 button | Same problem — a CTA with no destination. |
-| 3 | **Registration URLs for AI Series Sessions 2 and 3** | Section 1 series table | Only Session 1 has a link. If per-session registration is required, readers can't sign up for the rest. If registering for Session 1 enrolls them in all three, say so instead and drop the placeholder. |
-| 4 | **Implementation Lab, Tue 9/15** | Section 2, optional block | The contracting series materials list a Sept 15 Implementation Lab as the follow-on to Session 2, with no time or registration link. Confirm whether it's running, then either fill in the details or delete the block. |
+| Placement | Destination | Status |
+|---|---|---|
+| AI Series, Session 1 button | `hub.catalyzerapp.com/public/events/purpose-people-and-ai-building-the-foundation-of-a-4705-133` | Supplied |
+| AI Series, Sessions 2 and 3 | `lbaccelerator.org/events` (catch-all) | **Open — see below** |
+| Contracting, Session 2 button | `hub.catalyzerapp.com/public/events/session-2-preparing-to-pursue-the-work-evaluate-op-4705-67` | Supplied, confirmed |
+| Tech Week, packet button | `drive.google.com/file/d/1brJxClWdJ9efsuH7RnPNsjyxDq5224CC/view` | Supplied — **check sharing** |
+| Tech Week, inline text link | `longbeachtechweek.com` | Supplied |
+| Advising, intake form button | `hub.catalyzerapp.com/public/form/46c9cb88-0c9a-4eac-9346-f53f61f511d6` | Supplied |
+
+### Still open
+
+- **AI Series Sessions 2 and 3 registration.** No direct URLs yet. The table currently points readers
+  to `lbaccelerator.org/events` as a catch-all. Replace with direct links if per-session registration
+  is required, or say plainly that Session 1 registration enrolls participants in all three.
+- **Implementation Lab, Tue 9/15.** Still being worked out, so the block has been removed from the
+  draft. If it firms up before send, add it to Section 2 as the natural next step after Session 2.
+  Note the date collides with AI Series Session 1 (10:00–11:30 AM PT), so pick a non-conflicting time.
+
+### Two link cautions
+
+1. **The Google Drive packet must be shared publicly.** Drive links default to restricted access.
+   If the sharing setting isn't "Anyone with the link," every recipient hits a permission wall.
+   Open the link in a private/incognito window while signed out and confirm the packet loads.
+2. **Links could not be verified from the drafting environment.** Its network policy blocks
+   `drive.google.com`, `longbeachtechweek.com`, `hub.catalyzerapp.com`, and `lbaccelerator.org`
+   outright, so every URL above is unverified and needs a human click-test in Mailchimp preview.
 
 ## 2. Decisions worth making (not blocking)
 
@@ -62,8 +82,9 @@ Keep buttons to two or three words and make every one link somewhere.
 
 ## 6. Pre-send QA checklist
 
-- [ ] All four blocking links filled in (§1)
-- [ ] Every button click-tested in Mailchimp preview
+- [ ] AI Series Sessions 2 and 3 registration resolved (§1, Still open)
+- [ ] **Google Drive sponsorship packet opens while signed out** (incognito test)
+- [ ] Every button click-tested in Mailchimp preview — none were verifiable from the drafting environment
 - [ ] Alt text applied to all images
 - [ ] Send time confirmed as **8:00 AM PT** — the "join us today at 4:00 PM" line only works on a morning send on 9/10
 - [ ] Mobile preview checked; the series date table is the most likely block to break

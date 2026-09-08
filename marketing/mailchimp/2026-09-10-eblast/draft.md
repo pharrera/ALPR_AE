@@ -68,7 +68,8 @@ What makes your business valuable, distinct, and worthy of trust? In this sessio
 | **2** | Good for Business: Investing in People and AI as Workforce Capacity | Wed, Sept 23, 2026 | 11:00 AM – 1:00 PM PT |
 | **3** | Authority Positioning and Strategic Visibility to Yield Market Trust | Thu, Oct 8, 2026 | 12:00 – 2:00 PM PT |
 
-All sessions are held via Zoom. `[LINK NEEDED: registration URLs for Sessions 2 and 3 — or link this table to the LBA events page]`
+All sessions are held via Zoom. Register for Sessions 2 and 3 at **lbaccelerator.org/events**.
+`[CONFIRM: direct registration URLs for Sessions 2 and 3, or confirm the events page is the right catch-all]`
 
 ### About the facilitator
 
@@ -101,8 +102,6 @@ It's not too late to join us **today, Thursday, September 10, 2026 at 4:00 PM** 
 
 **Ronda Jackson** is a business adviser, speaker, author, and entrepreneur with more than 20 years of experience in business development, procurement, strategic planning, and entrepreneurship. As an LBA Business Adviser, she helps business owners navigate contracting opportunities, strengthen operations, and prepare for sustainable growth.
 
-`[OPTIONAL — CONFIRM BEFORE INCLUDING: The series materials list an Implementation Lab on Tuesday, September 15 as the follow-on to Session 2. No time or registration link was provided. If it's running, add it here as the natural next step; if not, drop this block.]`
-
 ---
 
 ## SECTION 3 — Long Beach Tech Week 2026
@@ -124,7 +123,10 @@ Sponsorship opportunities are available at multiple levels, offering benefits su
 - Opportunities to participate in select programs, forums, and the 2026 Investors & Founders Summit
 
 > **[BUTTON: View the Sponsorship Packet]**
-> `[LINK NEEDED: Long Beach Tech Week 2026 Sponsorship Packet URL]`
+> https://drive.google.com/file/d/1brJxClWdJ9efsuH7RnPNsjyxDq5224CC/view
+
+For the full schedule and event details, visit **longbeachtechweek.com**.
+`[LINK: https://longbeachtechweek.com]`
 
 ---
 
@@ -137,7 +139,7 @@ We provide no-cost, one-on-one business advising for emerging technology compani
 Complete our intake form to get matched with the advisor best suited to your goals and start building your customized path to growth.
 
 > **[BUTTON: Complete the Intake Form]**
-> `[LINK NEEDED: LBA advising intake form URL]`
+> https://hub.catalyzerapp.com/public/form/46c9cb88-0c9a-4eac-9346-f53f61f511d6
 
 ---
 
