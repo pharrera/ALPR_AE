@@ -9,8 +9,8 @@ images/
   hero-ai-series.jpg    600px display  (1200px asset)
   contracting-session2.jpg  600px display (530px asset — see Known issue)
   techweek-2026.jpg     600px display  (781px asset)
-  icon-linkedin.png     44px  |  icon-x.png    44px (held back, see below)
-  icon-email.png        44px  |  icon-web.png  44px
+  icon-linkedin.png     44px  |  icon-email.png  44px
+  icon-web.png          44px
 README.md               this file
 ```
 
@@ -123,9 +123,6 @@ The other three images are all at or above their display size.
 
 ## Before you send
 
-- [ ] **Add the X profile URL, or drop the icon.** The X icon is built but commented out in
-      the footer, because the LBA handle wasn't supplied. Paste the profile URL into the
-      `href` and remove the comment markers, or leave it as-is and only three icons ship.
 - [ ] **Google Drive sponsorship packet opens while signed out.** Drive links default to
       restricted. Test in a private window — if it's restricted, every recipient hits a
       permission wall on the main sponsorship CTA.
@@ -143,6 +140,9 @@ The other three images are all at or above their display size.
 
 Rebuilt to match the format of the earlier LBA e-blast: a blue rule, a row of social icons,
 then the logo beside the legal block. It stacks and centers under 620px.
+
+Three icons: LinkedIn, email, website. No X — LBA is off the platform, so the icon and its
+asset were removed rather than left dormant in the file.
 
 The icons are generated as PNGs in LBA Blue rather than the multicolored set the older blast
 used, so they sit with the rest of the brand-conformed chrome. Say the word if you'd rather
@@ -175,7 +175,6 @@ for its own address block instead, swap those four lines for `*\|LIST:ADDRESSLIN
 | Footer — LinkedIn | `linkedin.com/company/long-beach-accelerator/` |
 | Footer — Email | `mailto:info@lbaccelerator.org` |
 | Footer — Website | `lbaccelerator.org` |
-| Footer — X | **not supplied** — icon commented out |
 
 ## Image sources
 
