@@ -11,6 +11,10 @@ images/
   techweek-2026.jpg     600px display  (781px asset)
   icon-linkedin.png     44px  |  icon-email.png  44px
   icon-web.png          44px
+  honoree-hacegaba.jpg  250px display (500px asset)
+  honoree-marshall.jpg  250px display (500px asset)
+  honoree-lee.jpg       250px display (500px asset)
+  honoree-glass.jpg     250px display (500px asset)
 README.md               this file
 ```
 
@@ -135,6 +139,29 @@ The other three images are all at or above their display size.
 - [ ] Confirm the send is scheduled for 8:00 AM PT on 9/10.
 
 ---
+
+## Summit honorees section
+
+Sits between Tech Week and Business Advising: a 2x2 grid of headshots that stacks to one
+column under 620px.
+
+| Honoree | Role | Award |
+|---|---|---|
+| Dr. Noel Hacegaba | CEO, Port of Long Beach | 2026 LBA Visionary of the Year |
+| Carrie Marshall | CEO, Rebel Space | 2026 LBA Trailblazer of the Year |
+| Joshua Lee | Managing Partner, Gumshoe Ventures | 2026 LBA Investor of the Year |
+| Ethan Glass | CEO, OCRA | 2026 LBA Founder of the Year |
+
+Photo-to-name mapping is taken from the honorees PDF itself — each headshot was extracted
+from the page carrying that person's bio, so no one is identified by guesswork. Worth a
+second pair of eyes anyway: misidentifying an honoree in a public email is the one error
+here that would be genuinely costly.
+
+Headshots are square 500px crops (displayed at 250px). Joshua Lee's source was landscape and
+was recentered on the subject rather than center-cropped.
+
+Alt text names each honoree, their role, and their award, so the section still reads with
+images blocked.
 
 ## Footer
 
