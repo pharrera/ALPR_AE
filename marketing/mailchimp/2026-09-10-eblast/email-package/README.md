@@ -163,6 +163,23 @@ was recentered on the subject rather than center-cropped.
 Alt text names each honoree, their role, and their award, so the section still reads with
 images blocked.
 
+## New tech center section
+
+A short block between the honorees and Business Advising, announcing the tech center opening
+at the end of September and naming Lumen 21 as the partner on installation and IT.
+
+**Written deliberately thin.** The only facts available were that the center opens at the end
+of the month and that Lumen 21 is handling installation and IT. Nothing else is asserted.
+Three things would make this section much stronger if you have them:
+
+- The center's name and address
+- A firm opening date, or an invitation to a launch event
+- One line on what it offers members, and a photo or rendering of the space
+
+Lumen 21's own services are not characterized beyond the installation and IT work, since
+`lumen21.com` was unreachable from the drafting environment and nothing in the source files
+describes them. If you want them described more fully, send a line and it goes straight in.
+
 ## Footer
 
 Rebuilt to match the format of the earlier LBA e-blast: a blue rule, a row of social icons,
@@ -202,6 +219,7 @@ for its own address block instead, swap those four lines for `*\|LIST:ADDRESSLIN
 | Footer — LinkedIn | `linkedin.com/company/long-beach-accelerator/` |
 | Footer — Email | `mailto:info@lbaccelerator.org` |
 | Footer — Website | `lbaccelerator.org` |
+| "Lumen 21" (inline, tech center) | `lumen21.com` |
 
 ## Image sources
 
