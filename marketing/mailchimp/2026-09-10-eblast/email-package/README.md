@@ -5,7 +5,7 @@ Everything needed to build the campaign. Two ways to load it, described below.
 ```
 email.html              paste-ready / zip-ready email
 images/
-  lba-logo.png          220px display  (440px asset)
+  lba-logo.png          220px display  (440px asset, official lockup from the brand guidelines)
   hero-ai-series.jpg    600px display  (1200px asset)
   contracting-session2.jpg  600px display (530px asset — see Known issue)
   techweek-2026.jpg     600px display  (781px asset)
@@ -54,25 +54,39 @@ at 4:00 PM." Any other send date makes that line wrong.
 
 ---
 
-## Palette
+## Palette — per LBA Brand Guidelines (08/31/26)
 
-Matches the teal / navy / mint system from the Contracting & Procurement e-blast.
-
-| Token | Hex | Used for |
+| Brand token | Hex | Used here |
 |---|---|---|
-| Teal | `#0F6E75` | All buttons, eyebrow labels, bullets, card borders, links, header rule |
-| Navy | `#12293F` | Headings, footer background |
-| Body | `#2E3D4D` | Paragraph text |
-| Muted | `#5C6B7A` | Bios, captions |
-| Mint | `#E4F0F1` | Card backgrounds |
-| Mint edge | `#C4DCDE` | Card inner dividers |
-| Hairline | `#DCE5E8` | Section rules |
-| Page | `#E7EFF0` | Background behind the 600px body |
+| LBA Blue | `#204396` | Headlines, subheads, footer background, primary CTAs |
+| LBA Teal | `#008C8C` | Eyebrow labels, bullets, card borders, header rule, links, secondary CTAs |
+| White | `#FFFFFF` | Content background, reverse type |
+| Charcoal | `#333333` | Body copy |
+| Light Gray | `#F2F4F5` | Card panels, page background |
+| Medium Gray | `#6B7280` | Bios and captions |
 
-Every CTA is the same teal on purpose — one button color reads as one affordance.
-The flyer graphics keep their own native colors (the AI series banner is purple, Tech Week
-is navy and gold); that's program artwork sitting inside consistent chrome, the same way the
-contracting e-blast carries both teal and blue session tags.
+Two hairline tints (`#E3E6E9` rules, `#DCE0E4` card dividers) and two footer type tints
+(`#D7DEF0`, `#AEB9D8`) are derived from the neutrals; the guidelines don't specify values
+for those roles.
+
+**CTA hierarchy** follows the guidelines' three button styles. Event registrations — the two
+primary asks — use Primary CTA (LBA Blue background, white text). The sponsorship packet and
+advising intake use Secondary CTA (LBA Teal background, white text). The Outline CTA style
+isn't used; a bordered button renders inconsistently across email clients.
+
+**Typography.** The stack is `'Proxima Nova','Helvetica Neue',Helvetica,Arial,sans-serif`.
+Proxima Nova is a licensed font with no free web-host, and Outlook and Gmail ignore webfonts
+regardless, so most recipients will see Helvetica or Arial. Readers on machines with Proxima
+Nova installed get the real face. This is the correct approach for email — there's no way to
+guarantee a custom font in an inbox.
+
+**One accessibility note.** LBA Teal on white measures 4.09:1, just under the 4.5:1 WCAG AA
+threshold for normal-size text. It's fine on the buttons (large text) but the 12px uppercase
+eyebrow labels sit below AA. It's your brand's own value so I've used it as specified —
+switching those small labels to LBA Blue (9.11:1) would clear AA if you'd rather.
+
+**Program artwork keeps its own colors.** The AI series banner is purple and Tech Week is navy
+and gold; those are the approved flyers sitting inside brand-consistent chrome.
 
 ## What's in the code
 
@@ -85,8 +99,8 @@ contracting e-blast carries both teal and blue session tags.
 - `*|UNSUB|*`, `*|UPDATE_PROFILE|*`, and `*|LIST:ADDRESSLINE|*` merge tags in the footer.
   Mailchimp rejects a campaign without an unsubscribe tag, so leave these in.
 
-Rendered and checked in Chromium at 700px and 390px. Full height is about 5,220px desktop
-and 5,660px mobile.
+Rendered and checked in Chromium at 700px and 390px. Full height is about 5,065px desktop
+and 5,685px mobile.
 
 ---
 
@@ -131,6 +145,8 @@ The other three images are all at or above their display size.
 ## Image sources
 
 All graphics were extracted from the supplied source files — no stock or generated imagery.
+The logo is the official LBA Accelerator lockup pulled from the brand guidelines PDF, flattened
+onto white so it can't invert in a dark-mode client.
 The hero is cropped from the series banner to the title-and-facilitator portion; the three
 session cards were dropped from the image because they're unreadable at phone width and the
 HTML table below covers the same information in selectable, screen-reader-friendly text.
