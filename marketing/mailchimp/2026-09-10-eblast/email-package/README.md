@@ -54,6 +54,26 @@ at 4:00 PM." Any other send date makes that line wrong.
 
 ---
 
+## Palette
+
+Matches the teal / navy / mint system from the Contracting & Procurement e-blast.
+
+| Token | Hex | Used for |
+|---|---|---|
+| Teal | `#0F6E75` | All buttons, eyebrow labels, bullets, card borders, links, header rule |
+| Navy | `#12293F` | Headings, footer background |
+| Body | `#2E3D4D` | Paragraph text |
+| Muted | `#5C6B7A` | Bios, captions |
+| Mint | `#E4F0F1` | Card backgrounds |
+| Mint edge | `#C4DCDE` | Card inner dividers |
+| Hairline | `#DCE5E8` | Section rules |
+| Page | `#E7EFF0` | Background behind the 600px body |
+
+Every CTA is the same teal on purpose — one button color reads as one affordance.
+The flyer graphics keep their own native colors (the AI series banner is purple, Tech Week
+is navy and gold); that's program artwork sitting inside consistent chrome, the same way the
+contracting e-blast carries both teal and blue session tags.
+
 ## What's in the code
 
 - 600px fixed-width, table-based layout with inline CSS — renders in Outlook, Gmail, and Apple Mail
