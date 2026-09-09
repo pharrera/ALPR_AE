@@ -9,6 +9,8 @@ images/
   hero-ai-series.jpg    600px display  (1200px asset)
   contracting-session2.jpg  600px display (530px asset — see Known issue)
   techweek-2026.jpg     600px display  (781px asset)
+  icon-linkedin.png     44px  |  icon-x.png    44px (held back, see below)
+  icon-email.png        44px  |  icon-web.png  44px
 README.md               this file
 ```
 
@@ -99,8 +101,8 @@ and gold; those are the approved flyers sitting inside brand-consistent chrome.
 - `*|UNSUB|*`, `*|UPDATE_PROFILE|*`, and `*|LIST:ADDRESSLINE|*` merge tags in the footer.
   Mailchimp rejects a campaign without an unsubscribe tag, so leave these in.
 
-Rendered and checked in Chromium at 700px and 390px. Full height is about 5,065px desktop
-and 5,685px mobile.
+Rendered and checked in Chromium at 700px and 390px. Full height is about 5,284px desktop
+and 5,969px mobile.
 
 ---
 
@@ -118,6 +120,9 @@ The other three images are all at or above their display size.
 
 ## Before you send
 
+- [ ] **Add the X profile URL, or drop the icon.** The X icon is built but commented out in
+      the footer, because the LBA handle wasn't supplied. Paste the profile URL into the
+      `href` and remove the comment markers, or leave it as-is and only three icons ship.
 - [ ] **Google Drive sponsorship packet opens while signed out.** Drive links default to
       restricted. Test in a private window — if it's restricted, every recipient hits a
       permission wall on the main sponsorship CTA.
@@ -131,6 +136,27 @@ The other three images are all at or above their display size.
 
 ---
 
+## Footer
+
+Rebuilt to match the format of the earlier LBA e-blast: a blue rule, a row of social icons,
+then the logo beside the legal block. It stacks and centers under 620px.
+
+The icons are generated as PNGs in LBA Blue rather than the multicolored set the older blast
+used, so they sit with the rest of the brand-conformed chrome. Say the word if you'd rather
+have the original blue/black/gold/orange treatment back.
+
+Four Mailchimp merge tags do work here, so don't replace them with static text:
+
+| Tag | Renders as |
+|---|---|
+| `*\|CURRENT_YEAR\|*` | The current year in the copyright line |
+| `*\|LIST:ADDRESS_VCARD\|*` | The "Add us to your address book" vCard link |
+| `*\|UPDATE_PROFILE\|*` | Preferences link |
+| `*\|UNSUB\|*` | Unsubscribe link |
+
+The mailing address is written out literally, matching the earlier blast. If Mailchimp asks
+for its own address block instead, swap those four lines for `*\|LIST:ADDRESSLINE\|*`.
+
 ## Links used
 
 | Placement | Destination |
@@ -141,6 +167,10 @@ The other three images are all at or above their display size.
 | View the Sponsorship Packet | `drive.google.com/file/d/1brJxClWdJ9efsuH7RnPNsjyxDq5224CC/view` |
 | longbeachtechweek.com | `longbeachtechweek.com` |
 | Complete the Intake Form | `hub.catalyzerapp.com/public/form/46c9cb88-0c9a-4eac-9346-f53f61f511d6` |
+| Footer — LinkedIn | `linkedin.com/company/long-beach-accelerator/` |
+| Footer — Email | `mailto:info@lbaccelerator.org` |
+| Footer — Website | `lbaccelerator.org` |
+| Footer — X | **not supplied** — icon commented out |
 
 ## Image sources
 
