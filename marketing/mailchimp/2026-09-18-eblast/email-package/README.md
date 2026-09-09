@@ -31,20 +31,31 @@ the visual editor while the layout stays put.
 
 ## Design
 
-Sections alternate between white and Light Gray `#F2F4F5` grounds. In an email this long,
-alternating the ground is what separates one section from the next — hairline rules cannot
-carry that weight on their own, and readers scroll past them.
+**Three grounds.** Sections sit on white, Light Gray `#F2F4F5`, or a reversed LBA Blue band.
+The blue band is the emphasis device and there is one per email, on whatever that send is
+actually asking for — the contents list and honorees on 9/10, Session 1 on 9/14, honorees on
+9/18. Used more than that it stops being emphasis.
 
-Each section opens with a short teal rule over an uppercase kicker, so the eye can find where
-one topic ends and the next begins without reading.
+**Reversed palette.** Brand teal on LBA Blue measures 2.23:1 and fails outright, so kickers
+and bullets on the blue band use `#7FD8D8`, a light tint of it, at 5.52:1. Body there is
+`#E4EAF6` at 7.55:1 and headlines are white at 9.11:1. Buttons invert to a white field with
+blue text.
 
-Body type is 16px on 27px leading. At the 520px measure that is roughly 68 characters a line,
-near the top of the comfortable range, and the extra leading keeps it from packing.
+**Display headlines** are 34px on 41px, dropping to 26px on phones — large enough to carry a
+section on their own.
 
-Per the LBA Brand Guidelines (08/31/26): LBA Blue `#204396` for headlines, subheads and primary
-CTAs; LBA Teal `#008C8C` for kickers, bullets, rules and secondary CTAs; Charcoal `#333333` body;
-Medium Gray `#6B7280` captions. Proxima Nova leads the font stack with web-safe fallbacks —
-Outlook and Gmail ignore webfonts, so most readers see Helvetica or Arial.
+**Date badges** are filled chips, teal on light grounds and white on blue. Every event section
+leads with one, so the deadline is the first thing the eye lands on rather than something
+buried in a details block.
+
+Series rows carry solid teal numerals; honoree awards sit in filled ribbons under each photo.
+
+Per the LBA Brand Guidelines (08/31/26): LBA Blue `#204396`, LBA Teal `#008C8C`, Charcoal
+`#333333`, Medium Gray `#6B7280`, Light Gray `#F2F4F5`. Proxima Nova leads the font stack with
+web-safe fallbacks — Outlook and Gmail ignore webfonts, so most readers see Helvetica or Arial.
+
+Everything here is `<td>` background colours and solid fills, which Outlook renders. No
+gradients, no background images, no CSS that degrades to an unreadable band.
 
 ## Before you send
 
@@ -53,4 +64,6 @@ Outlook and Gmail ignore webfonts, so most readers see Helvetica or Arial.
 - [ ] **Google Drive sponsorship packet opens while signed out** (incognito test). Drive links
       default to restricted.
 - [ ] Test send to yourself and one colleague; open it on a phone.
+- [ ] Check the blue bands in Outlook specifically — reversed type is where a client with its
+      own ideas about backgrounds would show up first.
 - [ ] Confirm the schedule matches the send time above — the copy is dated.
