@@ -101,8 +101,11 @@ and gold; those are the approved flyers sitting inside brand-consistent chrome.
 - `*|UNSUB|*`, `*|UPDATE_PROFILE|*`, and `*|LIST:ADDRESSLINE|*` merge tags in the footer.
   Mailchimp rejects a campaign without an unsubscribe tag, so leave these in.
 
-Rendered and checked in Chromium at 700px and 390px. Full height is about 5,284px desktop
-and 5,969px mobile.
+Rendered and checked in Chromium at 700px and 390px. Full height is about 5,316px desktop.
+HTML structure validated: no unclosed or mismatched tags.
+
+Inline body links use LBA Blue rather than teal. Teal on white is 4.09:1, and a link buried in
+a paragraph needs more separation from body copy than that gives it.
 
 ---
 
@@ -165,7 +168,9 @@ for its own address block instead, swap those four lines for `*\|LIST:ADDRESSLIN
 | Sessions 2 and 3 | `lbaccelerator.org/events` |
 | Register Now (contracting) | `hub.catalyzerapp.com/public/events/session-2-preparing-to-pursue-the-work-evaluate-op-4705-67` |
 | View the Sponsorship Packet | `drive.google.com/file/d/1brJxClWdJ9efsuH7RnPNsjyxDq5224CC/view` |
-| longbeachtechweek.com | `longbeachtechweek.com` |
+| "Long Beach Tech Week 2026" (inline, first mention) | `longbeachtechweek.com` |
+| "Sponsorship Packet" (inline, closing line) | `drive.google.com/file/d/1brJxClWdJ9efsuH7RnPNsjyxDq5224CC/view` |
+| "Intake Form" (inline) | `hub.catalyzerapp.com/public/form/46c9cb88-0c9a-4eac-9346-f53f61f511d6` |
 | Complete the Intake Form | `hub.catalyzerapp.com/public/form/46c9cb88-0c9a-4eac-9346-f53f61f511d6` |
 | Footer — LinkedIn | `linkedin.com/company/long-beach-accelerator/` |
 | Footer — Email | `mailto:info@lbaccelerator.org` |
