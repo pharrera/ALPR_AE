@@ -281,18 +281,6 @@ def bio(name, text, g):
             f'<strong style="color:{g["strong"]};">About {name}.</strong> {text}</p>')
 
 
-def contents(items, g):
-    rows = ""
-    for i, (t, meta) in enumerate(items):
-        gap = "0" if i == len(items) - 1 else "0 0 14px 0"
-        rows += (f'        <tr>'
-                 f'<td width="34" valign="top" style="padding:{gap};font-size:19px;line-height:24px;color:{g["mark"]};font-weight:bold;">{i+1}</td>'
-                 f'<td style="padding:{gap};font-size:15px;line-height:23px;color:{g["body"]};">'
-                 f'<strong style="color:{g["strong"]};">{t}</strong><br /><span style="color:{g["muted"]};font-size:14px;">{meta}</span></td></tr>\n')
-    return (f'{kicker("In this email", g)}\n'
-            f'      <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0">\n{rows}      </table>')
-
-
 HONOREES = [("honoree-hacegaba.jpg", "Visionary of the Year", "Dr. Noel Hacegaba", "Chief Executive Officer<br />Port of Long Beach"),
             ("honoree-marshall.jpg", "Trailblazer of the Year", "Carrie Marshall", "Chief Executive Officer<br />Rebel Space"),
             ("honoree-lee.jpg", "Investor of the Year", "Joshua Lee", "Managing Partner<br />Gumshoe Ventures"),
