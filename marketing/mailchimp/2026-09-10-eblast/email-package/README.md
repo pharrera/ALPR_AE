@@ -147,6 +147,16 @@ The other three images are all at or above their display size.
 All graphics were extracted from the supplied source files — no stock or generated imagery.
 The logo is the official LBA Accelerator lockup pulled from the brand guidelines PDF, flattened
 onto white so it can't invert in a dark-mode client.
+
+**The old wordmark was replaced on both flyers.** The AI series banner and the contracting
+Session 2 flyer both carried the previous "Long Beach Accelerator" wordmark. In each, that
+wordmark was cleared against its flat white ground and the new lockup composited in at the
+same optical center, so the header and both graphics now match. The Tech Week banner carries
+no logo, only the "Hosted by the Long Beach Accelerator" line, so it was left alone.
+
+If you have the source files for either flyer, regenerating them with the new logo will beat
+this composite — particularly for the contracting flyer, where the pasted logo is sharper than
+the 530px artwork around it.
 The hero is cropped from the series banner to the title-and-facilitator portion; the three
 session cards were dropped from the image because they're unreadable at phone width and the
 HTML table below covers the same information in selectable, screen-reader-friendly text.
