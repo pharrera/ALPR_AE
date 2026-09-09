@@ -95,7 +95,7 @@ def head_html(title, preheader):
 
   <tr>
     <td align="center" class="px" style="padding:28px 32px 22px 32px;background-color:{WHITE};">
-      <img src="images/lba-logo.png" width="220" alt="LBA Accelerator" style="width:220px;max-width:220px;height:auto;display:block;" />
+      <img src="images/lba-logo.png" width="220" alt="Long Beach Accelerator" style="width:220px;max-width:220px;height:auto;display:block;" />
     </td>
   </tr>
   <tr><td style="font-size:0;line-height:0;height:5px;background-color:{TEAL};">&nbsp;</td></tr>
@@ -122,7 +122,7 @@ FOOT = f"""  <tr>
             <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0">
               <tr>
                 <td class="fstack" width="230" valign="top" style="padding:6px 0 0 0;">
-                  <img src="images/lba-logo.png" width="200" alt="LBA Accelerator" style="width:200px;max-width:200px;height:auto;display:block;" />
+                  <img src="images/lba-logo.png" width="200" alt="Long Beach Accelerator" style="width:200px;max-width:200px;height:auto;display:block;" />
                 </td>
                 <td class="fstack" align="right" valign="top" mc:edit="footer_legal" style="font-family:{FONT};font-size:13px;line-height:22px;color:{GRAY};text-align:right;">
                   <p style="margin:0 0 14px 0;">
@@ -130,13 +130,6 @@ FOOT = f"""  <tr>
                     All rights reserved.<br />
                     You are receiving this email because you opted in via our website.
                   </p>
-                  <p style="margin:0 0 14px 0;">
-                    Our mailing address is:<br />
-                    Long Beach Accelerator Inc.<br />
-                    245 E. 3rd St<br />
-                    Long Beach, CA 90802
-                  </p>
-                  <p style="margin:0 0 14px 0;"><a href="*|LIST:ADDRESS_VCARD|*" style="color:{BLUE};text-decoration:underline;">Add us to your address book</a></p>
                   <p style="margin:0;">
                     <a href="*|UPDATE_PROFILE|*" style="color:{BLUE};text-decoration:underline;">Update your preferences</a> or
                     <a href="*|UNSUB|*" style="color:{BLUE};text-decoration:underline;">Unsubscribe</a>
@@ -367,32 +360,95 @@ W, T, B = ink("white"), ink("tint"), ink("blue")
 CAMPAIGNS = {}
 
 # ============================ THURSDAY, SEPT 10 ==============================
+# Order per request: Tech Week, sponsorships, honorees, Summit, Ronda, Renee.
+# Tech center section removed.
 CAMPAIGNS["2026-09-10"] = dict(
-    title="Upcoming Opportunities & LB Tech Week 2026",
-    subject="Today at 4 PM, a new AI series, and Tech Week",
-    alts=["Contracting starts at 4 PM — plus what's next",
-          "Upcoming Opportunities & LB Tech Week 2026",
-          "Meet the 2026 Summit honorees"],
-    preheader="Contracting readiness is this afternoon. A three-part AI series starts 9/15, and Tech Week sponsorships are open.",
+    title="Long Beach Tech Week 2026 & What's Ahead",
+    subject="Long Beach Tech Week, the 2026 honorees, and today at 4 PM",
+    alts=["Long Beach Tech Week 2026 — and today at 4 PM",
+          "Meet the 2026 Summit honorees",
+          "Sponsorships are open for Long Beach Tech Week"],
+    preheader="Tech Week runs Sept 28 - Oct 1, sponsorships are open, and contracting readiness is this afternoon.",
     send="Thursday, September 10, 2026, 8:00 AM PT",
-    images=["lba-logo.png", "hero-ai-series.jpg", "contracting-session2.jpg", "techweek-2026.jpg",
-            "honoree-hacegaba.jpg", "honoree-marshall.jpg", "honoree-lee.jpg", "honoree-glass.jpg",
+    images=["lba-logo.png", "techweek-2026.jpg", "honoree-hacegaba.jpg", "honoree-marshall.jpg",
+            "honoree-lee.jpg", "honoree-glass.jpg", "contracting-session2.jpg", "hero-ai-series.jpg",
             "icon-linkedin.png", "icon-email.png", "icon-web.png"],
     sections=[
-        section([r_text("\n".join([
-            lead("There's a lot happening at the Long Beach Accelerator.", W),
-            p("From building an AI-ready, trusted business and preparing for contracting opportunities to Long Beach Tech Week, we're connecting business owners and entrepreneurs with the tools, expertise, and opportunities they need to compete, grow, and thrive.", W, 0),
-        ]), W, edit="intro"), r_pad(32)]),
+        section([r_text(
+            lead("There's a lot happening at the Long Beach Accelerator.", W, 0), W, edit="intro"),
+            r_pad(30)]),
 
-        section([r_text(contents([
-            ("Building an AI-Ready Trusted Business", "Three-part series &middot; starts Tue, Sept 15"),
-            ("Contracting &amp; Procurement Readiness", "Session 2 &middot; today, 4:00 PM PT"),
-            ("Long Beach Tech Week 2026", "Sept 28 &ndash; Oct 1 &middot; sponsorships open"),
-            ("2026 Summit Honorees", "Announced &middot; Summit is Oct 1"),
-            ("A New Tech Center", "Opening later this month"),
-            ("No-Cost Business Advising", "Open year-round"),
-        ], B), B, edit="contents"), r_pad(38)], ground="blue"),
+        # 1 — LONG BEACH TECH WEEK
+        section([
+            r_image("techweek-2026.jpg", TW_ALT),
+            r_text("\n".join([
+                kicker("Long Beach Tech Week 2026", W),
+                display("Put Your Organization at the Center of Long Beach's Innovation Ecosystem", W),
+                badge("Sept 28 &ndash; Oct 1 &middot; Long Beach, CA", W),
+                p(f'<a href="{TW}" target="_blank" style="color:{BLUE};text-decoration:underline;">Long Beach Tech Week 2026</a> draws founders, investors, business leaders, tech experts, entrepreneurs, educators, creatives, and civic leaders for a multi-day experience showcasing the people, ideas, and industries shaping our region\'s future.', W),
+                p("Hosted by the Long Beach Accelerator, Tech Week offers organizations a unique opportunity to build visibility, strengthen relationships, and connect directly with Long Beach's growing innovation and entrepreneurial ecosystem.", W, 0),
+            ]), W, edit="techweek"),
+            r_pad(36),
+        ]),
 
+        # 2 — SPONSORSHIPS
+        section([
+            r_text("\n".join([
+                kicker("Become a Partner", T),
+                display("Sponsorship Opportunities", T),
+                p("Sponsorships are available at multiple levels, offering benefits such as:", T),
+                bullets(TW_BULLETS, T),
+            ]), T, edit="sponsorship"),
+            r_text(f'      Explore the <a href="{PACK}" target="_blank" style="color:{BLUE};text-decoration:underline;">Long Beach Tech Week 2026 Sponsorship Packet</a> and join us as a partner.',
+                   T, edit="packet_line", pad="22px 40px 0 40px"),
+            r_button("View the Sponsorship Packet", PACK, T),
+            r_pad(38),
+        ], ground="tint"),
+
+        # 3 — HONOREES
+        section([
+            r_text("\n".join([
+                kicker("2026 Honorees", B),
+                display("Meet the 2026 Honorees", B),
+                p("Four leaders shaping the region's innovation economy, recognized at this year's Investors &amp; Founders Summit.", B, 0),
+            ]), B, edit="honorees_intro"),
+            r_honorees(B),
+            r_pad(38),
+        ], ground="blue"),
+
+        # 4 — THE SUMMIT
+        section([
+            r_text("\n".join([
+                kicker("3rd Annual", W),
+                display("Investors &amp; Founders Summit", W),
+                badge("Thu, Oct 1 &middot; Hyatt Regency Long Beach", W),
+                p("The Summit closes out Long Beach Tech Week, bringing founders, investors, and regional leaders together for the evening we recognize the 2026 honorees.", W),
+                p(f'Sponsorship of Tech Week includes the opportunity to participate. See the <a href="{PACK}" target="_blank" style="color:{BLUE};text-decoration:underline;">sponsorship packet</a> for details.', W, 0),
+            ]), W, edit="summit"),
+            r_pad(36),
+        ]),
+
+        # 5 — RONDA JACKSON: CONTRACTING SESSION 2 (today)
+        section([
+            r_image("contracting-session2.jpg", CONTRACT_ALT),
+            r_text("\n".join([
+                kicker("Contracting &amp; Procurement Readiness", T),
+                display("Prepare. Pursue. Perform.", T),
+                badge("Today &middot; 4:00 &ndash; 5:30 PM PT", T),
+                lead("It's not too late to join us.", T),
+                p('Session 2 of our Contracting &amp; Procurement Readiness Series runs this afternoon: <em>Preparing to Pursue the Work, Evaluate Opportunities, Respond Strategically, and Prepare to Perform.</em>', T),
+                label("In this session, you will:", T),
+                bullets(["Evaluate opportunities and respond strategically",
+                         "Understand key requirements, capacity, pricing, and teaming considerations",
+                         "Prepare to perform successfully and build toward future opportunities"], T),
+            ]), T, edit="contracting"),
+            r_card(details("Thursday, September 10, 2026", "4:00 &ndash; 5:30 PM PT", "Online via Zoom", indent=12, bare=True), T),
+            r_button("Register Now", S2C, T),
+            r_text(bio("the facilitator", RONDA, T), T, edit="ronda", pad="26px 40px 0 40px"),
+            r_pad(36),
+        ], ground="tint"),
+
+        # 6 — RENE REDWOOD: AI-READY SERIES
         section([
             r_image("hero-ai-series.jpg", HERO_ALT),
             r_text("\n".join([
@@ -416,62 +472,7 @@ CAMPAIGNS["2026-09-10"] = dict(
             r_pad(36),
         ]),
 
-        section([
-            r_image("contracting-session2.jpg", CONTRACT_ALT),
-            r_text("\n".join([
-                kicker("Contracting &amp; Procurement Readiness", T),
-                display("Prepare. Pursue. Perform.", T),
-                badge("Today &middot; 4:00 &ndash; 5:30 PM PT", T),
-                lead("It's not too late to join us.", T),
-                p('Session 2 of our Contracting &amp; Procurement Readiness Series runs this afternoon: <em>Preparing to Pursue the Work, Evaluate Opportunities, Respond Strategically, and Prepare to Perform.</em>', T),
-                label("In this session, you will:", T),
-                bullets(["Evaluate opportunities and respond strategically",
-                         "Understand key requirements, capacity, pricing, and teaming considerations",
-                         "Prepare to perform successfully and build toward future opportunities"], T),
-            ]), T, edit="contracting"),
-            r_card(details("Thursday, September 10, 2026", "4:00 &ndash; 5:30 PM PT", "Online via Zoom", indent=12, bare=True), T),
-            r_button("Register Now", S2C, T),
-            r_text(bio("the facilitator", RONDA, T), T, edit="ronda", pad="26px 40px 0 40px"),
-            r_pad(36),
-        ], ground="tint"),
-
-        section([
-            r_image("techweek-2026.jpg", TW_ALT),
-            r_text("\n".join([
-                kicker("Long Beach Tech Week 2026", W),
-                display("Put Your Organization at the Center of Long Beach's Innovation Ecosystem", W),
-                badge("Sept 28 &ndash; Oct 1 &middot; Long Beach, CA", W),
-                p(f'<a href="{TW}" target="_blank" style="color:{BLUE};text-decoration:underline;">Tech Week</a> draws founders, investors, business leaders, tech experts, entrepreneurs, educators, creatives, and civic leaders for a multi-day experience showcasing the people, ideas, and industries shaping our region\'s future.', W),
-                p("Hosted by the Long Beach Accelerator, it offers organizations a unique opportunity to build visibility, strengthen relationships, and connect directly with Long Beach's growing innovation and entrepreneurial ecosystem.", W),
-                label("Sponsorship opportunities are available at multiple levels, offering benefits such as:", W),
-                bullets(TW_BULLETS, W),
-            ]), W, edit="techweek"),
-            r_text(f'      Explore the <a href="{PACK}" target="_blank" style="color:{BLUE};text-decoration:underline;">Long Beach Tech Week 2026 Sponsorship Packet</a> and join us as a partner.',
-                   W, edit="packet_line", pad="22px 40px 0 40px"),
-            r_button("View the Sponsorship Packet", PACK, W),
-            r_pad(36),
-        ]),
-
-        section([
-            r_text("\n".join([
-                kicker("3rd Annual Investors &amp; Founders Summit", B),
-                display("Meet the 2026 Honorees", B),
-                p("The Summit closes out Tech Week on <strong style=\"color:#FFFFFF;\">Thursday, October 1</strong> at the <strong style=\"color:#FFFFFF;\">Hyatt Regency Long Beach</strong>. Join us as we recognize four leaders shaping the region's innovation economy.", B, 0),
-            ]), B, edit="honorees_intro"),
-            r_honorees(B),
-            r_pad(38),
-        ], ground="blue"),
-
-        section([
-            r_text("\n".join([
-                kicker("Opening Later This Month", W),
-                display("A New Tech Center for Long Beach", W),
-                p("Our new tech center opens at the end of September, giving founders and small business owners a dedicated space to build, meet, and grow alongside the rest of the Long Beach innovation community.", W),
-                p(f'We\'re partnering with <a href="{LUM}" target="_blank" style="color:{BLUE};text-decoration:underline;">Lumen 21</a> on the installation and IT infrastructure behind the space.', W, 0),
-            ]), W, edit="techcenter"),
-            r_pad(36),
-        ]),
-
+        # 7 — ADVISING
         section([
             r_text("\n".join([
                 kicker("Business Advising Services", T),
