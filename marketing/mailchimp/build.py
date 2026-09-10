@@ -183,10 +183,12 @@ def r_pad(px=36):
     return f'        <tr><td style="font-size:0;line-height:0;height:{px}px;">&nbsp;</td></tr>\n'
 
 
-def r_button(label, href, g, invert=False):
+def r_button(label, href, g, invert=False, align="center", pad_top=28):
+    """align='left' sits the button in the text column, for buttons placed
+    mid-section where a centred one breaks the left-aligned run of copy."""
     bg = g["btn_bg"] if not invert else TEAL
     fg = g["btn_ink"] if not invert else WHITE
-    return (f'        <tr><td align="center" class="px btn" style="padding:28px 40px 0 40px;">\n'
+    return (f'        <tr><td align="{align}" class="px btn" style="padding:{pad_top}px 40px 0 40px;">\n'
             f'          <table role="presentation" border="0" cellpadding="0" cellspacing="0">\n'
             f'            <tr><td align="center" bgcolor="{bg}" style="border-radius:4px;">\n'
             f'              <a href="{href}" target="_blank" style="display:inline-block;padding:17px 40px;font-family:{FONT};font-size:16px;line-height:20px;font-weight:bold;letter-spacing:0.3px;color:{fg};text-decoration:none;border-radius:4px;">{label}&nbsp;&nbsp;&rarr;</a>\n'
@@ -444,7 +446,7 @@ CAMPAIGNS["2026-09-10"] = dict(
                 badge("Today &middot; 4:00 &ndash; 5:30 PM PT", T),
                 lead("It's not too late to join us.", T, 0),
             ]), T, edit="contracting_top"),
-            r_button("Register Now", S2C, T),
+            r_button("Register Now", S2C, T, align="left", pad_top=22),
             r_text("\n".join([
                 p('Session 2 of our Contracting &amp; Procurement Readiness Series runs this afternoon: <em>Preparing to Pursue the Work, Evaluate Opportunities, Respond Strategically, and Prepare to Perform.</em>', T),
                 label("In this session, you will:", T),
