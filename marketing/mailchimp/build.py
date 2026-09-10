@@ -189,7 +189,7 @@ def r_button(label, href, g, invert=False):
     return (f'        <tr><td align="center" class="px btn" style="padding:28px 40px 0 40px;">\n'
             f'          <table role="presentation" border="0" cellpadding="0" cellspacing="0">\n'
             f'            <tr><td align="center" bgcolor="{bg}" style="border-radius:4px;">\n'
-            f'              <a href="{href}" target="_blank" style="display:inline-block;padding:17px 40px;font-family:{FONT};font-size:16px;line-height:20px;font-weight:bold;letter-spacing:0.3px;color:{fg};text-decoration:none;border-radius:4px;">{label}</a>\n'
+            f'              <a href="{href}" target="_blank" style="display:inline-block;padding:17px 40px;font-family:{FONT};font-size:16px;line-height:20px;font-weight:bold;letter-spacing:0.3px;color:{fg};text-decoration:none;border-radius:4px;">{label}&nbsp;&nbsp;&rarr;</a>\n'
             f'            </td></tr>\n          </table>\n        </td></tr>\n')
 
 
