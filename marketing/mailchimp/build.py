@@ -286,7 +286,7 @@ def series_table(g):
                 f'<td style="padding:16px 12px 16px 12px;font-size:13px;line-height:21px;color:{CHAR};{border}">'
                 f'<strong style="color:{BLUE};font-size:13px;">{t}</strong><br />{d} &nbsp;&middot;&nbsp; {tm}</td></tr>\n')
     return (f'      <p style="margin:0 0 6px 0;font-size:12px;line-height:16px;letter-spacing:1.8px;text-transform:uppercase;color:{g["kick"]};font-weight:bold;">The full series</p>\n'
-            f'      <p style="margin:0 0 18px 0;font-size:18px;line-height:27px;color:{g["strong"]};font-weight:bold;">Mark your calendars for Renée Redwood&rsquo;s three-part series.</p>\n'
+            f'      <p style="margin:0 0 18px 0;font-size:18px;line-height:27px;color:{g["strong"]};font-weight:bold;">Mark your calendars for René Redwood&rsquo;s three-part series.</p>\n'
             f'      <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0" style="background-color:{WHITE};border:1px solid {RULE};">\n{out}      </table>\n'
             f'      <p style="margin:14px 0 0 0;font-size:14px;line-height:22px;color:#000000;font-weight:bold;">All sessions via Zoom. '
             f'Register for Sessions 2 and 3 at <a href="https://lbaccelerator.org/events" target="_blank" style="color:#000000;font-weight:bold;text-decoration:underline;">lbaccelerator.org/events</a>.</p>')
@@ -334,7 +334,7 @@ FORM = "https://hub.catalyzerapp.com/public/form/46c9cb88-0c9a-4eac-9346-f53f61f
 EVT  = "https://lbaccelerator.org/events"
 LUM  = "https://www.lumen21.com/"
 
-RENE = ("Renée Redwood is a recognized leader in advancing equity, inclusive workplace culture, and strategic "
+RENE = ("René Redwood is a recognized leader in advancing equity, inclusive workplace culture, and strategic "
         "initiatives that drive results. She has directed the Presidential Glass Ceiling Commission and served on "
         "the court-appointed Coca-Cola Task Force, and brings decades of experience helping organizations build "
         "trust and create a lasting advantage in the marketplace.")
@@ -353,7 +353,7 @@ TW_BULLETS = ["Brand visibility throughout Long Beach Tech Week",
               "Opportunities to participate in select programs, forums, and the 2026 Investors &amp; Founders Summit"]
 
 HERO_ALT = ("Building an AI-Ready Trusted Business: a three-part learning journey for small business owners, "
-            "facilitated by Renée Redwood. Hosted by the Long Beach Accelerator.")
+            "facilitated by René Redwood. Hosted by the Long Beach Accelerator.")
 CONTRACT_ALT = ("Contracting and Procurement Readiness Series, Session 2: Preparing to Pursue the Work. "
                 "Thursday, September 10, 4:00 to 5:30 PM PT, online via Zoom, featuring LBA Business Adviser Ronda Jackson.")
 TW_ALT = ("Long Beach Tech Week 2026 Sponsorship Opportunities, hosted by the Long Beach Accelerator, "
@@ -460,12 +460,12 @@ CAMPAIGNS["2026-09-10"] = dict(
         section([
             r_image("hero-ai-title.jpg", HERO_ALT),
             r_pad(20),
-            r_image("hero-ai-rene.jpg", "Facilitated by Renée Redwood, a recognized leader in advancing equity, inclusive workplace culture, and strategic initiatives that drive results."),
+            r_image("hero-ai-rene.jpg", "Facilitated by René Redwood, a recognized leader in advancing equity, inclusive workplace culture, and strategic initiatives that drive results."),
             r_text("\n".join([
                 kicker("A New Three-Part Learning Series", W),
                 display("Building an AI-Ready Trusted Business", W),
                 badge("Starts Tue, Sept 15 &middot; 10:00 AM PT", W),
-                p("Join us for a new three-part learning series facilitated by <strong style=\"color:#204396;\">Renée Redwood</strong> and designed to help small business owners strengthen how they operate, compete, and grow.", W),
+                p("Join us for a new three-part learning series facilitated by <strong style=\"color:#204396;\">René Redwood</strong> and designed to help small business owners strengthen how they operate, compete, and grow.", W),
                 p("Across three sessions, participants will explore how purpose, people, leadership, AI, and strategic visibility can work together to build a stronger, more trusted business.", W, 0),
             ]), W, edit="ai_intro"),
             r_card("\n".join([
@@ -502,19 +502,19 @@ CAMPAIGNS["2026-09-14"] = dict(
     alts=["Last call — Session 1 is tomorrow morning",
           "90 minutes tomorrow to sharpen your business",
           "Starts tomorrow: Building an AI-Ready Business"],
-    preheader="Ninety minutes on Zoom with Renée Redwood. Session 1 of three, and there's still room.",
+    preheader="Ninety minutes on Zoom with René Redwood. Session 1 of three, and there's still room.",
     send="Monday, September 14, 2026, 8:00 AM PT",
     images=["lba-logo.png", "hero-ai-title.jpg", "hero-ai-rene.jpg", "icon-linkedin.png", "icon-email.png", "icon-web.png"],
     sections=[
         section([
             r_image("hero-ai-title.jpg", HERO_ALT),
             r_pad(20),
-            r_image("hero-ai-rene.jpg", "Facilitated by Renée Redwood, a recognized leader in advancing equity, inclusive workplace culture, and strategic initiatives that drive results."),
+            r_image("hero-ai-rene.jpg", "Facilitated by René Redwood, a recognized leader in advancing equity, inclusive workplace culture, and strategic initiatives that drive results."),
             r_text("\n".join([
                 kicker("Starts Tomorrow", W),
                 display("Building an AI-Ready Trusted Business", W),
                 badge("Tue, Sept 15 &middot; 10:00 &ndash; 11:30 AM PT", W),
-                lead("Ninety minutes on Zoom with Renée Redwood, built around your business rather than a slide deck.", W),
+                lead("Ninety minutes on Zoom with René Redwood, built around your business rather than a slide deck.", W),
                 p("If you have been meaning to sign up, this is the moment.", W, 0),
             ]), W, edit="intro"),
             r_pad(34),
