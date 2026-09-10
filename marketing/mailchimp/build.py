@@ -130,6 +130,12 @@ FOOT = f"""  <tr>
                     All rights reserved.<br />
                     You are receiving this email because you opted in via our website.
                   </p>
+                  <p style="margin:0 0 14px 0;">
+                    Our mailing address is:<br />
+                    Long Beach Accelerator Inc.<br />
+                    245 E. 3rd St<br />
+                    Long Beach, CA 90802
+                  </p>
                   <p style="margin:0;">
                     <a href="*|UPDATE_PROFILE|*" style="color:{BLUE};text-decoration:underline;">Update your preferences</a> or
                     <a href="*|UNSUB|*" style="color:{BLUE};text-decoration:underline;">Unsubscribe</a>
