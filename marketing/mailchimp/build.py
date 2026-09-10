@@ -455,6 +455,7 @@ CAMPAIGNS["2026-09-10"] = dict(
         # 6 — RENE REDWOOD: AI-READY SERIES (banner split vertically to stay legible)
         section([
             r_image("hero-ai-title.jpg", HERO_ALT),
+            r_pad(20),
             r_image("hero-ai-rene.jpg", "Facilitated by Rene Redwood, a recognized leader in advancing equity, inclusive workplace culture, and strategic initiatives that drive results."),
             r_text("\n".join([
                 kicker("A New Three-Part Learning Series", W),
@@ -503,6 +504,7 @@ CAMPAIGNS["2026-09-14"] = dict(
     sections=[
         section([
             r_image("hero-ai-title.jpg", HERO_ALT),
+            r_pad(20),
             r_image("hero-ai-rene.jpg", "Facilitated by Rene Redwood, a recognized leader in advancing equity, inclusive workplace culture, and strategic initiatives that drive results."),
             r_text("\n".join([
                 kicker("Starts Tomorrow", W),
