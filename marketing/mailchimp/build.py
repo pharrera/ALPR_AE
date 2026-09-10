@@ -126,13 +126,13 @@ FOOT = f"""  <tr>
                 </td>
                 <td class="fstack" align="right" valign="top" mc:edit="footer_legal" style="font-family:{FONT};font-size:13px;line-height:22px;color:{GRAY};text-align:right;">
                   <p style="margin:0 0 14px 0;">
-                    &copy; *|CURRENT_YEAR|* Long Beach Accelerator Inc.<br />
+                    &copy; *|CURRENT_YEAR|* Long Beach Accelerator<br />
                     All rights reserved.<br />
                     You are receiving this email because you opted in via our website.
                   </p>
                   <p style="margin:0 0 14px 0;">
                     Our mailing address is:<br />
-                    Long Beach Accelerator Inc.<br />
+                    Long Beach Accelerator<br />
                     245 E. 3rd St<br />
                     Long Beach, CA 90802
                   </p>
