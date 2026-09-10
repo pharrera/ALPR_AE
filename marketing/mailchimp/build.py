@@ -161,14 +161,16 @@ def section(rows, ground="white", rule_after=True):
            + "".join(rows) +
            f'      </table>\n    </td>\n  </tr>\n')
     if rule_after:
-        out += f'  <tr><td style="font-size:0;line-height:0;height:4px;background-color:{BLUE};">&nbsp;</td></tr>\n'
+        out += f'  <tr><td style="font-size:0;line-height:0;height:9px;background-color:{BLUE};">&nbsp;</td></tr>\n'
     return out
 
 
-def r_image(src, alt):
-    return (f'        <tr><td align="center" style="font-size:0;line-height:0;">'
-            f'<img src="images/{src}" width="600" alt="{alt}" style="width:100%;max-width:600px;height:auto;display:block;" />'
-            f'</td></tr>\n')
+def r_image(src, alt, href=None):
+    img = (f'<img src="images/{src}" width="600" alt="{alt}" '
+           f'style="width:100%;max-width:600px;height:auto;display:block;" />')
+    if href:
+        img = f'<a href="{href}" target="_blank">{img}</a>'
+    return f'        <tr><td align="center" style="font-size:0;line-height:0;">{img}</td></tr>\n' 
 
 
 def r_text(body, g, edit=None, pad="36px 40px 0 40px"):
@@ -280,14 +282,14 @@ def series_table(g):
     for i, (n, t, d, tm) in enumerate(rows):
         border = "" if i == len(rows) - 1 else f"border-bottom:1px solid {RULE};"
         out += (f'        <tr>'
-                f'<td width="52" valign="top" bgcolor="{TEAL}" style="width:52px;background-color:{TEAL};text-align:center;font-size:20px;line-height:24px;color:#FFFFFF;font-weight:bold;padding:18px 0;">{n}</td>'
-                f'<td style="padding:18px 18px 18px 16px;font-size:14px;line-height:22px;color:{CHAR};{border}">'
-                f'<strong style="color:{BLUE};font-size:15px;">{t}</strong><br />{d} &nbsp;&middot;&nbsp; {tm}</td></tr>\n')
+                f'<td width="40" valign="top" bgcolor="{TEAL}" style="width:40px;background-color:{TEAL};text-align:center;font-size:18px;line-height:22px;color:#FFFFFF;font-weight:bold;padding:16px 0;">{n}</td>'
+                f'<td style="padding:16px 12px 16px 12px;font-size:13px;line-height:21px;color:{CHAR};{border}">'
+                f'<strong style="color:{BLUE};font-size:13px;">{t}</strong><br />{d} &nbsp;&middot;&nbsp; {tm}</td></tr>\n')
     return (f'      <p style="margin:0 0 6px 0;font-size:12px;line-height:16px;letter-spacing:1.8px;text-transform:uppercase;color:{g["kick"]};font-weight:bold;">The full series</p>\n'
-            f'      <p style="margin:0 0 18px 0;font-size:18px;line-height:27px;color:{g["strong"]};font-weight:bold;">Mark your calendars for Rene Redwood&rsquo;s three-part series.</p>\n'
+            f'      <p style="margin:0 0 18px 0;font-size:18px;line-height:27px;color:{g["strong"]};font-weight:bold;">Mark your calendars for Renée Redwood&rsquo;s three-part series.</p>\n'
             f'      <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0" style="background-color:{WHITE};border:1px solid {RULE};">\n{out}      </table>\n'
-            f'      <p style="margin:14px 0 0 0;font-size:14px;line-height:22px;color:{g["muted"]};">All sessions via Zoom. '
-            f'Register for Sessions 2 and 3 at <a href="https://lbaccelerator.org/events" target="_blank" style="color:{g["link"]};">lbaccelerator.org/events</a>.</p>')
+            f'      <p style="margin:14px 0 0 0;font-size:14px;line-height:22px;color:#000000;font-weight:bold;">All sessions via Zoom. '
+            f'Register for Sessions 2 and 3 at <a href="https://lbaccelerator.org/events" target="_blank" style="color:#000000;font-weight:bold;text-decoration:underline;">lbaccelerator.org/events</a>.</p>')
 
 
 def bio(name, text, g):
@@ -332,7 +334,7 @@ FORM = "https://hub.catalyzerapp.com/public/form/46c9cb88-0c9a-4eac-9346-f53f61f
 EVT  = "https://lbaccelerator.org/events"
 LUM  = "https://www.lumen21.com/"
 
-RENE = ("Rene Redwood is a recognized leader in advancing equity, inclusive workplace culture, and strategic "
+RENE = ("Renée Redwood is a recognized leader in advancing equity, inclusive workplace culture, and strategic "
         "initiatives that drive results. She has directed the Presidential Glass Ceiling Commission and served on "
         "the court-appointed Coca-Cola Task Force, and brings decades of experience helping organizations build "
         "trust and create a lasting advantage in the marketplace.")
@@ -351,7 +353,7 @@ TW_BULLETS = ["Brand visibility throughout Long Beach Tech Week",
               "Opportunities to participate in select programs, forums, and the 2026 Investors &amp; Founders Summit"]
 
 HERO_ALT = ("Building an AI-Ready Trusted Business: a three-part learning journey for small business owners, "
-            "facilitated by Rene Redwood. Hosted by the Long Beach Accelerator.")
+            "facilitated by Renée Redwood. Hosted by the Long Beach Accelerator.")
 CONTRACT_ALT = ("Contracting and Procurement Readiness Series, Session 2: Preparing to Pursue the Work. "
                 "Thursday, September 10, 4:00 to 5:30 PM PT, online via Zoom, featuring LBA Business Adviser Ronda Jackson.")
 TW_ALT = ("Long Beach Tech Week 2026 Sponsorship Opportunities, hosted by the Long Beach Accelerator, "
@@ -378,7 +380,8 @@ CAMPAIGNS["2026-09-10"] = dict(
     sections=[
         # 1 — LONG BEACH TECH WEEK
         section([
-            r_image("techweek-2026.jpg", TW_ALT),
+            r_image("techweek-2026.jpg", TW_ALT, href=TW),
+            r_button("Explore Long Beach Tech Week", TW, W),
             r_text("\n".join([
                 kicker("Long Beach Tech Week 2026", W),
                 display("Put Your Organization at the Center of Our Innovation Ecosystem", W),
@@ -412,7 +415,7 @@ CAMPAIGNS["2026-09-10"] = dict(
         # 3 — HONOREES
         section([
             r_text("\n".join([
-                kicker("Celebrate the 2026 Class", B),
+                kicker("Celebrate LBA Honorees", B),
                 display("Meet the 2026 LBA Honorees", B),
                 p("Four visionary leaders who have led the way, blazed the trail, and stand among our top investors and founders.", B, 0),
             ]), B, edit="honorees_intro"),
@@ -427,7 +430,7 @@ CAMPAIGNS["2026-09-10"] = dict(
                 display("LBA Investors &amp; Founders Summit", W),
                 badge("Thu, Oct 1 &middot; 11:00 AM &ndash; 6:00 PM", W),
                 p("<strong style=\"color:#204396;\">Hyatt Regency Long Beach &middot; Beacon Ballroom</strong>", W),
-                p("The Summit closes out Long Beach Tech Week. The <strong style=\"color:#204396;\">LBA Visionary Investors Panel</strong>, our signature afternoon forum, is a conversation with visionary investors on the global economy and emerging technology &mdash; including a special preview of LA2028 Olympics opportunities.", W, 0),
+                p("The Summit celebrates LBA honorees at the Awards Luncheon. The <strong style=\"color:#204396;\">LBA Visionary Investors Panel</strong>, our signature afternoon forum, is a conversation with visionary investors on the global economy and emerging technology, and includes a special preview of LA2028 Olympics and Paralympics opportunities.", W, 0),
             ]), W, edit="summit"),
             r_pad(36),
         ]),
@@ -439,15 +442,16 @@ CAMPAIGNS["2026-09-10"] = dict(
                 kicker("Contracting &amp; Procurement Readiness", T),
                 display("Prepare. Pursue. Perform.", T),
                 badge("Today &middot; 4:00 &ndash; 5:30 PM PT", T),
-                lead("It's not too late to join us.", T),
+                lead("It's not too late to join us.", T, 0),
+            ]), T, edit="contracting_top"),
+            r_button("Register Now", S2C, T),
+            r_text("\n".join([
                 p('Session 2 of our Contracting &amp; Procurement Readiness Series runs this afternoon: <em>Preparing to Pursue the Work, Evaluate Opportunities, Respond Strategically, and Prepare to Perform.</em>', T),
                 label("In this session, you will:", T),
                 bullets(["Evaluate opportunities and respond strategically",
                          "Understand key requirements, capacity, pricing, and teaming considerations",
                          "Prepare to perform successfully and build toward future opportunities"], T),
             ]), T, edit="contracting"),
-            r_card(details("Thursday, September 10, 2026", "4:00 &ndash; 5:30 PM PT", "Online via Zoom", indent=12, bare=True), T),
-            r_button("Register Now", S2C, T),
             r_text(bio("the facilitator", RONDA, T), T, edit="ronda", pad="26px 40px 0 40px"),
             r_pad(36),
         ], ground="tint"),
@@ -456,12 +460,12 @@ CAMPAIGNS["2026-09-10"] = dict(
         section([
             r_image("hero-ai-title.jpg", HERO_ALT),
             r_pad(20),
-            r_image("hero-ai-rene.jpg", "Facilitated by Rene Redwood, a recognized leader in advancing equity, inclusive workplace culture, and strategic initiatives that drive results."),
+            r_image("hero-ai-rene.jpg", "Facilitated by Renée Redwood, a recognized leader in advancing equity, inclusive workplace culture, and strategic initiatives that drive results."),
             r_text("\n".join([
                 kicker("A New Three-Part Learning Series", W),
                 display("Building an AI-Ready Trusted Business", W),
                 badge("Starts Tue, Sept 15 &middot; 10:00 AM PT", W),
-                p("Join us for a new three-part learning series facilitated by <strong style=\"color:#204396;\">Rene Redwood</strong> and designed to help small business owners strengthen how they operate, compete, and grow.", W),
+                p("Join us for a new three-part learning series facilitated by <strong style=\"color:#204396;\">Renée Redwood</strong> and designed to help small business owners strengthen how they operate, compete, and grow.", W),
                 p("Across three sessions, participants will explore how purpose, people, leadership, AI, and strategic visibility can work together to build a stronger, more trusted business.", W, 0),
             ]), W, edit="ai_intro"),
             r_card("\n".join([
@@ -473,19 +477,19 @@ CAMPAIGNS["2026-09-10"] = dict(
                 details("Tuesday, September 15, 2026", "10:00 &ndash; 11:30 AM PT", "Via Zoom"),
             ]), W, edit="session1"),
             r_button("Register for Session&nbsp;1", S1, W),
-            r_text(series_table(W), W, edit="series"),
+            r_text(series_table(W), W, edit="series", pad="36px 16px 0 16px"),
             r_pad(36),
         ]),
 
         # 7 — BUSINESS ADVISORY
         section([
             r_text("\n".join([
-                kicker("Business Advisory Services", T),
+                kicker("LBA Business Advisory Services", T),
                 display("Business Advisory Intake Form", T),
                 p("We provide no-cost, one-on-one business advising for emerging technology companies and innovation-driven small businesses. Whether you're preparing for growth, exploring debt or equity financing, integrating AI into your operations, pursuing contract opportunities, or developing a long-term business strategy, our experienced advisors are here to help.", T),
                 p(f'Complete our <a href="{FORM}" target="_blank" style="color:{BLUE};text-decoration:underline;">business advisory intake form</a> to get matched with the advisor best suited to your goals.', T, 0),
             ]), T, edit="advising"),
-            r_button("Register for Business Advisor Services", FORM, T, invert=True),
+            r_button("Register for Business Advisory Services", FORM, T, invert=True),
             r_pad(38),
         ], ground="tint", rule_after=False),
     ],
@@ -498,19 +502,19 @@ CAMPAIGNS["2026-09-14"] = dict(
     alts=["Last call — Session 1 is tomorrow morning",
           "90 minutes tomorrow to sharpen your business",
           "Starts tomorrow: Building an AI-Ready Business"],
-    preheader="Ninety minutes on Zoom with Rene Redwood. Session 1 of three, and there's still room.",
+    preheader="Ninety minutes on Zoom with Renée Redwood. Session 1 of three, and there's still room.",
     send="Monday, September 14, 2026, 8:00 AM PT",
     images=["lba-logo.png", "hero-ai-title.jpg", "hero-ai-rene.jpg", "icon-linkedin.png", "icon-email.png", "icon-web.png"],
     sections=[
         section([
             r_image("hero-ai-title.jpg", HERO_ALT),
             r_pad(20),
-            r_image("hero-ai-rene.jpg", "Facilitated by Rene Redwood, a recognized leader in advancing equity, inclusive workplace culture, and strategic initiatives that drive results."),
+            r_image("hero-ai-rene.jpg", "Facilitated by Renée Redwood, a recognized leader in advancing equity, inclusive workplace culture, and strategic initiatives that drive results."),
             r_text("\n".join([
                 kicker("Starts Tomorrow", W),
                 display("Building an AI-Ready Trusted Business", W),
                 badge("Tue, Sept 15 &middot; 10:00 &ndash; 11:30 AM PT", W),
-                lead("Ninety minutes on Zoom with Rene Redwood, built around your business rather than a slide deck.", W),
+                lead("Ninety minutes on Zoom with Renée Redwood, built around your business rather than a slide deck.", W),
                 p("If you have been meaning to sign up, this is the moment.", W, 0),
             ]), W, edit="intro"),
             r_pad(34),
@@ -530,7 +534,7 @@ CAMPAIGNS["2026-09-14"] = dict(
         ], ground="blue"),
 
         section([
-            r_text(series_table(W), W, edit="series"),
+            r_text(series_table(W), W, edit="series", pad="36px 16px 0 16px"),
             r_pad(36),
         ]),
 
@@ -557,7 +561,8 @@ CAMPAIGNS["2026-09-18"] = dict(
             "honoree-lee.jpg", "honoree-glass.jpg", "icon-linkedin.png", "icon-email.png", "icon-web.png"],
     sections=[
         section([
-            r_image("techweek-2026.jpg", TW_ALT),
+            r_image("techweek-2026.jpg", TW_ALT, href=TW),
+            r_button("Explore Long Beach Tech Week", TW, W),
             r_text("\n".join([
                 kicker("Long Beach Tech Week 2026", W),
                 display("Put Your Organization at the Center of Long Beach's Innovation Ecosystem", W),

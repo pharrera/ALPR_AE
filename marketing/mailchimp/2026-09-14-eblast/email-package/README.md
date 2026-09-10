@@ -20,7 +20,7 @@ Subject line alternates:
 
 Preheader in this template:
 
-> Ninety minutes on Zoom with Rene Redwood. Session 1 of three, and there's still room.
+> Ninety minutes on Zoom with Renée Redwood. Session 1 of three, and there's still room.
 
 ## Load it into Mailchimp
 
