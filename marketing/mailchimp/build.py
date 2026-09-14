@@ -362,6 +362,9 @@ TW_BULLETS = ["Brand visibility throughout Long Beach Tech Week",
 
 HERO_ALT = ("Building an AI-Ready Trusted Business: a three-part learning journey for small business owners, "
             "facilitated by René Redwood. Hosted by the Long Beach Accelerator.")
+RENE_ALT = ("Facilitated by René Redwood, a recognized leader in advancing equity, inclusive workplace "
+            "culture, and strategic initiatives that drive results. René brings decades of experience helping "
+            "organizations build trust, leverage human potential, and create a lasting advantage in the marketplace.")
 CONTRACT_ALT = ("Contracting and Procurement Readiness Series, Session 2: Preparing to Pursue the Work. "
                 "Thursday, September 10, 4:00 to 5:30 PM PT, online via Zoom, featuring LBA Business Adviser Ronda Jackson.")
 TW_ALT = ("Long Beach Tech Week 2026 Sponsorship Opportunities, hosted by the Long Beach Accelerator, "
@@ -552,6 +555,85 @@ CAMPAIGNS["2026-09-14"] = dict(
                    f'<a href="{PACK}" target="_blank" style="color:{BLUE};text-decoration:underline;">sponsorships are open</a>.</p>',
                    T, edit="ps"),
             r_pad(36),
+        ], ground="tint"),
+    ],
+)
+
+# ============================ TUESDAY, SEPT 15 ===============================
+# Day-of send for Session 1, with René Redwood as the angle: her panel leads,
+# her record carries the blue band, and the session detail follows it.
+CAMPAIGNS["2026-09-15"] = dict(
+    title="Today at 10 AM with René Redwood",
+    subject="Today at 10 AM with René Redwood",
+    alts=["Starting this morning: Session 1 with René",
+          "René Redwood is on Zoom at 10 AM",
+          "Today: Purpose, People, and AI"],
+    preheader="Session 1 of Building an AI-Ready Trusted Business starts this morning on Zoom, and there is still room.",
+    send="Tuesday, September 15, 2026, 7:30 AM PT",
+    images=["lba-logo.png", "hero-ai-rene.jpg", "hero-ai-title.jpg",
+            "icon-linkedin.png", "icon-email.png", "icon-web.png"],
+    sections=[
+        # 1 — RENÉ LEADS
+        section([
+            r_image("hero-ai-rene.jpg", RENE_ALT),
+            r_text("\n".join([
+                kicker("Today at 10 AM", W),
+                display("Ninety Minutes with René Redwood", W),
+                badge("Today &middot; 10:00 &ndash; 11:30 AM PT &middot; Zoom", W),
+                lead("Session 1 of <strong style=\"color:#204396;\">Building an AI-Ready Trusted Business</strong> starts this morning, and there is still room.", W),
+                p("René facilitates all three sessions, and she builds them around the businesses in the room rather than a slide deck. Bring the one you are actually running.", W, 0),
+            ]), W, edit="intro"),
+            r_button("Register and Join Us", S1, W),
+            r_pad(34),
+        ]),
+
+        # 2 — WHO SHE IS (the one blue band in this send)
+        section([
+            r_text("\n".join([
+                kicker("Your Facilitator", B),
+                display("René Redwood", B),
+                p("A recognized leader in advancing equity, inclusive workplace culture, and strategic initiatives that drive results.", B),
+                label("Behind the work:", B),
+                bullets(["Directed the Presidential Glass Ceiling Commission",
+                         "Served on the court-appointed Coca-Cola Task Force",
+                         "Decades helping organizations build trust, leverage human potential, and create a lasting advantage in the marketplace"], B),
+            ]), B, edit="rene"),
+            r_text(p("That is the experience she brings to a room of small business owners &mdash; three sessions on what makes a business worth trusting, and how purpose, people, leadership, and AI hold that together.", B, 0),
+                   B, edit="rene_close", pad="24px 40px 0 40px"),
+            r_button("Save Your Seat", S1, B),
+            r_pad(38),
+        ], ground="blue"),
+
+        # 3 — WHAT SESSION 1 COVERS
+        section([
+            r_image("hero-ai-title.jpg", HERO_ALT),
+            r_text("\n".join([
+                kicker("Session 1 of 3", T),
+                display("Purpose, People, and AI", T),
+                p("What makes your business valuable, distinct, and worthy of trust? You will connect your personal values and business mission to the leadership choices, people, systems, and responsible use of AI that shape how your company operates and grows.", T),
+                label("You will leave able to:", T),
+                bullets(S1_BULLETS, T),
+            ]), T, edit="session1"),
+            r_card(details("Tuesday, September 15, 2026", "10:00 &ndash; 11:30 AM PT", "Online via Zoom", indent=12, bare=True), T),
+            r_button("Register for Session&nbsp;1", S1, T),
+            r_pad(38),
+        ], ground="tint"),
+
+        # 4 — THE FULL SERIES
+        section([
+            r_text(series_table(W), W, edit="series", pad="36px 16px 0 16px"),
+            r_pad(36),
+        ]),
+
+        # 5 — ALSO AHEAD
+        section([
+            r_text("\n".join([
+                kicker("Also Ahead", T),
+                display("Long Beach Tech Week 2026", T),
+                p(f'Tech Week runs <strong style="color:{BLUE};">September 28 &ndash; October 1</strong> and closes with the 3rd Annual LBA Investors &amp; Founders Summit. <a href="{PACK}" target="_blank" style="color:{BLUE};text-decoration:underline;">Sponsorship opportunities</a> are open now.', T, 0),
+            ]), T, edit="ps"),
+            r_button("Explore Long Beach Tech Week", TW, T, invert=True),
+            r_pad(38),
         ], ground="tint"),
     ],
 )
