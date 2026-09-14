@@ -559,17 +559,18 @@ CAMPAIGNS["2026-09-14"] = dict(
     ],
 )
 
-# ============================ TUESDAY, SEPT 15 ===============================
-# Day-of send for Session 1, with René Redwood as the angle: her panel leads,
-# her record carries the blue band, and the session detail follows it.
-CAMPAIGNS["2026-09-15"] = dict(
-    title="Today at 10 AM with René Redwood",
-    subject="Today at 10 AM with René Redwood",
-    alts=["Starting this morning: Session 1 with René",
-          "René Redwood is on Zoom at 10 AM",
-          "Today: Purpose, People, and AI"],
-    preheader="Session 1 of Building an AI-Ready Trusted Business starts this morning on Zoom, and there is still room.",
-    send="Tuesday, September 15, 2026, 7:30 AM PT",
+# ===================== MONDAY, SEPT 14 — RENÉ EDITION =======================
+# Goes out Monday the 14th for a Tuesday session, alongside the other 9/14
+# spec above. Same slot, different angle: that one leads on the deadline,
+# this one leads on the facilitator.
+CAMPAIGNS["2026-09-14-rene"] = dict(
+    title="Tomorrow at 10 AM with René Redwood",
+    subject="Tomorrow at 10 AM with René Redwood",
+    alts=["Ninety minutes tomorrow with René Redwood",
+          "René Redwood is on Zoom tomorrow at 10 AM",
+          "Tomorrow: Purpose, People, and AI"],
+    preheader="Session 1 of Building an AI-Ready Trusted Business starts tomorrow morning on Zoom, and there is still room.",
+    send="Monday, September 14, 2026",
     images=["lba-logo.png", "hero-ai-rene.jpg", "hero-ai-title.jpg",
             "icon-linkedin.png", "icon-email.png", "icon-web.png"],
     sections=[
@@ -577,10 +578,10 @@ CAMPAIGNS["2026-09-15"] = dict(
         section([
             r_image("hero-ai-rene.jpg", RENE_ALT),
             r_text("\n".join([
-                kicker("Today at 10 AM", W),
+                kicker("Tomorrow at 10 AM", W),
                 display("Ninety Minutes with René Redwood", W),
-                badge("Today &middot; 10:00 &ndash; 11:30 AM PT &middot; Zoom", W),
-                lead("Session 1 of <strong style=\"color:#204396;\">Building an AI-Ready Trusted Business</strong> starts this morning, and there is still room.", W),
+                badge("Tomorrow &middot; 10:00 &ndash; 11:30 AM PT", W),
+                lead("Session 1 of <strong style=\"color:#204396;\">Building an AI-Ready Trusted Business</strong> starts tomorrow morning, and there is still room.", W),
                 p("René facilitates all three sessions, and she builds them around the businesses in the room rather than a slide deck. Bring the one you are actually running.", W, 0),
             ]), W, edit="intro"),
             r_button("Register and Join Us", S1, W),
@@ -756,8 +757,8 @@ the visual editor while the layout stays put.
 
 **Three grounds.** Sections sit on white, Light Gray `{PANEL}`, or a reversed LBA Blue band.
 The blue band is the emphasis device and there is one per email, on whatever that send is
-actually asking for — the contents list and honorees on 9/10, Session 1 on 9/14, honorees on
-9/18. Used more than that it stops being emphasis.
+actually asking for — the honorees on 9/10, Session 1 on 9/14, René Redwood on the 9/14 René
+edition, the honorees again on 9/18. Used more than that it stops being emphasis.
 
 **Reversed palette.** Brand teal on LBA Blue measures 2.23:1 and fails outright, so kickers
 and bullets on the blue band use `{R_KICK}`, a light tint of it, at 5.52:1. Body there is

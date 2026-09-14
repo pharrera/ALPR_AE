@@ -61,30 +61,29 @@ preview adds the facilitator, the format, and a soft availability cue.
 
 ---
 
-## Tue 9/15 — day-of, René Redwood
+## Mon 9/14 — Session 1, the René edition
 
 **Current**
 
-> **Subject:** Today at 10 AM with René Redwood `32`
-> **Preview:** Session 1 of Building an AI-Ready Trusted Business starts this morning on Zoom, and there is still room.
+> **Subject:** Tomorrow at 10 AM with René Redwood `35`
+> **Preview:** Session 1 of Building an AI-Ready Trusted Business starts tomorrow morning on Zoom, and there is still room.
 
-This send follows 9/14 by a day, so the subject cannot repeat it. It changes the angle from
-the deadline to the person: *who* you get for ninety minutes, not *when*. Her name is the
-whole hook, which is why it sits in the subject and the preview carries the session title.
-
-Send it early — 7:30 AM PT in the template — so it lands well before the 10:00 start.
+An alternative to the last-call send above, for the same Monday slot. That one leads on the
+deadline; this one leads on the person — *who* you get for ninety minutes rather than *when*.
+Her name is the whole hook, which is why it sits in the subject while the preview carries the
+session title.
 
 **Alternates**
 
 | Subject | Len | Angle |
 |---|---|---|
-| René Redwood is on Zoom at 10 AM | 32 | Immediacy |
-| Starting this morning: Session 1 with René | 42 | Urgency |
-| Today: Purpose, People, and AI | 30 | Substance, no name |
+| René Redwood is on Zoom tomorrow at 10 AM | 41 | Immediacy |
+| Ninety minutes tomorrow with René Redwood | 41 | Benefit |
+| Tomorrow: Purpose, People, and AI | 33 | Substance, no name |
 
-If you A/B one send this month, make it this one against 9/14: same offer, same list, one day
-apart, with the only variable being deadline framing versus facilitator framing. What you
-learn transfers directly to Sessions 2 and 3.
+If you A/B one thing this month, make it these two sends against each other: same offer, same
+list, same morning, with the only variable being deadline framing versus facilitator framing.
+What you learn transfers directly to Sessions 2 and 3.
 
 ---
 
@@ -132,5 +131,5 @@ Preview text currently baked into each template:
 |---|---|
 | 9/10 | Tech Week runs Sept 28 – Oct 1, sponsorship opportunities are open, and contracting readiness is this afternoon. |
 | 9/14 | Ninety minutes on Zoom with René Redwood. Session 1 of three, and there's still room. |
-| 9/15 | Session 1 of Building an AI-Ready Trusted Business starts this morning on Zoom, and there is still room. |
+| 9/14 (René) | Session 1 of Building an AI-Ready Trusted Business starts tomorrow morning on Zoom, and there is still room. |
 | 9/18 | Sept 28 – Oct 1. Sponsors join founders, investors, and civic leaders — and sit in the room for the Summit. |

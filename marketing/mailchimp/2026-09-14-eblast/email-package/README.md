@@ -33,8 +33,8 @@ the visual editor while the layout stays put.
 
 **Three grounds.** Sections sit on white, Light Gray `#F2F4F5`, or a reversed LBA Blue band.
 The blue band is the emphasis device and there is one per email, on whatever that send is
-actually asking for — the contents list and honorees on 9/10, Session 1 on 9/14, honorees on
-9/18. Used more than that it stops being emphasis.
+actually asking for — the honorees on 9/10, Session 1 on 9/14, René Redwood on the 9/14 René
+edition, the honorees again on 9/18. Used more than that it stops being emphasis.
 
 **Reversed palette.** Brand teal on LBA Blue measures 2.23:1 and fails outright, so kickers
 and bullets on the blue band use `#7FD8D8`, a light tint of it, at 5.52:1. Body there is
