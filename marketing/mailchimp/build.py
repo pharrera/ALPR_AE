@@ -337,7 +337,7 @@ def r_honorees(g):
 S1   = "https://hub.catalyzerapp.com/public/events/purpose-people-and-ai-building-the-foundation-of-a-4705-133"
 S2C  = "https://hub.catalyzerapp.com/public/events/session-2-preparing-to-pursue-the-work-evaluate-op-4705-67"
 PACK = "https://drive.google.com/file/d/1brJxClWdJ9efsuH7RnPNsjyxDq5224CC/view"
-TW   = "https://longbeachtechweek.com"
+TW   = "https://www.lbaccelerator.org/tech-week/"
 FORM = "https://hub.catalyzerapp.com/public/form/46c9cb88-0c9a-4eac-9346-f53f61f511d6"
 EVT  = "https://lbaccelerator.org/events"
 LUM  = "https://www.lumen21.com/"
