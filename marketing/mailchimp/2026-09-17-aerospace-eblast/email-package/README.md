@@ -9,7 +9,7 @@ than hand-editing `email.html`, so the chrome stays in sync across sends.
 |---|---|
 | Subject | Invitation: Winning the Aerospace Talent War |
 | Preview text | Baked into the HTML as a hidden preheader. Leave Mailchimp's own field blank, or set it — it takes precedence. Setting both can show them back to back. |
-| Send | Thursday, September 17, 2026, 8:00 AM PT |
+| Send | Thursday, September 17, 2026, evening |
 | From | Long Beach Accelerator / info@lbaccelerator.org |
 
 Subject line alternates:

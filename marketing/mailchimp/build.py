@@ -731,18 +731,22 @@ CAMPAIGNS["2026-09-18"] = dict(
 )
 
 
-# ========================== MONDAY, SEPT 21 — SIGNUPS =========================
+# ====================== THURSDAY, SEPT 17 — TECH WEEK SIGNUPS ================
 # Attendee registration, not sponsorship. Same Tech Week facts as the 9/10 and
 # 9/18 sends, turned around to answer "why should I come?" rather than "why
 # should we sponsor?". Sponsorship drops to a postscript.
-CAMPAIGNS["2026-09-21"] = dict(
+#
+# Ships the same evening as the aerospace invite above, so nothing here counts
+# days: Tech Week is eleven out, and a countdown that has to be recomputed on
+# every re-date is how a send goes out saying the wrong thing.
+CAMPAIGNS["2026-09-17-techweek"] = dict(
     title="Register for Long Beach Tech Week 2026",
-    subject="Tech Week starts one week from today",
-    alts=["Register for Long Beach Tech Week 2026",
+    subject="Registration is open for Long Beach Tech Week",
+    alts=["Long Beach Tech Week opens Sept 28",
           "Four days, Sept 28 to Oct 1, in Long Beach",
           "Your seat at Long Beach Tech Week"],
     preheader="Four days with the founders, investors, and leaders building the region's tech economy. Registration is open.",
-    send="Monday, September 21, 2026, 8:00 AM PT",
+    send="Thursday, September 17, 2026, evening",
     images=["lba-logo.png", "techweek-2026-register.jpg", "honoree-hacegaba.jpg", "honoree-marshall.jpg",
             "honoree-lee.jpg", "honoree-glass.jpg", "icon-linkedin.png", "icon-email.png", "icon-web.png"],
     sections=[
@@ -753,7 +757,7 @@ CAMPAIGNS["2026-09-21"] = dict(
                 kicker("Long Beach Tech Week 2026", W),
                 display("Four Days at the Center of Our Innovation Ecosystem", W),
                 badge("Sept 28 &ndash; Oct 1, 2026 &middot; Long Beach, CA", W),
-                lead("Registration is open, and Tech Week starts one week from today.", W),
+                lead("Registration is open, and Tech Week opens Monday, September 28.", W),
                 p("Connect with founders, investors, business leaders, corporate innovators, tech experts, entrepreneurs, educators, and public and private sector leaders shaping the region's future in technology for economic impact.", W, 0),
             ]), W, edit="register"),
             r_button("Register for Tech Week", TW, W),
@@ -827,7 +831,7 @@ CAMPAIGNS["2026-09-17-aerospace"] = dict(
           "Devin Hughes on aerospace talent, Sept 23",
           "An invitation we're passing along"],
     preheader="Wednesday, September 23 at 5:30 PM at The Modern in Long Beach. Bestselling author Devin Hughes headlines.",
-    send="Thursday, September 17, 2026, 8:00 AM PT",
+    send="Thursday, September 17, 2026, evening",
     images=(["lba-logo.png"] + ([AERO_IMG] if AERO_HAS_IMG else [])
             + ["icon-linkedin.png", "icon-email.png", "icon-web.png"]),
     sections=[
