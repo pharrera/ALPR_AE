@@ -1,6 +1,6 @@
 # Subject Lines & Preview Text — Sept 2026 Sends
 
-Four sends, each with the subject currently baked into its template plus alternates for A/B
+Six sends, each with the subject currently baked into its template plus alternates for A/B
 testing. Values here are pulled from `build.py`; change them there and update this file, so
 the two can't drift.
 
@@ -87,6 +87,29 @@ What you learn transfers directly to Sessions 2 and 3.
 
 ---
 
+## Thu 9/17 — aerospace invite (select list)
+
+**Current**
+
+> **Subject:** Invitation: Winning the Aerospace Talent War `44`
+> **Preview:** Wednesday, September 23 at 5:30 PM at The Modern in Long Beach. Bestselling author Devin Hughes headlines.
+
+Not an LBA event — Bryson hosts it, and the first line of the email says so. Written for a
+hand-picked list of regional leaders rather than the full audience, so the subject can open
+with the word *Invitation* without overpromising. Keep it off the main list: a partner event
+is exactly the kind of unrelated ask that drives unsubscribes on a list already churning at
+42.5%.
+
+**Alternates**
+
+| Subject | Len | Angle |
+|---|---|---|
+| Wed, Sept 23: Winning the Aerospace Talent War | 46 | Date-led — may truncate |
+| Devin Hughes on aerospace talent, Sept 23 | 41 | Speaker-led |
+| An invitation we're passing along | 33 | Personal, vague on purpose |
+
+---
+
 ## Fri 9/18 — Tech Week sponsorship
 
 **Current**
@@ -111,6 +134,30 @@ already knows Tech Week well; the countdown version works better if they don't.
 
 ---
 
+## Mon 9/21 — Tech Week signups
+
+**Current**
+
+> **Subject:** Tech Week starts one week from today `36`
+> **Preview:** Four days with the founders, investors, and leaders building the region's tech economy. Registration is open.
+
+The first send that asks people to *attend* rather than to sponsor. Tech Week opens Monday
+9/28, so a Monday send gets an exact, checkable countdown in the subject instead of a vague
+"soon". The preview names who else will be there, which is the real reason anyone clears four
+days.
+
+Sponsorship still appears, but last and short. Two asks in one email split the click.
+
+**Alternates**
+
+| Subject | Len | Angle |
+|---|---|---|
+| Register for Long Beach Tech Week 2026 | 38 | Plain instruction |
+| Four days, Sept 28 to Oct 1, in Long Beach | 42 | Logistics |
+| Your seat at Long Beach Tech Week | 33 | Possessive |
+
+---
+
 ## Applying these in Mailchimp
 
 Each template already carries its preview text as a hidden preheader in the HTML. Mailchimp
@@ -132,4 +179,6 @@ Preview text currently baked into each template:
 | 9/10 | Tech Week runs Sept 28 – Oct 1, sponsorship opportunities are open, and contracting readiness is this afternoon. |
 | 9/14 | Ninety minutes on Zoom with René Redwood. Session 1 of three, and there's still room. |
 | 9/14 (René) | Session 1 of Building an AI-Ready Trusted Business starts tomorrow morning on Zoom, and there is still room. |
+| 9/17 (aerospace) | Wednesday, September 23 at 5:30 PM at The Modern in Long Beach. Bestselling author Devin Hughes headlines. |
 | 9/18 | Sept 28 – Oct 1. Sponsors join founders, investors, and civic leaders — and sit in the room for the Summit. |
+| 9/21 | Four days with the founders, investors, and leaders building the region's tech economy. Registration is open. |

@@ -341,6 +341,7 @@ TW   = "https://www.lbaccelerator.org/tech-week/"
 FORM = "https://hub.catalyzerapp.com/public/form/46c9cb88-0c9a-4eac-9346-f53f61f511d6"
 EVT  = "https://lbaccelerator.org/events"
 LUM  = "https://www.lumen21.com/"
+AERO = "https://www.eventcreate.com/e/winning-the-aerospace-talent-war"
 
 RENE = ("René Redwood is a recognized leader in advancing equity, inclusive workplace culture, and strategic "
         "initiatives that drive results. She has directed the Presidential Glass Ceiling Commission and served on "
@@ -367,6 +368,8 @@ RENE_ALT = ("Facilitated by René Redwood, a recognized leader in advancing equi
             "organizations build trust, leverage human potential, and create a lasting advantage in the marketplace.")
 CONTRACT_ALT = ("Contracting and Procurement Readiness Series, Session 2: Preparing to Pursue the Work. "
                 "Thursday, September 10, 4:00 to 5:30 PM PT, online via Zoom, featuring LBA Business Adviser Ronda Jackson.")
+TW_REG_ALT = ("Registration is open for Long Beach Tech Week 2026, hosted by the Long Beach Accelerator, "
+              "September 28 to October 1, 2026, in Long Beach, California.")
 TW_ALT = ("Long Beach Tech Week 2026 Sponsorship Opportunities, hosted by the Long Beach Accelerator, "
           "September 28 to October 1, 2026.")
 
@@ -700,6 +703,141 @@ CAMPAIGNS["2026-09-18"] = dict(
     ],
 )
 
+
+# ========================== MONDAY, SEPT 21 — SIGNUPS =========================
+# Attendee registration, not sponsorship. Same Tech Week facts as the 9/10 and
+# 9/18 sends, turned around to answer "why should I come?" rather than "why
+# should we sponsor?". Sponsorship drops to a postscript.
+CAMPAIGNS["2026-09-21"] = dict(
+    title="Register for Long Beach Tech Week 2026",
+    subject="Tech Week starts one week from today",
+    alts=["Register for Long Beach Tech Week 2026",
+          "Four days, Sept 28 to Oct 1, in Long Beach",
+          "Your seat at Long Beach Tech Week"],
+    preheader="Four days with the founders, investors, and leaders building the region's tech economy. Registration is open.",
+    send="Monday, September 21, 2026, 8:00 AM PT",
+    images=["lba-logo.png", "techweek-2026-register.jpg", "honoree-hacegaba.jpg", "honoree-marshall.jpg",
+            "honoree-lee.jpg", "honoree-glass.jpg", "icon-linkedin.png", "icon-email.png", "icon-web.png"],
+    sections=[
+        # 1 — THE ASK
+        section([
+            r_image("techweek-2026-register.jpg", TW_REG_ALT, href=TW),
+            r_text("\n".join([
+                kicker("Long Beach Tech Week 2026", W),
+                display("Four Days at the Center of Our Innovation Ecosystem", W),
+                badge("Sept 28 &ndash; Oct 1, 2026 &middot; Long Beach, CA", W),
+                lead("Registration is open, and Tech Week starts one week from today.", W),
+                p("Connect with founders, investors, business leaders, corporate innovators, tech experts, entrepreneurs, educators, and public and private sector leaders shaping the region's future in technology for economic impact.", W, 0),
+            ]), W, edit="register"),
+            r_button("Register for Tech Week", TW, W),
+            r_pad(36),
+        ]),
+
+        # 2 — WHAT THE WEEK COVERS
+        section([
+            r_text("\n".join([
+                kicker("What's Ahead", T),
+                display("A Week Built Around the Region's Industries", T),
+                p(f'Hosted by the Long Beach Accelerator, <a href="{TW}" target="_blank" style="color:{BLUE};text-decoration:underline;">Long Beach Tech Week 2026</a> is four days to build visibility, strengthen relationships, and connect directly with the growing innovation and emerging technology ecosystems here in Southern California and throughout our state.', T),
+                label("Key sectors:", T),
+                bullets(["Transportation, Logistics &amp; Supply Chain",
+                         "Aerospace &amp; Space",
+                         "Energy &amp; Sustainability",
+                         "Health Tech",
+                         "Entertainment &amp; Creative Economy",
+                         "Other emerging tech industries"], T),
+            ]), T, edit="sectors"),
+            r_pad(38),
+        ], ground="tint"),
+
+        # 3 — THE SUMMIT (the one blue band: the marquee reason to come)
+        section([
+            r_text("\n".join([
+                big_kicker("3rd Annual", B),
+                display("LBA Investors &amp; Founders Summit", B),
+                badge("Thu, Oct 1 &middot; 11:00 AM &ndash; 6:00 PM", B),
+                p('<strong style="color:#FFFFFF;">Hyatt Regency Long Beach &middot; Beacon Ballroom</strong>', B),
+                p('The Summit closes out Tech Week. It celebrates the LBA honorees at the Awards Luncheon, and the <strong style="color:#FFFFFF;">LBA Visionary Investors Panel</strong>, our signature afternoon forum, is a conversation with visionary investors on the global economy and emerging technology, including a special preview of LA2028 Olympics and Paralympics opportunities.', B, 0),
+            ]), B, edit="summit"),
+            r_button("Register for Tech Week", TW, B),
+            r_pad(38),
+        ], ground="blue"),
+
+        # 4 — HONOREES
+        section([
+            r_text("\n".join([
+                kicker("Celebrate LBA Honorees", W),
+                display("Meet the 2026 LBA Honorees", W),
+                p("Four visionary leaders who have led the way, blazed the trail, and stand among our top investors and founders. They are recognized at the Awards Luncheon on October 1.", W, 0),
+            ]), W, edit="honorees_intro"),
+            r_honorees(W),
+            r_pad(38),
+        ]),
+
+        # 5 — SPONSORSHIP, AS A POSTSCRIPT
+        section([
+            r_text("\n".join([
+                kicker("For Organizations", T),
+                display("Sponsorships Are Still Open", T),
+                p("Sponsorships are available at several levels, each carrying recognition across Tech Week and at the Summit. Benefits include presenting recognition, speaking opportunities in the 2026&ndash;2027 LBA forum, access to the Founders Roundtable, Summit registrations, and placement across LBA communications.", T, 0),
+            ]), T, edit="sponsorship"),
+            r_button("View Sponsorship Opportunities", PACK, T, invert=True),
+            r_pad(38),
+        ], ground="tint"),
+    ],
+)
+
+# ============== THURSDAY, SEPT 17 — AEROSPACE INVITE (SELECT LIST) ============
+# A partner event hosted by Bryson, not by the LBA, so the copy says so in the
+# first line. Built as live text rather than the event flyer: that artwork is a
+# wide landscape graphic whose type would land around 7px at 600px, and it is
+# unreadable for anyone with images off. Swap the flyer in if it is wanted.
+CAMPAIGNS["2026-09-17-aerospace"] = dict(
+    title="Winning the Aerospace Talent War",
+    subject="Invitation: Winning the Aerospace Talent War",
+    alts=["Wed, Sept 23: Winning the Aerospace Talent War",
+          "Devin Hughes on aerospace talent, Sept 23",
+          "An invitation we're passing along"],
+    preheader="Wednesday, September 23 at 5:30 PM at The Modern in Long Beach. Bestselling author Devin Hughes headlines.",
+    send="Thursday, September 17, 2026, 8:00 AM PT",
+    images=["lba-logo.png", "icon-linkedin.png", "icon-email.png", "icon-web.png"],
+    sections=[
+        section([
+            r_text("\n".join([
+                kicker("An Invitation We're Passing Along", W),
+                display("Winning the Aerospace Talent War", W),
+                badge("Wed, Sept 23 &middot; 5:30 PM &middot; Long Beach", W),
+                lead(f'<a href="{AERO}" target="_blank" style="color:{BLUE};text-decoration:underline;">Winning the Aerospace Talent War</a> is hosted by <strong style="color:{BLUE};">Bryson</strong>, and we are sharing it with a small group of regional leaders we think should be in the room.', W),
+                p("Aerospace and space is one of the sectors driving this region's economy, and talent is the constraint those companies name most often.", W, 0),
+            ]), W, edit="intro"),
+            r_button("RSVP for the Evening", AERO, W),
+            r_pad(34),
+        ]),
+
+        section([
+            r_text("\n".join([
+                kicker("Featured Guest Speaker", B),
+                display("Devin Hughes", B),
+                p("Bestselling author, and an internationally recognized leadership and workplace culture expert.", B, 0),
+            ]), B, edit="speaker"),
+            r_card(details("Wednesday, September 23, 2026", "5:30 PM",
+                           "The Modern &middot; 2801 E Spring Street, Long Beach, CA 90806",
+                           indent=12, bare=True), B),
+            r_button("Reserve Your Spot", AERO, B),
+            r_pad(38),
+        ], ground="blue"),
+
+        section([
+            r_text("\n".join([
+                kicker("Also Ahead", T),
+                display("Long Beach Tech Week 2026", T),
+                p(f'Tech Week runs <strong style="color:{BLUE};">September 28 &ndash; October 1</strong> and closes with the 3rd Annual LBA Investors &amp; Founders Summit. Aerospace and space is one of its key sectors.', T, 0),
+            ]), T, edit="ps"),
+            r_button("Register for Tech Week", TW, T, invert=True),
+            r_pad(38),
+        ], ground="tint"),
+    ],
+)
 
 def build(slug, spec):
     out = os.path.join(HERE, f"{slug}-eblast", "email-package")
