@@ -343,6 +343,16 @@ EVT  = "https://lbaccelerator.org/events"
 LUM  = "https://www.lumen21.com/"
 AERO = "https://www.eventcreate.com/e/winning-the-aerospace-talent-war"
 
+# The Bryson flyer is dropped in by hand - it is their artwork, not ours, and it
+# is not in this repo. The 9/17 send picks it up automatically once the file
+# exists at the path below, and renders as live text alone until it does, so a
+# placeholder can never go out by accident.
+AERO_IMG = "aerospace-talent-war.jpg"
+AERO_HAS_IMG = os.path.exists(os.path.join(ASSETS, AERO_IMG))
+AERO_ALT = ("Winning the Aerospace Talent War, featuring guest speaker Devin Hughes, bestselling author and "
+            "internationally recognized leadership and workplace culture expert. The Modern, 2801 E Spring "
+            "Street, Long Beach, CA 90806, September 23 at 5:30 PM. Hosted by Bryson. RSVP to reserve a spot.")
+
 RENE = ("René Redwood is a recognized leader in advancing equity, inclusive workplace culture, and strategic "
         "initiatives that drive results. She has directed the Presidential Glass Ceiling Commission and served on "
         "the court-appointed Coca-Cola Task Force, and brings decades of experience helping organizations build "
@@ -789,9 +799,10 @@ CAMPAIGNS["2026-09-21"] = dict(
 
 # ============== THURSDAY, SEPT 17 — AEROSPACE INVITE (SELECT LIST) ============
 # A partner event hosted by Bryson, not by the LBA, so the copy says so in the
-# first line. Built as live text rather than the event flyer: that artwork is a
-# wide landscape graphic whose type would land around 7px at 600px, and it is
-# unreadable for anyone with images off. Swap the flyer in if it is wanted.
+# first line. The flyer rides at the top when AERO_IMG is present, linked to the
+# RSVP page; the details repeat underneath as live text either way. That is not
+# redundancy - the flyer is a 16:9 landscape whose type lands around 7px at
+# 600px, and it is gone entirely for anyone reading with images off.
 CAMPAIGNS["2026-09-17-aerospace"] = dict(
     title="Winning the Aerospace Talent War",
     subject="Invitation: Winning the Aerospace Talent War",
@@ -800,9 +811,11 @@ CAMPAIGNS["2026-09-17-aerospace"] = dict(
           "An invitation we're passing along"],
     preheader="Wednesday, September 23 at 5:30 PM at The Modern in Long Beach. Bestselling author Devin Hughes headlines.",
     send="Thursday, September 17, 2026, 8:00 AM PT",
-    images=["lba-logo.png", "icon-linkedin.png", "icon-email.png", "icon-web.png"],
+    images=(["lba-logo.png"] + ([AERO_IMG] if AERO_HAS_IMG else [])
+            + ["icon-linkedin.png", "icon-email.png", "icon-web.png"]),
     sections=[
         section([
+            *([r_image(AERO_IMG, AERO_ALT, href=AERO)] if AERO_HAS_IMG else []),
             r_text("\n".join([
                 kicker("An Invitation We're Passing Along", W),
                 display("Winning the Aerospace Talent War", W),
@@ -936,3 +949,7 @@ if __name__ == "__main__":
     for slug, spec in CAMPAIGNS.items():
         z, n, hrefs = build(slug, spec)
         print(f"{slug}: {os.path.relpath(z, HERE)}  ({n:,} chars, {len(hrefs)} links)")
+    if not AERO_HAS_IMG:
+        print(f"\n  note: _assets/{AERO_IMG} is missing, so the 9/17 aerospace send was"
+              f"\n        built as live text only. Drop the flyer in at that path and"
+              f"\n        re-run to place it at the top of that email.")
