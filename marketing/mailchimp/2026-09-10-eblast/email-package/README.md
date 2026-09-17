@@ -20,7 +20,7 @@ Subject line alternates:
 
 Preheader in this template:
 
-> Tech Week runs Sept 28 - Oct 1, sponsorship opportunities are open, and contracting readiness is this afternoon.
+> Long Beach Tech Week runs Sept 28th - Oct 1st, sponsorship opportunities are open, and contracting readiness is this afternoon.
 
 ## Load it into Mailchimp
 

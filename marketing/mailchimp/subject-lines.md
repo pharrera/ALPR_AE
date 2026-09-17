@@ -118,11 +118,12 @@ is exactly the kind of unrelated ask that drives unsubscribes on a list already 
 
 **Current**
 
-> **Subject:** Registration is open for Long Beach Tech Week `45`
-> **Preview:** Four days with the founders, investors, and leaders building the region's tech economy. Registration is open.
+> **Subject:** Register today for Long Beach Tech Week `39`
+> **Preview:** Four days with the founders, investors, and leaders building the region's tech economy. Register today.
 
-The first send that asks people to *attend* rather than to sponsor. It carries no countdown
-anywhere, deliberately: this send was drafted for a Monday and moved to a Thursday, and a
+Vivian's pass set the voice here: *Register today* in the subject, the preview and the opening
+line, and one button label, "Register for Long Beach Tech Week", everywhere Tech Week is the
+ask. It carries no countdown anywhere, deliberately: this send was drafted for a Monday and moved to a Thursday, and a
 subject line that counts days is the kind of thing that ships wrong after a re-date. Every
 date in it is absolute. The preview names who else will be there, which is the real reason
 anyone clears four days.
@@ -133,8 +134,8 @@ Sponsorship still appears, but last and short. Two asks in one email split the c
 
 | Subject | Len | Angle |
 |---|---|---|
-| Long Beach Tech Week opens Sept 28 | 34 | Date-led |
-| Four days, Sept 28 to Oct 1, in Long Beach | 42 | Logistics |
+| Long Beach Tech Week opens Sept 28th | 36 | Date-led |
+| Four days, Sept 28th to Oct 1st, in Long Beach | 46 | Logistics — may truncate |
 | Your seat at Long Beach Tech Week | 33 | Possessive |
 
 ---
@@ -143,7 +144,7 @@ Sponsorship still appears, but last and short. Two asks in one email split the c
 
 **Current**
 
-> **Subject:** Ten days to Tech Week — sponsorships are open `45`
+> **Subject:** Long Beach Tech Week: sponsorships are open `43`
 > **Preview:** Sept 28 – Oct 1. Sponsors join founders, investors, and civic leaders — and sit in the room for the Summit.
 
 Different audience from the other three: organizations deciding on spend, not owners deciding
@@ -154,7 +155,7 @@ room, which is the actual argument for sponsoring.
 
 | Subject | Len | Angle |
 |---|---|---|
-| Put your brand at the center of LB Tech Week | 44 | Benefit |
+| Put your brand at Long Beach Tech Week | 38 | Benefit |
 | Sponsor Long Beach Tech Week 2026 | 33 | Plain label |
 | Meet the 2026 Summit honorees | 29 | Curiosity |
 
@@ -185,5 +186,5 @@ Preview text currently baked into each template:
 | 9/14 | Ninety minutes on Zoom with René Redwood. Session 1 of three, and there's still room. |
 | 9/14 (René) | Session 1 of Building an AI-Ready Trusted Business starts tomorrow morning on Zoom, and there is still room. |
 | 9/17 (aerospace) | Wednesday, September 23 at 5:30 PM at The Modern in Long Beach. Bestselling author Devin Hughes headlines. |
-| 9/17 (Tech Week) | Four days with the founders, investors, and leaders building the region's tech economy. Registration is open. |
-| 9/18 | Sept 28 – Oct 1. Sponsors join founders, investors, and civic leaders — and sit in the room for the Summit. |
+| 9/17 (Tech Week) | Four days with the founders, investors, and leaders building the region's tech economy. Register today. |
+| 9/18 | Sept 28th – Oct 1st. Sponsors join founders, investors, and civic leaders — and sit in the room for the Summit. |

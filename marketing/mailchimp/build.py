@@ -395,9 +395,9 @@ RENE_ALT = ("Facilitated by René Redwood, a recognized leader in advancing equi
 CONTRACT_ALT = ("Contracting and Procurement Readiness Series, Session 2: Preparing to Pursue the Work. "
                 "Thursday, September 10, 4:00 to 5:30 PM PT, online via Zoom, featuring LBA Business Adviser Ronda Jackson.")
 TW_REG_ALT = ("Registration is open for Long Beach Tech Week 2026, hosted by the Long Beach Accelerator, "
-              "September 28 to October 1, 2026, in Long Beach, California.")
+              "September 28th to October 1st, 2026, in Long Beach, California.")
 TW_ALT = ("Long Beach Tech Week 2026 Sponsorship Opportunities, hosted by the Long Beach Accelerator, "
-          "September 28 to October 1, 2026.")
+          "September 28th to October 1st, 2026.")
 
 W, T, B = ink("white"), ink("tint"), ink("blue")
 S = ink("space")
@@ -412,7 +412,7 @@ CAMPAIGNS["2026-09-10"] = dict(
     alts=["Put your organization at the center of our innovation ecosystem",
           "Meet the 2026 LBA honorees",
           "Sponsorship opportunities are open for Long Beach Tech Week"],
-    preheader="Tech Week runs Sept 28 - Oct 1, sponsorship opportunities are open, and contracting readiness is this afternoon.",
+    preheader="Long Beach Tech Week runs Sept 28th - Oct 1st, sponsorship opportunities are open, and contracting readiness is this afternoon.",
     send="Thursday, September 10, 2026, 8:00 AM PT",
     images=["lba-logo.png", "techweek-2026.jpg", "honoree-hacegaba.jpg", "honoree-marshall.jpg",
             "honoree-lee.jpg", "honoree-glass.jpg", "contracting-session2.jpg",
@@ -422,11 +422,11 @@ CAMPAIGNS["2026-09-10"] = dict(
         # 1 — LONG BEACH TECH WEEK
         section([
             r_image("techweek-2026.jpg", TW_ALT, href=TW),
-            r_button("Explore Long Beach Tech Week", TW, W),
+            r_button("Register for Long Beach Tech Week", TW, W),
             r_text("\n".join([
                 kicker("Long Beach Tech Week 2026", W),
-                display("Put Your Organization at the Center of Our Innovation Ecosystem", W),
-                badge("Sept 28 &ndash; Oct 1, 2026 &middot; Long Beach, CA", W),
+                display("Put Your Organization at the Center of Our Innovation Ecosystems", W),
+                badge("Sept 28th &ndash; Oct 1st &middot; Long Beach", W),
                 p("Connect with founders, investors, business leaders, corporate innovators, tech experts, entrepreneurs, educators, and public and private sector leaders shaping the region's future in technology for economic impact.", W),
                 p(f'Hosted by the Long Beach Accelerator, <a href="{TW}" target="_blank" style="color:{BLUE};text-decoration:underline;">Long Beach Tech Week 2026</a> offers leaders and organizations a unique opportunity to build visibility, strengthen relationships, and connect directly with the growing innovation and emerging technology ecosystems here in Southern California and throughout our state.', W),
                 label("Key sectors:", W),
@@ -445,7 +445,7 @@ CAMPAIGNS["2026-09-10"] = dict(
             r_text("\n".join([
                 kicker("Become a Partner", T),
                 display("Sponsorship Opportunities", T),
-                p("Sponsorships are available at several levels, each carrying recognition across Tech Week and at the Summit:", T),
+                p("Sponsorships are available at several levels, each carrying recognition across Long Beach Tech Week and at the Summit:", T),
             ]), T, edit="sponsorship"),
             r_text(f'      Benefits include presenting recognition, speaking opportunities in the 2026&ndash;2027 LBA forum, access to the Founders Roundtable, Summit registrations, and placement across LBA communications. See the <a href="{PACK}" target="_blank" style="color:{BLUE};text-decoration:underline;">full sponsorship opportunities</a> for what each level carries.',
                    T, edit="packet_line", pad="24px 40px 0 40px"),
@@ -469,7 +469,7 @@ CAMPAIGNS["2026-09-10"] = dict(
             r_text("\n".join([
                 big_kicker("3rd Annual", W),
                 display("LBA Investors &amp; Founders Summit", W),
-                badge("Thu, Oct 1 &middot; 11:00 AM &ndash; 6:00 PM", W),
+                badge("Thu, Oct 1st &middot; 11:00 AM &ndash; 6:00 PM", W),
                 p("<strong style=\"color:#204396;\">Hyatt Regency Long Beach &middot; Beacon Ballroom</strong>", W),
                 p("The Summit celebrates LBA honorees at the Awards Luncheon. The <strong style=\"color:#204396;\">LBA Visionary Investors Panel</strong>, our signature afternoon forum, is a conversation with visionary investors on the global economy and emerging technology, and includes a special preview of LA2028 Olympics and Paralympics opportunities.", W, 0),
             ]), W, edit="summit"),
@@ -581,7 +581,7 @@ CAMPAIGNS["2026-09-14"] = dict(
 
         section([
             r_text(f'      <p style="margin:0;{SMALL};color:{CHAR};"><strong style="color:{BLUE};">Also ahead:</strong> '
-                   f'<a href="{TW}" target="_blank" style="color:{BLUE};text-decoration:underline;">Long Beach Tech Week</a> runs September 28 &ndash; October 1, and '
+                   f'<a href="{TW}" target="_blank" style="color:{BLUE};text-decoration:underline;">Long Beach Tech Week</a> runs September 28th &ndash; October 1st, and '
                    f'<a href="{PACK}" target="_blank" style="color:{BLUE};text-decoration:underline;">sponsorships are open</a>.</p>',
                    T, edit="ps"),
             r_pad(36),
@@ -661,9 +661,9 @@ CAMPAIGNS["2026-09-14-rene"] = dict(
             r_text("\n".join([
                 kicker("Also Ahead", T),
                 display("Long Beach Tech Week 2026", T),
-                p(f'Tech Week runs <strong style="color:{BLUE};">September 28 &ndash; October 1</strong> and closes with the 3rd Annual LBA Investors &amp; Founders Summit. <a href="{PACK}" target="_blank" style="color:{BLUE};text-decoration:underline;">Sponsorship opportunities</a> are open now.', T, 0),
+                p(f'Long Beach Tech Week runs <strong style="color:{BLUE};">September 28th &ndash; October 1st</strong> and closes with the 3rd Annual LBA Investors &amp; Founders Summit. <a href="{PACK}" target="_blank" style="color:{BLUE};text-decoration:underline;">Sponsorship opportunities</a> are open now.', T, 0),
             ]), T, edit="ps"),
-            r_button("Explore Long Beach Tech Week", TW, T, invert=True),
+            r_button("Register for Long Beach Tech Week", TW, T, invert=True),
             r_pad(38),
         ], ground="tint"),
     ],
@@ -672,24 +672,24 @@ CAMPAIGNS["2026-09-14-rene"] = dict(
 # ============================ FRIDAY, SEPT 18 ================================
 CAMPAIGNS["2026-09-18"] = dict(
     title="Sponsor Long Beach Tech Week 2026",
-    subject="Ten days to Tech Week — sponsorships are open",
-    alts=["Put your brand at the center of LB Tech Week",
+    subject="Long Beach Tech Week: sponsorships are open",
+    alts=["Put your brand at Long Beach Tech Week",
           "Sponsor Long Beach Tech Week 2026",
           "Meet the 2026 Summit honorees"],
-    preheader="Sept 28 - Oct 1. Sponsors join founders, investors, and civic leaders - and sit in the room for the Summit.",
+    preheader="Sept 28th - Oct 1st. Sponsors join founders, investors, and civic leaders - and sit in the room for the Summit.",
     send="Friday, September 18, 2026, 8:00 AM PT",
     images=["lba-logo.png", "techweek-2026.jpg", "honoree-hacegaba.jpg", "honoree-marshall.jpg",
             "honoree-lee.jpg", "honoree-glass.jpg", "icon-linkedin.png", "icon-email.png", "icon-web.png"],
     sections=[
         section([
             r_image("techweek-2026.jpg", TW_ALT, href=TW),
-            r_button("Explore Long Beach Tech Week", TW, W),
+            r_button("Register for Long Beach Tech Week", TW, W),
             r_text("\n".join([
                 kicker("Long Beach Tech Week 2026", W),
-                display("Put Your Organization at the Center of Long Beach's Innovation Ecosystem", W),
-                badge("Sept 28 &ndash; Oct 1 &middot; Long Beach, CA", W),
-                lead("Tech Week is ten days out, and sponsorships are open.", W),
-                p(f'<a href="{TW}" target="_blank" style="color:{BLUE};text-decoration:underline;">Tech Week 2026</a> draws founders, investors, business leaders, tech experts, entrepreneurs, educators, creatives, and civic leaders for a multi-day experience showcasing the people, ideas, and industries shaping our region\'s future.', W),
+                display("Put Your Organization at the Center of Long Beach's Innovation Ecosystems", W),
+                badge("Sept 28th &ndash; Oct 1st &middot; Long Beach", W),
+                lead("Long Beach Tech Week is ten days out, and sponsorships are open.", W),
+                p(f'<a href="{TW}" target="_blank" style="color:{BLUE};text-decoration:underline;">Long Beach Tech Week 2026</a> draws founders, investors, business leaders, tech experts, entrepreneurs, educators, creatives, and civic leaders for a multi-day experience showcasing the people, ideas, and industries shaping our region\'s future.', W),
                 label("Sponsorship opportunities are available at multiple levels, offering benefits such as:", W),
                 bullets(TW_BULLETS, W),
             ]), W, edit="techweek"),
@@ -703,7 +703,7 @@ CAMPAIGNS["2026-09-18"] = dict(
             r_text("\n".join([
                 kicker("3rd Annual Investors &amp; Founders Summit", B),
                 display("Meet the 2026 Honorees", B),
-                p("The Summit closes out Tech Week on <strong style=\"color:#FFFFFF;\">Thursday, October 1</strong> at the <strong style=\"color:#FFFFFF;\">Hyatt Regency Long Beach</strong>. Sponsors sit in the room as we recognize four leaders shaping the region's innovation economy.", B, 0),
+                p("The Summit closes out Long Beach Tech Week on <strong style=\"color:#FFFFFF;\">Thursday, October 1st</strong> at the <strong style=\"color:#FFFFFF;\">Hyatt Regency Long Beach</strong>. Sponsors sit in the room as we recognize four leaders shaping the region's innovation economy.", B, 0),
             ]), B, edit="honorees_intro"),
             r_honorees(B),
             r_pad(38),
@@ -741,11 +741,11 @@ CAMPAIGNS["2026-09-18"] = dict(
 # every re-date is how a send goes out saying the wrong thing.
 CAMPAIGNS["2026-09-17-techweek"] = dict(
     title="Register for Long Beach Tech Week 2026",
-    subject="Registration is open for Long Beach Tech Week",
-    alts=["Long Beach Tech Week opens Sept 28",
-          "Four days, Sept 28 to Oct 1, in Long Beach",
+    subject="Register today for Long Beach Tech Week",
+    alts=["Long Beach Tech Week opens Sept 28th",
+          "Four days, Sept 28th to Oct 1st, in Long Beach",
           "Your seat at Long Beach Tech Week"],
-    preheader="Four days with the founders, investors, and leaders building the region's tech economy. Registration is open.",
+    preheader="Four days with the founders, investors, and leaders building the region's tech economy. Register today.",
     send="Thursday, September 17, 2026, evening",
     images=["lba-logo.png", "techweek-2026-register.jpg", "honoree-hacegaba.jpg", "honoree-marshall.jpg",
             "honoree-lee.jpg", "honoree-glass.jpg", "icon-linkedin.png", "icon-email.png", "icon-web.png"],
@@ -755,12 +755,12 @@ CAMPAIGNS["2026-09-17-techweek"] = dict(
             r_image("techweek-2026-register.jpg", TW_REG_ALT, href=TW),
             r_text("\n".join([
                 kicker("Long Beach Tech Week 2026", W),
-                display("Four Days at the Center of Our Innovation Ecosystem", W),
-                badge("Sept 28 &ndash; Oct 1, 2026 &middot; Long Beach, CA", W),
-                lead("Registration is open, and Tech Week opens Monday, September 28.", W),
+                display("Four Days at the Center of Our Innovation Ecosystems", W),
+                badge("Sept 28th &ndash; Oct 1st &middot; Long Beach", W),
+                lead("Register today! Long Beach Tech Week Kick Off is Monday, September 28th.", W),
                 p("Connect with founders, investors, business leaders, corporate innovators, tech experts, entrepreneurs, educators, and public and private sector leaders shaping the region's future in technology for economic impact.", W, 0),
             ]), W, edit="register"),
-            r_button("Register for Tech Week", TW, W),
+            r_button("Register for Long Beach Tech Week", TW, W),
             r_pad(36),
         ]),
 
@@ -769,7 +769,8 @@ CAMPAIGNS["2026-09-17-techweek"] = dict(
             r_text("\n".join([
                 kicker("What's Ahead", T),
                 display("A Week Built Around the Region's Industries", T),
-                p(f'Hosted by the Long Beach Accelerator, <a href="{TW}" target="_blank" style="color:{BLUE};text-decoration:underline;">Long Beach Tech Week 2026</a> is four days to build visibility, strengthen relationships, and connect directly with the growing innovation and emerging technology ecosystems here in Southern California and throughout our state.', T),
+                p(f'<a href="{TW}" target="_blank" style="color:{BLUE};text-decoration:underline;">Long Beach Tech Week 2026</a> is four days to build visibility, strengthen relationships, and connect directly with the growing innovation and emerging technology ecosystems here in Southern California and throughout our state.', T),
+                p('Hosted by the Long Beach Accelerator. Planning partners include: Institute for Innovation &amp; Entrepreneurship &ndash; CSULB, City of Long Beach, and Sunstone Management.', T),
                 label("Key sectors:", T),
                 bullets(["Transportation, Logistics &amp; Supply Chain",
                          "Aerospace &amp; Space",
@@ -786,11 +787,11 @@ CAMPAIGNS["2026-09-17-techweek"] = dict(
             r_text("\n".join([
                 big_kicker("3rd Annual", B),
                 display("LBA Investors &amp; Founders Summit", B),
-                badge("Thu, Oct 1 &middot; 11:00 AM &ndash; 6:00 PM", B),
+                badge("Thu, Oct 1st &middot; 11:00 AM &ndash; 6:00 PM", B),
                 p('<strong style="color:#FFFFFF;">Hyatt Regency Long Beach &middot; Beacon Ballroom</strong>', B),
-                p('The Summit closes out Tech Week. It celebrates the LBA honorees at the Awards Luncheon, and the <strong style="color:#FFFFFF;">LBA Visionary Investors Panel</strong>, our signature afternoon forum, is a conversation with visionary investors on the global economy and emerging technology, including a special preview of LA2028 Olympics and Paralympics opportunities.', B, 0),
+                p('The Summit closes out Long Beach Tech Week. It celebrates the LBA honorees at the Awards Luncheon, and the <strong style="color:#FFFFFF;">LBA Visionary Investors Panel</strong>, our signature afternoon forum, is a conversation with visionary investors on the global economy and emerging technology, including a special preview of LA2028 Olympics and Paralympics opportunities.', B, 0),
             ]), B, edit="summit"),
-            r_button("Register for Tech Week", TW, B),
+            r_button("Register for Long Beach Tech Week", TW, B),
             r_pad(38),
         ], ground="blue"),
 
@@ -798,8 +799,8 @@ CAMPAIGNS["2026-09-17-techweek"] = dict(
         section([
             r_text("\n".join([
                 kicker("Celebrate LBA Honorees", W),
-                display("Meet the 2026 LBA Honorees", W),
-                p("Four visionary leaders who have led the way, blazed the trail, and stand among our top investors and founders. They are recognized at the Awards Luncheon on October 1.", W, 0),
+                display("Congratulations to the 2026 LBA Honorees", W),
+                p("Four visionary leaders who have led the way, blazed the trail, and stand among our top investors and founders. They are recognized at the Awards Luncheon on October 1st.", W, 0),
             ]), W, edit="honorees_intro"),
             r_honorees(W),
             r_pad(38),
@@ -810,7 +811,7 @@ CAMPAIGNS["2026-09-17-techweek"] = dict(
             r_text("\n".join([
                 kicker("For Organizations", T),
                 display("Sponsorships Are Still Open", T),
-                p("Sponsorships are available at several levels, each carrying recognition across Tech Week and at the Summit. Benefits include presenting recognition, speaking opportunities in the 2026&ndash;2027 LBA forum, access to the Founders Roundtable, Summit registrations, and placement across LBA communications.", T, 0),
+                p("Sponsorships are available at several levels, each carrying recognition across Long Beach Tech Week and at the Summit. Benefits include presenting recognition, speaking opportunities in the 2026&ndash;2027 LBA forum, access to the Founders Roundtable, Summit registrations, and placement across LBA communications.", T, 0),
             ]), T, edit="sponsorship"),
             r_button("View Sponsorship Opportunities", PACK, T, invert=True),
             r_pad(38),
@@ -868,9 +869,9 @@ CAMPAIGNS["2026-09-17-aerospace"] = dict(
             r_text("\n".join([
                 kicker("Also Ahead", T),
                 display("Long Beach Tech Week 2026", T),
-                p(f'Tech Week runs <strong style="color:{BLUE};">September 28 &ndash; October 1</strong> and closes with the 3rd Annual LBA Investors &amp; Founders Summit. Aerospace and space is one of its key sectors.', T, 0),
+                p(f'Long Beach Tech Week runs <strong style="color:{BLUE};">September 28th &ndash; October 1st</strong> and closes with the 3rd Annual LBA Investors &amp; Founders Summit. Aerospace and space is one of its key sectors.', T, 0),
             ]), T, edit="ps"),
-            r_button("Register for Tech Week", TW, T, invert=True),
+            r_button("Register for Long Beach Tech Week", TW, T, invert=True),
             r_pad(38),
         ], ground="tint"),
     ],
