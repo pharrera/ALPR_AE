@@ -28,9 +28,10 @@ RULE, PANEL_EDGE = "#E3E6E9", "#DCE0E4"
 R_KICK, R_BODY, R_MUTED = "#7FD8D8", "#E4EAF6", "#B9C6E4"
 
 # One dark ground, used only by the 9/17 partner invite so the email sits with
-# the event's own black-and-blue artwork instead of fighting it. Measured
-# against #05070F: white 20.12, body 11.77, accent 7.06, muted 6.71.
-SPACE, S_CARD = "#05070F", "#0E1422"
+# the event's own black-and-blue artwork instead of fighting it. The flyer's
+# field is pure black, so the ground is too, and the two meet with no seam.
+# Measured against #000000: white 21.00, body 12.28, accent 7.37, muted 7.00.
+SPACE, S_CARD = "#000000", "#0E1422"
 S_ACCENT, S_BODY, S_MUTED, S_CARD_INK = "#4C9AFF", "#B8C7E0", "#8296B8", "#E8EEF9"
 
 FONT = "'Proxima Nova','Helvetica Neue',Helvetica,Arial,sans-serif"
