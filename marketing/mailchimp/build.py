@@ -27,6 +27,12 @@ RULE, PANEL_EDGE = "#E3E6E9", "#DCE0E4"
 # against #204396: white 9.11, body 7.55, kicker 5.52, muted 5.32.
 R_KICK, R_BODY, R_MUTED = "#7FD8D8", "#E4EAF6", "#B9C6E4"
 
+# One dark ground, used only by the 9/17 partner invite so the email sits with
+# the event's own black-and-blue artwork instead of fighting it. Measured
+# against #05070F: white 20.12, body 11.77, accent 7.06, muted 6.71.
+SPACE, S_CARD = "#05070F", "#0E1422"
+S_ACCENT, S_BODY, S_MUTED, S_CARD_INK = "#4C9AFF", "#B8C7E0", "#8296B8", "#E8EEF9"
+
 FONT = "'Proxima Nova','Helvetica Neue',Helvetica,Arial,sans-serif"
 BODY = "font-size:16px;line-height:27px"
 SMALL = "font-size:15px;line-height:25px"
@@ -38,6 +44,10 @@ def ink(ground):
         return dict(bg=BLUE, kick=R_KICK, head=WHITE, body=R_BODY, strong=WHITE,
                     mark=R_KICK, muted=R_MUTED, card=WHITE, card_ink=CHAR,
                     link=WHITE, btn_bg=WHITE, btn_ink=BLUE, hair="#4763A9")
+    if ground == "space":
+        return dict(bg=SPACE, kick=S_ACCENT, head=WHITE, body=S_BODY, strong=WHITE,
+                    mark=S_ACCENT, muted=S_MUTED, card=S_CARD, card_ink=S_CARD_INK,
+                    link=S_ACCENT, btn_bg=S_ACCENT, btn_ink=SPACE, hair="#1E2740")
     bg = PANEL if ground == "tint" else WHITE
     return dict(bg=bg, kick=TEAL, head=BLUE, body=CHAR, strong=BLUE,
                 mark=TEAL, muted=GRAY, card=(WHITE if ground == "tint" else PANEL),
@@ -204,7 +214,7 @@ def r_button(label, href, g, invert=False, align="center", pad_top=28):
 def r_card(inner, g, edit=None):
     e = f' mc:edit="{edit}"' if edit else ""
     return (f'        <tr><td class="px" style="padding:28px 40px 0 40px;">\n'
-            f'          <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0" style="background-color:{g["card"]};border-left:5px solid {TEAL};">\n'
+            f'          <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0" style="background-color:{g["card"]};border-left:5px solid {g["mark"]};">\n'
             f'            <tr><td{e} style="padding:28px 30px;font-family:{FONT};{SMALL};color:{g["card_ink"]};">\n'
             f'{inner}\n            </td></tr>\n          </table>\n        </td></tr>\n')
 
@@ -249,8 +259,11 @@ def lead(t, g, mb=18):
 
 def badge(t, g):
     """A filled chip carrying the date. High-contrast, and the eye lands on it."""
-    bg = WHITE if g["bg"] == BLUE else TEAL
-    fg = BLUE if g["bg"] == BLUE else WHITE
+    if g["bg"] == SPACE:
+        bg, fg = S_ACCENT, SPACE
+    else:
+        bg = WHITE if g["bg"] == BLUE else TEAL
+        fg = BLUE if g["bg"] == BLUE else WHITE
     return (f'      <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="margin:0 0 20px 0;"><tr>'
             f'<td bgcolor="{bg}" style="padding:11px 20px;border-radius:3px;font-family:{FONT};font-size:13px;'
             f'line-height:17px;letter-spacing:1.2px;text-transform:uppercase;color:{fg};font-weight:bold;">{t}</td>'
@@ -271,15 +284,17 @@ def label(t, g, indent=6):
     return " " * indent + f'<p style="margin:0 0 12px 0;font-weight:bold;color:{g["strong"]};">{t}</p>'
 
 
-def details(date_, time_, loc, indent=12, bare=False):
+def details(date_, time_, loc, indent=12, bare=False, g=None):
     pad = " " * indent
-    style = "" if bare else f' style="margin-top:20px;border-top:1px solid {PANEL_EDGE};"'
+    ink_, lab = (CHAR, BLUE) if g is None else (g["card_ink"], g["kick"])
+    edge = PANEL_EDGE if g is None else g["hair"]
+    style = "" if bare else f' style="margin-top:20px;border-top:1px solid {edge};"'
     cell = "padding:0;" if bare else "padding:18px 0 0 0;"
     return (f'{pad}<table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%"{style}>'
-            f'<tr><td style="{cell}{SMALL};color:{CHAR};">'
-            f'<strong style="color:{BLUE};">Date:</strong> {date_}<br />'
-            f'<strong style="color:{BLUE};">Time:</strong> {time_}<br />'
-            f'<strong style="color:{BLUE};">Location:</strong> {loc}</td></tr></table>')
+            f'<tr><td style="{cell}{SMALL};color:{ink_};">'
+            f'<strong style="color:{lab};">Date:</strong> {date_}<br />'
+            f'<strong style="color:{lab};">Time:</strong> {time_}<br />'
+            f'<strong style="color:{lab};">Location:</strong> {loc}</td></tr></table>')
 
 
 def series_table(g):
@@ -384,6 +399,7 @@ TW_ALT = ("Long Beach Tech Week 2026 Sponsorship Opportunities, hosted by the Lo
           "September 28 to October 1, 2026.")
 
 W, T, B = ink("white"), ink("tint"), ink("blue")
+S = ink("space")
 
 CAMPAIGNS = {}
 
@@ -814,31 +830,34 @@ CAMPAIGNS["2026-09-17-aerospace"] = dict(
     images=(["lba-logo.png"] + ([AERO_IMG] if AERO_HAS_IMG else [])
             + ["icon-linkedin.png", "icon-email.png", "icon-web.png"]),
     sections=[
+        # The flyer, when it is on disk, sits directly above a panel on the same
+        # near-black ground, so artwork and copy read as one piece rather than a
+        # black image pasted onto a white email.
         section([
             *([r_image(AERO_IMG, AERO_ALT, href=AERO)] if AERO_HAS_IMG else []),
             r_text("\n".join([
-                kicker("An Invitation We're Passing Along", W),
-                display("Winning the Aerospace Talent War", W),
-                badge("Wed, Sept 23 &middot; 5:30 PM &middot; Long Beach", W),
-                lead(f'<a href="{AERO}" target="_blank" style="color:{BLUE};text-decoration:underline;">Winning the Aerospace Talent War</a> is hosted by <strong style="color:{BLUE};">Bryson</strong>, and we are sharing it with a small group of regional leaders we think should be in the room.', W),
-                p("Aerospace and space is one of the sectors driving this region's economy, and talent is the constraint those companies name most often.", W, 0),
-            ]), W, edit="intro"),
-            r_button("RSVP for the Evening", AERO, W),
-            r_pad(34),
-        ]),
+                kicker("An Invitation We're Passing Along", S),
+                display("Winning the Aerospace Talent War", S),
+                badge("Wed, Sept 23 &middot; 5:30 PM &middot; Long Beach", S),
+                lead(f'<a href="{AERO}" target="_blank" style="color:{S_ACCENT};text-decoration:underline;">Winning the Aerospace Talent War</a> is hosted by <strong style="color:#FFFFFF;">Bryson</strong>, and we are sharing it with a small group of regional leaders we think should be in the room.', S),
+                p("Aerospace and space is one of the sectors driving this region's economy, and talent is the constraint those companies name most often.", S, 0),
+            ]), S, edit="intro"),
+            r_button("RSVP for the Evening", AERO, S),
+            r_pad(38),
+        ], ground="space", rule_after=False),
 
         section([
             r_text("\n".join([
-                kicker("Featured Guest Speaker", B),
-                display("Devin Hughes", B),
-                p("Bestselling author, and an internationally recognized leadership and workplace culture expert.", B, 0),
-            ]), B, edit="speaker"),
+                kicker("Featured Guest Speaker", S),
+                display("Devin Hughes", S),
+                p("Bestselling author, and an internationally recognized leadership and workplace culture expert.", S, 0),
+            ]), S, edit="speaker"),
             r_card(details("Wednesday, September 23, 2026", "5:30 PM",
                            "The Modern &middot; 2801 E Spring Street, Long Beach, CA 90806",
-                           indent=12, bare=True), B),
-            r_button("Reserve Your Spot", AERO, B),
+                           indent=12, bare=True, g=S), S),
+            r_button("Reserve Your Spot", AERO, S),
             r_pad(38),
-        ], ground="blue"),
+        ], ground="space"),
 
         section([
             r_text("\n".join([
