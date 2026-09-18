@@ -113,7 +113,9 @@ def head_html(title, preheader):
 """
 
 
-FOOT = f"""  <tr>
+PERMISSION_OPTIN = "You are receiving this email because you opted in via our website."
+
+FOOT_TMPL = f"""  <tr>
     <td style="background-color:{WHITE};">
       <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0">
         <tr><td class="px" style="padding:36px 40px 0 40px;"><table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td style="border-top:2px solid {BLUE};font-size:0;line-height:0;">&nbsp;</td></tr></table></td></tr>
@@ -139,7 +141,7 @@ FOOT = f"""  <tr>
                   <p style="margin:0 0 14px 0;">
                     &copy; *|CURRENT_YEAR|* Long Beach Accelerator<br />
                     All rights reserved.<br />
-                    You are receiving this email because you opted in via our website.
+                    {{permission_line}}
                   </p>
                   <p style="margin:0 0 14px 0;">
                     Our mailing address is:<br />
@@ -877,12 +879,24 @@ CAMPAIGNS["2026-09-17-aerospace"] = dict(
     ],
 )
 
+# ============ SEPT 17 — AEROSPACE INVITE, COLD OUTREACH VARIANT ==============
+# Same email, sent to the Aero/Transpo prospect list rather than to LBA's own
+# audience. Those addresses were collected from public company contact pages,
+# so the footer cannot claim they opted in via our website - it says what is
+# actually true instead. Everything else is identical.
+CAMPAIGNS["2026-09-17-aerospace-outreach"] = dict(
+    CAMPAIGNS["2026-09-17-aerospace"],
+    permission_line=("You are receiving this email because your organization is part of the "
+                     "Long Beach technology and innovation community."),
+)
+
 def build(slug, spec):
     out = os.path.join(HERE, f"{slug}-eblast", "email-package")
     imgs = os.path.join(out, "images")
     shutil.rmtree(os.path.dirname(out), ignore_errors=True)
     os.makedirs(imgs, exist_ok=True)
-    html = head_html(spec["title"], spec["preheader"]) + "".join(spec["sections"]) + FOOT
+    foot = FOOT_TMPL.replace("{permission_line}", spec.get("permission_line", PERMISSION_OPTIN))
+    html = head_html(spec["title"], spec["preheader"]) + "".join(spec["sections"]) + foot
     with open(os.path.join(out, "email.html"), "w", encoding="utf-8") as f:
         f.write(html)
     for name in spec["images"]:
