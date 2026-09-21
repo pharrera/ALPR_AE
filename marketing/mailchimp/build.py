@@ -360,6 +360,7 @@ FORM = "https://hub.catalyzerapp.com/public/form/46c9cb88-0c9a-4eac-9346-f53f61f
 EVT  = "https://lbaccelerator.org/events"
 LUM  = "https://www.lumen21.com/"
 AERO = "https://www.eventcreate.com/e/winning-the-aerospace-talent-war"
+LUMA = "https://luma.com/0r1c6a6a"
 
 # The Bryson flyer is dropped in by hand - it is their artwork, not ours, and it
 # is not in this repo. The 9/17 send picks it up automatically once the file
@@ -403,6 +404,89 @@ TW_ALT = ("Long Beach Tech Week 2026 Sponsorship Opportunities, hosted by the Lo
 
 W, T, B = ink("white"), ink("tint"), ink("blue")
 S = ink("space")
+
+LOGO_ROWS = [
+    ("Hosted by", [("lbtw-host-lba-v2.jpg", 260, "Long Beach Accelerator")]),
+    ("Planning Partners", [
+        ("lbtw-partner-iie.jpg", 156, "The Institute for Innovation and Entrepreneurship, CSULB"),
+        ("lbtw-partner-sunstone-v2.jpg", 156, "Sunstone"),
+        ("lbtw-partner-city-longbeach.jpg", 156, "City of Long Beach")]),
+    ("2026 Sponsors", [
+        ("lbtw-sponsor-fm-bank.jpg", 156, "F&amp;M Bank"),
+        ("lbtw-sponsor-port-longbeach.jpg", 156, "Port of Long Beach"),
+        ("lbtw-sponsor-intertrend.jpg", 156, "Intertrend"),
+        ("lbtw-sponsor-westcoast.png", 156, "Westcoast Warehousing &amp; Trucking"),
+        ("lbtw-sponsor-shimoyama.jpg", 156, "Shimoyama Enterprise"),
+        ("lbtw-sponsor-lmb-imprint.jpg", 156, "Imprint"),
+        ("lbtw-sponsor-gobiz.jpg", 156, "California Office of the Small Business Advocate (GO-Biz)"),
+        ("lbtw-sponsor-sba.jpg", 156, "U.S. Small Business Administration"),
+        ("lbtw-sponsor-deo.jpg", 156, "Department of Economic Opportunity, County of Los Angeles")]),
+]
+
+LOGO_IMAGES = [f for _, row in LOGO_ROWS for f, _, _ in row]
+
+
+def r_logos(per_row=3):
+    """The host, partner and sponsor wall that closes the Tech Week sends,
+    in the same order and grouping as the event page."""
+    out = ""
+    for heading, logos in LOGO_ROWS:
+        out += (f'        <tr><td align="center" style="padding:26px 0 12px 0;font-family:{FONT};font-size:12px;'
+                f'line-height:18px;letter-spacing:1.6px;text-transform:uppercase;font-weight:bold;color:{TEAL};">'
+                f'{heading}</td></tr>\n')
+        n = 1 if len(logos) == 1 else per_row
+        out += '        <tr><td><table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0">\n'
+        for i in range(0, len(logos), n):
+            out += "          <tr>"
+            chunk = logos[i:i + n]
+            for f, w, alt in chunk:
+                out += (f'<td align="center" valign="middle" width="{100 // n}%" style="padding:8px 6px;">'
+                        f'<img src="images/{f}" width="{w}" alt="{alt}" '
+                        f'style="display:block;width:100%;max-width:{w}px;height:auto;margin:0 auto;" /></td>')
+            for _ in range(n - len(chunk)):
+                out += f'<td width="{100 // n}%">&nbsp;</td>'
+            out += "</tr>\n"
+        out += "        </table></td></tr>\n"
+    return (f'  <tr><td style="background-color:{WHITE};">\n'
+            f'    <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0">\n'
+            f'      <tr><td class="px" style="padding:6px 40px 26px 40px;">\n'
+            f'        <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0">\n'
+            f'{out}        </table>\n      </td></tr>\n    </table>\n  </td></tr>\n')
+
+
+# Spacing is set once in the helpers above. A send that wants to run tighter
+# maps those values down here rather than forking every helper; tap targets and
+# the section rules are deliberately left alone.
+TIGHTEN = {
+    "padding:36px 40px 0 40px": "padding:24px 40px 0 40px",
+    "padding:28px 40px 0 40px": "padding:18px 40px 0 40px",
+    "padding:26px 40px 0 40px": "padding:18px 40px 0 40px",
+    "padding:24px 40px 0 40px": "padding:16px 40px 0 40px",
+    "padding:22px 40px 0 40px": "padding:15px 40px 0 40px",
+    "padding:28px 32px 22px 32px": "padding:20px 32px 15px 32px",
+    "padding:26px 40px 38px 40px": "padding:20px 40px 28px 40px",
+    "padding:28px 30px": "padding:20px 24px",
+    "padding:26px 0 12px 0": "padding:18px 0 9px 0",
+    "height:38px": "height:24px",
+    "height:36px": "height:22px",
+    "height:34px": "height:22px",
+    "height:32px": "height:22px",
+    "height:30px": "height:20px",
+    "margin:18px 0 10px 0": "margin:12px 0 7px 0",
+    "margin:18px 0 6px 0": "margin:12px 0 5px 0",
+    "margin:0 0 18px 0": "margin:0 0 12px 0",
+    "margin:0 0 16px 0": "margin:0 0 11px 0",
+    "margin:0 0 20px 0": "margin:0 0 13px 0",
+    "margin:0 0 14px 0": "margin:0 0 10px 0",
+    "margin:12px 0 3px 0": "margin:8px 0 2px 0",
+}
+
+
+def tighten(html):
+    for a, b in TIGHTEN.items():
+        html = html.replace(a, b)
+    return html
+
 
 CAMPAIGNS = {}
 
@@ -890,6 +974,107 @@ CAMPAIGNS["2026-09-17-aerospace-outreach"] = dict(
                      "Long Beach technology and innovation community."),
 )
 
+# ================= MONDAY, SEPT 21 — OPENING RECEPTION =======================
+# Copy taken from the sent 9/17 archive, with the reception promoted to the
+# hero and a Luma link for it. Runs tight: same components, spacing mapped
+# down about a third, so the whole send is a shorter scroll.
+CAMPAIGNS["2026-09-21-reception"] = dict(
+    title="Join Us for the Opening Reception",
+    subject="Join us at the Long Beach Tech Week opening",
+    alts=["The opening reception is Monday the 28th",
+          "Long Beach Tech Week opens Monday",
+          "Kick off Long Beach Tech Week with us"],
+    preheader="Monday, September 28th. Hear from the city, the SBA and regional CEOs, then stay for the week.",
+    send="Monday, September 21, 2026, 8:00 AM PT",
+    tight=True,
+    images=(["lba-logo.png", "techweek-2026-reception.jpg", "honoree-hacegaba.jpg",
+             "honoree-marshall.jpg", "honoree-lee.jpg", "honoree-glass.jpg"]
+            + LOGO_IMAGES + ["icon-linkedin.png", "icon-email.png", "icon-web.png"]),
+    sections=[
+        # 1 — THE RECEPTION
+        section([
+            r_image("techweek-2026-reception.jpg", TW_REG_ALT, href=TW),
+            r_text("\n".join([
+                kicker("Long Beach Tech Week 2026", W),
+                display("Join Us for the Opening Reception", W),
+                badge("Sept 28th &ndash; Oct 1st &middot; Long Beach", W),
+                lead("Register today! Long Beach Tech Week Kick Off is Monday, September 28th.", W),
+                p("Hear from Lucius Martin, Deputy Mayor of Economic Development, and CEOs on economic growth in the region. A special presentation with the U.S. Small Business Administration marks the opening of the new Long Beach Accelerator Tech Hub Center.", W),
+                p("Connect with founders, investors, business leaders, corporate innovators, tech experts, entrepreneurs, educators, and public and private sector leaders shaping the region's future in technology for economic impact.", W, 0),
+            ]), W, edit="reception"),
+            r_button("Join the Opening Reception", LUMA, W),
+            r_button("Register for Long Beach Tech Week", TW, W, invert=True, pad_top=14),
+            r_pad(30),
+        ]),
+
+        # 2 — THE WEEK
+        section([
+            r_text("\n".join([
+                kicker("What's Ahead", T),
+                display("A Week Built Around the Region's Industries", T),
+                p(f'<a href="{TW}" target="_blank" style="color:{BLUE};text-decoration:underline;">Long Beach Tech Week 2026</a> is four days to build visibility, strengthen relationships, and connect directly with the growing innovation and emerging technology ecosystems here in Southern California and throughout our state.', T),
+                p('Hosted by the Long Beach Accelerator. Planning partners include: Institute for Innovation &amp; Entrepreneurship &ndash; CSULB, City of Long Beach, and Sunstone Management.', T),
+                label("Key sectors:", T),
+                bullets(["Transportation, Logistics &amp; Supply Chain",
+                         "Aerospace &amp; Space",
+                         "Energy &amp; Sustainability",
+                         "Health Tech",
+                         "Entertainment &amp; Creative Economy",
+                         "Other emerging tech industries"], T),
+            ]), T, edit="week"),
+            r_pad(30),
+        ], ground="tint"),
+
+        # 3 — THE AWARDS LUNCHEON (the one blue band)
+        section([
+            r_text("\n".join([
+                big_kicker("3rd Annual", B),
+                display("LBA Investors &amp; Founders Summit Awards Luncheon", B),
+                badge("Thu, Oct 1st &middot; 11:00 AM &ndash; 1:30 PM", B),
+                p('<strong style="color:#FFFFFF;">Hyatt Regency Long Beach &middot; Beacon Ballroom</strong>', B, 0),
+            ]), B, edit="luncheon"),
+            r_button("Register for Long Beach Tech Week", TW, B),
+            r_pad(30),
+        ], ground="blue"),
+
+        # 4 — HONOREES
+        section([
+            r_text("\n".join([
+                kicker("Celebrate LBA Honorees", W),
+                display("Congratulations to the 2026 LBA Honorees", W),
+                p("Four visionary leaders who have led the way, blazed the trail, and stand among our top investors and founders. They are recognized at the Awards Luncheon on October 1st.", W, 0),
+            ]), W, edit="honorees_intro"),
+            r_honorees(W),
+            r_pad(30),
+        ]),
+
+        # 5 — THE FULL SUMMIT DAY, directly under the honorees it recognises
+        section([
+            r_text("\n".join([
+                kicker("The Summit", T),
+                display("Thursday, October 1st", T),
+                badge("11:00 AM &ndash; 6:00 PM", T),
+                p('The Summit closes out Long Beach Tech Week. It celebrates the LBA honorees at the Awards Luncheon, and the <strong style="color:#204396;">LBA Visionary Investors Panel</strong>, our signature afternoon forum, is a conversation with visionary investors on the global economy and emerging technology, including a special preview of LA2028 Olympic and Paralympic opportunities.', T, 0),
+            ]), T, edit="summit"),
+            r_pad(30),
+        ], ground="tint"),
+
+        # 6 — SPONSORSHIP
+        section([
+            r_text("\n".join([
+                kicker("For Organizations", W),
+                display("Become a Sponsor", W),
+                p("Sponsorships are available at several levels, each carrying recognition across Long Beach Tech Week, the LBA Investors and Founders Summit, and partnership throughout the year. Benefits include presenting recognition, speaking opportunities in the 2026&ndash;2027 LBA forum, access to the Founders Roundtable, and placement across LBA communications.", W, 0),
+            ]), W, edit="sponsorship"),
+            r_button("View Sponsorship Opportunities", PACK, W),
+            r_pad(30),
+        ]),
+
+        # 7 — HOST, PARTNERS, SPONSORS
+        r_logos(),
+    ],
+)
+
 def build(slug, spec):
     out = os.path.join(HERE, f"{slug}-eblast", "email-package")
     imgs = os.path.join(out, "images")
@@ -897,6 +1082,8 @@ def build(slug, spec):
     os.makedirs(imgs, exist_ok=True)
     foot = FOOT_TMPL.replace("{permission_line}", spec.get("permission_line", PERMISSION_OPTIN))
     html = head_html(spec["title"], spec["preheader"]) + "".join(spec["sections"]) + foot
+    if spec.get("tight"):
+        html = tighten(html)
     with open(os.path.join(out, "email.html"), "w", encoding="utf-8") as f:
         f.write(html)
     for name in spec["images"]:
