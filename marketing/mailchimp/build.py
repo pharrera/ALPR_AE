@@ -987,17 +987,17 @@ CAMPAIGNS["2026-09-21-reception"] = dict(
     preheader="Monday, September 28th. Hear from the city, the SBA and regional CEOs, then stay for the week.",
     send="Monday, September 21, 2026, 8:00 AM PT",
     tight=True,
-    images=(["lba-logo.png", "techweek-2026-reception.jpg", "honoree-hacegaba.jpg",
+    images=(["lba-logo.png", "techweek-2026-banner.jpg", "honoree-hacegaba.jpg",
              "honoree-marshall.jpg", "honoree-lee.jpg", "honoree-glass.jpg"]
             + LOGO_IMAGES + ["icon-linkedin.png", "icon-email.png", "icon-web.png"]),
     sections=[
         # 1 — THE RECEPTION
         section([
-            r_image("techweek-2026-reception.jpg", TW_REG_ALT, href=TW),
+            r_image("techweek-2026-banner.jpg", TW_REG_ALT, href=TW),
             r_text("\n".join([
                 kicker("Long Beach Tech Week 2026", W),
                 display("Join Us for the Opening Reception", W),
-                badge("Sept 28th &ndash; Oct 1st &middot; Long Beach", W),
+                badge("Opening Reception &middot; Sept 28th", W),
                 lead("Register today! Long Beach Tech Week Kick Off is Monday, September 28th.", W),
                 p("Hear from Lucius Martin, Deputy Mayor of Economic Development, and CEOs on economic growth in the region. A special presentation with the U.S. Small Business Administration marks the opening of the new Long Beach Accelerator Tech Hub Center.", W),
                 p("Connect with founders, investors, business leaders, corporate innovators, tech experts, entrepreneurs, educators, and public and private sector leaders shaping the region's future in technology for economic impact.", W, 0),
@@ -1012,7 +1012,7 @@ CAMPAIGNS["2026-09-21-reception"] = dict(
             r_text("\n".join([
                 kicker("What's Ahead", T),
                 display("A Week Built Around the Region's Industries", T),
-                p(f'<a href="{TW}" target="_blank" style="color:{BLUE};text-decoration:underline;">Long Beach Tech Week 2026</a> is four days to build visibility, strengthen relationships, and connect directly with the growing innovation and emerging technology ecosystems here in Southern California and throughout our state.', T),
+                p(f'<a href="{TW}" target="_blank" style="color:{BLUE};text-decoration:underline;">Long Beach Tech Week 2026</a> runs September 28th &ndash; October 1st: four days to build visibility, strengthen relationships, and connect directly with the growing innovation and emerging technology ecosystems here in Southern California and throughout our state.', T),
                 p('Hosted by the Long Beach Accelerator. Planning partners include: Institute for Innovation &amp; Entrepreneurship &ndash; CSULB, City of Long Beach, and Sunstone Management.', T),
                 label("Key sectors:", T),
                 bullets(["Transportation, Logistics &amp; Supply Chain",
