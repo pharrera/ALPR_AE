@@ -300,10 +300,13 @@ def details(date_, time_, loc, indent=12, bare=False, g=None):
             f'<strong style="color:{lab};">Location:</strong> {loc}</td></tr></table>')
 
 
-def series_table(g):
+def series_table(g, start=1):
+    """The three-part schedule. `start` drops sessions that have already run,
+    keeping the real session numbers rather than renumbering what is left."""
     rows = [("1", "Purpose, People, and AI: Building the Foundation of a Trusted Business", "Tue, Sept 15, 2026", "10:00 &ndash; 11:30 AM PT", S1),
             ("2", "Good for Business: Investing in People and AI as Workforce Capacity", "Wed, Sept 23, 2026", "11:00 AM &ndash; 1:00 PM PT", AI_S2),
             ("3", "Authority Positioning and Strategic Visibility to Yield Market Trust", "Thu, Oct 8, 2026", "12:00 &ndash; 2:00 PM PT", AI_S3)]
+    rows = [r for r in rows if int(r[0]) >= start]
     out = ""
     for i, (n, t, d, tm, url) in enumerate(rows):
         border = "" if i == len(rows) - 1 else f"border-bottom:1px solid {RULE};"
@@ -313,8 +316,8 @@ def series_table(g):
                 f'<td width="40" valign="top" bgcolor="{TEAL}" style="width:40px;background-color:{TEAL};text-align:center;font-size:18px;line-height:22px;color:#FFFFFF;font-weight:bold;padding:16px 0;">{n}</td>'
                 f'<td style="padding:16px 12px 16px 12px;font-size:13px;line-height:21px;color:{CHAR};{border}">'
                 f'<strong style="color:{BLUE};font-size:13px;">{title}</strong><br />{d} &nbsp;&middot;&nbsp; {tm}</td></tr>\n')
-    return (f'      <p style="margin:0 0 6px 0;font-size:12px;line-height:16px;letter-spacing:1.8px;text-transform:uppercase;color:{g["kick"]};font-weight:bold;">The full series</p>\n'
-            f'      <p style="margin:0 0 18px 0;font-size:18px;line-height:27px;color:{g["strong"]};font-weight:bold;">Mark your calendars for René Redwood&rsquo;s three-part series.</p>\n'
+    return (f'      <p style="margin:0 0 6px 0;font-size:12px;line-height:16px;letter-spacing:1.8px;text-transform:uppercase;color:{g["kick"]};font-weight:bold;">{"The full series" if start == 1 else "Still ahead"}</p>\n'
+            f'      <p style="margin:0 0 18px 0;font-size:18px;line-height:27px;color:{g["strong"]};font-weight:bold;">{"Mark your calendars for René Redwood&rsquo;s three-part series." if start == 1 else "René Redwood&rsquo;s three-part series continues."}</p>\n'
             f'      <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0" style="background-color:{WHITE};border:1px solid {RULE};">\n{out}      </table>\n'
             f'      <p style="margin:14px 0 0 0;font-size:14px;line-height:22px;color:#000000;font-weight:bold;">'
             f'All sessions via Zoom. Select a session above to register.</p>')
@@ -1145,7 +1148,7 @@ CAMPAIGNS["2026-09-22-rene"] = dict(
                 p("This three-part learning journey is designed for small business owners who want to grow enterprises that are rooted in their values, strong in day-to-day operations, and positioned to win trust in the marketplace.", T),
                 p("Participants leave with practical tools, clearer language, and concrete next steps they can use immediately to strengthen how their companies operate, compete, and grow.", T, 0),
             ]), T, edit="series_intro"),
-            r_text(series_table(T), T, edit="series", pad="24px 16px 0 16px"),
+            r_text(series_table(T, start=2), T, edit="series", pad="24px 16px 0 16px"),
             r_pad(30),
         ], ground="tint"),
 
