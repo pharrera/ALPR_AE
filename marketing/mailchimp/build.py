@@ -987,13 +987,13 @@ CAMPAIGNS["2026-09-21-reception"] = dict(
     preheader="Monday, September 28th. Hear from the city, the SBA and regional CEOs, then stay for the week.",
     send="Monday, September 21, 2026, 8:00 AM PT",
     tight=True,
-    images=(["lba-logo.png", "techweek-2026-banner.jpg", "honoree-hacegaba.jpg",
+    images=(["lba-logo.png", "techweek-2026-reception.jpg", "honoree-hacegaba.jpg",
              "honoree-marshall.jpg", "honoree-lee.jpg", "honoree-glass.jpg"]
             + LOGO_IMAGES + ["icon-linkedin.png", "icon-email.png", "icon-web.png"]),
     sections=[
         # 1 — THE RECEPTION
         section([
-            r_image("techweek-2026-banner.jpg", TW_REG_ALT, href=TW),
+            r_image("techweek-2026-reception.jpg", TW_REG_ALT, href=TW),
             # Straight under the banner, as live HTML rather than baked into it:
             # a button drawn on the artwork is gone for anyone reading with
             # images off, and is not a tap target.
