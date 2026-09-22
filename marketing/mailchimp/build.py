@@ -360,7 +360,11 @@ FORM = "https://hub.catalyzerapp.com/public/form/46c9cb88-0c9a-4eac-9346-f53f61f
 EVT  = "https://lbaccelerator.org/events"
 LUM  = "https://www.lumen21.com/"
 AERO = "https://www.eventcreate.com/e/winning-the-aerospace-talent-war"
-LUMA = "https://luma.com/0r1c6a6a"
+# Luma pages, one per October 1st item. The luncheon link is not in hand yet;
+# until it is, that section shows only the Tech Week link rather than sending
+# luncheon traffic to the reception page.
+LUMA_RECEPTION = "https://luma.com/0r1c6a6a"
+LUMA_LUNCHEON = None
 
 # The Bryson flyer is dropped in by hand - it is their artwork, not ours, and it
 # is not in this repo. The 9/17 send picks it up automatically once the file
@@ -997,7 +1001,7 @@ CAMPAIGNS["2026-09-21-reception"] = dict(
             # Straight under the banner, as live HTML rather than baked into it:
             # a button drawn on the artwork is gone for anyone reading with
             # images off, and is not a tap target.
-            r_button("Join the Opening Reception", LUMA, W, pad_top=26),
+            r_button("Join the Opening Reception", LUMA_RECEPTION, W, pad_top=26),
             r_text("\n".join([
                 kicker("Long Beach Tech Week 2026", W),
                 display("Register for the Opening Reception", W),
@@ -1036,7 +1040,14 @@ CAMPAIGNS["2026-09-21-reception"] = dict(
                 badge("Thu, Oct 1st &middot; 11:00 AM &ndash; 1:30 PM", B),
                 p('<strong style="color:#FFFFFF;">Hyatt Regency Long Beach &middot; Beacon Ballroom</strong>', B, 0),
             ]), B, edit="luncheon"),
-            r_button("Register for Long Beach Tech Week", TW, B),
+            # The luncheon's own registration first, then the week's page, which
+            # is where someone picks between the reception, the luncheon and
+            # the panel. Two buttons with the same label would not tell them
+            # apart, so the second one says what it is for.
+            *([r_button("Register for the Awards Luncheon", LUMA_LUNCHEON, B)]
+              if LUMA_LUNCHEON else []),
+            r_button("See All Registration Options", TW, B,
+                     pad_top=14 if LUMA_LUNCHEON else 28),
             r_pad(30),
         ], ground="blue"),
 
@@ -1178,6 +1189,10 @@ if __name__ == "__main__":
     for slug, spec in CAMPAIGNS.items():
         z, n, hrefs = build(slug, spec)
         print(f"{slug}: {os.path.relpath(z, HERE)}  ({n:,} chars, {len(hrefs)} links)")
+    if LUMA_LUNCHEON is None:
+        print("\n  note: LUMA_LUNCHEON is unset, so the Awards Luncheon section carries"
+              "\n        only the Tech Week link. Set it in build.py and re-run to add"
+              "\n        the luncheon's own registration button above it.")
     if not AERO_HAS_IMG:
         print(f"\n  note: _assets/{AERO_IMG} is missing, so the 9/17 aerospace send was"
               f"\n        built as live text only. Drop the flyer in at that path and"
