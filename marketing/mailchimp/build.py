@@ -301,21 +301,23 @@ def details(date_, time_, loc, indent=12, bare=False, g=None):
 
 
 def series_table(g):
-    rows = [("1", "Purpose, People, and AI: Building the Foundation of a Trusted Business", "Tue, Sept 15, 2026", "10:00 &ndash; 11:30 AM PT"),
-            ("2", "Good for Business: Investing in People and AI as Workforce Capacity", "Wed, Sept 23, 2026", "11:00 AM &ndash; 1:00 PM PT"),
-            ("3", "Authority Positioning and Strategic Visibility to Yield Market Trust", "Thu, Oct 8, 2026", "12:00 &ndash; 2:00 PM PT")]
+    rows = [("1", "Purpose, People, and AI: Building the Foundation of a Trusted Business", "Tue, Sept 15, 2026", "10:00 &ndash; 11:30 AM PT", S1),
+            ("2", "Good for Business: Investing in People and AI as Workforce Capacity", "Wed, Sept 23, 2026", "11:00 AM &ndash; 1:00 PM PT", AI_S2),
+            ("3", "Authority Positioning and Strategic Visibility to Yield Market Trust", "Thu, Oct 8, 2026", "12:00 &ndash; 2:00 PM PT", AI_S3)]
     out = ""
-    for i, (n, t, d, tm) in enumerate(rows):
+    for i, (n, t, d, tm, url) in enumerate(rows):
         border = "" if i == len(rows) - 1 else f"border-bottom:1px solid {RULE};"
+        title = (f'<a href="{url}" target="_blank" style="color:{BLUE};text-decoration:underline;">{t}</a>'
+                 if url else t)
         out += (f'        <tr>'
                 f'<td width="40" valign="top" bgcolor="{TEAL}" style="width:40px;background-color:{TEAL};text-align:center;font-size:18px;line-height:22px;color:#FFFFFF;font-weight:bold;padding:16px 0;">{n}</td>'
                 f'<td style="padding:16px 12px 16px 12px;font-size:13px;line-height:21px;color:{CHAR};{border}">'
-                f'<strong style="color:{BLUE};font-size:13px;">{t}</strong><br />{d} &nbsp;&middot;&nbsp; {tm}</td></tr>\n')
+                f'<strong style="color:{BLUE};font-size:13px;">{title}</strong><br />{d} &nbsp;&middot;&nbsp; {tm}</td></tr>\n')
     return (f'      <p style="margin:0 0 6px 0;font-size:12px;line-height:16px;letter-spacing:1.8px;text-transform:uppercase;color:{g["kick"]};font-weight:bold;">The full series</p>\n'
             f'      <p style="margin:0 0 18px 0;font-size:18px;line-height:27px;color:{g["strong"]};font-weight:bold;">Mark your calendars for René Redwood&rsquo;s three-part series.</p>\n'
             f'      <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0" style="background-color:{WHITE};border:1px solid {RULE};">\n{out}      </table>\n'
-            f'      <p style="margin:14px 0 0 0;font-size:14px;line-height:22px;color:#000000;font-weight:bold;">All sessions via Zoom. '
-            f'Register for Sessions 2 and 3 at <a href="https://lbaccelerator.org/events" target="_blank" style="color:#000000;font-weight:bold;text-decoration:underline;">lbaccelerator.org/events</a>.</p>')
+            f'      <p style="margin:14px 0 0 0;font-size:14px;line-height:22px;color:#000000;font-weight:bold;">'
+            f'All sessions via Zoom. Select a session above to register.</p>')
 
 
 def bio(name, text, g):
@@ -354,6 +356,8 @@ def r_honorees(g):
 # --- links -------------------------------------------------------------------
 S1   = "https://hub.catalyzerapp.com/public/events/purpose-people-and-ai-building-the-foundation-of-a-4705-133"
 S2C  = "https://hub.catalyzerapp.com/public/events/session-2-preparing-to-pursue-the-work-evaluate-op-4705-67"
+AI_S2 = "https://hub.catalyzerapp.com/public/events/good-for-business-investing-in-people-and-ai-as-wo-4705-199"
+AI_S3 = "https://hub.catalyzerapp.com/public/events/authority-positioning-and-strategic-visibility-to-4705-232"
 PACK = "https://drive.google.com/file/d/1brJxClWdJ9efsuH7RnPNsjyxDq5224CC/view"
 TW   = "https://www.lbaccelerator.org/tech-week/"
 FORM = "https://hub.catalyzerapp.com/public/form/46c9cb88-0c9a-4eac-9346-f53f61f511d6"
@@ -393,6 +397,12 @@ TW_BULLETS = ["Brand visibility throughout Long Beach Tech Week",
               "Recognition and engagement with founders, investors, and regional leaders",
               "Opportunities to participate in select programs, forums, and the 2026 Investors &amp; Founders Summit"]
 
+S2_ALT = ("Session 2 of Building an AI-Ready Trusted Business: Good for Business, Investing in People "
+          "and AI as Workforce Capacity. Wednesday, September 23, 2026, 11:00 am to 1:00 pm PT, via Zoom. "
+          "Facilitated by Ren\u00e9 Redwood. Hosted by the Long Beach Accelerator.")
+S3_ALT = ("Session 3 of Building an AI-Ready Trusted Business: Authority Positioning and Strategic "
+          "Visibility to Yield Market Trust. Thursday, October 8, 2026, 12:00 pm to 2:00 pm PT, via Zoom. "
+          "Facilitated by Ren\u00e9 Redwood. Hosted by the Long Beach Accelerator.")
 HERO_ALT = ("Building an AI-Ready Trusted Business: a three-part learning journey for small business owners, "
             "facilitated by René Redwood. Hosted by the Long Beach Accelerator.")
 RENE_ALT = ("Facilitated by René Redwood, a recognized leader in advancing equity, inclusive workplace "
@@ -1078,6 +1088,90 @@ CAMPAIGNS["2026-09-21-reception"] = dict(
 
         # 7 — HOST, PARTNERS, SPONSORS
         r_logos(),
+    ],
+)
+
+# ==================== TUESDAY, SEPT 22 — RENÉ, SESSION 2 =====================
+# Session 2 runs tomorrow, so it leads. Copy is Alma's, verbatim where it is
+# hers; the bio is the fuller one from the series doc rather than the two
+# lines the flyer carries. Runs tight.
+CAMPAIGNS["2026-09-22-rene"] = dict(
+    title="Session 2 with René Redwood is tomorrow",
+    subject="Session 2 with René Redwood is tomorrow",
+    alts=["Tomorrow: people, AI and workforce capacity",
+          "René Redwood is on Zoom tomorrow at 11",
+          "Good for Business: tomorrow, 11 to 1"],
+    preheader="Good for Business: Investing in People and AI as Workforce Capacity. Wednesday, 11:00 to 1:00 on Zoom.",
+    send="Tuesday, September 22, 2026, morning",
+    tight=True,
+    images=["lba-logo.png", "ai-session2.jpg", "ai-session3.jpg",
+            "icon-linkedin.png", "icon-email.png", "icon-web.png"],
+    sections=[
+        # 1 — TOMORROW
+        section([
+            r_image("ai-session2.jpg", S2_ALT, href=AI_S2),
+            r_button("Register for Session&nbsp;2", AI_S2, W, pad_top=26),
+            r_text("\n".join([
+                kicker("Building an AI-Ready Trusted Business", W),
+                display("Session 2 Is Tomorrow", W),
+                badge("Wed, Sept 23 &middot; 11:00 AM &ndash; 1:00 PM PT &middot; Zoom", W),
+                lead("Good for Business: Investing in People and AI as Workforce Capacity.", W),
+                p("Build the workforce capacity your business needs to deliver consistently and grow sustainably. Owners will explore how people, culture, collaboration, external relationships, and practical AI tools can improve workflow, save time, reduce overwhelm, strengthen service quality, and support better business results.", W),
+                p("Join this session to strengthen how your people, systems, and AI tools work together so your business can save time, deliver better service, and grow with greater confidence.", W, 0),
+            ]), W, edit="session2"),
+            r_pad(30),
+        ]),
+
+        # 2 — RENÉ (the one blue band)
+        section([
+            r_text("\n".join([
+                kicker("Facilitated By", B),
+                display("Ren&eacute; Redwood", B),
+                p("A recognized leader in strategic initiatives that drive judicial, legislative, commercial, and political achievements for organizations in the public and private sectors. Her expertise centers on building trust with internal and external stakeholders, and on winning in the marketplace.", B),
+                label("Selected experience:", B),
+                bullets(["Directed the Presidential Glass Ceiling Commission",
+                         "Served on the court-appointed Coca-Cola Task Force",
+                         "Chaired the Equality Task Force for a National Security Agency",
+                         "Serves on the Ms. Foundation for Women Investment Committee and the Ms. Action Fund"], B),
+            ]), B, edit="rene"),
+            r_text(p("Honored by the Smithsonian Institute and the Ford Motor Company Fund as a &ldquo;Freedom&rsquo;s Sister,&rdquo; she is recognized for continuing the legacy of trailblazing African American women. Her work has been highlighted in Time, Elle, Essence, Black Enterprise and on the NASDAQ billboard on Wall Street.", B, 0),
+                   B, edit="rene_press", pad="22px 40px 0 40px"),
+            r_pad(34),
+        ], ground="blue"),
+
+        # 3 — THE SERIES
+        section([
+            r_text("\n".join([
+                p("This three-part learning journey is designed for small business owners who want to grow enterprises that are rooted in their values, strong in day-to-day operations, and positioned to win trust in the marketplace.", T),
+                p("Participants leave with practical tools, clearer language, and concrete next steps they can use immediately to strengthen how their companies operate, compete, and grow.", T, 0),
+            ]), T, edit="series_intro"),
+            r_text(series_table(T), T, edit="series", pad="24px 16px 0 16px"),
+            r_pad(30),
+        ], ground="tint"),
+
+        # 4 — SESSION 3
+        section([
+            r_image("ai-session3.jpg", S3_ALT, href=AI_S3),
+            r_text("\n".join([
+                kicker("Next in the Series", W),
+                display("Authority Positioning and Strategic Visibility", W),
+                badge("Thu, Oct 8 &middot; 12:00 &ndash; 2:00 PM PT &middot; Zoom", W),
+                p("Position your business so the right customers, partners, funders, and decision-makers understand your value and trust your expertise. Owners will strengthen credibility, refine messaging, show proof of results, and use strategic visibility to attract better opportunities, support stronger pricing, increase repeat business, and build long-term market trust.", W, 0),
+            ]), W, edit="session3"),
+            r_button("Register for Session&nbsp;3", AI_S3, W),
+            r_pad(30),
+        ]),
+
+        # 5 — TECH WEEK
+        section([
+            r_text("\n".join([
+                kicker("Also Ahead", T),
+                display("Long Beach Tech Week 2026", T),
+                p(f'Long Beach Tech Week runs <strong style="color:{BLUE};">September 28th &ndash; October 1st</strong>, closing with the 3rd Annual LBA Investors &amp; Founders Summit and the Awards Luncheon.', T, 0),
+            ]), T, edit="ps"),
+            r_button("Register for Long Beach Tech Week", TW, T, invert=True),
+            r_pad(30),
+        ], ground="tint"),
     ],
 )
 

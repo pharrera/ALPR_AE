@@ -1,6 +1,6 @@
 # Subject Lines & Preview Text — Sept 2026 Sends
 
-Six sends, each with the subject currently baked into its template plus alternates for A/B
+Eight sends, each with the subject currently baked into its template plus alternates for A/B
 testing. Values here are pulled from `build.py`; change them there and update this file, so
 the two can't drift.
 
@@ -164,6 +164,26 @@ already knows Tech Week well; the countdown version works better if they don't.
 
 ---
 
+## Tue 9/22 — René, Session 2
+
+**Current**
+
+> **Subject:** Session 2 with René Redwood is tomorrow `39`
+> **Preview:** Good for Business: Investing in People and AI as Workforce Capacity. Wednesday, 11:00 to 1:00 on Zoom.
+
+Her name is the draw, so it leads; the preview carries the session title and the logistics,
+which the subject has no room for. Same split that worked on the 9/14 René edition.
+
+**Alternates**
+
+| Subject | Len | Angle |
+|---|---|---|
+| Tomorrow: people, AI and workforce capacity | 43 | Substance |
+| René Redwood is on Zoom tomorrow at 11 | 38 | Immediacy |
+| Good for Business: tomorrow, 11 to 1 | 36 | Title-led |
+
+---
+
 ## Applying these in Mailchimp
 
 Each template already carries its preview text as a hidden preheader in the HTML. Mailchimp
@@ -187,4 +207,5 @@ Preview text currently baked into each template:
 | 9/14 (René) | Session 1 of Building an AI-Ready Trusted Business starts tomorrow morning on Zoom, and there is still room. |
 | 9/17 (aerospace) | Wednesday, September 23 at 5:30 PM at The Modern in Long Beach. Bestselling author Devin Hughes headlines. |
 | 9/17 (Tech Week) | Four days with the founders, investors, and leaders building the region's tech economy. Register today. |
+| 9/22 (René) | Good for Business: Investing in People and AI as Workforce Capacity. Wednesday, 11:00 to 1:00 on Zoom. |
 | 9/18 | Sept 28th – Oct 1st. Sponsors join founders, investors, and civic leaders — and sit in the room for the Summit. |
