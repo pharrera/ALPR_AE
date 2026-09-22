@@ -994,21 +994,19 @@ CAMPAIGNS["2026-09-21-reception"] = dict(
         # 1 — THE RECEPTION
         section([
             r_image("techweek-2026-banner.jpg", TW_REG_ALT, href=TW),
-            # The ask sits directly under the one-line lead rather than below
-            # both explanatory paragraphs, so it is above the fold on a phone.
-            # The detail follows, and the week's own CTA closes the section.
+            # Straight under the banner, as live HTML rather than baked into it:
+            # a button drawn on the artwork is gone for anyone reading with
+            # images off, and is not a tap target.
+            r_button("Join the Opening Reception", LUMA, W, pad_top=26),
             r_text("\n".join([
                 kicker("Long Beach Tech Week 2026", W),
                 display("Register for the Opening Reception", W),
                 badge("Opening Reception &middot; Sept 28th", W),
-                lead("Register today! Long Beach Tech Week Kick Off is Monday, September 28th.", W, 0),
-            ]), W, edit="reception"),
-            r_button("Join the Opening Reception", LUMA, W, pad_top=22),
-            r_text("\n".join([
+                lead("Register today! Long Beach Tech Week Kick Off is Monday, September 28th.", W),
                 p("Hear from Lucius Martin, Deputy Mayor of Economic Development, and CEOs on economic growth in the region. A special presentation with the U.S. Small Business Administration marks the opening of the new Long Beach Accelerator Tech Hub Center.", W),
                 p("Connect with founders, investors, business leaders, corporate innovators, tech experts, entrepreneurs, educators, and public and private sector leaders shaping the region's future in technology for economic impact.", W, 0),
-            ]), W, edit="reception_detail", pad="26px 40px 0 40px"),
-            r_button("Register for Long Beach Tech Week", TW, W, invert=True, pad_top=22),
+            ]), W, edit="reception"),
+            r_button("Register for Long Beach Tech Week", TW, W, invert=True),
             r_pad(30),
         ]),
 
