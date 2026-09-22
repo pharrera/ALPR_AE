@@ -996,7 +996,7 @@ CAMPAIGNS["2026-09-21-reception"] = dict(
             r_image("techweek-2026-banner.jpg", TW_REG_ALT, href=TW),
             r_text("\n".join([
                 kicker("Long Beach Tech Week 2026", W),
-                display("Join Us for the Opening Reception", W),
+                display("Register for the Opening Reception", W),
                 badge("Opening Reception &middot; Sept 28th", W),
                 lead("Register today! Long Beach Tech Week Kick Off is Monday, September 28th.", W),
                 p("Hear from Lucius Martin, Deputy Mayor of Economic Development, and CEOs on economic growth in the region. A special presentation with the U.S. Small Business Administration marks the opening of the new Long Beach Accelerator Tech Hub Center.", W),
