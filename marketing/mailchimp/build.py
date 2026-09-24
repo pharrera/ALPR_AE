@@ -369,8 +369,16 @@ LUM  = "https://www.lumen21.com/"
 AERO = "https://www.eventcreate.com/e/winning-the-aerospace-talent-war"
 # Luma pages, one per item. Each section links to its own event rather than to
 # a page the reader then has to navigate.
-LUMA_RECEPTION = "https://luma.com/0r1c6a6a"
-LUMA_LUNCHEON = "https://luma.com/pexv032z"
+LUMA_RECEPTION = "https://luma.com/0r1c6a6a"   # Day 1, Sept 28 Opening Reception
+LUMA_PANEL = "https://luma.com/pexv032z"       # Oct 1, Conversation With Visionary Investors
+LUMA_SUMMIT = None    # Oct 1 FULL DAY Summit, $150 - not supplied yet
+LUMA_DAY2 = None      # Sept 30 Capital Corner / CSU Demo Day - not supplied yet
+
+
+def luma(url, label, fallback_label, g, **kw):
+    """A registration button, falling back to the Tech Week page with a label
+    that promises less when the specific Luma link is not in hand."""
+    return r_button(label if url else fallback_label, url or TW, g, **kw)
 
 # The Bryson flyer is dropped in by hand - it is their artwork, not ours, and it
 # is not in this repo. The 9/17 send picks it up automatically once the file
@@ -1052,7 +1060,7 @@ CAMPAIGNS["2026-09-21-reception"] = dict(
                 badge("Thu, Oct 1st &middot; 11:00 AM &ndash; 1:30 PM", B),
                 p('<strong style="color:#FFFFFF;">Hyatt Regency Long Beach &middot; Beacon Ballroom</strong>', B, 0),
             ]), B, edit="luncheon"),
-            r_button("Register for the Awards Luncheon", LUMA_LUNCHEON, B),
+            luma(LUMA_SUMMIT, "Register for the Full-Day Summit", "See October 1st Options", B),
             r_pad(30),
         ], ground="blue"),
 
@@ -1185,6 +1193,90 @@ CAMPAIGNS["2026-09-22-rene"] = dict(
     ],
 )
 
+# ================== THURSDAY, SEPT 24 — THE THREE DAYS =======================
+# Modelled on the Luma mail CSULB sent their registrants, which Vivian asked us
+# to match: lay the three days out plainly so someone holding a ticket to one
+# can see the other two. Day structure and wording follow Ingrid's email, which
+# is the co-host's own account of what runs when.
+CAMPAIGNS["2026-09-24-three-days"] = dict(
+    title="Three days at Long Beach Tech Week",
+    subject="Three days at Long Beach Tech Week",
+    alts=["Pick your days: Sept 28th, 30th and Oct 1st",
+          "Long Beach Tech Week starts Monday",
+          "Registered for one day? There are three"],
+    preheader="September 28th, 30th and October 1st. Registered for one day already? Here is everything else.",
+    send="Thursday, September 24, 2026, morning",
+    tight=True,
+    images=(["lba-logo.png", "techweek-2026-banner.jpg", "honoree-hacegaba.jpg",
+             "honoree-marshall.jpg", "honoree-lee.jpg", "honoree-glass.jpg"]
+            + LOGO_IMAGES + ["icon-linkedin.png", "icon-email.png", "icon-web.png"]),
+    sections=[
+        section([
+            r_image("techweek-2026-banner.jpg", TW_REG_ALT, href=TW),
+            r_button("See the Full Schedule", TW, W, pad_top=26),
+            r_text("\n".join([
+                kicker("Long Beach Tech Week 2026", W),
+                display("Three Days. Pick the Ones That Fit.", W),
+                badge("Sept 28th &middot; Sept 30th &middot; Oct 1st", W),
+                lead("Three days of innovation, entrepreneurship, investment, and connection, bringing together founders, investors, students, industry leaders, and the Southern California startup community.", W),
+                p("Already registered for one day? There is more happening across the week. Each day takes its own registration, so add the ones you want below.", W, 0),
+            ]), W, edit="intro"),
+            r_pad(30),
+        ]),
+
+        section([
+            r_text("\n".join([
+                kicker("Day 1 &middot; Monday, September 28th", T),
+                display("Opening Reception", T),
+                bullets(["Kick off Long Beach Tech Week at the Opening Reception",
+                         "Network with founders, investors, and members of the innovation community",
+                         "Get a first look at the new Innovation Hub"], T),
+            ]), T, edit="day1"),
+            r_button("Register for the Opening Reception", LUMA_RECEPTION, T),
+            r_pad(30),
+        ], ground="tint"),
+
+        section([
+            r_text("\n".join([
+                kicker("Day 2 &middot; Wednesday, September 30th", W),
+                display("Capital Corner and CSU Demo Day", W),
+                bullets(["Start the day at Capital Corner, built for founders at every stage who want to learn more about funding and growth",
+                         "Watch CSU Demo Day as selected CSU founders take the stage to pitch their startups",
+                         "Meet and connect with founders, investors, and members of the startup ecosystem",
+                         "Keep the conversations going at the Networking Reception"], W),
+            ]), W, edit="day2"),
+            luma(LUMA_DAY2, "Register for Day 2", "See Day 2 on the Schedule", W),
+            r_pad(30),
+        ]),
+
+        section([
+            r_text("\n".join([
+                kicker("Day 3 &middot; Thursday, October 1st", B),
+                display("LBA Investors &amp; Founders Summit", B),
+                bullets(["Join the 3rd Annual LBA Investors &amp; Founders Summit, 11:00 AM to 6:00 PM",
+                         "Celebrate the 2026 LBA Honorees at the Awards Luncheon",
+                         "Hear from leaders shaping the future of startup investment at the Visionary Investors Panel",
+                         "Wrap up three days of ideas and connections at the Closing Reception"], B),
+            ]), B, edit="day3"),
+            luma(LUMA_SUMMIT, "Register for the Full Day", "See October 1st Options", B),
+            r_button("Visionary Investors Panel Only", LUMA_PANEL, B, invert=True, pad_top=14),
+            r_pad(30),
+        ], ground="blue"),
+
+        section([
+            r_text("\n".join([
+                kicker("Celebrate LBA Honorees", W),
+                display("Congratulations to the 2026 LBA Honorees", W),
+                p("Four visionary leaders who have led the way, blazed the trail, and stand among our top investors and founders. They are recognized at the Awards Luncheon on October 1st.", W, 0),
+            ]), W, edit="honorees_intro"),
+            r_honorees(W),
+            r_pad(30),
+        ]),
+
+        r_logos(),
+    ],
+)
+
 def build(slug, spec):
     out = os.path.join(HERE, f"{slug}-eblast", "email-package")
     imgs = os.path.join(out, "images")
@@ -1285,6 +1377,10 @@ if __name__ == "__main__":
     for slug, spec in CAMPAIGNS.items():
         z, n, hrefs = build(slug, spec)
         print(f"{slug}: {os.path.relpath(z, HERE)}  ({n:,} chars, {len(hrefs)} links)")
+    missing = [n for n, v in (("LUMA_SUMMIT", LUMA_SUMMIT), ("LUMA_DAY2", LUMA_DAY2)) if v is None]
+    if missing:
+        print(f"\n  note: {', '.join(missing)} unset. Those buttons fall back to the Tech Week"
+              f"\n        page with a label that only promises a schedule, not registration.")
     if not AERO_HAS_IMG:
         print(f"\n  note: _assets/{AERO_IMG} is missing, so the 9/17 aerospace send was"
               f"\n        built as live text only. Drop the flyer in at that path and"
