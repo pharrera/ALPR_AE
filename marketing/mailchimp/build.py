@@ -497,11 +497,6 @@ TIGHTEN = {
     "padding:26px 40px 38px 40px": "padding:20px 40px 28px 40px",
     "padding:28px 30px": "padding:20px 24px",
     "padding:26px 0 12px 0": "padding:18px 0 9px 0",
-    "height:38px": "height:24px",
-    "height:36px": "height:22px",
-    "height:34px": "height:22px",
-    "height:32px": "height:22px",
-    "height:30px": "height:20px",
     "margin:18px 0 10px 0": "margin:12px 0 7px 0",
     "margin:18px 0 6px 0": "margin:12px 0 5px 0",
     "margin:0 0 18px 0": "margin:0 0 12px 0",
@@ -512,9 +507,24 @@ TIGHTEN = {
 }
 
 
+# Spacer heights, kept apart from TIGHTEN because a plain string replace of
+# "height:30px" also rewrites the tail of "line-height:30px" and leaves 19px
+# type on a 20px line. Matched with a lookbehind so only real heights move.
+HEIGHT_TIGHTEN = {38: 24, 36: 22, 34: 22, 32: 22, 30: 20}
+
+
 def tighten(html):
     for a, b in TIGHTEN.items():
         html = html.replace(a, b)
+
+    def css(m):
+        return "height:%dpx" % HEIGHT_TIGHTEN.get(int(m.group(1)), int(m.group(1)))
+
+    def attr(m):
+        return 'height="%d"' % HEIGHT_TIGHTEN.get(int(m.group(1)), int(m.group(1)))
+
+    html = re.sub(r"(?<!-)height:(\d+)px", css, html)
+    html = re.sub(r'height="(\d+)"', attr, html)
     return html
 
 
@@ -1205,7 +1215,7 @@ CAMPAIGNS["2026-09-22-rene"] = dict(
 # can see the other two. Day structure and wording follow Ingrid's email, which
 # is the co-host's own account of what runs when.
 CAMPAIGNS["2026-09-24-three-days"] = dict(
-    title="Long Beach Tech Week: four events",
+    title="Long Beach Tech Week: the reception and the Summit",
     subject="Two rooms to be in: Monday night and October 1st",
     alts=["The kick-off is Monday. The Summit is October 1st.",
           "Two ways to join us on October 1st",
