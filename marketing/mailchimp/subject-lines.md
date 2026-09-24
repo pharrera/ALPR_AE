@@ -184,18 +184,43 @@ which the subject has no room for. Same split that worked on the 9/14 René edit
 
 ### 9/24 &mdash; the whole week, one link per event
 
-The job this send does is correct a wrong assumption: people who bought a ticket to one day
-think they are covered for the week. They are not. Four events, four Luma pages.
+Two jobs. The send has to correct a wrong assumption — people holding a ticket to one day
+think they are covered for the week, and they are not — and it has to get bodies into the
+Kick-Off on Monday. The pour is the softest, most human draw we have, so it is worth
+spending the subject line on.
+
+**Leading with the pour.** The Wine Country and Ambitious Ales are both Long Beach
+businesses, which makes this local-supporting-local rather than an open bar.
 
 | Subject line | Chars | Angle |
 |---|---|---|
-| Four events. Come to one or come to all. | 40 | Plain, sets the structure |
-| Your Tech Week ticket covers one event, not four | 48 | Corrects the assumption |
+| Wine and local beer kick off Long Beach Tech Week | 49 | Draw first, event second &mdash; **currently baked in** |
+| The Wine Country is pouring Monday night | 40 | Names the business, reads like a tip |
+| Monday: wine, local beer, and the Tech Week kick-off | 52 | Day-anchored, slightly long |
+| Wine, beer, and four events worth your week | 43 | Pairs the draw with the structure |
+
+**Leading with the structure.** Use one of these if the priority is Oct 1 ticket sales
+rather than Monday attendance.
+
+| Subject line | Chars | Angle |
+|---|---|---|
+| Four events, four ways to join us | 33 | Plain, mirrors the headline |
+| Your Tech Week ticket covers one event, not four | 48 | Corrects the assumption head-on |
 | Long Beach Tech Week: here is the whole week | 44 | Reference-led |
 | Two ways to join us on October 1st | 34 | Narrow, for the Oct 1 decision |
 
-October 1st has two tickets at two prices, so it is the line most likely to generate replies.
-If the goal is Summit seats rather than broad attendance, lead with the fourth.
+**Preview line** (baked in): *Monday, 4:30 PM at the Tech Hub Center. Then two more events,
+and each one registers separately.*
+
+The pairing matters more than either line alone. The subject sells Monday night, the preview
+line carries the thing the send actually has to communicate. If you swap to a
+structure-led subject, swap the preview to something warmer so the pour is not lost:
+*Wine from The Wine Country, local beer from Ambitious Ales, and the room where the week
+starts.*
+
+A note on honesty: this is local businesses pouring at a reception, not a ticketed tasting.
+Every line above stays on the right side of that, but *"wine tasting"* as a phrase would
+promise something we are not running.
 
 ---
 

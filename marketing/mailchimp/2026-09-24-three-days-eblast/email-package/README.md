@@ -7,20 +7,21 @@ than hand-editing `email.html`, so the chrome stays in sync across sends.
 
 | Field | Value |
 |---|---|
-| Subject | Four events. Come to one or come to all. |
+| Subject | Wine and local beer kick off Long Beach Tech Week |
 | Preview text | Baked into the HTML as a hidden preheader. Leave Mailchimp's own field blank, or set it — it takes precedence. Setting both can show them back to back. |
 | Send | Thursday, September 24, 2026, morning |
 | From | Long Beach Accelerator / info@lbaccelerator.org |
 
 Subject line alternates:
 
-- Pick your days: Sept 28th, 30th and Oct 1st
-- Long Beach Tech Week starts Monday
-- Registered for one day? There are three
+- The Wine Country is pouring Monday night
+- Four events, four ways to join us
+- Your Tech Week ticket covers one event, not four
+- Two ways to join us on October 1st
 
 Preheader in this template:
 
-> Sept 28th, 30th and Oct 1st. Each event registers separately, so here is the whole week with a link for each.
+> Monday, 4:30 PM at the Tech Hub Center. Then two more events, and each one registers separately.
 
 ## Load it into Mailchimp
 
