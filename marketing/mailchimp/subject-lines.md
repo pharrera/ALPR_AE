@@ -182,6 +182,21 @@ which the subject has no room for. Same split that worked on the 9/14 René edit
 | René Redwood is on Zoom tomorrow at 11 | 38 | Immediacy |
 | Good for Business: tomorrow, 11 to 1 | 36 | Title-led |
 
+### 9/24 &mdash; the whole week, one link per event
+
+The job this send does is correct a wrong assumption: people who bought a ticket to one day
+think they are covered for the week. They are not. Four events, four Luma pages.
+
+| Subject line | Chars | Angle |
+|---|---|---|
+| Four events. Come to one or come to all. | 40 | Plain, sets the structure |
+| Your Tech Week ticket covers one event, not four | 48 | Corrects the assumption |
+| Long Beach Tech Week: here is the whole week | 44 | Reference-led |
+| Two ways to join us on October 1st | 34 | Narrow, for the Oct 1 decision |
+
+October 1st has two tickets at two prices, so it is the line most likely to generate replies.
+If the goal is Summit seats rather than broad attendance, lead with the fourth.
+
 ---
 
 ## Applying these in Mailchimp
@@ -209,3 +224,5 @@ Preview text currently baked into each template:
 | 9/17 (Tech Week) | Four days with the founders, investors, and leaders building the region's tech economy. Register today. |
 | 9/22 (René) | Good for Business: Investing in People and AI as Workforce Capacity. Wednesday, 11:00 to 1:00 on Zoom. |
 | 9/18 | Sept 28th – Oct 1st. Sponsors join founders, investors, and civic leaders — and sit in the room for the Summit. |
+| 9/21 (reception) | Monday, September 28th. Hear from the city, the SBA and regional CEOs, then stay for the week. |
+| 9/24 (four events) | Sept 28th, 30th and Oct 1st. Each event registers separately, so here is the whole week with a link for each. |

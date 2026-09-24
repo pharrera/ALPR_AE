@@ -7,7 +7,7 @@ than hand-editing `email.html`, so the chrome stays in sync across sends.
 
 | Field | Value |
 |---|---|
-| Subject | Three days at Long Beach Tech Week |
+| Subject | Four events. Come to one or come to all. |
 | Preview text | Baked into the HTML as a hidden preheader. Leave Mailchimp's own field blank, or set it — it takes precedence. Setting both can show them back to back. |
 | Send | Thursday, September 24, 2026, morning |
 | From | Long Beach Accelerator / info@lbaccelerator.org |
@@ -20,7 +20,7 @@ Subject line alternates:
 
 Preheader in this template:
 
-> September 28th, 30th and October 1st. Registered for one day already? Here is everything else.
+> Sept 28th, 30th and Oct 1st. Each event registers separately, so here is the whole week with a link for each.
 
 ## Load it into Mailchimp
 
