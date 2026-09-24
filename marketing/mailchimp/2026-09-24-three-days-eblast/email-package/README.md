@@ -7,21 +7,21 @@ than hand-editing `email.html`, so the chrome stays in sync across sends.
 
 | Field | Value |
 |---|---|
-| Subject | Wine and local beer kick off Long Beach Tech Week |
+| Subject | Two rooms to be in: Monday night and October 1st |
 | Preview text | Baked into the HTML as a hidden preheader. Leave Mailchimp's own field blank, or set it — it takes precedence. Setting both can show them back to back. |
 | Send | Thursday, September 24, 2026, morning |
 | From | Long Beach Accelerator / info@lbaccelerator.org |
 
 Subject line alternates:
 
-- The Wine Country is pouring Monday night
-- Four events, four ways to join us
-- Your Tech Week ticket covers one event, not four
+- The kick-off is Monday. The Summit is October 1st.
 - Two ways to join us on October 1st
+- Your Tech Week ticket covers one event, not both
+- Long Beach Tech Week starts Monday
 
 Preheader in this template:
 
-> Monday, 4:30 PM at the Tech Hub Center. Then two more events, and each one registers separately.
+> Monday, 4:30 PM at the Tech Hub Center. Then the Summit on October 1st, and each one registers separately.
 
 ## Load it into Mailchimp
 

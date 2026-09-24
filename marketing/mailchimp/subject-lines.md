@@ -182,45 +182,87 @@ which the subject has no room for. Same split that worked on the 9/14 René edit
 | René Redwood is on Zoom tomorrow at 11 | 38 | Immediacy |
 | Good for Business: tomorrow, 11 to 1 | 36 | Title-led |
 
-### 9/24 &mdash; the whole week, one link per event
+### 9/24 &mdash; reception and Summit
 
-Two jobs. The send has to correct a wrong assumption — people holding a ticket to one day
-think they are covered for the week, and they are not — and it has to get bodies into the
-Kick-Off on Monday. The pour is the softest, most human draw we have, so it is worth
-spending the subject line on.
-
-**Leading with the pour.** The Wine Country and Ambitious Ales are both Long Beach
-businesses, which makes this local-supporting-local rather than an open bar.
+Vivian cut the CSULB IIE day from this send: the week now reads as two rooms, Monday night
+and October 1st, and the Summit and Panel are the ones short on registrations.
 
 | Subject line | Chars | Angle |
 |---|---|---|
-| Wine and local beer kick off Long Beach Tech Week | 49 | Draw first, event second &mdash; **currently baked in** |
-| The Wine Country is pouring Monday night | 40 | Names the business, reads like a tip |
-| Monday: wine, local beer, and the Tech Week kick-off | 52 | Day-anchored, slightly long |
-| Wine, beer, and four events worth your week | 43 | Pairs the draw with the structure |
+| Two rooms to be in: Monday night and October 1st | 48 | **Currently baked in** |
+| The kick-off is Monday. The Summit is October 1st. | 50 | Flat and factual |
+| Your Tech Week ticket covers one event, not both | 48 | Corrects the assumption |
+| Two ways to join us on October 1st | 34 | Narrow, for Summit seats |
 
-**Leading with the structure.** Use one of these if the priority is Oct 1 ticket sales
-rather than Monday attendance.
+**Preview line** (baked in): *Monday, 4:30 PM at the Tech Hub Center. Then the Summit on
+October 1st, and each one registers separately.*
+
+**On the pour.** Earlier drafts named The Wine Country and Ambitious Ales, and a set of
+wine-led subject lines was written against that. Vivian's rewrite of the reception section
+removed the pour, so those lines are held back here rather than deleted &mdash; they only work
+if a line about the pour goes back into the body:
+
+| Held | Chars |
+|---|---|
+| Wine and local beer kick off Long Beach Tech Week | 49 |
+| The Wine Country is pouring Monday night | 40 |
+| Wine, beer, and the room where the week starts | 46 |
+
+A subject that promises wine against a body that never mentions it reads as bait, so these
+stay unused until the body says otherwise.
+
+---
+
+### 9/25 (Friday) &mdash; Summit-led
+
+Longest decision cycle of anything left, and the one Vivian flagged as short. Leads with
+October 1st, carries the honorees as the draw, and keeps Monday as a short closing panel.
 
 | Subject line | Chars | Angle |
 |---|---|---|
-| Four events, four ways to join us | 33 | Plain, mirrors the headline |
-| Your Tech Week ticket covers one event, not four | 48 | Corrects the assumption head-on |
-| Long Beach Tech Week: here is the whole week | 44 | Reference-led |
-| Two ways to join us on October 1st | 34 | Narrow, for the Oct 1 decision |
+| October 1st: two ways to join us | 32 | **Currently baked in** |
+| The Summit is one week out | 26 | Countdown |
+| Meet the 2026 LBA Honorees on October 1st | 41 | Honoree-led |
+| Full day or afternoon only: October 1st | 39 | Forces the ticket choice |
 
-**Preview line** (baked in): *Monday, 4:30 PM at the Tech Hub Center. Then two more events,
-and each one registers separately.*
+**Preview line:** *The Summit, the Awards Luncheon and the Visionary Investors Panel. Plus a
+first look at LA2028 opportunities.*
 
-The pairing matters more than either line alone. The subject sells Monday night, the preview
-line carries the thing the send actually has to communicate. If you swap to a
-structure-led subject, swap the preview to something warmer so the pour is not lost:
-*Wine from The Wine Country, local beer from Ambitious Ales, and the room where the week
-starts.*
+---
 
-A note on honesty: this is local businesses pouring at a reception, not a ticketed tasting.
-Every line above stays on the right side of that, but *"wine tasting"* as a phrase would
-promise something we are not running.
+### 9/26 (Saturday) &mdash; the kick-off
+
+Weekend read, so it is the shortest of the three: reception, Summit, logos. No honoree grid.
+
+| Subject line | Chars | Angle |
+|---|---|---|
+| The kick-off is Monday at 4:30 | 30 | **Currently baked in** |
+| Long Beach Tech Week opens Monday evening | 41 | Plain |
+| See the new Tech Hub Center on Monday | 37 | The building as the draw |
+| Doors open Monday at 4:30 | 25 | Shortest, highest urgency |
+
+**Preview line:** *An evening at the new Tech Hub Center, then the Summit on October 1st.
+Each registers separately.*
+
+---
+
+### 9/28 (Monday) &mdash; day of
+
+Sent the morning of. Everything is present tense, and the Summit is the ask that outlives
+the evening.
+
+| Subject line | Chars | Angle |
+|---|---|---|
+| Tonight: doors open at 4:30 | 27 | **Currently baked in** |
+| Long Beach Tech Week starts tonight | 35 | Plain |
+| See you at the Tech Hub Center tonight | 38 | Warm |
+| Tonight at 4:30, and the Summit on Thursday | 43 | Carries both asks |
+
+**Preview line:** *The Kick-Off Reception is this evening at the new Tech Hub Center. The
+Summit follows on Thursday.*
+
+Body says *"Registration is open right up to the door"* &mdash; worth confirming that is true
+before this one sends, since walk-ups are a room-capacity question.
 
 ---
 
