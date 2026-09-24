@@ -330,7 +330,7 @@ def bio(name, text, g):
 
 HONOREES = [("honoree-hacegaba.jpg", "Visionary of the Year", "Dr. Noel Hacegaba", "Chief Executive Officer<br />Port of Long Beach"),
             ("honoree-marshall.jpg", "Trailblazer of the Year", "Carrie Marshall", "Chief Executive Officer<br />Rebel Space"),
-            ("honoree-lee.jpg", "Investor of the Year", "Joshua Lee", "Managing Partner<br />Gumshoe Ventures"),
+            ("honoree-lee.jpg", "Investor of the Year", "Joshua Y. Lee", "Managing Partner<br />Gumshoe Ventures"),
             ("honoree-glass.jpg", "Founder of the Year", "Ethan Glass", "Chief Executive Officer<br />OCRA")]
 
 
