@@ -1479,6 +1479,90 @@ CAMPAIGNS["2026-09-28-tonight"] = dict(
 )
 
 
+
+# ---------------------------------------------------------------------------
+# A send of its own for September 30th. Vivian pulled this day out of the
+# combined email because three events in one message muddied the ask; on its
+# own it has a clear audience (founders raising) and does not compete with
+# the Summit.
+# ---------------------------------------------------------------------------
+
+CAMPAIGNS["2026-09-25-day2"] = dict(
+    title="September 30th: A Day for All Founders",
+    subject="September 30th: how founders get access to capital",
+    alts=["Two expert panels on funding, September 30th",
+          "A Day for All Founders, September 30th",
+          "Non-dilutive funding, equity, and CSU Demo Day",
+          "Founders: a full day on raising, September 30th"],
+    preheader="Two expert panels on funding, one-on-one mentoring, and CSU Demo Day pitches. Hosted by CSULB's Institute for Innovation & Entrepreneurship.",
+    send="Friday, September 25, 2026",
+    tight=True,
+    images=(["lba-logo.png", "techweek-2026-banner.jpg"]
+            + LOGO_IMAGES + ["icon-linkedin.png", "icon-email.png", "icon-web.png"]),
+    sections=[
+        section([
+            r_image("techweek-2026-banner.jpg", TW_REG_ALT, href=TW),
+            r_button("Register for September 30th", LUMA_DAY2, W, pad_top=26),
+            r_text("\n".join([
+                kicker("Wednesday, September 30th", W),
+                display("A Day for All Founders", W),
+                badge("9:00 AM &ndash; 6:00 PM &middot; Hyatt Regency Long Beach", W),
+                lead("Start the morning learning how to get access to capital. Stay for a firsthand look at emerging ventures from across the CSU system in the afternoon.", W),
+                p("Hosted by the Institute for Innovation &amp; Entrepreneurship at CSULB. Whether you are an investor looking for the next opportunity, a founder ready to scale, or an early-stage entrepreneur working out the next move, the day is built for you.", W, 0),
+            ]), W, edit="intro"),
+            r_pad(30),
+        ]),
+
+        section([
+            r_text("\n".join([
+                kicker("The Agenda", T),
+                display("Capital Corner, Then the Pitches", T),
+                bullets(["<strong>9:00 &ndash; 9:50 AM</strong> &mdash; Expert Panel: Non-Dilutive Funding, moderated by Jayro Sandoval, Sunstone Cities",
+                         "<strong>10:00 &ndash; 10:50 AM</strong> &mdash; Expert Panel: Equity Investment, moderated by Jasmine Jiang, Sunstone Investments",
+                         "<strong>11:00 AM &ndash; 12:00 PM</strong> &mdash; Concierge mentoring and one-on-one consultations",
+                         "<strong>12:15 &ndash; 1:15 PM</strong> &mdash; Lunch and networking",
+                         "<strong>1:30 &ndash; 4:00 PM</strong> &mdash; CSU Demo Day: founders&rsquo; pitches from startups with traction",
+                         "<strong>4:00 &ndash; 6:00 PM</strong> &mdash; Reception and networking"], T),
+            ]), T, edit="agenda"),
+            r_pad(30),
+        ], ground="tint"),
+
+        section([
+            r_text("\n".join([
+                kicker("Choose Your Ticket", B),
+                display("Three Ways to Attend", B),
+                p("The morning and the afternoon can be taken together or on their own, so you can come for the part that fits.", B, 0),
+            ]), B, edit="tickets"),
+            r_card("\n".join([
+                f'            <p style="margin:0 0 6px 0;{SMALL};color:{CHAR};"><strong style="color:{BLUE};">Both</strong></p>',
+                f'            <p style="margin:0 0 16px 0;font-size:14px;line-height:22px;color:{GRAY};">The Capital Corner panels and CSU Demo Day.</p>',
+                f'            <p style="margin:0 0 6px 0;{SMALL};color:{CHAR};"><strong style="color:{BLUE};">Capital Corner Panel</strong></p>',
+                f'            <p style="margin:0 0 16px 0;font-size:14px;line-height:22px;color:{GRAY};">Expert panels on debt and equity investment, plus one-on-one mentoring.</p>',
+                f'            <p style="margin:0 0 6px 0;{SMALL};color:{CHAR};"><strong style="color:{BLUE};">CSU Demo Day</strong></p>',
+                f'            <p style="margin:0;font-size:14px;line-height:22px;color:{GRAY};">Live pitches by startups with traction, followed by networking.</p>',
+            ]), B, edit="ticket_options"),
+            r_button("Register for September 30th", LUMA_DAY2, B),
+            r_pad(30),
+        ], ground="blue"),
+
+        section([
+            r_text("\n".join([
+                kicker("The Rest of the Week", W),
+                display("Two More Rooms Worth Being In", W),
+                p('<strong style="color:#204396;">Monday, September 28th</strong> &mdash; the Kick-Off Reception opens Long Beach Tech Week at our new Tech Hub Center, 4:30 to 7:00 PM.', W),
+                p('<strong style="color:#204396;">Thursday, October 1st</strong> &mdash; the LBA 3rd Annual Investors &amp; Founders Summit closes the week at the Hyatt Regency, with the Awards Luncheon and the Visionary Investors Panel.', W),
+                p("Each event registers separately.", W, 0),
+            ]), W, edit="week"),
+            r_button("Register for the Kick-Off Reception", LUMA_RECEPTION, W),
+            r_button("Register for the Summit", LUMA_SUMMIT, W, invert=True, pad_top=14),
+            r_pad(30),
+        ]),
+
+        r_logos(),
+    ],
+)
+
+
 def build(slug, spec):
     out = os.path.join(HERE, f"{slug}-eblast", "email-package")
     imgs = os.path.join(out, "images")

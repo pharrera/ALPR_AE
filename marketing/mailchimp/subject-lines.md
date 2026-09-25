@@ -230,6 +230,28 @@ first look at LA2028 opportunities.*
 
 ---
 
+### 9/25 (Friday, second send) &mdash; September 30th
+
+A send of its own for the IIE day. Vivian cut it from the combined email because three
+events in one message muddied the ask; alone it has a clear audience and does not compete
+with the Summit. The hook is Luma's own line: learn how to get access to capital.
+
+| Subject line | Chars | Angle |
+|---|---|---|
+| September 30th: how founders get access to capital | 50 | **Currently baked in** &mdash; benefit-led |
+| Two expert panels on funding, September 30th | 44 | Programme-led |
+| A Day for All Founders, September 30th | 38 | The event's own name |
+| Non-dilutive funding, equity, and CSU Demo Day | 46 | For readers who know the terms |
+
+**Preview line:** *Two expert panels on funding, one-on-one mentoring, and CSU Demo Day
+pitches. Hosted by CSULB's Institute for Innovation &amp; Entrepreneurship.*
+
+Goes to founders rather than the full list if the audience can be segmented. The fourth
+subject line assumes the reader knows what non-dilutive means, so it is the one to use on a
+founder segment and the one to avoid on a general send.
+
+---
+
 ### 9/26 (Saturday) &mdash; the kick-off
 
 Weekend read, so it is the shortest of the three: reception, Summit, logos. No honoree grid.
