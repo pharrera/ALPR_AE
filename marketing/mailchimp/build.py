@@ -1548,13 +1548,14 @@ CAMPAIGNS["2026-09-25-day2"] = dict(
         section([
             r_text("\n".join([
                 kicker("The Rest of the Week", W),
-                display("Two More Rooms Worth Being In", W),
-                p('<strong style="color:#204396;">Monday, September 28th</strong> &mdash; the Kick-Off Reception opens Long Beach Tech Week at our new Tech Hub Center, 4:30 to 7:00 PM.', W),
-                p('<strong style="color:#204396;">Thursday, October 1st</strong> &mdash; the LBA 3rd Annual Investors &amp; Founders Summit closes the week at the Hyatt Regency, with the Awards Luncheon and the Visionary Investors Panel.', W),
-                p("Each event registers separately.", W, 0),
+                display("Every Event, With Its Own Link", W),
+                p('<strong style="color:#204396;">Monday, September 28th</strong> &mdash; the Kick-Off Reception opens Long Beach Tech Week at our new Long Beach Accelerator Tech Hub Center, 4:30 to 7:00 PM.', W),
+                p('<strong style="color:#204396;">Thursday, October 1st</strong> &mdash; the LBA 3rd Annual Investors &amp; Founders Summit closes the week at the Hyatt Regency. Take the full day, 11:00 AM to 6:00 PM, for the Awards Luncheon, the Visionary Investors Panel and the Closing Reception, or come for the afternoon on its own, 2:00 to 6:00 PM.', W),
+                p("Every event registers separately, so a ticket to one does not carry the others.", W, 0),
             ]), W, edit="week"),
             r_button("Register for the Kick-Off Reception", LUMA_RECEPTION, W),
-            r_button("Register for the Summit", LUMA_SUMMIT, W, invert=True, pad_top=14),
+            r_button("October 1st: Register for the Full Day", LUMA_SUMMIT, W, invert=True, pad_top=14),
+            r_button("October 1st: Afternoon Panel Only", LUMA_PANEL, W, invert=True, pad_top=14),
             r_pad(30),
         ]),
 
