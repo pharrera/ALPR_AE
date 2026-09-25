@@ -7,21 +7,21 @@ than hand-editing `email.html`, so the chrome stays in sync across sends.
 
 | Field | Value |
 |---|---|
-| Subject | September 30th: how founders get access to capital |
+| Subject | Long Beach Tech Week starts Monday |
 | Preview text | Baked into the HTML as a hidden preheader. Leave Mailchimp's own field blank, or set it — it takes precedence. Setting both can show them back to back. |
 | Send | Friday, September 25, 2026 |
 | From | Long Beach Accelerator / info@lbaccelerator.org |
 
 Subject line alternates:
 
-- Two expert panels on funding, September 30th
-- A Day for All Founders, September 30th
-- Non-dilutive funding, equity, and CSU Demo Day
-- Founders: a full day on raising, September 30th
+- The reception, the founders day, and the Summit
+- Long Beach Tech Week: three days, four ways in
+- Your week: Monday, Wednesday and Thursday
+- Long Beach Tech Week opens Monday at 4:30
 
 Preheader in this template:
 
-> Two expert panels on funding, one-on-one mentoring, and CSU Demo Day pitches. Hosted by CSULB's Institute for Innovation & Entrepreneurship.
+> Monday's Kick-Off Reception, Wednesday's day for founders, and Thursday's Summit. Each one registers separately.
 
 ## Load it into Mailchimp
 

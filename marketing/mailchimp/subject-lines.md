@@ -230,41 +230,51 @@ first look at LA2028 opportunities.*
 
 ---
 
-### 9/25 (Friday, second send) &mdash; September 30th
+### 9/25 (Friday, second send) &mdash; the week in order
 
-A send of its own for the IIE day. Vivian cut it from the combined email because three
-events in one message muddied the ask; alone it has a clear audience and does not compete
-with the Summit. The hook is Luma's own line: learn how to get access to capital.
+Built as a September 30th send, then rearranged on Vivian's direction so the reception leads
+and the days run in calendar order. It is now a whole-week email rather than a single-day
+one, so the subject moved with it: a September 30th subject over a reception-led body would
+have mismatched the first thing the reader sees.
 
 | Subject line | Chars | Angle |
 |---|---|---|
-| September 30th: how founders get access to capital | 50 | **Currently baked in** &mdash; benefit-led |
-| Two expert panels on funding, September 30th | 44 | Programme-led |
-| A Day for All Founders, September 30th | 38 | The event's own name |
-| Non-dilutive funding, equity, and CSU Demo Day | 46 | For readers who know the terms |
+| Long Beach Tech Week starts Monday | 34 | **Currently baked in** &mdash; leads with the reception |
+| The reception, the founders day, and the Summit | 47 | Names all three |
+| Long Beach Tech Week: three days, four ways in | 46 | Structure-led |
+| Long Beach Tech Week opens Monday at 4:30 | 41 | Adds the time |
 
-**Preview line:** *Two expert panels on funding, one-on-one mentoring, and CSU Demo Day
-pitches. Hosted by CSULB's Institute for Innovation &amp; Entrepreneurship.*
+**Preview line:** *Monday's Kick-Off Reception, Wednesday's day for founders, and Thursday's
+Summit. Each one registers separately.*
 
-Goes to founders rather than the full list if the audience can be segmented. The fourth
-subject line assumes the reader knows what non-dilutive means, so it is the one to use on a
-founder segment and the one to avoid on a general send.
+The September 30th subject lines are kept below, since that day still needs its own push and
+the section is written:
+
+| Held for a founders segment | Chars |
+|---|---|
+| September 30th: how founders get access to capital | 50 |
+| Two expert panels on funding, September 30th | 44 |
+| Non-dilutive funding, equity, and CSU Demo Day | 46 |
 
 ---
 
-### 9/26 (Saturday) &mdash; the kick-off
+### 9/26 (Saturday) &mdash; Summit first, honorees at the top
 
-Weekend read, so it is the shortest of the three: reception, Summit, logos. No honoree grid.
+Replaces the reception-led Saturday send. The honoree photographs run directly under the
+banner, above any description of the day, so the faces are the first thing that loads.
 
 | Subject line | Chars | Angle |
 |---|---|---|
-| The kick-off is Monday at 4:30 | 30 | **Currently baked in** |
-| Long Beach Tech Week opens Monday evening | 41 | Plain |
-| See the new Tech Hub Center on Monday | 37 | The building as the draw |
-| Doors open Monday at 4:30 | 25 | Shortest, highest urgency |
+| Celebrate the 2026 LBA Honorees on October 1st | 46 | **Currently baked in** |
+| Meet the four leaders we honor on October 1st | 45 | Warmer |
+| The Summit closes Long Beach Tech Week | 38 | Event-led |
+| Awards Luncheon, investors panel, LA2028 preview | 48 | Programme-led |
 
-**Preview line:** *An evening at the new Tech Hub Center, then the Summit on October 1st.
-Each registers separately.*
+**Preview line:** *The Awards Luncheon, the Visionary Investors Panel, and a preview of
+LA2028 contracting opportunities.*
+
+Honoree names and titles here match each person's LBA bio page rather than earlier internal
+emails, which disagreed on three of the four.
 
 ---
 
