@@ -1521,7 +1521,8 @@ CAMPAIGNS["2026-09-25-day2"] = dict(
     preheader="Monday's Kick-Off Reception, Wednesday's day for founders, and Thursday's Summit. Each one registers separately.",
     send="Friday, September 25, 2026",
     tight=True,
-    images=(["lba-logo.png", "techweek-2026-banner.jpg"]
+    images=(["lba-logo.png", "techweek-2026-banner.jpg", "honoree-hacegaba.jpg",
+             "honoree-marshall.jpg", "honoree-lee.jpg", "honoree-glass.jpg"]
             + LOGO_IMAGES + ["icon-linkedin.png", "icon-email.png", "icon-web.png"]),
     sections=[
         section([
@@ -1591,6 +1592,16 @@ CAMPAIGNS["2026-09-25-day2"] = dict(
             r_button("Afternoon Panel Only", LUMA_PANEL, B, invert=True, pad_top=14),
             r_pad(30),
         ], ground="blue"),
+
+        section([
+            r_text("\n".join([
+                kicker("Celebrate LBA Honorees", W),
+                display("Congratulations to the 2026 LBA Honorees", W),
+                p("Four visionary leaders who have led the way, blazed the trail, and stand among the top investors and founders in the region. They are recognized at the Awards Luncheon on October 1st.", W, 0),
+            ]), W, edit="honorees_intro"),
+            r_honorees(W),
+            r_pad(30),
+        ]),
 
         r_logos(),
     ],
