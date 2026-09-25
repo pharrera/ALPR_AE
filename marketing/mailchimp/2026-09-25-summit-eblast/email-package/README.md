@@ -7,21 +7,21 @@ than hand-editing `email.html`, so the chrome stays in sync across sends.
 
 | Field | Value |
 |---|---|
-| Subject | October 1st: two ways to join us |
+| Subject | Meet the 2026 LBA Honorees on October 1st |
 | Preview text | Baked into the HTML as a hidden preheader. Leave Mailchimp's own field blank, or set it — it takes precedence. Setting both can show them back to back. |
 | Send | Friday, September 25, 2026, morning |
 | From | Long Beach Accelerator / info@lbaccelerator.org |
 
 Subject line alternates:
 
-- The Summit is one week out
-- Meet the 2026 LBA Honorees on October 1st
+- October 1st: two ways to join us
 - A conversation with visionary investors, plus an LA2028 preview
+- The Summit is one week from today
 - Full day or afternoon only: October 1st
 
 Preheader in this template:
 
-> The Summit, the Awards Luncheon and the Visionary Investors Panel. Plus a first look at LA2028 opportunities.
+> The Awards Luncheon, the Visionary Investors Panel, and a preview of LA2028 contracting opportunities.
 
 ## Load it into Mailchimp
 

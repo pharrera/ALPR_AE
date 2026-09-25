@@ -328,14 +328,18 @@ def bio(name, text, g):
             f'<strong style="color:{g["strong"]};">About {name}.</strong> {text}</p>')
 
 
-HONOREES = [("honoree-hacegaba.jpg", "Visionary of the Year", "Dr. Noel Hacegaba", "Chief Executive Officer<br />Port of Long Beach"),
-            ("honoree-marshall.jpg", "Trailblazer of the Year", "Carrie Marshall", "Chief Executive Officer<br />Rebel Space"),
-            ("honoree-lee.jpg", "Investor of the Year", "Joshua Y. Lee", "Managing Partner<br />Gumshoe Ventures"),
-            ("honoree-glass.jpg", "Founder of the Year", "Ethan Glass", "Chief Executive Officer<br />OCRA")]
+HONOREES = [("honoree-hacegaba.jpg", "Visionary of the Year", "Dr. Noel Hacegaba", "CEO<br />Port of Long Beach",
+             "Leads a world leader in supply chain innovation, where nearly 10 million container units move each year."),
+            ("honoree-marshall.jpg", "Trailblazer of the Year", "Carrie Marshall", "CEO &amp; Co-Founder<br />Rebel Space Technologies",
+             "Builds AI-powered spectrum intelligence for the next generation of satellite communications."),
+            ("honoree-lee.jpg", "Investor of the Year", "Joshua Y. Lee", "Managing Partner<br />Gumshoe Ventures",
+             "A multi-exited founder backing high-potential companies across the US and Southeast Asia."),
+            ("honoree-glass.jpg", "Founder of the Year", "Ethan Glass", "CEO<br />Ocra",
+             "Grew Ocra from an event parking operator into a platform that maximizes parking asset yield.")]
 
 
-def r_honorees(g):
-    def cell(img, award, name, role):
+def r_honorees(g, bios=False):
+    def cell(img, award, name, role, blurb):
         alt = f"{name}, {role.replace('<br />', ', ')}, 2026 LBA {award}"
         ribbon_bg = TEAL if g["bg"] != BLUE else R_KICK
         ribbon_fg = WHITE if g["bg"] != BLUE else BLUE
@@ -346,7 +350,9 @@ def r_honorees(g):
                 f'letter-spacing:1.1px;text-transform:uppercase;color:{ribbon_fg};font-weight:bold;white-space:nowrap;">{award}</td></tr></table>\n'
                 f'                <p style="margin:12px 0 3px 0;font-family:{FONT};font-size:18px;line-height:25px;color:{g["head"]};font-weight:bold;">{name}</p>\n'
                 f'                <p style="margin:0;font-family:{FONT};font-size:14px;line-height:22px;color:{g["muted"]};">{role}</p>\n'
-                f'              </td>')
+                + (f'                <p style="margin:9px 0 0 0;font-family:{FONT};font-size:14px;line-height:22px;color:{g["body"]};">{blurb}</p>\n'
+                   if bios else "")
+                + f'              </td>')
     gut = '              <td class="gut" width="20" style="width:20px;font-size:0;line-height:0;">&nbsp;</td>'
     a, b, c, d = [cell(*h) for h in HONOREES]
     sp = '            <tr><td colspan="3" height="32" style="height:32px;font-size:0;line-height:0;">&nbsp;</td></tr>'
@@ -1294,12 +1300,12 @@ CAMPAIGNS["2026-09-24-three-days"] = dict(
 
 CAMPAIGNS["2026-09-25-summit"] = dict(
     title="October 1st: two ways to join us",
-    subject="October 1st: two ways to join us",
-    alts=["The Summit is one week out",
-          "Meet the 2026 LBA Honorees on October 1st",
+    subject="Meet the 2026 LBA Honorees on October 1st",
+    alts=["October 1st: two ways to join us",
           "A conversation with visionary investors, plus an LA2028 preview",
+          "The Summit is one week from today",
           "Full day or afternoon only: October 1st"],
-    preheader="The Summit, the Awards Luncheon and the Visionary Investors Panel. Plus a first look at LA2028 opportunities.",
+    preheader="The Awards Luncheon, the Visionary Investors Panel, and a preview of LA2028 contracting opportunities.",
     send="Friday, September 25, 2026, morning",
     tight=True,
     images=(["lba-logo.png", "techweek-2026-banner.jpg", "honoree-hacegaba.jpg",
@@ -1308,23 +1314,34 @@ CAMPAIGNS["2026-09-25-summit"] = dict(
     sections=[
         section([
             r_image("techweek-2026-banner.jpg", TW_REG_ALT, href=TW),
+            r_button("Register for the Summit", LUMA_SUMMIT, W, pad_top=26),
             r_text("\n".join([
                 kicker("Thursday, October 1st", W),
-                display("Two Ways to Join Us on October 1st", W),
-                badge("Hyatt Regency &middot; Beacon Ballroom", W),
-                lead("Long Beach Tech Week closes with the LBA 3rd Annual Investors &amp; Founders Summit, a day of insight and connection with trailblazing entrepreneurs and startup champions.", W),
-                p("Seats are limited and the two tickets cover different parts of the day, so it is worth choosing before the week fills up.", W, 0),
+                display("The Summit Closes Long Beach Tech Week", W),
+                badge("11:00 AM &ndash; 6:00 PM &middot; Hyatt Regency", W),
+                lead("A day of insight and connection with trailblazing entrepreneurs and startup champions, in the Beacon Ballroom at the Hyatt Regency Long Beach.", W),
+                p("Four leaders are honored at the Awards Luncheon, our signature Visionary Investors Panel takes the afternoon, and the day closes with a reception.", W, 0),
             ]), W, edit="intro"),
             r_pad(30),
         ]),
 
         section([
             r_text("\n".join([
-                kicker("The Summit", B),
-                display("LBA 3rd Annual Investors &amp; Founders Summit", B),
-                p("The full day opens with the Awards Luncheon honoring four leaders who have shaped the region, and carries through the afternoon panel and the closing reception.", B),
-                p("The afternoon on its own is our signature forum: a conversation with visionary investors on the landscape of investing today, including a special preview of LA2028 Olympic and Paralympic opportunities.", B, 0),
-            ]), B, edit="summit"),
+                kicker("Celebrate LBA Honorees", W),
+                display("The 2026 LBA Honorees", W),
+                p("Four visionary leaders who have led the way, blazed the trail, and stand among the top investors and founders in the region.", W, 0),
+            ]), W, edit="honorees_intro"),
+            r_honorees(W, bios=True),
+            r_pad(30),
+        ]),
+
+        section([
+            r_text("\n".join([
+                kicker("The Afternoon", B),
+                display("Visionary Investors Panel", B),
+                p("Our signature forum is a conversation with investors on the global economy and emerging technology, today and in the years ahead.", B),
+                p("You will also get a special preview of the LA2028 Olympic and Paralympic work we are doing on accessing contracting opportunities.", B, 0),
+            ]), B, edit="panel"),
             r_card("\n".join([
                 f'            <p style="margin:0 0 6px 0;{SMALL};color:{CHAR};"><strong style="color:{BLUE};">Full day</strong> &middot; 11:00 AM &ndash; 6:00 PM</p>',
                 f'            <p style="margin:0 0 16px 0;font-size:14px;line-height:22px;color:{GRAY};">Awards Luncheon, the Visionary Investors Panel and the Closing Reception.</p>',
@@ -1338,20 +1355,10 @@ CAMPAIGNS["2026-09-25-summit"] = dict(
 
         section([
             r_text("\n".join([
-                kicker("Celebrate LBA Honorees", W),
-                display("Congratulations to the 2026 LBA Honorees", W),
-                p("Four visionary leaders who have led the way, blazed the trail, and stand among the top investors and founders in the region. They are recognized at the Awards Luncheon on October 1st.", W, 0),
-            ]), W, edit="honorees_intro"),
-            r_honorees(W),
-            r_pad(30),
-        ]),
-
-        section([
-            r_text("\n".join([
                 kicker("Monday, September 28th", T),
-                display("The Week Opens With a Reception", T),
+                display("The Week Opens Monday", T),
                 badge("4:30 &ndash; 7:00 PM &middot; LBA Tech Hub Center", T),
-                p("Before the Summit, join us for an evening of connection and celebration as we welcome the community to our new Long Beach Accelerator Tech Hub Center. It registers separately from October 1st.", T, 0),
+                p("Before the Summit, join us as we welcome the community to our new Long Beach Accelerator Tech Hub Center. It registers separately from October 1st.", T, 0),
             ]), T, edit="reception"),
             r_button("Register for the Kick-Off Reception", LUMA_RECEPTION, T),
             r_pad(30),
