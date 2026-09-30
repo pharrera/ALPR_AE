@@ -31,7 +31,7 @@ the visual editor while the layout stays put.
 
 ## Design
 
-**Three grounds.** Sections sit on white, Light Gray `[('panelist-malone.jpg', 'Sue Malone', 'CEO<br />Strategies For Small Business', 'Moderator'), ('honoree-lee.jpg', 'Joshua Y. Lee', 'CEO<br />Gumshoe Ventures', ''), ('panelist-mcmillan.jpg', 'Walter &ldquo;Rock&rdquo; McMillan', 'Senior PM/Acquisition Advisor<br />Galapagos LLC', ''), ('panelist-truong.jpg', 'Amy Truong', 'Special Assistant Front Office<br />CMS/CMMI', ''), ('honoree-glass.jpg', 'Ethan Glass', 'CEO<br />OCRA', ''), ('panelist-sanchez.jpg', 'Cecilia Sanchez', 'Sr. Associate<br />L&rsquo;ATTITUDE Ventures', '')]`, or a reversed LBA Blue band.
+**Three grounds.** Sections sit on white, Light Gray `[('panelist-malone.jpg', 'Sue Malone', 'CEO<br />Strategies For Small Business', 'Moderator'), ('honoree-lee.jpg', 'Joshua Y. Lee', 'CEO<br />Gumshoe Ventures', ''), ('panelist-mcmillan.jpg', 'Walter &ldquo;Rock&rdquo; McMillan', 'Senior PM/Acquisition Advisor<br />Galapagos LLC', ''), ('panelist-truong.jpg', 'Amy Truong', 'Special Assistant Front Office<br />CMS/CMMI', ''), ('honoree-glass.jpg', 'Ethan Glass', 'CEO<br />OCRA', '')]`, or a reversed LBA Blue band.
 The blue band is the emphasis device and there is one per email, on whatever that send is
 actually asking for — the honorees on 9/10, Session 1 on 9/14, René Redwood on the 9/14 René
 edition, the honorees again on 9/18. Used more than that it stops being emphasis.
@@ -51,7 +51,7 @@ buried in a details block.
 Series rows carry solid teal numerals; honoree awards sit in filled ribbons under each photo.
 
 Per the LBA Brand Guidelines (08/31/26): LBA Blue `#204396`, LBA Teal `#008C8C`, Charcoal
-`#333333`, Medium Gray `#6B7280`, Light Gray `[('panelist-malone.jpg', 'Sue Malone', 'CEO<br />Strategies For Small Business', 'Moderator'), ('honoree-lee.jpg', 'Joshua Y. Lee', 'CEO<br />Gumshoe Ventures', ''), ('panelist-mcmillan.jpg', 'Walter &ldquo;Rock&rdquo; McMillan', 'Senior PM/Acquisition Advisor<br />Galapagos LLC', ''), ('panelist-truong.jpg', 'Amy Truong', 'Special Assistant Front Office<br />CMS/CMMI', ''), ('honoree-glass.jpg', 'Ethan Glass', 'CEO<br />OCRA', ''), ('panelist-sanchez.jpg', 'Cecilia Sanchez', 'Sr. Associate<br />L&rsquo;ATTITUDE Ventures', '')]`. Proxima Nova leads the font stack with
+`#333333`, Medium Gray `#6B7280`, Light Gray `[('panelist-malone.jpg', 'Sue Malone', 'CEO<br />Strategies For Small Business', 'Moderator'), ('honoree-lee.jpg', 'Joshua Y. Lee', 'CEO<br />Gumshoe Ventures', ''), ('panelist-mcmillan.jpg', 'Walter &ldquo;Rock&rdquo; McMillan', 'Senior PM/Acquisition Advisor<br />Galapagos LLC', ''), ('panelist-truong.jpg', 'Amy Truong', 'Special Assistant Front Office<br />CMS/CMMI', ''), ('honoree-glass.jpg', 'Ethan Glass', 'CEO<br />OCRA', '')]`. Proxima Nova leads the font stack with
 web-safe fallbacks — Outlook and Gmail ignore webfonts, so most readers see Helvetica or Arial.
 
 Everything here is `<td>` background colours and solid fills, which Outlook renders. No

@@ -378,10 +378,12 @@ PANEL = [
     ("panelist-mcmillan.jpg", "Walter &ldquo;Rock&rdquo; McMillan", "Senior PM/Acquisition Advisor<br />Galapagos LLC", ""),
     ("panelist-truong.jpg", "Amy Truong", "Special Assistant Front Office<br />CMS/CMMI", ""),
     ("honoree-glass.jpg", "Ethan Glass", "CEO<br />OCRA", ""),
-    # Last cell, bottom right: the position the eye reaches last, so the one
-    # portrait we do not have is the one carrying least weight.
-    ("panelist-sanchez.jpg", "Cecilia Sanchez", "Sr. Associate<br />L&rsquo;ATTITUDE Ventures", ""),
 ]
+
+# On the panel, but with no headshot anywhere -- LBA's own programme page
+# draws initials in place of one. Rather than a tile that advertises the
+# gap, she is credited in a line under the grid.
+PANEL_NO_PHOTO = "Cecilia Sanchez, Sr. Associate, L&rsquo;ATTITUDE Ventures"
 
 MODICA = [("panelist-modica.jpg", "Tom Modica", "City Manager<br />City of Long Beach", "")]
 
@@ -1711,6 +1713,8 @@ CAMPAIGNS["2026-09-30-panel"] = dict(
                 p("Moderated by Sue Malone, with a panel drawn from venture capital, national security innovation, federal health policy and two of this year&rsquo;s LBA honorees.", W, 0),
             ]), W, edit="panel_intro"),
             r_panel(W, PANEL),
+            r_text(p(f"Joined on the panel by {PANEL_NO_PHOTO}.", W, 0), W,
+                   edit="panel_also", pad="22px 40px 0 40px"),
             r_pad(26),
             r_card("\n".join([
                 f'            <p style="margin:0 0 6px 0;{SMALL};color:{CHAR};"><strong style="color:{BLUE};">2:00 &ndash; 4:00 PM</strong></p>',
