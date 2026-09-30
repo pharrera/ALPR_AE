@@ -330,12 +330,12 @@ def bio(name, text, g):
 
 HONOREES = [("honoree-hacegaba.jpg", "Visionary of the Year", "Dr. Noel Hacegaba", "CEO<br />Port of Long Beach",
              "Leads a world leader in supply chain innovation, where nearly 10 million container units move each year."),
-            ("honoree-marshall.jpg", "Trailblazer of the Year", "Carrie Marshall", "CEO &amp; Co-Founder<br />Rebel Space Technologies",
+            ("honoree-marshall.jpg", "Trailblazer of the Year", "Carrie Marshall", "CEO<br />Rebel Space Technologies",
              "Builds AI-powered spectrum intelligence for the next generation of satellite communications."),
-            ("honoree-lee.jpg", "Investor of the Year", "Joshua Y. Lee", "Managing Partner<br />Gumshoe Ventures",
+            ("honoree-lee.jpg", "Investor of the Year", "Joshua Y. Lee", "CEO<br />Gumshoe Ventures",
              "A multi-exited founder backing high-potential companies across the US and Southeast Asia."),
-            ("honoree-glass.jpg", "Founder of the Year", "Ethan Glass", "CEO<br />Ocra",
-             "Grew Ocra from an event parking operator into a platform that maximizes parking asset yield.")]
+            ("honoree-glass.jpg", "Founder of the Year", "Ethan Glass", "CEO<br />OCRA",
+             "Grew OCRA from an event parking operator into a platform that maximizes parking asset yield.")]
 
 
 def r_honorees(g, bios=False):
@@ -374,11 +374,11 @@ def r_honorees(g, bios=False):
 # placeholder so the decision reaches Vivian instead of being made quietly.
 PANEL = [
     ("panelist-malone.jpg", "Sue Malone", "CEO<br />Strategies For Small Business", "Moderator"),
-    ("honoree-lee.jpg", "Joshua Y. Lee", "Managing Partner<br />Gumshoe Ventures", ""),
-    ("panelist-mcmillan.jpg", "Walter &ldquo;Rock&rdquo; McMillan", "Senior Acquisition Advisor<br />Galapagos LLC", ""),
-    ("panelist-tbc.jpg", "Cecilia Sanchez", "Senior Associate<br />L&rsquo;ATTITUDE Ventures", ""),
-    ("panelist-truong.jpg", "Amy Truong", "Special Assistant, Front Office<br />CMS/CMMI", ""),
-    ("honoree-glass.jpg", "Ethan Glass", "CEO<br />Ocra", ""),
+    ("honoree-lee.jpg", "Joshua Y. Lee", "CEO<br />Gumshoe Ventures", ""),
+    ("panelist-mcmillan.jpg", "Walter &ldquo;Rock&rdquo; McMillan", "Senior PM/Acquisition Advisor<br />Galapagos LLC", ""),
+    ("panelist-sanchez.jpg", "Cecilia Sanchez", "Sr. Associate<br />L&rsquo;ATTITUDE Ventures", ""),
+    ("panelist-truong.jpg", "Amy Truong", "Special Assistant Front Office<br />CMS/CMMI", ""),
+    ("honoree-glass.jpg", "Ethan Glass", "CEO<br />OCRA", ""),
 ]
 
 MODICA = [("panelist-modica.jpg", "Tom Modica", "City Manager<br />City of Long Beach", "")]
@@ -1711,8 +1711,8 @@ CAMPAIGNS["2026-09-30-panel"] = dict(
             r_panel(W, PANEL),
             r_pad(26),
             r_card("\n".join([
-                f'            <p style="margin:0 0 6px 0;{SMALL};color:{CHAR};"><strong style="color:{BLUE};">2:00 &ndash; 4:00 PM</strong> &middot; Conversations With Visionary Investors</p>',
-                f'            <p style="margin:0 0 16px 0;font-size:14px;line-height:22px;color:{GRAY};">The panel, followed by audience questions.</p>',
+                f'            <p style="margin:0 0 6px 0;{SMALL};color:{CHAR};"><strong style="color:{BLUE};">2:00 &ndash; 4:00 PM</strong></p>',
+                f'            <p style="margin:0 0 16px 0;font-size:14px;line-height:22px;color:{GRAY};">LA28 Olympic &amp; Paralympic Economic Impact with Tom Modica, followed by Conversations With Visionary Investors.</p>',
                 f'            <p style="margin:0 0 6px 0;{SMALL};color:{CHAR};"><strong style="color:{BLUE};">4:00 &ndash; 5:30 PM</strong> &middot; Closing Reception</p>',
                 f'            <p style="margin:0;font-size:14px;line-height:22px;color:{GRAY};">$50 per ticket, afternoon only.</p>',
             ]), W, edit="panel_times"),
@@ -1724,7 +1724,7 @@ CAMPAIGNS["2026-09-30-panel"] = dict(
             r_text("\n".join([
                 kicker("Also on the Programme", T),
                 display("LA28 Olympic &amp; Paralympic Economic Impact", T),
-                p("Tom Modica secured the 2028 Olympic Games for Long Beach. He joins us to set out what the Games mean for the region&rsquo;s businesses, and where the contracting opportunities will be.", T, 0),
+                p("Tom Modica secured the 2028 Olympic Games for Long Beach. He opens the afternoon at 2:00 with what the Games mean for the region&rsquo;s businesses and where the contracting opportunities will be, and the panel follows.", T, 0),
             ]), T, edit="modica"),
             r_panel(T, MODICA),
             r_pad(30),
@@ -1767,7 +1767,11 @@ def build(slug, spec):
         html = tighten(html)
     with open(os.path.join(out, "email.html"), "w", encoding="utf-8") as f:
         f.write(html)
-    for name in spec["images"]:
+    # A campaign can reach the same file from two lists -- the panel and the
+    # honoree grid share two portraits -- and zipfile happily writes a
+    # duplicate entry for each. Collapse them, keeping first-seen order.
+    names = list(dict.fromkeys(spec["images"]))
+    for name in names:
         shutil.copy2(os.path.join(ASSETS, name), os.path.join(imgs, name))
     with open(os.path.join(out, "README.md"), "w", encoding="utf-8") as f:
         f.write(readme_for(slug, spec))
@@ -1775,7 +1779,7 @@ def build(slug, spec):
     with zipfile.ZipFile(zpath, "w", zipfile.ZIP_DEFLATED) as z:
         z.write(os.path.join(out, "email.html"), "email.html")
         z.write(os.path.join(out, "README.md"), "README.md")
-        for name in spec["images"]:
+        for name in names:
             z.write(os.path.join(imgs, name), f"images/{name}")
     return zpath, len(html), re.findall(r'href="([^"]+)"', html)
 
