@@ -280,27 +280,57 @@ emails, which disagreed on three of the four.
 
 ### 9/30 (Wednesday) &mdash; final send, panel first
 
-The last email before the Summit. Built from the final program book, which is the only
-source that names the panel.
+The last email before the doors open, so every line is written for a send on the 30th and an
+event on the 1st. If it slips a day, "tomorrow" has to come out of the body as well as the
+subject.
 
-| Subject line | Chars | Angle |
+**Currently baked in**
+
+| | |
+|---|---|
+| Subject | Tomorrow: meet the Visionary Investors panel |
+| Preview | Sue Malone moderates. Plus Tom Modica on what the LA28 Games mean for Long Beach business. Thursday, 2:00 PM. |
+
+The pairing matters more than either line: the subject sells the panel, the preview names
+the moderator and adds Modica, who is the reason a reader indifferent to investing might
+still come.
+
+---
+
+**Urgency.** Nothing follows this email, so scarcity is honest here in a way it usually is not.
+
+| Subject | Chars | Preview |
 |---|---|---|
-| Tomorrow: meet the Visionary Investors panel | 44 | **Currently baked in** |
-| A conversation with visionary investors, tomorrow | 49 | Leads on the format |
-| Tomorrow: investors, the global economy, and LA28 | 49 | Leads on the subject matter |
-| Last call for the Visionary Investors Panel | 43 | Scarcity &mdash; Luma says it sells out |
+| Last call: the Visionary Investors Panel | 40 | Tomorrow, 2:00 to 5:30 at the Hyatt Regency. The panel, the closing reception, and a first look at LA28 contracting. |
+| Tomorrow at 2:00, and then Tech Week is done | 44 | The Visionary Investors Panel, the closing reception, and Tom Modica on the LA28 Games. $50, afternoon only. |
+| One afternoon left: October 1st | 31 | Sue Malone moderates five investors on the global economy and emerging tech. Plus LA28 contracting opportunities. |
 
-**Preview line:** *Sue Malone moderates. Plus Tom Modica on what the LA28 Games mean for
-Long Beach business. Thursday, 2:00 PM.*
+**LA28.** The most concrete business reason to buy a ticket, and the only thing in the send
+nobody else is offering.
 
-Subject and preview split the two draws rather than repeating one: the subject sells the
-panel, the preview names the moderator and adds Modica, who is the reason a reader who does
-not care about venture capital might still come.
+| Subject | Chars | Preview |
+|---|---|---|
+| A first look at LA28 contracting opportunities | 46 | Tom Modica opens tomorrow afternoon at 2:00, then the Visionary Investors Panel and the closing reception. |
+| What the LA28 Games mean for Long Beach business | 48 | Tom Modica, City Manager, opens the afternoon. Then five investors on the global economy and emerging technology. |
+| Tom Modica on LA28, tomorrow at 2:00 | 36 | Followed by the Visionary Investors Panel and the closing reception. $50 for the afternoon, at the Hyatt Regency. |
 
-Every line says "tomorrow", so this send cannot slip a day without a rewrite of the body too.
+**The people.** Use these if the list already knows what the Summit is.
 
-Dropped from the Saturday send: the September 28th reception and the September 30th founders
-day, both behind us by the time this lands.
+| Subject | Chars | Preview |
+|---|---|---|
+| Five investors, one afternoon, tomorrow | 39 | Sue Malone moderates. Equity capital, national security innovation and federal health policy, plus two LBA honorees. |
+| Meet the investors backing Long Beach | 37 | Tomorrow, 2:00 to 4:00 at the Hyatt Regency, then the closing reception. Plus Tom Modica on the LA28 Games. |
+| The room where the capital is, tomorrow at 2:00 | 47 | The Visionary Investors Panel, a preview of LA28 contracting opportunities, and the closing reception. $50. |
+
+**Price.** $50 is low for this room, and saying so removes the main reason to hesitate.
+
+| Subject | Chars | Preview |
+|---|---|---|
+| $50 for the panel and the closing reception | 43 | Tomorrow, 2:00 to 5:30 at the Hyatt Regency. Five investors, Tom Modica on LA28, and the room afterwards. |
+| Tomorrow afternoon, $50, at the Hyatt Regency | 45 | The Visionary Investors Panel, Tom Modica on what the LA28 Games mean for Long Beach business, and the reception. |
+
+Every preview here runs 105&ndash;116 characters. Gmail shows roughly 100 on desktop, so the
+tail clips; each is written so the part that matters lands in the first eighty.
 
 ---
 
