@@ -427,7 +427,7 @@ def r_panel(g, people, note=None):
 
     gut = '              <td class="gut" width="20" style="width:20px;font-size:0;line-height:0;">&nbsp;</td>'
     sp = '            <tr><td colspan="3" height="32" style="height:32px;font-size:0;line-height:0;">&nbsp;</td></tr>'
-    note_cell = (f'              <td class="hcell" width="250" valign="middle" style="width:250px;'
+    note_cell = (f'              <td class="hcell" width="250" valign="bottom" style="width:250px;'
                  f'font-family:{FONT};font-size:15px;line-height:25px;color:{g["body"]};">{note}</td>')
     rows = []
     for i in range(0, len(people), 2):
@@ -448,6 +448,7 @@ AI_S2 = "https://hub.catalyzerapp.com/public/events/good-for-business-investing-
 AI_S3 = "https://hub.catalyzerapp.com/public/events/authority-positioning-and-strategic-visibility-to-4705-232"
 PACK = "https://drive.google.com/file/d/1brJxClWdJ9efsuH7RnPNsjyxDq5224CC/view"
 TW   = "https://www.lbaccelerator.org/tech-week/"
+PROGRAM = "https://www.lbaccelerator.org/summit-program/"   # full Summit programme
 FORM = "https://hub.catalyzerapp.com/public/form/46c9cb88-0c9a-4eac-9346-f53f61f511d6"
 EVT  = "https://lbaccelerator.org/events"
 LUM  = "https://www.lumen21.com/"
@@ -1724,7 +1725,13 @@ CAMPAIGNS["2026-09-30-panel"] = dict(
                 lead("Our signature afternoon forum. Investors share their view of the global economy and emerging technology, today and in the years ahead.", W),
                 p("Moderated by Sue Malone, with a panel drawn from venture capital, national security innovation, federal health policy and two of this year&rsquo;s LBA honorees.", W, 0),
             ]), W, edit="panel_intro"),
-            r_panel(W, PANEL, note=f"Joined on the panel by <strong style=\"color:{BLUE};\">Cecilia Sanchez</strong>, {PANEL_NO_PHOTO_ROLE}."),
+            r_panel(W, PANEL, note=(
+                f'<p style="margin:0 0 10px 0;font-size:15px;line-height:25px;color:{CHAR};">'
+                f'Joined on the panel by <strong style="color:{BLUE};">Cecilia Sanchez</strong>, '
+                f'{PANEL_NO_PHOTO_ROLE}.</p>'
+                f'<p style="margin:0;font-size:15px;line-height:25px;">'
+                f'<a href="{PROGRAM}" target="_blank" style="color:{BLUE};text-decoration:underline;'
+                f'font-weight:bold;">See the full program&nbsp;&nbsp;&rarr;</a></p>')),
             r_pad(26),
             r_card("\n".join([
                 f'            <p style="margin:0 0 6px 0;{SMALL};color:{CHAR};"><strong style="color:{BLUE};">2:00 &ndash; 4:00 PM</strong></p>',
