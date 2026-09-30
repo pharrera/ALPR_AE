@@ -529,20 +529,24 @@ LOGO_ROWS = [
         ("lbtw-partner-iie.jpg", 156, "The Institute for Innovation and Entrepreneurship, CSULB"),
         ("lbtw-partner-sunstone-v2.jpg", 156, "Sunstone"),
         ("lbtw-partner-city-longbeach.jpg", 156, "City of Long Beach")]),
+    # Order follows the sponsor wall on the programme sheet, reading across:
+    # SBA, GO-Biz, Hahn / Westcoast, Port, DEO / CSU, Intertrend, Imprint /
+    # F&M, Shimoyama. American Lending Center sits between Imprint and F&M
+    # there, and is left out here on Vivian's standing instruction that ALC
+    # is the one sponsor not carried in the eblasts; the two after it close
+    # up rather than leaving a hole.
     ("2026 Sponsors", [
-        ("lbtw-sponsor-fm-bank.jpg", 156, "F&amp;M Bank"),
-        ("lbtw-sponsor-port-longbeach.jpg", 156, "Port of Long Beach"),
-        # Westcoast sits third so Intertrend and Imprint open the next row
-        # side by side, per Intertrend's request that the two run together.
+        ("lbtw-sponsor-sba.jpg", 156, "U.S. Small Business Administration"),
+        ("lbtw-sponsor-gobiz.jpg", 156, "California Office of the Small Business Advocate (GO-Biz)"),
+        ("lbtw-sponsor-hahn.jpg", 156, "County of Los Angeles Supervisor Janice Hahn, Fourth District"),
         ("lbtw-sponsor-westcoast.png", 156, "Westcoast Warehousing &amp; Trucking"),
+        ("lbtw-sponsor-port-longbeach.jpg", 156, "Port of Long Beach"),
+        ("lbtw-sponsor-deo.jpg", 156, "Department of Economic Opportunity, County of Los Angeles"),
+        ("lbtw-sponsor-csu.jpg", 156, "The California State University"),
         ("lbtw-sponsor-intertrend.jpg", 156, "Intertrend"),
         ("lbtw-sponsor-lmb-imprint.jpg", 156, "Imprint"),
-        ("lbtw-sponsor-shimoyama.jpg", 156, "Shimoyama Enterprise"),
-        ("lbtw-sponsor-gobiz.jpg", 156, "California Office of the Small Business Advocate (GO-Biz)"),
-        ("lbtw-sponsor-sba.jpg", 156, "U.S. Small Business Administration"),
-        ("lbtw-sponsor-deo.jpg", 156, "Department of Economic Opportunity, County of Los Angeles"),
-        ("lbtw-sponsor-hahn.jpg", 156, "County of Los Angeles Supervisor Janice Hahn, Fourth District"),
-        ("lbtw-sponsor-csu.jpg", 156, "The California State University")]),
+        ("lbtw-sponsor-fm-bank.jpg", 156, "F&amp;M Bank"),
+        ("lbtw-sponsor-shimoyama.jpg", 156, "Shimoyama Enterprise")]),
 ]
 
 LOGO_IMAGES = [f for _, row in LOGO_ROWS for f, _, _ in row]
