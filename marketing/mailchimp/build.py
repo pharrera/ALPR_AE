@@ -397,10 +397,10 @@ def r_panel(g, people, note=None):
     name and a line of attribution and stops. A non-empty ribbon marks the
     moderator.
 
-    An odd number of people leaves the last row half empty. `note` fills
-    that cell with a line of text, which is how the panelist we have no
-    photograph of gets her credit: it closes the grid instead of trailing
-    underneath it, and reads as composed rather than as a hole.
+    `note` is a line that runs the full width beneath the last row, which
+    is how the panelist we have no photograph of gets her credit: directly
+    under the final portrait, closing the block, rather than sitting in a
+    half-empty cell beside it.
     """
     def cell(img, name, role, ribbon):
         bare = role.replace("<br />", ", ").replace("&nbsp;", "").strip(" ,")
@@ -427,15 +427,11 @@ def r_panel(g, people, note=None):
 
     gut = '              <td class="gut" width="20" style="width:20px;font-size:0;line-height:0;">&nbsp;</td>'
     sp = '            <tr><td colspan="3" height="32" style="height:32px;font-size:0;line-height:0;">&nbsp;</td></tr>'
-    note_cell = (f'              <td class="hcell" width="250" valign="bottom" style="width:250px;'
-                 f'font-family:{FONT};font-size:15px;line-height:25px;color:{g["body"]};">{note}</td>')
-    rows = []
-    for i in range(0, len(people), 2):
-        pair = people[i:i + 2]
-        cells = [cell(*q) for q in pair]
-        if len(pair) == 1 and note:
-            cells.append(note_cell)
-        rows.append("            <tr>\n" + f"\n{gut}\n".join(cells) + "\n            </tr>")
+    rows = ["            <tr>\n" + f"\n{gut}\n".join(cell(*q) for q in people[i:i + 2]) + "\n            </tr>"
+            for i in range(0, len(people), 2)]
+    if note:
+        rows.append(f'            <tr><td colspan="3" style="padding:20px 0 0 0;font-family:{FONT};'
+                    f'font-size:15px;line-height:25px;color:{g["body"]};">{note}</td></tr>')
     return (f'        <tr><td class="px" style="padding:22px 40px 0 40px;">\n'
             f'          <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0">\n'
             + f"\n{sp}\n".join(rows) + f'\n          </table>\n        </td></tr>\n')
