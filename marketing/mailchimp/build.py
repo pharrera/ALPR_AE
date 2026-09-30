@@ -241,8 +241,18 @@ def big_kicker(t, g):
             f'text-transform:uppercase;color:{g["kick"]};font-weight:bold;">{t}</p>')
 
 
-def display(t, g):
-    """Section headline. Larger than before — this is the striking element."""
+def display(t, g, size=None):
+    """Section headline. Larger than before — this is the striking element.
+
+    `size` drops the point size for a headline that has to sit on one line
+    at the 600px content width. It also drops the `d1` class, whose mobile
+    rule would otherwise scale the smaller size back up; a long title wraps
+    on a phone whatever we do, and it should wrap at a readable size.
+    """
+    if size:
+        return (f'      <h1 style="margin:0 0 18px 0;font-family:{FONT};font-size:{size}px;'
+                f'line-height:{round(size * 1.22)}px;letter-spacing:-0.4px;'
+                f'color:{g["head"]};font-weight:bold;">{t}</h1>')
     return (f'      <h1 class="d1" style="margin:0 0 18px 0;font-family:{FONT};font-size:34px;'
             f'line-height:41px;letter-spacing:-0.4px;color:{g["head"]};font-weight:bold;">{t}</h1>')
 
@@ -380,10 +390,6 @@ PANEL = [
     ("honoree-glass.jpg", "Ethan Glass", "CEO<br />OCRA", ""),
 ]
 
-# On the panel, but with no headshot anywhere -- LBA's own programme page
-# draws initials in place of one. Rather than a tile that advertises the
-# gap, she is credited in a line under the grid.
-PANEL_NO_PHOTO_ROLE = "Sr. Associate, L&rsquo;ATTITUDE Ventures"
 
 MODICA = [("panelist-modica.jpg", "Tom Modica", "City Manager<br />City of Long Beach", "")]
 
@@ -534,7 +540,9 @@ LOGO_ROWS = [
         ("lbtw-sponsor-shimoyama.jpg", 156, "Shimoyama Enterprise"),
         ("lbtw-sponsor-gobiz.jpg", 156, "California Office of the Small Business Advocate (GO-Biz)"),
         ("lbtw-sponsor-sba.jpg", 156, "U.S. Small Business Administration"),
-        ("lbtw-sponsor-deo.jpg", 156, "Department of Economic Opportunity, County of Los Angeles")]),
+        ("lbtw-sponsor-deo.jpg", 156, "Department of Economic Opportunity, County of Los Angeles"),
+        ("lbtw-sponsor-hahn.jpg", 156, "County of Los Angeles Supervisor Janice Hahn, Fourth District"),
+        ("lbtw-sponsor-csu.jpg", 156, "The California State University")]),
 ]
 
 LOGO_IMAGES = [f for _, row in LOGO_ROWS for f, _, _ in row]
@@ -1707,27 +1715,21 @@ CAMPAIGNS["2026-09-30-panel"] = dict(
     preheader="Sue Malone moderates. Plus Tom Modica on what the LA28 Games mean for Long Beach business. Thursday, 2:00 PM.",
     send="Wednesday, September 30, 2026, by noon",
     tight=True,
-    images=(["lba-logo.png", "techweek-2026-banner.jpg"] + PANEL_IMAGES
+    images=(["lba-logo.png", "techweek-2026-plain.jpg"] + PANEL_IMAGES
             + ["honoree-hacegaba.jpg", "honoree-marshall.jpg",
                "honoree-lee.jpg", "honoree-glass.jpg"]
             + LOGO_IMAGES + ["icon-linkedin.png", "icon-email.png", "icon-web.png"]),
     sections=[
         section([
-            r_image("techweek-2026-banner.jpg", PANEL_ALT, href=LUMA_PANEL),
+            r_image("techweek-2026-plain.jpg", PANEL_ALT, href=LUMA_PANEL),
             r_text("\n".join([
                 kicker("Thursday, October 1st", W),
-                display("Conversations With Visionary Investors", W),
+                display("Conversations With Visionary Investors", W, size=25),
                 badge("2:00 &ndash; 4:00 PM &middot; Hyatt Regency Long Beach", W),
                 lead("Our signature afternoon forum. Investors share their view of the global economy and emerging technology, today and in the years ahead.", W),
-                p("Moderated by Sue Malone, with a panel drawn from venture capital, national security innovation, federal health policy and two of this year&rsquo;s LBA honorees.", W, 0),
+                p("Moderated by Sue Malone, with a panel drawn from equity capital, national security innovation, federal health policy and two of this year&rsquo;s LBA honorees.", W, 0),
             ]), W, edit="panel_intro"),
-            r_panel(W, PANEL, note=(
-                f'<p style="margin:0 0 10px 0;font-size:15px;line-height:25px;color:{CHAR};">'
-                f'Joined on the panel by <strong style="color:{BLUE};">Cecilia Sanchez</strong>, '
-                f'{PANEL_NO_PHOTO_ROLE}.</p>'
-                f'<p style="margin:0;font-size:15px;line-height:25px;">'
-                f'<a href="{PROGRAM}" target="_blank" style="color:{BLUE};text-decoration:underline;'
-                f'font-weight:bold;">See the full program&nbsp;&nbsp;&rarr;</a></p>')),
+            r_panel(W, PANEL),
             r_pad(26),
             r_card("\n".join([
                 f'            <p style="margin:0 0 6px 0;{SMALL};color:{CHAR};"><strong style="color:{BLUE};">2:00 &ndash; 4:00 PM</strong></p>',
@@ -1735,13 +1737,17 @@ CAMPAIGNS["2026-09-30-panel"] = dict(
                 f'            <p style="margin:0 0 6px 0;{SMALL};color:{CHAR};"><strong style="color:{BLUE};">4:00 &ndash; 5:30 PM</strong> &middot; Closing Reception</p>',
                 f'            <p style="margin:0;font-size:14px;line-height:22px;color:{GRAY};">$50 per ticket, afternoon only.</p>',
             ]), W, edit="panel_times"),
-            r_button("Register for the Afternoon", LUMA_PANEL, W),
+            r_button("Registration for the Visionary Investors Panel", LUMA_PANEL, W),
+            r_text(f'<p style="margin:0;text-align:center;font-size:15px;line-height:25px;">'
+                   f'<a href="{PROGRAM}" target="_blank" style="color:{BLUE};'
+                   f'text-decoration:underline;font-weight:bold;">See the full program&nbsp;&nbsp;&rarr;</a></p>',
+                   W, edit="program_link", pad="16px 40px 0 40px"),
             r_pad(30),
         ]),
 
         section([
             r_text("\n".join([
-                kicker("Also on the Programme", T),
+                kicker("Also on the Program", T),
                 display("LA28 Olympic &amp; Paralympic Economic Impact", T),
                 p("Tom Modica secured the 2028 Olympic Games for Long Beach. He opens the afternoon at 2:00 with what the Games mean for the region&rsquo;s businesses and where the contracting opportunities will be, and the panel follows.", T, 0),
             ]), T, edit="modica"),
@@ -1751,7 +1757,7 @@ CAMPAIGNS["2026-09-30-panel"] = dict(
 
         section([
             r_text("\n".join([
-                kicker("Or Join Us for the Whole Day", B),
+                kicker("The Full Day", B),
                 display("LBA 3rd Annual Investors &amp; Founders Summit", B),
                 p('<strong style="color:#FFFFFF;">11:00 AM &ndash; 5:30 PM &middot; Hyatt Regency Long Beach</strong>', B),
                 p("Registration opens at 11:00, the Awards Luncheon runs from 11:45 to 1:30, and the day carries through the afternoon panel and the closing reception.", B, 0),
@@ -1763,7 +1769,7 @@ CAMPAIGNS["2026-09-30-panel"] = dict(
         section([
             r_text("\n".join([
                 kicker("Celebrate LBA Honorees", W),
-                display("Congratulations to the 2026 LBA Honorees", W),
+                display("Congratulations to the 2026 LBA Honorees", W, size=24),
                 p("Four visionary leaders who have led the way, blazed the trail, and stand among the top investors and founders in the region. They are recognized at the Awards Luncheon.", W, 0),
             ]), W, edit="honorees_intro"),
             r_honorees(W),
