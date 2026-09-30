@@ -6,15 +6,18 @@ placeholder is not, because it is a finished design rather than a gap
 waiting to be filled, and it keeps the grid even without implying the
 photograph is still coming.
 
-Sized and toned to sit beside the cropped headshots without drawing the eye.
+Toned to recede. The tile marks an absence, so it should read as quiet and
+deliberate rather than as a graphic competing with the faces around it:
+a near-neutral ground and soft grey letters at a modest size, not brand
+blue at display size.
 """
 import sys
 
 from PIL import Image, ImageDraw, ImageFont
 
 SIZE = 500
-BG = "#E4EAF6"      # the pale blue already used for reversed body copy
-INK = "#204396"     # LBA blue
+BG = "#EFF2F5"      # a hair off the panel grey, so it sits back
+INK = "#A4AEBB"     # soft enough to read as absence, dark enough to be legible
 FONT = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
 
 
@@ -23,7 +26,7 @@ def monogram(initials, dst, size=SIZE):
     d = ImageDraw.Draw(im)
     # Bind the point size to the tile so the glyphs keep their proportion
     # whatever size the caller asks for.
-    f = ImageFont.truetype(FONT, int(size * 0.34))
+    f = ImageFont.truetype(FONT, int(size * 0.26))
     box = d.textbbox((0, 0), initials, font=f)
     # textbbox carries the font's own bearing, so subtract it rather than
     # centring on the raw width and height, which leaves the text low.

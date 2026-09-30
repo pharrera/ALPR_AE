@@ -376,9 +376,11 @@ PANEL = [
     ("panelist-malone.jpg", "Sue Malone", "CEO<br />Strategies For Small Business", "Moderator"),
     ("honoree-lee.jpg", "Joshua Y. Lee", "CEO<br />Gumshoe Ventures", ""),
     ("panelist-mcmillan.jpg", "Walter &ldquo;Rock&rdquo; McMillan", "Senior PM/Acquisition Advisor<br />Galapagos LLC", ""),
-    ("panelist-sanchez.jpg", "Cecilia Sanchez", "Sr. Associate<br />L&rsquo;ATTITUDE Ventures", ""),
     ("panelist-truong.jpg", "Amy Truong", "Special Assistant Front Office<br />CMS/CMMI", ""),
     ("honoree-glass.jpg", "Ethan Glass", "CEO<br />OCRA", ""),
+    # Last cell, bottom right: the position the eye reaches last, so the one
+    # portrait we do not have is the one carrying least weight.
+    ("panelist-sanchez.jpg", "Cecilia Sanchez", "Sr. Associate<br />L&rsquo;ATTITUDE Ventures", ""),
 ]
 
 MODICA = [("panelist-modica.jpg", "Tom Modica", "City Manager<br />City of Long Beach", "")]
