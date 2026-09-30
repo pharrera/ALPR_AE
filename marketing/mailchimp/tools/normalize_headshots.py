@@ -27,7 +27,7 @@ from PIL import Image
 TARGET_FACE = 0.56   # face width as a fraction of the finished frame
 FACE_CX = 0.50       # where the face centre sits, left to right
 FACE_CY = 0.52       # and top to bottom: low enough to keep the crown in
-OUT_PX = 500         # 2x the 250px the email renders them at
+OUT_PX = 500         # 2x the 250px the email renders them at; --out overrides
 
 CASCADE = cv2.data.haarcascades + "haarcascade_frontalface_default.xml"
 
@@ -45,7 +45,7 @@ def find_face(path):
     return max(faces, key=lambda r: r[2] * r[3])
 
 
-def normalize(src, dst):
+def normalize(src, dst, out_px=OUT_PX):
     x, y, w, h = find_face(src)
     im = Image.open(src).convert("RGB")
     W, H = im.size
@@ -62,16 +62,21 @@ def normalize(src, dst):
 
     out = im.crop((round(left), round(top),
                    round(left + side), round(top + side)))
-    out = out.resize((OUT_PX, OUT_PX), Image.LANCZOS)
+    out = out.resize((out_px, out_px), Image.LANCZOS)
     out.save(dst, "JPEG", quality=88, optimize=True)
     return w / side, (x + w / 2 - left) / side, (y + h / 2 - top) / side
 
 
 if __name__ == "__main__":
-    pairs = sys.argv[1:]
-    if not pairs or len(pairs) % 2:
-        raise SystemExit("usage: normalize_headshots.py SRC DST [SRC DST ...]")
-    for src, dst in zip(pairs[::2], pairs[1::2]):
-        frac, cx, cy = normalize(src, dst)
+    args = sys.argv[1:]
+    out_px = OUT_PX
+    if "--out" in args:
+        i = args.index("--out")
+        out_px = int(args[i + 1])
+        del args[i:i + 2]
+    if not args or len(args) % 2:
+        raise SystemExit("usage: normalize_headshots.py [--out PX] SRC DST [SRC DST ...]")
+    for src, dst in zip(args[::2], args[1::2]):
+        frac, cx, cy = normalize(src, dst, out_px)
         print(f"{os.path.basename(dst):24s} face {frac:.0%} of frame  "
               f"centre ({cx:.2f}, {cy:.2f})")

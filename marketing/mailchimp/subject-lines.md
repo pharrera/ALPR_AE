@@ -278,6 +278,31 @@ emails, which disagreed on three of the four.
 
 ---
 
+### 9/30 (Wednesday) &mdash; final send, panel first
+
+The last email before the Summit. The panel leads with portraits and names, everything else
+keeps its copy and moves underneath. Written to send by noon on the 30th for a 1st October
+event, so every reference is "tomorrow".
+
+| Subject line | Chars | Angle |
+|---|---|---|
+| Tomorrow afternoon: the Visionary Investors Panel | 49 | **Currently baked in** |
+| A conversation with visionary investors, tomorrow | 49 | Leads on the format |
+| Tomorrow: investors, the global economy, and LA2028 | 51 | Leads on the subject matter |
+| Last call for the Visionary Investors Panel | 43 | Scarcity &mdash; Luma says it sells out |
+
+**Preview line:** *Thursday, 2:00 to 6:00 PM at the Hyatt Regency. The panel, the closing
+reception, and a preview of LA2028 opportunities.*
+
+Every subject here says "tomorrow", so this send cannot slip a day without a rewrite. If it
+goes out on the 1st instead, switch to "This afternoon" and tell me &mdash; the body needs the
+same pass.
+
+Dropped from this one: the September 28th reception and the September 30th founders day.
+Both were in the Saturday send; both are behind us by the time this lands.
+
+---
+
 ### 9/28 (Monday) &mdash; day of
 
 Sent the morning of. Everything is present tense, and the Summit is the ask that outlives
