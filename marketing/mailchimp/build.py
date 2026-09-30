@@ -362,41 +362,54 @@ def r_honorees(g, bios=False):
             f'          </table>\n        </td></tr>\n')
 
 
-# The Visionary Investors Panel line-up.
+# Conversations With Visionary Investors, read off the final program book.
 #
-# Tom Modica is confirmed: his title is what the City of Long Beach's own
-# directory lists him as, not an inference from the job he appears to hold.
-# The rest are placeholders, because no source we can reach names them --
-# the panel's own Luma page describes the forum without listing who is on
-# it, and Drive has nothing. Replace the three tuples as names and
-# headshots arrive; nothing else has to change.
+# Fourth field is a ribbon label; empty means no ribbon. Lee and Glass are
+# on the panel as well as being honorees, so they reuse the honoree
+# portraits, which are the higher-resolution originals.
 #
-# Run a new headshot through tools/normalize_headshots.py first so it
-# matches the framing of the rest, and the grid stays a set.
+# Cecilia Sanchez is the open question. The program's agenda lists her as a
+# panelist, but the panel page that carries every other panelist's portrait
+# and biography does not mention her. Rather than guess, she is here with a
+# placeholder so the decision reaches Vivian instead of being made quietly.
 PANEL = [
-    ("panelist-modica.jpg", "Tom Modica", "City Manager<br />City of Long Beach"),
-    ("panelist-tbc.jpg", "Panelist to be confirmed", "&nbsp;"),
-    ("panelist-tbc.jpg", "Panelist to be confirmed", "&nbsp;"),
-    ("panelist-tbc.jpg", "Panelist to be confirmed", "&nbsp;"),
+    ("panelist-malone.jpg", "Sue Malone", "CEO<br />Strategies For Small Business", "Moderator"),
+    ("honoree-lee.jpg", "Joshua Y. Lee", "Managing Partner<br />Gumshoe Ventures", ""),
+    ("panelist-mcmillan.jpg", "Walter &ldquo;Rock&rdquo; McMillan", "Senior Acquisition Advisor<br />Galapagos LLC", ""),
+    ("panelist-tbc.jpg", "Cecilia Sanchez", "Senior Associate<br />L&rsquo;ATTITUDE Ventures", ""),
+    ("panelist-truong.jpg", "Amy Truong", "Special Assistant, Front Office<br />CMS/CMMI", ""),
+    ("honoree-glass.jpg", "Ethan Glass", "CEO<br />Ocra", ""),
 ]
 
-PANEL_IMAGES = sorted({f for f, _, _ in PANEL})
+MODICA = [("panelist-modica.jpg", "Tom Modica", "City Manager<br />City of Long Beach", "")]
+
+PANEL_IMAGES = sorted({f for f, _, _, _ in PANEL} | {f for f, _, _, _ in MODICA})
 
 
-def r_panel(g, people=None):
-    """Portraits and names only, in the same 2-up grid as the honorees.
+def r_panel(g, people):
+    """Portraits and names in the honoree grid, without biographies.
 
-    Vivian asked for no biographies here, so the cell carries a name and a
-    line of attribution and stops.
+    Vivian asked for no bios on the panel, so a cell carries a portrait, a
+    name and a line of attribution and stops. A non-empty ribbon marks the
+    moderator.
     """
-    people = people or PANEL
-
-    def cell(img, name, role):
+    def cell(img, name, role, ribbon):
         bare = role.replace("<br />", ", ").replace("&nbsp;", "").strip(" ,")
         alt = f"{name}, {bare}" if bare else name
+        if ribbon:
+            alt = f"{alt}, {ribbon}"
+        rb_bg = TEAL if g["bg"] != BLUE else R_KICK
+        rb_fg = WHITE if g["bg"] != BLUE else BLUE
+        strip = ""
+        if ribbon:
+            strip = (f'                <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%"><tr>'
+                     f'<td bgcolor="{rb_bg}" style="padding:8px 12px;font-family:{FONT};font-size:11px;line-height:15px;'
+                     f'letter-spacing:1.1px;text-transform:uppercase;color:{rb_fg};font-weight:bold;'
+                     f'white-space:nowrap;">{ribbon}</td></tr></table>\n')
         return (f'              <td class="hcell" width="250" valign="top" style="width:250px;">\n'
                 f'                <img src="images/{img}" width="250" alt="{alt}" '
                 f'style="width:100%;max-width:250px;height:auto;display:block;" />\n'
+                f'{strip}'
                 f'                <p style="margin:12px 0 3px 0;font-family:{FONT};font-size:18px;'
                 f'line-height:25px;color:{g["head"]};font-weight:bold;">{name}</p>\n'
                 f'                <p style="margin:0;font-family:{FONT};font-size:14px;'
@@ -405,15 +418,11 @@ def r_panel(g, people=None):
 
     gut = '              <td class="gut" width="20" style="width:20px;font-size:0;line-height:0;">&nbsp;</td>'
     sp = '            <tr><td colspan="3" height="32" style="height:32px;font-size:0;line-height:0;">&nbsp;</td></tr>'
-    rows = []
-    for i in range(0, len(people), 2):
-        pair = people[i:i + 2]
-        cells = f"\n{gut}\n".join(cell(*q) for q in pair)
-        rows.append(f"            <tr>\n{cells}\n            </tr>")
-    body = f"\n{sp}\n".join(rows)
+    rows = [f"            <tr>\n" + f"\n{gut}\n".join(cell(*q) for q in people[i:i + 2]) + "\n            </tr>"
+            for i in range(0, len(people), 2)]
     return (f'        <tr><td class="px" style="padding:22px 40px 0 40px;">\n'
             f'          <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0">\n'
-            f'{body}\n          </table>\n        </td></tr>\n')
+            + f"\n{sp}\n".join(rows) + f'\n          </table>\n        </td></tr>\n')
 
 
 # --- links -------------------------------------------------------------------
@@ -1677,12 +1686,12 @@ CAMPAIGNS["2026-09-25-day2"] = dict(
 
 CAMPAIGNS["2026-09-30-panel"] = dict(
     title="Visionary Investors Panel, tomorrow afternoon",
-    subject="Tomorrow afternoon: the Visionary Investors Panel",
+    subject="Tomorrow: meet the Visionary Investors panel",
     alts=["A conversation with visionary investors, tomorrow",
-          "Tomorrow: investors, the global economy, and LA2028",
+          "Tomorrow: investors, the global economy, and LA28",
           "The afternoon panel is tomorrow at 2:00",
           "Last call for the Visionary Investors Panel"],
-    preheader="Thursday, 2:00 to 6:00 PM at the Hyatt Regency. The panel, the closing reception, and a preview of LA2028 opportunities.",
+    preheader="Sue Malone moderates. Plus Tom Modica on what the LA28 Games mean for Long Beach business. Thursday, 2:00 PM.",
     send="Wednesday, September 30, 2026, by noon",
     tight=True,
     images=(["lba-logo.png", "techweek-2026-banner.jpg"] + PANEL_IMAGES
@@ -1694,29 +1703,39 @@ CAMPAIGNS["2026-09-30-panel"] = dict(
             r_image("techweek-2026-banner.jpg", PANEL_ALT, href=LUMA_PANEL),
             r_text("\n".join([
                 kicker("Thursday, October 1st", W),
-                display("Visionary Investors Panel", W),
-                badge("2:00 &ndash; 6:00 PM &middot; Hyatt Regency Long Beach", W),
-                lead("Our signature afternoon forum is a conversation with visionary investors, sharing their view of the global economy and emerging technology today and in the years ahead.", W),
-                p("You will also get a special preview of LA2028 Olympic and Paralympic opportunities. Seats fill up fast, and this one sells out.", W, 0),
+                display("Conversations With Visionary Investors", W),
+                badge("2:00 &ndash; 4:00 PM &middot; Hyatt Regency Long Beach", W),
+                lead("Our signature afternoon forum. Investors share their view of the global economy and emerging technology, today and in the years ahead.", W),
+                p("Moderated by Sue Malone, with a panel drawn from venture capital, national security innovation, federal health policy and two of this year&rsquo;s LBA honorees.", W, 0),
             ]), W, edit="panel_intro"),
-            r_panel(W),
-            r_pad(24),
+            r_panel(W, PANEL),
+            r_pad(26),
             r_card("\n".join([
-                f'            <p style="margin:0 0 6px 0;{SMALL};color:{CHAR};"><strong style="color:{BLUE};">2:00 &ndash; 4:00 PM</strong> &middot; Visionary Investors Panel</p>',
-                f'            <p style="margin:0 0 16px 0;font-size:14px;line-height:22px;color:{GRAY};">A conversation with investors on the global economy and emerging technology.</p>',
-                f'            <p style="margin:0 0 6px 0;{SMALL};color:{CHAR};"><strong style="color:{BLUE};">4:00 &ndash; 6:00 PM</strong> &middot; Closing Cocktail Reception</p>',
+                f'            <p style="margin:0 0 6px 0;{SMALL};color:{CHAR};"><strong style="color:{BLUE};">2:00 &ndash; 4:00 PM</strong> &middot; Conversations With Visionary Investors</p>',
+                f'            <p style="margin:0 0 16px 0;font-size:14px;line-height:22px;color:{GRAY};">The panel, followed by audience questions.</p>',
+                f'            <p style="margin:0 0 6px 0;{SMALL};color:{CHAR};"><strong style="color:{BLUE};">4:00 &ndash; 5:30 PM</strong> &middot; Closing Reception</p>',
                 f'            <p style="margin:0;font-size:14px;line-height:22px;color:{GRAY};">$50 per ticket, afternoon only.</p>',
             ]), W, edit="panel_times"),
-            r_button("Register for the Afternoon Panel", LUMA_PANEL, W),
+            r_button("Register for the Afternoon", LUMA_PANEL, W),
             r_pad(30),
         ]),
 
         section([
             r_text("\n".join([
+                kicker("Also on the Programme", T),
+                display("LA28 Olympic &amp; Paralympic Economic Impact", T),
+                p("Tom Modica secured the 2028 Olympic Games for Long Beach. He joins us to set out what the Games mean for the region&rsquo;s businesses, and where the contracting opportunities will be.", T, 0),
+            ]), T, edit="modica"),
+            r_panel(T, MODICA),
+            r_pad(30),
+        ], ground="tint"),
+
+        section([
+            r_text("\n".join([
                 kicker("Or Join Us for the Whole Day", B),
                 display("LBA 3rd Annual Investors &amp; Founders Summit", B),
-                p('<strong style="color:#FFFFFF;">11:00 AM &ndash; 6:00 PM &middot; Hyatt Regency Long Beach, Beacon Ballroom</strong>', B),
-                p("The full day opens with registration at 11:00 and the Awards Luncheon for the 2026 LBA Honorees, then carries through the afternoon panel and the closing reception.", B, 0),
+                p('<strong style="color:#FFFFFF;">11:00 AM &ndash; 5:30 PM &middot; Hyatt Regency Long Beach</strong>', B),
+                p("Registration opens at 11:00, the Awards Luncheon runs from 11:45 to 1:30, and the day carries through the afternoon panel and the closing reception.", B, 0),
             ]), B, edit="summit"),
             r_button("Register for the Full Day", LUMA_SUMMIT, B),
             r_pad(30),

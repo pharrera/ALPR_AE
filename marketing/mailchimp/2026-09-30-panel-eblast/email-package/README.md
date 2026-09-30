@@ -7,7 +7,7 @@ than hand-editing `email.html`, so the chrome stays in sync across sends.
 
 | Field | Value |
 |---|---|
-| Subject | Tomorrow afternoon: the Visionary Investors Panel |
+| Subject | Tomorrow: meet the Visionary Investors panel |
 | Preview text | Baked into the HTML as a hidden preheader. Leave Mailchimp's own field blank, or set it — it takes precedence. Setting both can show them back to back. |
 | Send | Wednesday, September 30, 2026, by noon |
 | From | Long Beach Accelerator / info@lbaccelerator.org |
@@ -15,13 +15,13 @@ than hand-editing `email.html`, so the chrome stays in sync across sends.
 Subject line alternates:
 
 - A conversation with visionary investors, tomorrow
-- Tomorrow: investors, the global economy, and LA2028
+- Tomorrow: investors, the global economy, and LA28
 - The afternoon panel is tomorrow at 2:00
 - Last call for the Visionary Investors Panel
 
 Preheader in this template:
 
-> Thursday, 2:00 to 6:00 PM at the Hyatt Regency. The panel, the closing reception, and a preview of LA2028 opportunities.
+> Sue Malone moderates. Plus Tom Modica on what the LA28 Games mean for Long Beach business. Thursday, 2:00 PM.
 
 ## Load it into Mailchimp
 
@@ -32,7 +32,7 @@ the visual editor while the layout stays put.
 
 ## Design
 
-**Three grounds.** Sections sit on white, Light Gray `[('panelist-modica.jpg', 'Tom Modica', 'City Manager<br />City of Long Beach'), ('panelist-tbc.jpg', 'Panelist to be confirmed', '&nbsp;'), ('panelist-tbc.jpg', 'Panelist to be confirmed', '&nbsp;'), ('panelist-tbc.jpg', 'Panelist to be confirmed', '&nbsp;')]`, or a reversed LBA Blue band.
+**Three grounds.** Sections sit on white, Light Gray `[('panelist-malone.jpg', 'Sue Malone', 'CEO<br />Strategies For Small Business', 'Moderator'), ('honoree-lee.jpg', 'Joshua Y. Lee', 'Managing Partner<br />Gumshoe Ventures', ''), ('panelist-mcmillan.jpg', 'Walter &ldquo;Rock&rdquo; McMillan', 'Senior Acquisition Advisor<br />Galapagos LLC', ''), ('panelist-tbc.jpg', 'Cecilia Sanchez', 'Senior Associate<br />L&rsquo;ATTITUDE Ventures', ''), ('panelist-truong.jpg', 'Amy Truong', 'Special Assistant, Front Office<br />CMS/CMMI', ''), ('honoree-glass.jpg', 'Ethan Glass', 'CEO<br />Ocra', '')]`, or a reversed LBA Blue band.
 The blue band is the emphasis device and there is one per email, on whatever that send is
 actually asking for — the honorees on 9/10, Session 1 on 9/14, René Redwood on the 9/14 René
 edition, the honorees again on 9/18. Used more than that it stops being emphasis.
@@ -52,7 +52,7 @@ buried in a details block.
 Series rows carry solid teal numerals; honoree awards sit in filled ribbons under each photo.
 
 Per the LBA Brand Guidelines (08/31/26): LBA Blue `#204396`, LBA Teal `#008C8C`, Charcoal
-`#333333`, Medium Gray `#6B7280`, Light Gray `[('panelist-modica.jpg', 'Tom Modica', 'City Manager<br />City of Long Beach'), ('panelist-tbc.jpg', 'Panelist to be confirmed', '&nbsp;'), ('panelist-tbc.jpg', 'Panelist to be confirmed', '&nbsp;'), ('panelist-tbc.jpg', 'Panelist to be confirmed', '&nbsp;')]`. Proxima Nova leads the font stack with
+`#333333`, Medium Gray `#6B7280`, Light Gray `[('panelist-malone.jpg', 'Sue Malone', 'CEO<br />Strategies For Small Business', 'Moderator'), ('honoree-lee.jpg', 'Joshua Y. Lee', 'Managing Partner<br />Gumshoe Ventures', ''), ('panelist-mcmillan.jpg', 'Walter &ldquo;Rock&rdquo; McMillan', 'Senior Acquisition Advisor<br />Galapagos LLC', ''), ('panelist-tbc.jpg', 'Cecilia Sanchez', 'Senior Associate<br />L&rsquo;ATTITUDE Ventures', ''), ('panelist-truong.jpg', 'Amy Truong', 'Special Assistant, Front Office<br />CMS/CMMI', ''), ('honoree-glass.jpg', 'Ethan Glass', 'CEO<br />Ocra', '')]`. Proxima Nova leads the font stack with
 web-safe fallbacks — Outlook and Gmail ignore webfonts, so most readers see Helvetica or Arial.
 
 Everything here is `<td>` background colours and solid fills, which Outlook renders. No
