@@ -383,19 +383,24 @@ PANEL = [
 # On the panel, but with no headshot anywhere -- LBA's own programme page
 # draws initials in place of one. Rather than a tile that advertises the
 # gap, she is credited in a line under the grid.
-PANEL_NO_PHOTO = "Cecilia Sanchez, Sr. Associate, L&rsquo;ATTITUDE Ventures"
+PANEL_NO_PHOTO_ROLE = "Sr. Associate, L&rsquo;ATTITUDE Ventures"
 
 MODICA = [("panelist-modica.jpg", "Tom Modica", "City Manager<br />City of Long Beach", "")]
 
 PANEL_IMAGES = sorted({f for f, _, _, _ in PANEL} | {f for f, _, _, _ in MODICA})
 
 
-def r_panel(g, people):
+def r_panel(g, people, note=None):
     """Portraits and names in the honoree grid, without biographies.
 
     Vivian asked for no bios on the panel, so a cell carries a portrait, a
     name and a line of attribution and stops. A non-empty ribbon marks the
     moderator.
+
+    An odd number of people leaves the last row half empty. `note` fills
+    that cell with a line of text, which is how the panelist we have no
+    photograph of gets her credit: it closes the grid instead of trailing
+    underneath it, and reads as composed rather than as a hole.
     """
     def cell(img, name, role, ribbon):
         bare = role.replace("<br />", ", ").replace("&nbsp;", "").strip(" ,")
@@ -422,8 +427,15 @@ def r_panel(g, people):
 
     gut = '              <td class="gut" width="20" style="width:20px;font-size:0;line-height:0;">&nbsp;</td>'
     sp = '            <tr><td colspan="3" height="32" style="height:32px;font-size:0;line-height:0;">&nbsp;</td></tr>'
-    rows = [f"            <tr>\n" + f"\n{gut}\n".join(cell(*q) for q in people[i:i + 2]) + "\n            </tr>"
-            for i in range(0, len(people), 2)]
+    note_cell = (f'              <td class="hcell" width="250" valign="middle" style="width:250px;'
+                 f'font-family:{FONT};font-size:15px;line-height:25px;color:{g["body"]};">{note}</td>')
+    rows = []
+    for i in range(0, len(people), 2):
+        pair = people[i:i + 2]
+        cells = [cell(*q) for q in pair]
+        if len(pair) == 1 and note:
+            cells.append(note_cell)
+        rows.append("            <tr>\n" + f"\n{gut}\n".join(cells) + "\n            </tr>")
     return (f'        <tr><td class="px" style="padding:22px 40px 0 40px;">\n'
             f'          <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0">\n'
             + f"\n{sp}\n".join(rows) + f'\n          </table>\n        </td></tr>\n')
@@ -1712,9 +1724,7 @@ CAMPAIGNS["2026-09-30-panel"] = dict(
                 lead("Our signature afternoon forum. Investors share their view of the global economy and emerging technology, today and in the years ahead.", W),
                 p("Moderated by Sue Malone, with a panel drawn from venture capital, national security innovation, federal health policy and two of this year&rsquo;s LBA honorees.", W, 0),
             ]), W, edit="panel_intro"),
-            r_panel(W, PANEL),
-            r_text(p(f"Joined on the panel by {PANEL_NO_PHOTO}.", W, 0), W,
-                   edit="panel_also", pad="22px 40px 0 40px"),
+            r_panel(W, PANEL, note=f"Joined on the panel by <strong style=\"color:{BLUE};\">Cecilia Sanchez</strong>, {PANEL_NO_PHOTO_ROLE}."),
             r_pad(26),
             r_card("\n".join([
                 f'            <p style="margin:0 0 6px 0;{SMALL};color:{CHAR};"><strong style="color:{BLUE};">2:00 &ndash; 4:00 PM</strong></p>',
