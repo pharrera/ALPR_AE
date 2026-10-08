@@ -293,7 +293,7 @@ def quote(t, who, g):
             f'<td style="border-left:4px solid {TEAL};padding:2px 0 2px 18px;">'
             f'<p style="margin:0 0 10px 0;font-size:17px;line-height:28px;color:{g["head"]};">'
             f'&ldquo;{t}&rdquo;</p>'
-            f'<p style="margin:0;font-size:14px;line-height:22px;color:{g["muted"]};">&mdash; {who}</p>'
+            f'<p style="margin:0;font-size:14px;line-height:22px;color:{g["muted"]};">{who}</p>'
             f'</td></tr></table>')
 
 
@@ -1847,7 +1847,7 @@ CAMPAIGNS["2026-10-08-recap"] = dict(
                 kicker("September 28 &ndash; October 1", W),
                 display("Long Beach Tech Week 2026", W),
                 subhead("A week of investment, innovation and connection", W),
-                p("Thank you to everyone who joined us. Over four days, investors, industry leaders and entrepreneurs came together to shape what comes next for Southern California&rsquo;s technology economy &mdash; and we opened a permanent home for that work.", W, 0),
+                p("Thank you to everyone who joined us. Over four days, investors, industry leaders and entrepreneurs came together to shape what comes next for Southern California&rsquo;s technology economy, and we opened a permanent home for that work.", W, 0),
             ]), W, edit="intro"),
             r_button("Read the Press Release", PRESS, W),
             r_pad(30),

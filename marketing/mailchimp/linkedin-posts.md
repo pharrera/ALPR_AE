@@ -23,10 +23,10 @@ and the Honorable U.S. Senator Dianne Feinstein.
 
 Congratulations to our 2026 honorees:
 
-Dr. Noel Hacegaba, CEO, Port of Long Beach — Visionary of the Year
-Carrie Marshall, CEO & Co-Founder, Rebel Space Technologies — Trailblazer of the Year
-Joshua Y. Lee, Managing Partner, Gumshoe Ventures — Investor of the Year
-Ethan Glass, CEO, Ocra — Founder of the Year
+Visionary of the Year: Dr. Noel Hacegaba, CEO, Port of Long Beach
+Trailblazer of the Year: Carrie Marshall, CEO & Co-Founder, Rebel Space Technologies
+Investor of the Year: Joshua Y. Lee, Managing Partner, Gumshoe Ventures
+Founder of the Year: Ethan Glass, CEO, Ocra
 
 Thank you to our planning partners: the City of Long Beach, the Institute for
 Innovation and Entrepreneurship at California State University, Long Beach, and
