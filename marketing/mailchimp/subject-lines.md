@@ -278,6 +278,28 @@ emails, which disagreed on three of the four.
 
 ---
 
+### 10/8 &mdash; the recap
+
+Not an event send: the Insights masthead replaces the logo bar, and the copy comes from the
+press release it links to, so the two agree for anyone who clicks through.
+
+| Subject line | Chars | Angle |
+|---|---|---|
+| Long Beach Tech Week 2026: what we built together | 48 | **Currently baked in** |
+| Tech Week 2026 recap: four honorees, one new Hub | 48 | Names the two concrete outcomes |
+| The Tech Hub Center is open. Here is what happened. | 51 | Leads on the building |
+| Four days, four honorees, and a permanent home | 46 | Rhythm, no colon |
+
+**Preview line:** *Four honorees, a new Tech Hub Center, and the week that connected investors
+with founders.*
+
+A recap has no deadline attached, so none of these push. The job is to be opened at all,
+which is why the subject promises something built rather than something reported.
+
+The paired LinkedIn post is in linkedin-posts.md.
+
+---
+
 ### 9/30 (Wednesday) &mdash; final send, panel first
 
 The last email before the doors open, so every line is written for a send on the 30th and an

@@ -55,7 +55,7 @@ def ink(ground):
                 card_ink=CHAR, link=BLUE, btn_bg=BLUE, btn_ink=WHITE, hair=PANEL_EDGE)
 
 
-def head_html(title, preheader):
+def head_html(title, preheader, masthead=None):
     return f"""<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
@@ -104,13 +104,18 @@ def head_html(title, preheader):
 
 <table role="presentation" class="wrap" border="0" cellpadding="0" cellspacing="0" width="600" style="width:600px;max-width:600px;background-color:{WHITE};">
 
-  <tr>
+""" + (f"""  <tr>
+    <td align="center" style="font-size:0;line-height:0;background-color:{WHITE};">
+      <img src="images/{masthead[0]}" width="600" alt="{masthead[1]}" style="width:100%;max-width:600px;height:auto;display:block;" />
+    </td>
+  </tr>
+""" if masthead else f"""  <tr>
     <td align="center" class="px" style="padding:28px 32px 22px 32px;background-color:{WHITE};">
       <img src="images/lba-logo.png" width="220" alt="Long Beach Accelerator" style="width:220px;max-width:220px;height:auto;display:block;" />
     </td>
   </tr>
   <tr><td style="font-size:0;line-height:0;height:5px;background-color:{TEAL};">&nbsp;</td></tr>
-"""
+""")
 
 
 PERMISSION_OPTIN = "You are receiving this email because you opted in via our website."
@@ -270,6 +275,28 @@ def lead(t, g, mb=18):
     return (f'      <p style="margin:0 0 {mb}px 0;font-size:19px;line-height:30px;color:{g["body"]};">{t}</p>')
 
 
+def subhead(t, g, mb=16):
+    """Caps line below the headline, separators as middots.
+
+    The Insights house style uses this where the event sends use a filled
+    date chip: quieter, and it carries a phrase rather than a date.
+    """
+    return (f'      <p style="margin:0 0 {mb}px 0;font-size:13px;line-height:20px;'
+            f'letter-spacing:1.4px;text-transform:uppercase;color:{g["muted"]};'
+            f'font-weight:bold;">{t}</p>')
+
+
+def quote(t, who, g):
+    """Pull quote with a rule down the left, in the brand teal."""
+    return (f'      <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0" '
+            f'style="margin:4px 0 18px 0;"><tr>'
+            f'<td style="border-left:4px solid {TEAL};padding:2px 0 2px 18px;">'
+            f'<p style="margin:0 0 10px 0;font-size:17px;line-height:28px;color:{g["head"]};">'
+            f'&ldquo;{t}&rdquo;</p>'
+            f'<p style="margin:0;font-size:14px;line-height:22px;color:{g["muted"]};">&mdash; {who}</p>'
+            f'</td></tr></table>')
+
+
 def badge(t, g):
     """A filled chip carrying the date. High-contrast, and the eye lands on it."""
     if g["bg"] == SPACE:
@@ -340,12 +367,12 @@ def bio(name, text, g):
 
 HONOREES = [("honoree-hacegaba.jpg", "Visionary of the Year", "Dr. Noel Hacegaba", "CEO<br />Port of Long Beach",
              "Leads a world leader in supply chain innovation, where nearly 10 million container units move each year."),
-            ("honoree-marshall.jpg", "Trailblazer of the Year", "Carrie Marshall", "CEO<br />Rebel Space Technologies",
+            ("honoree-marshall.jpg", "Trailblazer of the Year", "Carrie Marshall", "CEO &amp; Co-Founder<br />Rebel Space Technologies",
              "Builds AI-powered spectrum intelligence for the next generation of satellite communications."),
-            ("honoree-lee.jpg", "Investor of the Year", "Joshua Y. Lee", "CEO<br />Gumshoe Ventures",
+            ("honoree-lee.jpg", "Investor of the Year", "Joshua Y. Lee", "Managing Partner<br />Gumshoe Ventures",
              "A multi-exited founder backing high-potential companies across the US and Southeast Asia."),
-            ("honoree-glass.jpg", "Founder of the Year", "Ethan Glass", "CEO<br />OCRA",
-             "Grew OCRA from an event parking operator into a platform that maximizes parking asset yield.")]
+            ("honoree-glass.jpg", "Founder of the Year", "Ethan Glass", "CEO<br />Ocra",
+             "Grew Ocra from an event parking operator into a platform that maximizes parking asset yield.")]
 
 
 def r_honorees(g, bios=False):
@@ -384,10 +411,10 @@ def r_honorees(g, bios=False):
 # placeholder so the decision reaches Vivian instead of being made quietly.
 PANEL = [
     ("panelist-malone.jpg", "Sue Malone", "CEO<br />Strategies For Small Business", "Moderator"),
-    ("honoree-lee.jpg", "Joshua Y. Lee", "CEO<br />Gumshoe Ventures", ""),
+    ("honoree-lee.jpg", "Joshua Y. Lee", "Managing Partner<br />Gumshoe Ventures", ""),
     ("panelist-mcmillan.jpg", "Walter &ldquo;Rock&rdquo; McMillan", "Senior PM/Acquisition Advisor<br />Galapagos LLC", ""),
     ("panelist-truong.jpg", "Amy Truong", "Special Assistant Front Office<br />CMS/CMMI", ""),
-    ("honoree-glass.jpg", "Ethan Glass", "CEO<br />OCRA", ""),
+    ("honoree-glass.jpg", "Ethan Glass", "CEO<br />Ocra", ""),
 ]
 
 
@@ -451,6 +478,8 @@ AI_S3 = "https://hub.catalyzerapp.com/public/events/authority-positioning-and-st
 PACK = "https://drive.google.com/file/d/1brJxClWdJ9efsuH7RnPNsjyxDq5224CC/view"
 TW   = "https://www.lbaccelerator.org/tech-week/"
 PROGRAM = "https://www.lbaccelerator.org/summit-program/"   # full Summit programme
+PRESS = "https://www.lbaccelerator.org/long-beach-accelerator-kicks-off-tech-week-2026/"
+SERVICES = "https://www.lbaccelerator.org/services/"
 FORM = "https://hub.catalyzerapp.com/public/form/46c9cb88-0c9a-4eac-9346-f53f61f511d6"
 EVT  = "https://lbaccelerator.org/events"
 LUM  = "https://www.lumen21.com/"
@@ -1785,13 +1814,104 @@ CAMPAIGNS["2026-09-30-panel"] = dict(
 )
 
 
+
+# ---------------------------------------------------------------------------
+# The recap, in the Insights house style rather than the event template: the
+# Insights masthead instead of the logo bar, a caps line under each headline
+# where the event sends carry a date chip, and photographs between sections.
+#
+# Copy is drawn from the press release this links to, so the two agree for a
+# reader who clicks through. Three photographs are still placeholders; each
+# tile names the shot it is holding a slot for.
+# ---------------------------------------------------------------------------
+
+CAMPAIGNS["2026-10-08-recap"] = dict(
+    title="Long Beach Tech Week 2026: what we built together",
+    subject="Long Beach Tech Week 2026: what we built together",
+    alts=["Tech Week 2026 recap: four honorees, one new Hub",
+          "The Tech Hub Center is open. Here is what happened.",
+          "Four days, four honorees, and a permanent home",
+          "Thank you for a week that moved the region forward"],
+    preheader="Four honorees, a new Tech Hub Center, and the week that connected investors with founders.",
+    send="On Vivian's approval",
+    tight=True,
+    masthead=("lba-insights-header.jpg", "LBA Accelerator Insights"),
+    images=(["lba-logo.png", "lba-insights-header.jpg",
+             "recap-photo-1.jpg", "recap-photo-2.jpg", "recap-photo-3.jpg",
+             "honoree-hacegaba.jpg", "honoree-marshall.jpg",
+             "honoree-lee.jpg", "honoree-glass.jpg"]
+            + LOGO_IMAGES + ["icon-linkedin.png", "icon-email.png", "icon-web.png"]),
+    sections=[
+        section([
+            r_text("\n".join([
+                kicker("September 28 &ndash; October 1", W),
+                display("Long Beach Tech Week 2026", W),
+                subhead("A week of investment, innovation and connection", W),
+                p("Thank you to everyone who joined us. Over four days, investors, industry leaders and entrepreneurs came together to shape what comes next for Southern California&rsquo;s technology economy &mdash; and we opened a permanent home for that work.", W, 0),
+            ]), W, edit="intro"),
+            r_button("Read the Press Release", PRESS, W),
+            r_pad(30),
+        ]),
+
+        section([r_image("recap-photo-1.jpg", "Long Beach Tech Week 2026, the Investors and Founders Summit at the Hyatt Regency Long Beach.")],
+                rule_after=False),
+
+        section([
+            r_text("\n".join([
+                kicker("A New Home", T),
+                display("The Long Beach Accelerator Tech Hub Center", T, size=27),
+                subhead("Downtown Long Beach &middot; Opened September 28", T),
+                p("The week opened with the unveiling of our new Tech Hub Center, supported by a grant from the U.S. Small Business Administration and the Honorable U.S. Senator Dianne Feinstein.", T),
+                p("The Center is a place for thought leaders and key investors to engage with public and private partners, and for emerging growth companies to build the businesses that follow.", T, 0),
+            ]), T, edit="hub"),
+            r_pad(30),
+        ], ground="tint"),
+
+        section([r_image("recap-photo-2.jpg", "The Kick-Off Reception at the new Long Beach Accelerator Tech Hub Center in downtown Long Beach.")],
+                rule_after=False),
+
+        section([
+            r_text("\n".join([
+                kicker("Thursday, October 1st", W),
+                display("Congratulations to the 2026 LBA Honorees", W, size=24),
+                subhead("Awards Luncheon &middot; Hyatt Regency Long Beach", W),
+                p("Four leaders whose work spans global trade, space technology, venture investment and business growth.", W, 0),
+            ]), W, edit="honorees_intro"),
+            r_honorees(W),
+            r_pad(26),
+            r_text(quote("It&rsquo;s an honor to be recognized by an organization dedicated to creating new economic opportunities through innovation and entrepreneurial leadership.",
+                         "Dr. Noel Hacegaba, CEO, Port of Long Beach", W),
+                   W, edit="quote", pad="0 40px 0 40px"),
+            r_button("View the Program Book", PROGRAM, W, pad_top=10),
+            r_pad(30),
+        ]),
+
+        section([r_image("recap-photo-3.jpg", "An LBA 2026 honoree receiving their award at the Awards Luncheon.")],
+                rule_after=False),
+
+        section([
+            r_text("\n".join([
+                kicker("The Work Continues", B),
+                display("Where We Go From Here", B),
+                p("LBA has supported more than 2,000 small businesses across logistics, transportation and supply chain; aerospace and space technology; energy and sustainability; entertainment and creative; and healthcare technology.", B),
+                p("Through our AI adoption initiative, financial acumen education, business advisory services and team of expert advisers, entrepreneurs get the boost to take their businesses to the next level.", B, 0),
+            ]), B, edit="continues"),
+            r_button("Work With an Advisor", SERVICES, B),
+            r_pad(30),
+        ], ground="blue"),
+
+        r_logos(),
+    ],
+)
+
+
 def build(slug, spec):
     out = os.path.join(HERE, f"{slug}-eblast", "email-package")
     imgs = os.path.join(out, "images")
     shutil.rmtree(os.path.dirname(out), ignore_errors=True)
     os.makedirs(imgs, exist_ok=True)
     foot = FOOT_TMPL.replace("{permission_line}", spec.get("permission_line", PERMISSION_OPTIN))
-    html = head_html(spec["title"], spec["preheader"]) + "".join(spec["sections"]) + foot
+    html = head_html(spec["title"], spec["preheader"], spec.get("masthead")) + "".join(spec["sections"]) + foot
     if spec.get("tight"):
         html = tighten(html)
     with open(os.path.join(out, "email.html"), "w", encoding="utf-8") as f:
