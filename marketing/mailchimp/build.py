@@ -1858,8 +1858,8 @@ CAMPAIGNS["2026-10-08-recap"] = dict(
         ]),
 
         section([r_image("recap-photo-1.jpg",
-                         "The opening of the new Long Beach Accelerator Tech Hub Center in downtown Long Beach.",
-                         caption="Opening of the new Long Beach Accelerator Tech Hub Center.")],
+                         "Board members and the U.S. Small Business Administration outside the new Long Beach Accelerator Tech Hub Center on its opening day.",
+                         caption="Board members and the U.S. Small Business Administration at the opening of the new Long Beach Accelerator Tech Hub Center.")],
                 rule_after=False),
 
         section([
@@ -1874,8 +1874,8 @@ CAMPAIGNS["2026-10-08-recap"] = dict(
         ], ground="tint"),
 
         section([r_image("recap-photo-2.jpg",
-                         "Board members and the U.S. Small Business Administration at the opening of the Long Beach Accelerator Tech Hub Center.",
-                         caption="Board members and the U.S. Small Business Administration.")],
+                         "The Conversations With Visionary Investors panel on stage at the LBA Investors and Founders Summit.",
+                         caption="Conversations With Visionary Investors at the LBA Investors &amp; Founders Summit.")],
                 rule_after=False),
 
         section([
@@ -1894,7 +1894,9 @@ CAMPAIGNS["2026-10-08-recap"] = dict(
             r_pad(30),
         ]),
 
-        section([r_image("recap-photo-3.jpg", "An LBA 2026 honoree receiving their award at the Awards Luncheon.")],
+        section([r_image("recap-photo-3.jpg",
+                         "A 2026 LBA honoree with their award at the Awards Luncheon.",
+                         caption="Celebrating the 2026 LBA Honorees at the Awards Luncheon.")],
                 rule_after=False),
 
         section([
