@@ -7,7 +7,7 @@ than hand-editing `email.html`, so the chrome stays in sync across sends.
 
 | Field | Value |
 |---|---|
-| Subject | Long Beach Tech Week 2026: what we built together |
+| Subject | 2026 Long Beach Tech Week &amp; Opening of Long Beach Accelerator Tech Hub Center |
 | Preview text | Baked into the HTML as a hidden preheader. Leave Mailchimp's own field blank, or set it — it takes precedence. Setting both can show them back to back. |
 | Send | On Vivian's approval |
 | From | Long Beach Accelerator / info@lbaccelerator.org |

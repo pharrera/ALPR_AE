@@ -285,16 +285,17 @@ press release it links to, so the two agree for anyone who clicks through.
 
 | Subject line | Chars | Angle |
 |---|---|---|
-| Long Beach Tech Week 2026: what we built together | 48 | **Currently baked in** |
+| 2026 Long Beach Tech Week &amp; Opening of Long Beach Accelerator Tech Hub Center | 78 | **Vivian's, currently baked in** |
+| Long Beach Tech Week 2026: what we built together | 48 | Shorter, survives phone truncation |
 | Tech Week 2026 recap: four honorees, one new Hub | 48 | Names the two concrete outcomes |
 | The Tech Hub Center is open. Here is what happened. | 51 | Leads on the building |
-| Four days, four honorees, and a permanent home | 46 | Rhythm, no colon |
 
 **Preview line:** *Four honorees, a new Tech Hub Center, and the week that connected investors
 with founders.*
 
-A recap has no deadline attached, so none of these push. The job is to be opened at all,
-which is why the subject promises something built rather than something reported.
+The chosen subject runs 78 characters, so a phone shows roughly the first half: *2026 Long
+Beach Tech Week &amp; Opening of Long Beach Acc&hellip;* That still carries both subjects, and the
+preview line picks up the rest, so the truncation costs little.
 
 The paired LinkedIn post is in linkedin-posts.md.
 

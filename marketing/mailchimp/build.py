@@ -379,6 +379,21 @@ HONOREES = [("honoree-hacegaba.jpg", "Visionary of the Year", "Dr. Noel Hacegaba
              "Grew Ocra from an event parking operator into a platform that maximizes parking asset yield.")]
 
 
+def honoree_list(g):
+    """Awards, names and titles as text, without the portrait grid."""
+    rows = []
+    for _, award, name, role, _ in HONOREES:
+        rows.append(
+            f'      <p style="margin:0 0 4px 0;font-size:12px;line-height:17px;'
+            f'letter-spacing:1.4px;text-transform:uppercase;color:{TEAL if g["bg"] != BLUE else R_KICK};'
+            f'font-weight:bold;">{award}</p>\n'
+            f'      <p style="margin:0 0 2px 0;font-size:19px;line-height:27px;'
+            f'color:{g["head"]};font-weight:bold;">{name}</p>\n'
+            f'      <p style="margin:0 0 22px 0;font-size:15px;line-height:23px;'
+            f'color:{g["muted"]};">{role.replace("<br />", ", ")}</p>')
+    return "\n".join(rows)
+
+
 def r_honorees(g, bios=False):
     def cell(img, award, name, role, blurb):
         alt = f"{name}, {role.replace('<br />', ', ')}, 2026 LBA {award}"
@@ -1830,8 +1845,8 @@ CAMPAIGNS["2026-09-30-panel"] = dict(
 # ---------------------------------------------------------------------------
 
 CAMPAIGNS["2026-10-08-recap"] = dict(
-    title="Long Beach Tech Week 2026: what we built together",
-    subject="Long Beach Tech Week 2026: what we built together",
+    title="2026 Long Beach Tech Week and the Tech Hub Center",
+    subject="2026 Long Beach Tech Week &amp; Opening of Long Beach Accelerator Tech Hub Center",
     alts=["Tech Week 2026 recap: four honorees, one new Hub",
           "The Tech Hub Center is open. Here is what happened.",
           "Four days, four honorees, and a permanent home",
@@ -1841,9 +1856,7 @@ CAMPAIGNS["2026-10-08-recap"] = dict(
     tight=True,
     masthead=("lba-insights-header.jpg", "LBA Accelerator Insights"),
     images=(["lba-logo.png", "lba-insights-header.jpg",
-             "recap-photo-1.jpg", "recap-photo-2.jpg", "recap-photo-3.jpg",
-             "honoree-hacegaba.jpg", "honoree-marshall.jpg",
-             "honoree-lee.jpg", "honoree-glass.jpg"]
+             "recap-summit-panel.jpg", "recap-hub-opening.jpg", "recap-award.jpg"]
             + LOGO_IMAGES + ["icon-linkedin.png", "icon-email.png", "icon-web.png"]),
     sections=[
         section([
@@ -1857,9 +1870,9 @@ CAMPAIGNS["2026-10-08-recap"] = dict(
             r_pad(30),
         ]),
 
-        section([r_image("recap-photo-1.jpg",
-                         "Board members and the U.S. Small Business Administration outside the new Long Beach Accelerator Tech Hub Center on its opening day.",
-                         caption="Board members and the U.S. Small Business Administration at the opening of the new Long Beach Accelerator Tech Hub Center.")],
+        section([r_image("recap-summit-panel.jpg",
+                         "The Conversations With Visionary Investors panel on stage at the LBA Investors and Founders Summit.",
+                         caption="Conversations With Visionary Investors at the LBA Investors &amp; Founders Summit.")],
                 rule_after=False),
 
         section([
@@ -1873,9 +1886,9 @@ CAMPAIGNS["2026-10-08-recap"] = dict(
             r_pad(30),
         ], ground="tint"),
 
-        section([r_image("recap-photo-2.jpg",
-                         "The Conversations With Visionary Investors panel on stage at the LBA Investors and Founders Summit.",
-                         caption="Conversations With Visionary Investors at the LBA Investors &amp; Founders Summit.")],
+        section([r_image("recap-hub-opening.jpg",
+                         "Vivian Shimoyama with U.S. Small Business Administration leadership and LBA board members at the opening of the Tech Hub Center.",
+                         caption="Vivian Shimoyama, CEO, Long Beach Accelerator. U.S. Small Business Administration: Steve Owen, Regional Advocate, Region 9; Steven Snow, Regional Administrator, Pacific; Benjamin Kallin, District Director. LBA Board Members: Andria Martinez, Sue Malone, Dr. Wade Martin, Brenda Wunsch, Mark Guillen.")],
                 rule_after=False),
 
         section([
@@ -1883,20 +1896,20 @@ CAMPAIGNS["2026-10-08-recap"] = dict(
                 kicker("Thursday, October 1st", W),
                 display("Congratulations to the 2026 LBA Honorees", W, size=24),
                 subhead("Awards Luncheon &middot; Hyatt Regency Long Beach", W),
-                p("Four leaders whose work spans global trade, space technology, venture investment and business growth.", W, 0),
-            ]), W, edit="honorees_intro"),
-            r_honorees(W),
-            r_pad(26),
+                p("Four leaders whose work spans global trade, space technology, venture investment and business growth.", W, 22),
+                honoree_list(W),
+            ]), W, edit="honorees"),
             r_text(quote("It&rsquo;s an honor to be recognized by an organization dedicated to creating new economic opportunities through innovation and entrepreneurial leadership.",
                          "Dr. Noel Hacegaba, CEO, Port of Long Beach", W),
                    W, edit="quote", pad="0 40px 0 40px"),
-            r_button("View the Program Book", PROGRAM, W, pad_top=10),
+            r_button("See Long Beach Tech Week 2026", TW, W, pad_top=10),
+            r_button("Summit Program Book", PROGRAM, W, invert=True, pad_top=14),
             r_pad(30),
         ]),
 
-        section([r_image("recap-photo-3.jpg",
-                         "A 2026 LBA honoree with their award at the Awards Luncheon.",
-                         caption="Celebrating the 2026 LBA Honorees at the Awards Luncheon.")],
+        section([r_image("recap-award.jpg",
+                         "Bonnie Lowenthal, Dr. Noel Hacegaba, Tunua Thrash-Ntuk and Vivian Shimoyama at the Awards Luncheon.",
+                         caption="Left to right: Bonnie Lowenthal, Long Beach Board of Harbor Commissioners; Dr. Noel Hacegaba, CEO, Port of Long Beach; Tunua Thrash-Ntuk, Long Beach City Councilwoman; Vivian Shimoyama, CEO, Long Beach Accelerator.")],
                 rule_after=False),
 
         section([
