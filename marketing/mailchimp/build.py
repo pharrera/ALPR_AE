@@ -189,12 +189,16 @@ def section(rows, ground="white", rule_after=True):
     return out
 
 
-def r_image(src, alt, href=None):
+def r_image(src, alt, href=None, caption=None):
     img = (f'<img src="images/{src}" width="600" alt="{alt}" '
            f'style="width:100%;max-width:600px;height:auto;display:block;" />')
     if href:
         img = f'<a href="{href}" target="_blank">{img}</a>'
-    return f'        <tr><td align="center" style="font-size:0;line-height:0;">{img}</td></tr>\n' 
+    row = f'        <tr><td align="center" style="font-size:0;line-height:0;">{img}</td></tr>\n'
+    if caption:
+        row += (f'        <tr><td class="px" style="padding:10px 40px 0 40px;font-family:{FONT};'
+                f'font-size:13px;line-height:20px;color:{GRAY};">{caption}</td></tr>\n')
+    return row 
 
 
 def r_text(body, g, edit=None, pad="36px 40px 0 40px"):
@@ -1847,27 +1851,31 @@ CAMPAIGNS["2026-10-08-recap"] = dict(
                 kicker("September 28 &ndash; October 1", W),
                 display("Long Beach Tech Week 2026", W),
                 subhead("A week of investment, innovation and connection", W),
-                p("Thank you to everyone who joined us. Over four days, investors, industry leaders and entrepreneurs came together to shape what comes next for Southern California&rsquo;s technology economy, and we opened a permanent home for that work.", W, 0),
+                p("Thank you to everyone who joined us. Over four days, investors, industry leaders and entrepreneurs came together to shape what comes next for Southern California&rsquo;s emerging tech economy, and we opened the new Long Beach Accelerator Tech Hub Center in downtown Long Beach.", W, 0),
             ]), W, edit="intro"),
             r_button("Read the Press Release", PRESS, W),
             r_pad(30),
         ]),
 
-        section([r_image("recap-photo-1.jpg", "Long Beach Tech Week 2026, the Investors and Founders Summit at the Hyatt Regency Long Beach.")],
+        section([r_image("recap-photo-1.jpg",
+                         "The opening of the new Long Beach Accelerator Tech Hub Center in downtown Long Beach.",
+                         caption="Opening of the new Long Beach Accelerator Tech Hub Center.")],
                 rule_after=False),
 
         section([
             r_text("\n".join([
                 kicker("A New Home", T),
-                display("The Long Beach Accelerator Tech Hub Center", T, size=27),
+                display("The Long Beach Accelerator Tech Hub Center", T, size=23),
                 subhead("Downtown Long Beach &middot; Opened September 28", T),
                 p("The week opened with the unveiling of our new Tech Hub Center, supported by a grant from the U.S. Small Business Administration and the Honorable U.S. Senator Dianne Feinstein.", T),
-                p("The Center is a place for thought leaders and key investors to engage with public and private partners, and for emerging growth companies to build the businesses that follow.", T, 0),
+                p("The Center is a place for thought leaders and key investors to engage with public and private partners, and to grow emerging technology companies and ecosystems.", T, 0),
             ]), T, edit="hub"),
             r_pad(30),
         ], ground="tint"),
 
-        section([r_image("recap-photo-2.jpg", "The Kick-Off Reception at the new Long Beach Accelerator Tech Hub Center in downtown Long Beach.")],
+        section([r_image("recap-photo-2.jpg",
+                         "Board members and the U.S. Small Business Administration at the opening of the Long Beach Accelerator Tech Hub Center.",
+                         caption="Board members and the U.S. Small Business Administration.")],
                 rule_after=False),
 
         section([
@@ -1894,9 +1902,9 @@ CAMPAIGNS["2026-10-08-recap"] = dict(
                 kicker("The Work Continues", B),
                 display("Where We Go From Here", B),
                 p("LBA has supported more than 2,000 small businesses across logistics, transportation and supply chain; aerospace and space technology; energy and sustainability; entertainment and creative; and healthcare technology.", B),
-                p("Through our AI adoption initiative, financial acumen education, business advisory services and team of expert advisers, entrepreneurs get the boost to take their businesses to the next level.", B, 0),
+                p("Schedule an appointment to work with an LBA Business Advisor. This is a no-cost service, provided through a grant from the State of California Office of the Small Business Advocate. Register today.", B, 0),
             ]), B, edit="continues"),
-            r_button("Work With an Advisor", SERVICES, B),
+            r_button("Meet with LBA Advisor", SERVICES, B),
             r_pad(30),
         ], ground="blue"),
 
