@@ -614,16 +614,28 @@ def r_logos(per_row=3):
                 f'{heading}</td></tr>\n')
         n = 1 if len(logos) == 1 else per_row
         out += '        <tr><td><table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0">\n'
+        def cell(f, w, alt, pct=None):
+            width = f' width="{pct}%"' if pct else f' width="{w}"'
+            return (f'<td align="center" valign="middle"{width} style="padding:8px 6px;">'
+                    f'<img src="images/{f}" width="{w}" alt="{alt}" '
+                    f'style="display:block;width:100%;max-width:{w}px;height:auto;margin:0 auto;" /></td>')
+
         for i in range(0, len(logos), n):
-            out += "          <tr>"
             chunk = logos[i:i + n]
-            for f, w, alt in chunk:
-                out += (f'<td align="center" valign="middle" width="{100 // n}%" style="padding:8px 6px;">'
-                        f'<img src="images/{f}" width="{w}" alt="{alt}" '
-                        f'style="display:block;width:100%;max-width:{w}px;height:auto;margin:0 auto;" /></td>')
-            for _ in range(n - len(chunk)):
-                out += f'<td width="{100 // n}%">&nbsp;</td>'
-            out += "</tr>\n"
+            if len(chunk) == n:
+                out += ("          <tr>"
+                        + "".join(cell(f, w, alt, 100 // n) for f, w, alt in chunk)
+                        + "</tr>\n")
+            else:
+                # A short final row centres on its own nested table. Padding
+                # the row out with percentage-width spacer cells looks like
+                # it should work and does not: the browser hands the spare
+                # width to whichever column it likes and the logos end up
+                # sitting a column right of centre.
+                out += ('          <tr><td colspan="%d" align="center">'
+                        '<table role="presentation" border="0" cellpadding="0" cellspacing="0" '
+                        'style="margin:0 auto;"><tr>%s</tr></table></td></tr>\n'
+                        % (n, "".join(cell(f, w, alt) for f, w, alt in chunk)))
         out += "        </table></td></tr>\n"
     return (f'  <tr><td style="background-color:{WHITE};">\n'
             f'    <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0">\n'
