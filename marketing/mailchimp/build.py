@@ -428,7 +428,7 @@ def r_honorees(g, bios=False):
 # panelist, but the panel page that carries every other panelist's portrait
 # and biography does not mention her. Rather than guess, she is here with a
 # placeholder so the decision reaches Vivian instead of being made quietly.
-PANEL = [
+PANELISTS = [
     ("panelist-malone.jpg", "Sue Malone", "CEO<br />Strategies For Small Business", "Moderator"),
     ("honoree-lee.jpg", "Joshua Y. Lee", "Managing Partner<br />Gumshoe Ventures", ""),
     ("panelist-mcmillan.jpg", "Walter &ldquo;Rock&rdquo; McMillan", "Senior PM/Acquisition Advisor<br />Galapagos LLC", ""),
@@ -439,7 +439,7 @@ PANEL = [
 
 MODICA = [("panelist-modica.jpg", "Tom Modica", "City Manager<br />City of Long Beach", "")]
 
-PANEL_IMAGES = sorted({f for f, _, _, _ in PANEL} | {f for f, _, _, _ in MODICA})
+PANELIST_IMAGES = sorted({f for f, _, _, _ in PANELISTS} | {f for f, _, _, _ in MODICA})
 
 
 def r_panel(g, people, note=None):
@@ -1767,7 +1767,7 @@ CAMPAIGNS["2026-09-30-panel"] = dict(
     preheader="Sue Malone moderates. Plus Tom Modica on what the LA28 Games mean for Long Beach business. Thursday, 2:00 PM.",
     send="Wednesday, September 30, 2026, by noon",
     tight=True,
-    images=(["lba-logo.png", "techweek-2026-plain.jpg"] + PANEL_IMAGES
+    images=(["lba-logo.png", "techweek-2026-plain.jpg"] + PANELIST_IMAGES
             + ["honoree-hacegaba.jpg", "honoree-marshall.jpg",
                "honoree-lee.jpg", "honoree-glass.jpg"]
             + LOGO_IMAGES + ["icon-linkedin.png", "icon-email.png", "icon-web.png"]),
@@ -1781,7 +1781,7 @@ CAMPAIGNS["2026-09-30-panel"] = dict(
                 lead("Our signature afternoon forum. Investors share their view of the global economy and emerging technology, today and in the years ahead.", W),
                 p("Moderated by Sue Malone, with a panel drawn from equity capital, national security innovation, federal health policy and two of this year&rsquo;s LBA honorees.", W, 0),
             ]), W, edit="panel_intro"),
-            r_panel(W, PANEL),
+            r_panel(W, PANELISTS),
             r_pad(26),
             r_card("\n".join([
                 f'            <p style="margin:0 0 6px 0;{SMALL};color:{CHAR};"><strong style="color:{BLUE};">2:00 &ndash; 4:00 PM</strong></p>',
@@ -1896,21 +1896,20 @@ CAMPAIGNS["2026-10-08-recap"] = dict(
                 kicker("Thursday, October 1st", W),
                 display("Congratulations to the 2026 LBA Honorees", W, size=24),
                 subhead("Awards Luncheon &middot; Hyatt Regency Long Beach", W),
-                p("Four leaders whose work spans global trade, space technology, venture investment and business growth.", W, 22),
-                honoree_list(W),
-            ]), W, edit="honorees"),
+                p("Four leaders whose work spans global trade, space technology, venture investment and business growth.", W, 0),
+            ]), W, edit="honorees_intro"),
+            r_pad(22),
+            r_image("recap-award.jpg",
+                    "Bonnie Lowenthal, Dr. Noel Hacegaba, Tunua Thrash-Ntuk and Vivian Shimoyama at the Awards Luncheon.",
+                    caption="Left to right: Bonnie Lowenthal, Long Beach Board of Harbor Commissioners; Dr. Noel Hacegaba, CEO, Port of Long Beach; Tunua Thrash-Ntuk, Long Beach City Councilwoman; Vivian Shimoyama, CEO, Long Beach Accelerator."),
             r_text(quote("It&rsquo;s an honor to be recognized by an organization dedicated to creating new economic opportunities through innovation and entrepreneurial leadership.",
                          "Dr. Noel Hacegaba, CEO, Port of Long Beach", W),
-                   W, edit="quote", pad="0 40px 0 40px"),
-            r_button("See Long Beach Tech Week 2026", TW, W, pad_top=10),
+                   W, edit="quote", pad="20px 40px 0 40px"),
+            r_text(honoree_list(W), W, edit="honorees", pad="4px 40px 0 40px"),
+            r_button("See Long Beach Tech Week 2026", TW, W, pad_top=4),
             r_button("Summit Program Book", PROGRAM, W, invert=True, pad_top=14),
             r_pad(30),
         ]),
-
-        section([r_image("recap-award.jpg",
-                         "Bonnie Lowenthal, Dr. Noel Hacegaba, Tunua Thrash-Ntuk and Vivian Shimoyama at the Awards Luncheon.",
-                         caption="Left to right: Bonnie Lowenthal, Long Beach Board of Harbor Commissioners; Dr. Noel Hacegaba, CEO, Port of Long Beach; Tunua Thrash-Ntuk, Long Beach City Councilwoman; Vivian Shimoyama, CEO, Long Beach Accelerator.")],
-                rule_after=False),
 
         section([
             r_text("\n".join([
