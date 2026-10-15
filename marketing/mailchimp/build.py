@@ -118,6 +118,10 @@ def head_html(title, preheader, masthead=None):
 """)
 
 
+# Everything the shared footer references, added to every campaign by build().
+FOOTER_IMAGES = ["lba-logo-accelerator.png", "icon-linkedin.png",
+                 "icon-email.png", "icon-web.png"]
+
 PERMISSION_OPTIN = "You are receiving this email because you opted in via our website."
 
 FOOT_TMPL = f"""  <tr>
@@ -140,7 +144,7 @@ FOOT_TMPL = f"""  <tr>
             <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0">
               <tr>
                 <td class="fstack" width="230" valign="top" style="padding:6px 0 0 0;">
-                  <img src="images/lba-logo.png" width="200" alt="Long Beach Accelerator" style="width:200px;max-width:200px;height:auto;display:block;" />
+                  <img src="images/lba-logo-accelerator.png" width="200" alt="LBA Accelerator" style="width:200px;max-width:200px;height:auto;display:block;" />
                 </td>
                 <td class="fstack" align="right" valign="top" mc:edit="footer_legal" style="font-family:{FONT};font-size:13px;line-height:22px;color:{GRAY};text-align:right;">
                   <p style="margin:0 0 14px 0;">
@@ -1915,7 +1919,7 @@ CAMPAIGNS["2026-10-08-recap"] = dict(
             r_text("\n".join([
                 kicker("The Work Continues", B),
                 display("Where We Go From Here", B),
-                p("LBA has supported more than 2,000 small businesses across logistics, transportation and supply chain; aerospace and space technology; energy and sustainability; entertainment and creative; and healthcare technology.", B),
+                p("LBA has supported more than 2,000 founders and entrepreneurs, and is focused on regional and City verticals across logistics, transportation and supply chain; aerospace and space technology; energy and sustainability; entertainment and creative; and healthcare technology.", B),
                 p("Schedule an appointment to work with an LBA Business Advisor. This is a no-cost service, provided through a grant from the State of California Office of the Small Business Advocate. Register today.", B, 0),
             ]), B, edit="continues"),
             r_button("Meet with LBA Advisor", SERVICES, B),
@@ -1941,7 +1945,7 @@ def build(slug, spec):
     # A campaign can reach the same file from two lists -- the panel and the
     # honoree grid share two portraits -- and zipfile happily writes a
     # duplicate entry for each. Collapse them, keeping first-seen order.
-    names = list(dict.fromkeys(spec["images"]))
+    names = list(dict.fromkeys(spec["images"] + FOOTER_IMAGES))
     for name in names:
         shutil.copy2(os.path.join(ASSETS, name), os.path.join(imgs, name))
     with open(os.path.join(out, "README.md"), "w", encoding="utf-8") as f:
