@@ -576,7 +576,7 @@ W, T, B = ink("white"), ink("tint"), ink("blue")
 S = ink("space")
 
 LOGO_ROWS = [
-    ("Hosted by", [("lbtw-host-lba-v2.jpg", 260, "Long Beach Accelerator")]),
+    ("Hosted by", [("lba-logo-accelerator.png", 260, "LBA Accelerator")]),
     ("Planning Partners", [
         ("lbtw-partner-iie.jpg", 156, "The Institute for Innovation and Entrepreneurship, CSULB"),
         ("lbtw-partner-sunstone-v2.jpg", 156, "Sunstone"),
