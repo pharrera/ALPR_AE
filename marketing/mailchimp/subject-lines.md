@@ -303,7 +303,8 @@ The paired LinkedIn post is in linkedin-posts.md.
 
 ### 10/30 &mdash; the Tech Week survey
 
-A utility send to the 280 unique registrants across the three Luma lists. No check-ins were
+Carries the Insights masthead in place of the logo bar, the same as the 10/8 recap. A utility
+send to the 280 unique registrants across the three Luma lists. No check-ins were
 recorded, so the copy never assumes attendance: it addresses people who came and people who
 registered and did not in the same sentence. No sponsor wall, so nothing sits between the ask
 and the button.

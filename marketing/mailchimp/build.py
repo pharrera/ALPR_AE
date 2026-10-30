@@ -1998,9 +1998,11 @@ CAMPAIGNS["2026-10-30-survey"] = dict(
     preheader="Your answers shape what 2027 looks like, and whether we can fund it.",
     send="Ready to send",
     tight=True,
+    masthead=("lba-insights-header.jpg", "LBA Accelerator Insights"),
     permission_line=("You are receiving this because you registered for a "
                      "Long Beach Tech Week 2026 event."),
-    images=["lba-logo.png"],
+    # The masthead replaces the logo bar, so lba-logo.png is never referenced.
+    images=["lba-insights-header.jpg"],
     plain=SURVEY_PLAIN,
     sections=[
         section([
