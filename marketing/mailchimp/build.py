@@ -1965,7 +1965,7 @@ WHAT WE ASK -- four short sections
 * Topics, speakers and formats you want for 2027
 * How you would like to stay connected with LBA
 
-Why we ask about you and your business: the survey ends with a short
+Why we ask for demographic information: the survey ends with a short
 set of demographic questions. Long Beach Tech Week and the rest of what
 LBA does are paid for by grants, and reporting who we actually reach is
 a condition of that funding.
@@ -2026,7 +2026,7 @@ CAMPAIGNS["2026-10-30-survey"] = dict(
                          "How you would like to stay connected with LBA"], T),
             ]), T, edit="topics"),
             r_card("\n".join([
-                label("Why we ask about you and your business", T, indent=14),
+                label("Why we ask for demographic information", T, indent=14),
                 '              <p style="margin:0;">The survey ends with a short set of demographic questions. Long Beach Tech Week and the rest of what LBA does are paid for by grants, and reporting who we actually reach is a condition of that funding.</p>',
             ]), T, edit="demographics"),
             r_pad(32),
