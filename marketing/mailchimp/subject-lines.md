@@ -301,6 +301,35 @@ The paired LinkedIn post is in linkedin-posts.md.
 
 ---
 
+### 10/30 &mdash; the Tech Week survey
+
+A utility send to the 280 unique registrants across the three Luma lists. No check-ins were
+recorded, so the copy never assumes attendance: it addresses people who came and people who
+registered and did not in the same sentence. No sponsor wall, so nothing sits between the ask
+and the button.
+
+| Subject line | Chars | Angle |
+|---|---|---|
+| Two minutes on Long Beach Tech Week? | 36 | **Recommended, currently baked in.** Names the cost up front, which is what gets a survey opened |
+| What should we change for Tech Week 2027? | 41 | Forward-looking; invites the complaint rather than the compliment |
+| You registered for Tech Week. Tell us how we did. | 49 | Says why they are getting it, useful for anyone who never showed |
+| Two minutes, and 2027 gets better | 33 | Shortest; the trade is the whole line |
+| Your feedback shapes Long Beach Tech Week 2027 | 46 | Plainest, if the softer ask suits better |
+
+**Preview line:** *Your answers shape what 2027 looks like, and whether we can fund it.*
+
+The recommended subject runs 36 characters, short enough to survive on any phone, and the
+preview line carries the funding point, which is the part that makes the demographic questions
+at the end make sense before anyone reaches them.
+
+**From:** Long Beach Accelerator &middot; **Reply-to:** peter@lbaccelerator.org
+
+The footer permission line is overridden for this send: *You are receiving this because you
+registered for a Long Beach Tech Week 2026 event.* The package also carries plain-text.txt,
+which should be pasted over Mailchimp's auto-generated plain-text part.
+
+---
+
 ### 9/30 (Wednesday) &mdash; final send, panel first
 
 The last email before the doors open, so every line is written for a send on the 30th and an

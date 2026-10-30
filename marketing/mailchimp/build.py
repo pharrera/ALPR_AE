@@ -1943,6 +1943,108 @@ CAMPAIGNS["2026-10-08-recap"] = dict(
 )
 
 
+SURVEY = "https://hub.catalyzerapp.com/public/form/09e8c054-b199-4826-95e2-447204330eac"
+
+# A utility send, so no sponsor wall: the ask is the whole point of the email
+# and a logo grid under it buries the button in scroll.
+SURVEY_PLAIN = """How did we do?
+
+280 of you registered across the Kick-Off Reception, A Day for All
+Founders, and the Investors & Founders Summit.
+
+Whether you made it to all three or registered and never got there, we
+want to hear from you. It takes about two minutes.
+
+Share your feedback:
+%s
+
+WHAT WE ASK -- four short sections
+
+* Which events you attended, and what you walked away with
+* What was worth your time, and what was not
+* Topics, speakers and formats you want for 2027
+* How you would like to stay connected with LBA
+
+A note on the optional questions: the survey ends with a few questions
+about you and your business. Long Beach Tech Week runs on public
+funding, and that information is how we justify it and make the case
+for the next one. Every question there is skippable.
+
+LOOKING AT 2027
+
+If you are interested in sponsoring, speaking, exhibiting or
+volunteering for Long Beach Tech Week 2027, there is a place to tell us
+at the end of the survey.
+
+Thank you for being part of it.
+
+The Long Beach Accelerator team
+
+---
+Long Beach Accelerator, 245 E. 3rd St, Long Beach, CA 90802
+You are receiving this because you registered for a Long Beach Tech
+Week 2026 event.
+Update your preferences: *|UPDATE_PROFILE|*  Unsubscribe: *|UNSUB|*
+""" % SURVEY
+
+
+CAMPAIGNS["2026-10-30-survey"] = dict(
+    title="How did we do? Long Beach Tech Week 2026",
+    subject="Two minutes on Long Beach Tech Week?",
+    alts=["What should we change for Tech Week 2027?",
+          "You registered for Tech Week. Tell us how we did.",
+          "Two minutes, and 2027 gets better",
+          "Your feedback shapes Long Beach Tech Week 2027"],
+    preheader="Your answers shape what 2027 looks like, and whether we can fund it.",
+    send="Ready to send",
+    tight=True,
+    permission_line=("You are receiving this because you registered for a "
+                     "Long Beach Tech Week 2026 event."),
+    images=["lba-logo.png"],
+    plain=SURVEY_PLAIN,
+    sections=[
+        section([
+            r_text("\n".join([
+                kicker("Long Beach Tech Week 2026", W),
+                display("How did we do?", W),
+                lead("280 of you registered across the Kick-Off Reception, A Day for All Founders, and the Investors &amp; Founders Summit.", W),
+                p("Whether you made it to all three or registered and never got there, we want to hear from you. It takes about two minutes.", W, 0),
+            ]), W, edit="intro"),
+            r_button("Share your feedback", SURVEY, W),
+            r_pad(30),
+        ]),
+
+        section([
+            r_text("\n".join([
+                kicker("What We Ask", T),
+                display("Four short sections", T, size=23),
+                bullets(["Which events you attended, and what you walked away with",
+                         "What was worth your time, and what was not",
+                         "Topics, speakers and formats you want for 2027",
+                         "How you would like to stay connected with LBA"], T),
+            ]), T, edit="topics"),
+            r_card("\n".join([
+                label("A note on the optional questions", T, indent=14),
+                '              <p style="margin:0;">The survey ends with a few questions about you and your business. Long Beach Tech Week runs on public funding, and that information is how we justify it and make the case for the next one. Every question there is skippable.</p>',
+            ]), T, edit="demographics"),
+            r_pad(32),
+        ], ground="tint"),
+
+        section([
+            r_text("\n".join([
+                kicker("Looking At 2027", B),
+                display("Want to be part of it?", B, size=26),
+                p("If you are interested in sponsoring, speaking, exhibiting or volunteering for Long Beach Tech Week 2027, there is a place to tell us at the end of the survey.", B),
+                p("Thank you for being part of it.", B),
+                p("The Long Beach Accelerator team", B, 0),
+            ]), B, edit="next_year"),
+            r_button("Share your feedback", SURVEY, B),
+            r_pad(30),
+        ], ground="blue"),
+    ],
+)
+
+
 def build(slug, spec):
     out = os.path.join(HERE, f"{slug}-eblast", "email-package")
     imgs = os.path.join(out, "images")
@@ -1960,12 +2062,19 @@ def build(slug, spec):
     names = list(dict.fromkeys(spec["images"] + FOOTER_IMAGES))
     for name in names:
         shutil.copy2(os.path.join(ASSETS, name), os.path.join(imgs, name))
+    # Mailchimp generates a plain-text part on its own, but it flattens the
+    # layout badly on a send this short. A spec can supply its own instead.
+    if spec.get("plain"):
+        with open(os.path.join(out, "plain-text.txt"), "w", encoding="utf-8") as f:
+            f.write(spec["plain"])
     with open(os.path.join(out, "README.md"), "w", encoding="utf-8") as f:
         f.write(readme_for(slug, spec))
     zpath = os.path.join(HERE, f"{slug}-eblast", f"lba-eblast-{slug}.zip")
     with zipfile.ZipFile(zpath, "w", zipfile.ZIP_DEFLATED) as z:
         z.write(os.path.join(out, "email.html"), "email.html")
         z.write(os.path.join(out, "README.md"), "README.md")
+        if spec.get("plain"):
+            z.write(os.path.join(out, "plain-text.txt"), "plain-text.txt")
         for name in names:
             z.write(os.path.join(imgs, name), f"images/{name}")
     return zpath, len(html), re.findall(r'href="([^"]+)"', html)
