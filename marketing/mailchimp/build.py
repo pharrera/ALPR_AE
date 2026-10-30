@@ -1965,10 +1965,11 @@ WHAT WE ASK -- four short sections
 * Topics, speakers and formats you want for 2027
 * How you would like to stay connected with LBA
 
-A note on the optional questions: the survey ends with a few questions
-about you and your business. Long Beach Tech Week runs on public
-funding, and that information is how we justify it and make the case
-for the next one. Every question there is skippable.
+Why we ask about you and your business: the survey ends with a short
+set of demographic questions. Long Beach Tech Week and the rest of what
+LBA does are paid for by grants, and reporting who we actually reach is
+a condition of that funding. Those answers are what let us keep this
+programming free and make the case for 2027.
 
 LOOKING AT 2027
 
@@ -2024,8 +2025,8 @@ CAMPAIGNS["2026-10-30-survey"] = dict(
                          "How you would like to stay connected with LBA"], T),
             ]), T, edit="topics"),
             r_card("\n".join([
-                label("A note on the optional questions", T, indent=14),
-                '              <p style="margin:0;">The survey ends with a few questions about you and your business. Long Beach Tech Week runs on public funding, and that information is how we justify it and make the case for the next one. Every question there is skippable.</p>',
+                label("Why we ask about you and your business", T, indent=14),
+                '              <p style="margin:0;">The survey ends with a short set of demographic questions. Long Beach Tech Week and the rest of what LBA does are paid for by grants, and reporting who we actually reach is a condition of that funding. Those answers are what let us keep this programming free and make the case for 2027.</p>',
             ]), T, edit="demographics"),
             r_pad(32),
         ], ground="tint"),

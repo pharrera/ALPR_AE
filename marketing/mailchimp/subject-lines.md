@@ -320,7 +320,9 @@ and the button.
 
 The recommended subject runs 36 characters, short enough to survive on any phone, and the
 preview line carries the funding point, which is the part that makes the demographic questions
-at the end make sense before anyone reaches them.
+at the end make sense before anyone reaches them. Those questions are not optional, so the
+e-blast says plainly why they are asked: grant reporting is a condition of the funding that
+pays for the programming.
 
 **From:** Long Beach Accelerator &middot; **Reply-to:** peter@lbaccelerator.org
 
