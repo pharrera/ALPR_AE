@@ -7,16 +7,16 @@ than hand-editing `email.html`, so the chrome stays in sync across sends.
 
 | Field | Value |
 |---|---|
-| Subject | Two minutes on Long Beach Tech Week? |
+| Subject | 2 minutes and Thanks for joining us for Long Beach Tech Week 2026 |
 | Preview text | Baked into the HTML as a hidden preheader. Leave Mailchimp's own field blank, or set it — it takes precedence. Setting both can show them back to back. |
 | Send | Ready to send |
 | From | Long Beach Accelerator / info@lbaccelerator.org |
 
 Subject line alternates:
 
+- Two minutes on Long Beach Tech Week?
 - What should we change for Tech Week 2027?
 - You registered for Tech Week. Tell us how we did.
-- Two minutes, and 2027 gets better
 - Your feedback shapes Long Beach Tech Week 2027
 
 Preheader in this template:

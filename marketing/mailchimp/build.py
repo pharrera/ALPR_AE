@@ -154,8 +154,8 @@ FOOT_TMPL = f"""  <tr>
                   </p>
                   <p style="margin:0 0 14px 0;">
                     Our mailing address is:<br />
-                    Long Beach Accelerator<br />
-                    245 E. 3rd St<br />
+                    Long Beach Accelerator Tech Hub Center<br />
+                    240 Long Beach Boulevard, Suite 104<br />
                     Long Beach, CA 90802
                   </p>
                   <p style="margin:0;">
@@ -1980,7 +1980,8 @@ Thank you for being part of it.
 The Long Beach Accelerator team
 
 ---
-Long Beach Accelerator, 245 E. 3rd St, Long Beach, CA 90802
+Long Beach Accelerator Tech Hub Center
+240 Long Beach Boulevard, Suite 104, Long Beach, CA 90802
 You are receiving this because you registered for a Long Beach Tech
 Week 2026 event.
 Update your preferences: *|UPDATE_PROFILE|*  Unsubscribe: *|UNSUB|*
@@ -1989,10 +1990,10 @@ Update your preferences: *|UPDATE_PROFILE|*  Unsubscribe: *|UNSUB|*
 
 CAMPAIGNS["2026-10-30-survey"] = dict(
     title="How did we do? Long Beach Tech Week 2026",
-    subject="Two minutes on Long Beach Tech Week?",
-    alts=["What should we change for Tech Week 2027?",
+    subject="2 minutes and Thanks for joining us for Long Beach Tech Week 2026",
+    alts=["Two minutes on Long Beach Tech Week?",
+          "What should we change for Tech Week 2027?",
           "You registered for Tech Week. Tell us how we did.",
-          "Two minutes, and 2027 gets better",
           "Your feedback shapes Long Beach Tech Week 2027"],
     preheader="Your answers shape what 2027 looks like, and whether we can fund it.",
     send="Ready to send",

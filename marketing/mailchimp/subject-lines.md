@@ -311,19 +311,22 @@ and the button.
 
 | Subject line | Chars | Angle |
 |---|---|---|
-| Two minutes on Long Beach Tech Week? | 36 | **Recommended, currently baked in.** Names the cost up front, which is what gets a survey opened |
+| 2 minutes and Thanks for joining us for Long Beach Tech Week 2026 | 65 | **Vivian's, currently baked in.** Leads with the thank-you and keeps the two-minute promise |
+| Two minutes on Long Beach Tech Week? | 36 | Shortest ask |
 | What should we change for Tech Week 2027? | 41 | Forward-looking; invites the complaint rather than the compliment |
 | You registered for Tech Week. Tell us how we did. | 49 | Says why they are getting it, useful for anyone who never showed |
-| Two minutes, and 2027 gets better | 33 | Shortest; the trade is the whole line |
 | Your feedback shapes Long Beach Tech Week 2027 | 46 | Plainest, if the softer ask suits better |
 
 **Preview line:** *Your answers shape what 2027 looks like, and whether we can fund it.*
 
-The recommended subject runs 36 characters, short enough to survive on any phone, and the
-preview line carries the funding point, which is the part that makes the demographic questions
-at the end make sense before anyone reaches them. Those questions are not optional, so the
+The chosen subject runs 65 characters, so a phone shows roughly *2 minutes and Thanks for
+joining us for Long&hellip;* The two-minute promise and the thank-you both survive that cut;
+what falls off is the year, which the preview line and the masthead both carry anyway.
+
+The preview line carries the funding point, which is what makes the demographic questions at
+the end make sense before anyone reaches them. Those questions are not optional, so the
 e-blast says plainly why they are asked: grant reporting is a condition of the funding that
-pays for the programming.
+pays for Tech Week and the no-cost advising.
 
 **From:** Long Beach Accelerator &middot; **Reply-to:** peter@lbaccelerator.org
 
