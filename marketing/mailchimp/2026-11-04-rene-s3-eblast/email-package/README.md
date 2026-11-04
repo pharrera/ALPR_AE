@@ -7,17 +7,17 @@ than hand-editing `email.html`, so the chrome stays in sync across sends.
 
 | Field | Value |
 |---|---|
-| Subject | Ren&eacute; Redwood on Nov 12: position your business to be trusted |
+| Subject | Nov. 12th - Join us for Strategic AI Positioning for Trusted Businesses Seminar |
 | Preview text | Baked into the HTML as a hidden preheader. Leave Mailchimp's own field blank, or set it — it takes precedence. Setting both can show them back to back. |
 | Send | Wednesday, November 4, 2026, announcement |
 | From | Long Beach Accelerator / info@lbaccelerator.org |
 
 Subject line alternates:
 
+- Ren&eacute; Redwood on Nov 12: position your business to be trusted
 - Free session: Authority Positioning and Strategic Visibility
 - Two hours with Ren&eacute; Redwood, November 12
 - Make the right people understand what you are worth
-- The final session of the AI-Ready Trusted Business series
 
 Preheader in this template:
 

@@ -2064,11 +2064,11 @@ RENE_S3 = ("https://hub.catalyzerapp.com/public/events/"
 
 CAMPAIGNS["2026-11-04-rene-s3"] = dict(
     title="Authority Positioning and Strategic Visibility with Ren\u00e9 Redwood",
-    subject="Ren&eacute; Redwood on Nov 12: position your business to be trusted",
-    alts=["Free session: Authority Positioning and Strategic Visibility",
+    subject="Nov. 12th - Join us for Strategic AI Positioning for Trusted Businesses Seminar",
+    alts=["Ren&eacute; Redwood on Nov 12: position your business to be trusted",
+          "Free session: Authority Positioning and Strategic Visibility",
           "Two hours with Ren&eacute; Redwood, November 12",
-          "Make the right people understand what you are worth",
-          "The final session of the AI-Ready Trusted Business series"],
+          "Make the right people understand what you are worth"],
     preheader="Thursday, November 12, 4:00 to 6:00 PM Pacific, on Zoom. Free, and space is limited.",
     send="Wednesday, November 4, 2026, announcement",
     tight=True,
@@ -2122,7 +2122,6 @@ CAMPAIGNS["2026-11-04-rene-s3"] = dict(
         # 3 -- CLOSING THE SERIES
         section([
             r_text("\n".join([
-                kicker("The Final Session", T),
                 display("Three sessions, one through line", T, size=26),
                 p("Building an AI-Ready Trusted Business is a three-part learning journey for small business owners who want to grow enterprises rooted in their values, strong in day-to-day operations, and positioned to win trust in the marketplace. Sessions 1 and 2 covered the foundation and the workforce. This one is about being recognized for it.", T),
                 p("You do not need to have attended the first two. Participants leave with practical tools, clearer language and concrete next steps they can use immediately.", T, 0),

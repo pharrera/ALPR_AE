@@ -456,21 +456,24 @@ it leaves behind doubles as the gap between the two graphics.
 
 | Subject line | Chars | Angle |
 |---|---|---|
-| Ren&eacute; Redwood on Nov 12: position your business to be trusted | 62 | **Recommended, currently baked in.** Names her, the date and the promise |
+| Nov. 12th - Join us for Strategic AI Positioning for Trusted Businesses Seminar | 78 | **Vivian's, currently baked in.** Date first, then the invitation |
+| Ren&eacute; Redwood on Nov 12: position your business to be trusted | 62 | Names her, the date and the promise |
 | Free session: Authority Positioning and Strategic Visibility | 60 | Leads with free, which is the draw for a two-hour commitment |
 | Two hours with Ren&eacute; Redwood, November 12 | 40 | Shortest; the cost and the date up front |
 | Make the right people understand what you are worth | 51 | The benefit, no proper nouns |
-| The final session of the AI-Ready Trusted Business series | 57 | For the list that attended Sessions 1 and 2 |
 
 **Preview line:** *Thursday, November 12, 4:00 to 6:00 PM Pacific, on Zoom. Free, and space is
 limited.*
 
-The subject carries her name because the series list already knows it, and the preview line
-takes the logistics so the subject does not have to. &ldquo;Free&rdquo; appears in the date
-chip rather than the subject, which keeps the subject about what the session does.
+Vivian's subject runs 78 characters, so a phone shows roughly *Nov. 12th - Join us for
+Strategic AI Positi&hellip;* The date and the invitation both survive that cut. The preview
+line takes the logistics, and &ldquo;free&rdquo; sits in the date chip rather than the
+subject.
 
 The e-blast says plainly that Sessions 1 and 2 are not a prerequisite, since this is the only
-one still open and a cold recipient will otherwise assume they have missed their chance.
+one still open and a cold recipient will otherwise assume they have missed their chance. For
+the same reason Vivian removed the &ldquo;Final Session&rdquo; overline: nothing in the send
+should read as though the door has closed.
 
 The five session bullets, the &ldquo;space is limited&rdquo; line and the Zoom platform come
 from Erin's flyer, which is the authoritative marketing copy. The Catalyzer page says only
