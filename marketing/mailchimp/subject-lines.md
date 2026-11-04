@@ -450,8 +450,9 @@ price and both description paragraphs are lifted from the Catalyzer page, so the
 landing page cannot drift apart. The flyer carries no date, so it survived the reschedule.
 
 First of three sends: announcement 11/4, reminder 11/9, morning-of 11/12. Carries the
-Insights masthead in place of the logo bar, with a short white gap before the session
-banner so the navy chevron does not butt against the flyer's own white margin.
+Insights masthead in place of the logo bar. The session banner's own LBA lockup is cleared to
+white (tools/clear_banner_logo.py), so the masthead carries the branding alone and the white
+it leaves behind doubles as the gap between the two graphics.
 
 | Subject line | Chars | Angle |
 |---|---|---|

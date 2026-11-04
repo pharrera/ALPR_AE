@@ -2074,15 +2074,15 @@ CAMPAIGNS["2026-11-04-rene-s3"] = dict(
     tight=True,
     masthead=("lba-insights-header.jpg", "LBA Accelerator Insights"),
     # The masthead replaces the logo bar, so lba-logo.png is never referenced.
-    images=["lba-insights-header.jpg", "ai-session3.jpg"],
+    images=["lba-insights-header.jpg", "ai-session3-nologo.jpg"],
     sections=[
         # 1 -- THE SESSION
         section([
-            # The masthead ends on navy and the flyer opens on white with its
-            # own LBA logo, so they butt together badly. A short white gap
-            # reads as the flyer's own margin rather than as a seam.
-            r_pad(18),
-            r_image("ai-session3.jpg", S3_NOV_ALT, href=RENE_S3),
+            # The masthead carries the branding, so the banner's own LBA
+            # lockup is cleared to white (tools/clear_banner_logo.py). The
+            # white it leaves behind is also the gap between the two
+            # graphics, so no spacer row is needed above it.
+            r_image("ai-session3-nologo.jpg", S3_NOV_ALT, href=RENE_S3),
             r_text("\n".join([
                 kicker("Building an AI-Ready Trusted Business", W),
                 display("Authority Positioning and Strategic Visibility", W, size=30),
