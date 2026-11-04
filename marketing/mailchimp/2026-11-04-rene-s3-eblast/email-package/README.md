@@ -21,7 +21,7 @@ Subject line alternates:
 
 Preheader in this template:
 
-> Thursday, November 12, 4:00 to 6:00 PM Pacific. Online and free to attend.
+> Thursday, November 12, 4:00 to 6:00 PM Pacific, on Zoom. Free, and space is limited.
 
 ## Load it into Mailchimp
 

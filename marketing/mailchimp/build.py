@@ -557,7 +557,7 @@ S3_ALT = ("Session 3 of Building an AI-Ready Trusted Business: Authority Positio
           "Visibility to Yield Market Trust. Thursday, October 8, 2026, 12:00 pm to 2:00 pm PT, via Zoom. "
           "Facilitated by Ren\u00e9 Redwood. Hosted by the Long Beach Accelerator.")
 S3_NOV_ALT = ("Session 3 of Building an AI-Ready Trusted Business: Authority Positioning and Strategic "
-              "Visibility to Yield Market Trust. Thursday, November 12, 2026, 4:00 to 6:00 PM PT, online. "
+              "Visibility to Yield Market Trust. Thursday, November 12, 2026, 4:00 to 6:00 PM PT, online via Zoom. "
               "Facilitated by Ren\u00e9 Redwood. Hosted by the Long Beach Accelerator.")
 HERO_ALT = ("Building an AI-Ready Trusted Business: a three-part learning journey for small business owners, "
             "facilitated by René Redwood. Hosted by the Long Beach Accelerator.")
@@ -2069,7 +2069,7 @@ CAMPAIGNS["2026-11-04-rene-s3"] = dict(
           "Two hours with Ren&eacute; Redwood, November 12",
           "Make the right people understand what you are worth",
           "The final session of the AI-Ready Trusted Business series"],
-    preheader="Thursday, November 12, 4:00 to 6:00 PM Pacific. Online and free to attend.",
+    preheader="Thursday, November 12, 4:00 to 6:00 PM Pacific, on Zoom. Free, and space is limited.",
     send="Wednesday, November 4, 2026, announcement",
     tight=True,
     images=["lba-logo.png", "ai-session3.jpg"],
@@ -2080,17 +2080,19 @@ CAMPAIGNS["2026-11-04-rene-s3"] = dict(
             r_text("\n".join([
                 kicker("Building an AI-Ready Trusted Business", W),
                 display("Authority Positioning and Strategic Visibility", W, size=30),
-                badge("Thu, Nov 12 &middot; 4:00 &ndash; 6:00 PM PT &middot; Online &middot; Free", W),
+                badge("Thu, Nov 12 &middot; 4:00 &ndash; 6:00 PM PT &middot; Zoom &middot; Free", W),
                 lead("Position your business with greater authority, communicate your value more powerfully, and attract the customers, partners and opportunities that support long-term growth.", W),
                 p("Position your business so the right customers, partners, funders and decision-makers understand your value and trust your expertise. Owners will strengthen credibility, refine messaging, show proof of results, and use strategic visibility to attract better opportunities, support stronger pricing, increase repeat business, and build long-term market trust.", W),
                 label("In this session, you will:", W),
-                bullets(["Strengthen the credibility that decision-makers look for",
-                         "Refine the language you use to describe what you do",
-                         "Show proof of results in a way buyers can act on",
-                         "Use visibility strategically rather than constantly",
-                         "Build the market trust that supports stronger pricing and repeat business"], W),
+                bullets(["Clarify your value proposition and what sets you apart",
+                         "Build credibility with proof, stories, and client results",
+                         "Refine your messaging to speak to the customers that matter",
+                         "Increase visibility with the right audiences and channels",
+                         "Attract better opportunities and support stronger pricing"], W),
             ]), W, edit="session"),
-            r_button("Register Today", RENE_S3, W),
+            r_text(p(f'<strong style="color:{BLUE};">Space is limited.</strong> Online via Zoom, and free to attend.', W, 0),
+                   W, edit="limited", pad="22px 40px 0 40px"),
+            r_button("Register Today", RENE_S3, W, pad_top=20),
             r_pad(30),
         ]),
 
