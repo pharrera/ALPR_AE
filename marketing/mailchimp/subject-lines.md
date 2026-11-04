@@ -439,3 +439,31 @@ Preview text currently baked into each template:
 | 9/18 | Sept 28th – Oct 1st. Sponsors join founders, investors, and civic leaders — and sit in the room for the Summit. |
 | 9/21 (reception) | Monday, September 28th. Hear from the city, the SBA and regional CEOs, then stay for the week. |
 | 9/24 (four events) | Sept 28th, 30th and Oct 1st. Each event registers separately, so here is the whole week with a link for each. |
+
+---
+
+### 11/4 &mdash; Ren&eacute; Redwood, Session 3 announcement
+
+Session 3 moved from October 8 to **Thursday, November 12, 4:00 to 6:00 PM PT, online and
+free**, and now registers on Catalyzer rather than the old Zoom link. Date, time, platform,
+price and both description paragraphs are lifted from the Catalyzer page, so the email and the
+landing page cannot drift apart. The flyer carries no date, so it survived the reschedule.
+
+First of three sends: announcement 11/4, reminder 11/9, morning-of 11/12.
+
+| Subject line | Chars | Angle |
+|---|---|---|
+| Ren&eacute; Redwood on Nov 12: position your business to be trusted | 62 | **Recommended, currently baked in.** Names her, the date and the promise |
+| Free session: Authority Positioning and Strategic Visibility | 60 | Leads with free, which is the draw for a two-hour commitment |
+| Two hours with Ren&eacute; Redwood, November 12 | 40 | Shortest; the cost and the date up front |
+| Make the right people understand what you are worth | 51 | The benefit, no proper nouns |
+| The final session of the AI-Ready Trusted Business series | 57 | For the list that attended Sessions 1 and 2 |
+
+**Preview line:** *Thursday, November 12, 4:00 to 6:00 PM Pacific. Online and free to attend.*
+
+The subject carries her name because the series list already knows it, and the preview line
+takes the logistics so the subject does not have to. &ldquo;Free&rdquo; appears in the date
+chip rather than the subject, which keeps the subject about what the session does.
+
+The e-blast says plainly that Sessions 1 and 2 are not a prerequisite, since this is the only
+one still open and a cold recipient will otherwise assume they have missed their chance.

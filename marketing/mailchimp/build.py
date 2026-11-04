@@ -556,6 +556,9 @@ S2_ALT = ("Session 2 of Building an AI-Ready Trusted Business: Good for Business
 S3_ALT = ("Session 3 of Building an AI-Ready Trusted Business: Authority Positioning and Strategic "
           "Visibility to Yield Market Trust. Thursday, October 8, 2026, 12:00 pm to 2:00 pm PT, via Zoom. "
           "Facilitated by Ren\u00e9 Redwood. Hosted by the Long Beach Accelerator.")
+S3_NOV_ALT = ("Session 3 of Building an AI-Ready Trusted Business: Authority Positioning and Strategic "
+              "Visibility to Yield Market Trust. Thursday, November 12, 2026, 4:00 to 6:00 PM PT, online. "
+              "Facilitated by Ren\u00e9 Redwood. Hosted by the Long Beach Accelerator.")
 HERO_ALT = ("Building an AI-Ready Trusted Business: a three-part learning journey for small business owners, "
             "facilitated by René Redwood. Hosted by the Long Beach Accelerator.")
 RENE_ALT = ("Facilitated by René Redwood, a recognized leader in advancing equity, inclusive workplace "
@@ -2043,6 +2046,82 @@ CAMPAIGNS["2026-10-30-survey"] = dict(
             r_button("Share your feedback", SURVEY, B),
             r_pad(30),
         ], ground="blue"),
+    ],
+)
+
+
+# ============== WED, NOV 4 -- RENE SESSION 3, RESCHEDULED ===================
+# Session 3 slipped from Oct 8 to Nov 12 and now registers through Catalyzer
+# rather than the old Zoom link. series_table() still carries the October date
+# because the campaigns that reference it already went out that way; this send
+# is the only place the new date and link belong.
+#
+# Date, time, platform, price and the two description paragraphs are taken
+# from the Catalyzer page itself, so the email and the page cannot disagree.
+# The flyer carries no date, which is why the rescheduling does not strand it.
+RENE_S3 = ("https://hub.catalyzerapp.com/public/events/"
+           "authority-positioning-and-strategic-visibility-to-4705-232")
+
+CAMPAIGNS["2026-11-04-rene-s3"] = dict(
+    title="Authority Positioning and Strategic Visibility with Ren\u00e9 Redwood",
+    subject="Ren&eacute; Redwood on Nov 12: position your business to be trusted",
+    alts=["Free session: Authority Positioning and Strategic Visibility",
+          "Two hours with Ren&eacute; Redwood, November 12",
+          "Make the right people understand what you are worth",
+          "The final session of the AI-Ready Trusted Business series"],
+    preheader="Thursday, November 12, 4:00 to 6:00 PM Pacific. Online and free to attend.",
+    send="Wednesday, November 4, 2026, announcement",
+    tight=True,
+    images=["lba-logo.png", "ai-session3.jpg"],
+    sections=[
+        # 1 -- THE SESSION
+        section([
+            r_image("ai-session3.jpg", S3_NOV_ALT, href=RENE_S3),
+            r_text("\n".join([
+                kicker("Building an AI-Ready Trusted Business", W),
+                display("Authority Positioning and Strategic Visibility", W, size=30),
+                badge("Thu, Nov 12 &middot; 4:00 &ndash; 6:00 PM PT &middot; Online &middot; Free", W),
+                lead("Position your business with greater authority, communicate your value more powerfully, and attract the customers, partners and opportunities that support long-term growth.", W),
+                p("Position your business so the right customers, partners, funders and decision-makers understand your value and trust your expertise. Owners will strengthen credibility, refine messaging, show proof of results, and use strategic visibility to attract better opportunities, support stronger pricing, increase repeat business, and build long-term market trust.", W),
+                label("In this session, you will:", W),
+                bullets(["Strengthen the credibility that decision-makers look for",
+                         "Refine the language you use to describe what you do",
+                         "Show proof of results in a way buyers can act on",
+                         "Use visibility strategically rather than constantly",
+                         "Build the market trust that supports stronger pricing and repeat business"], W),
+            ]), W, edit="session"),
+            r_button("Register Today", RENE_S3, W),
+            r_pad(30),
+        ]),
+
+        # 2 -- RENE
+        section([
+            r_text("\n".join([
+                kicker("Facilitated By", B),
+                display("Ren&eacute; Redwood", B),
+                p("A recognized leader in strategic initiatives that drive judicial, legislative, commercial and political achievements for organizations in the public and private sectors. Her expertise centers on building trust with internal and external stakeholders, and on winning in the marketplace.", B),
+                label("Selected experience:", B),
+                bullets(["Directed the Presidential Glass Ceiling Commission",
+                         "Served on the court-appointed Coca-Cola Task Force",
+                         "Chaired the Equality Task Force for a National Security Agency",
+                         "Serves on the Ms. Foundation for Women Investment Committee and the Ms. Action Fund"], B),
+            ]), B, edit="rene"),
+            r_text(p("Honored by the Smithsonian Institute and the Ford Motor Company Fund as a &ldquo;Freedom&rsquo;s Sister,&rdquo; she is recognized for continuing the legacy of trailblazing African American women. Her work has been highlighted in Time, Elle, Essence, Black Enterprise and on the NASDAQ billboard on Wall Street.", B, 0),
+                   B, edit="rene_press", pad="22px 40px 0 40px"),
+            r_pad(34),
+        ], ground="blue"),
+
+        # 3 -- CLOSING THE SERIES
+        section([
+            r_text("\n".join([
+                kicker("The Final Session", T),
+                display("Three sessions, one through line", T, size=26),
+                p("Building an AI-Ready Trusted Business is a three-part learning journey for small business owners who want to grow enterprises rooted in their values, strong in day-to-day operations, and positioned to win trust in the marketplace. Sessions 1 and 2 covered the foundation and the workforce. This one is about being recognized for it.", T),
+                p("You do not need to have attended the first two. Participants leave with practical tools, clearer language and concrete next steps they can use immediately.", T, 0),
+            ]), T, edit="series"),
+            r_button("Save your seat", RENE_S3, T, invert=True),
+            r_pad(30),
+        ], ground="tint"),
     ],
 )
 
