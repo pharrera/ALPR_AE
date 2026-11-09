@@ -481,3 +481,31 @@ from Erin's flyer, which is the authoritative marketing copy. The Catalyzer page
 neither. The full flyer is deliberately not used as the hero image, because at 600px of email
 width its body copy and bullet list are too small to read. The slim banner carries the title
 and the portrait, and the flyer's content is set as live HTML text instead.
+
+---
+
+### 11/9 &mdash; Ren&eacute; Redwood, Session 3 reminder
+
+Second of three. Shorter than the announcement: anyone who needed the full case got it on the
+4th, so this one leads on the date and reaches the button sooner. Ren&eacute;'s press
+paragraph comes out; her credentials stay, because for a first-time opener they are the draw.
+
+| Subject line | Chars | Angle |
+|---|---|---|
+| This Thursday - Strategic AI Positioning for Trusted Businesses Seminar | 70 | **Recommended, currently baked in.** Mirrors Vivian's announcement subject with the date swapped for urgency |
+| Three days out: Ren&eacute; Redwood on Thursday at 4 | 45 | Counts down, names her and the hour |
+| Thursday, Nov. 12th - your seat is still open | 45 | Answers the question a late opener actually has |
+| Still time to join us Thursday for Strategic AI Positioning | 58 | Softest; no scarcity |
+| Ren&eacute; Redwood, this Thursday, free on Zoom | 42 | Shortest; name, day, price |
+
+**Preview line:** *Thursday, November 12, 4:00 to 6:00 PM Pacific, on Zoom. Free, and space is
+limited.*
+
+The subject deliberately echoes Vivian's approved announcement wording with &ldquo;Nov. 12th&rdquo;
+swapped for &ldquo;This Thursday,&rdquo; so the two sends read as one voice while the second
+one carries the urgency. The preview line is unchanged from the 4th, which is intentional:
+someone who skimmed the first send sees the same logistics in the same place.
+
+No &ldquo;final session&rdquo; framing anywhere, per Vivian. The closing band is now headed
+&ldquo;Everyone is welcome,&rdquo; which states the point the removed overline was working
+against.

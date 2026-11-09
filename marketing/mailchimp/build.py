@@ -2133,6 +2133,78 @@ CAMPAIGNS["2026-11-04-rene-s3"] = dict(
 )
 
 
+# ============ MON, NOV 9 -- RENE SESSION 3, REMINDER =========================
+# Second of three. Shorter than the announcement: the people who needed
+# convincing got the full case on the 4th, so this one leads on the date and
+# gets to the button sooner. Rene's press paragraph comes out; her credentials
+# stay, because for anyone opening for the first time they are the draw.
+#
+# No "final session" framing anywhere, per Vivian: nothing in the send should
+# read as though the door has closed.
+CAMPAIGNS["2026-11-09-rene-s3-reminder"] = dict(
+    title="This Thursday: Authority Positioning and Strategic Visibility",
+    subject="This Thursday - Strategic AI Positioning for Trusted Businesses Seminar",
+    alts=["Three days out: Ren&eacute; Redwood on Thursday at 4",
+          "Thursday, Nov. 12th - your seat is still open",
+          "Still time to join us Thursday for Strategic AI Positioning",
+          "Ren&eacute; Redwood, this Thursday, free on Zoom"],
+    preheader="Thursday, November 12, 4:00 to 6:00 PM Pacific, on Zoom. Free, and space is limited.",
+    send="Monday, November 9, 2026, reminder",
+    tight=True,
+    masthead=("lba-insights-header.jpg", "LBA Accelerator Insights"),
+    images=["lba-insights-header.jpg", "ai-session3-nologo.jpg"],
+    sections=[
+        # 1 -- THIS THURSDAY
+        section([
+            r_image("ai-session3-nologo.jpg", S3_NOV_ALT, href=RENE_S3),
+            r_text("\n".join([
+                kicker("Building an AI-Ready Trusted Business", W),
+                display("This Thursday", W),
+                badge("Thu, Nov 12 &middot; 4:00 &ndash; 6:00 PM PT &middot; Zoom &middot; Free", W),
+                lead("Authority Positioning and Strategic Visibility to Yield Market Trust, facilitated by Ren&eacute; Redwood.", W),
+                p("Position your business so the right customers, partners, funders and decision-makers understand your value and trust your expertise.", W),
+                label("In this session, you will:", W),
+                bullets(["Clarify your value proposition and what sets you apart",
+                         "Build credibility with proof, stories, and client results",
+                         "Refine your messaging to speak to the customers that matter",
+                         "Increase visibility with the right audiences and channels",
+                         "Attract better opportunities and support stronger pricing"], W),
+            ]), W, edit="session"),
+            r_text(p(f'<strong style="color:{BLUE};">Space is limited.</strong> Two hours on Zoom, and free to attend.', W, 0),
+                   W, edit="limited", pad="22px 40px 0 40px"),
+            r_button("Register Today", RENE_S3, W, pad_top=20),
+            r_pad(30),
+        ]),
+
+        # 2 -- RENE
+        section([
+            r_text("\n".join([
+                kicker("Facilitated By", B),
+                display("Ren&eacute; Redwood", B),
+                p("A recognized leader in strategic initiatives that drive judicial, legislative, commercial and political achievements for organizations in the public and private sectors. Her expertise centers on building trust with internal and external stakeholders, and on winning in the marketplace.", B),
+                label("Selected experience:", B),
+                bullets(["Directed the Presidential Glass Ceiling Commission",
+                         "Served on the court-appointed Coca-Cola Task Force",
+                         "Chaired the Equality Task Force for a National Security Agency",
+                         "Serves on the Ms. Foundation for Women Investment Committee and the Ms. Action Fund"], B),
+            ]), B, edit="rene"),
+            r_pad(34),
+        ], ground="blue"),
+
+        # 3 -- CLOSING
+        section([
+            r_text("\n".join([
+                display("Everyone is welcome", T, size=26),
+                p("This session is part of Building an AI-Ready Trusted Business, a learning journey for small business owners who want to grow enterprises rooted in their values, strong in day-to-day operations, and positioned to win trust in the marketplace.", T),
+                p("You do not need to have attended the earlier sessions. Participants leave with practical tools, clearer language and concrete next steps they can use immediately.", T, 0),
+            ]), T, edit="welcome"),
+            r_button("Save your seat", RENE_S3, T, invert=True),
+            r_pad(30),
+        ], ground="tint"),
+    ],
+)
+
+
 def build(slug, spec):
     out = os.path.join(HERE, f"{slug}-eblast", "email-package")
     imgs = os.path.join(out, "images")
