@@ -2205,6 +2205,67 @@ CAMPAIGNS["2026-11-09-rene-s3-reminder"] = dict(
 )
 
 
+# ============ WED, NOV 11 -- RENE SESSION 3, DAY BEFORE ======================
+# Third send, and the shortest: two bands rather than three. Anyone still
+# undecided the day before is deciding on time and price, not on the case for
+# attending, so the badge and the button do most of the work and the
+# reassurance about the earlier sessions sits with them rather than in a band
+# of its own. Still no "final session" framing, per Vivian.
+CAMPAIGNS["2026-11-11-rene-s3-tomorrow"] = dict(
+    title="Tomorrow: Authority Positioning and Strategic Visibility",
+    subject="Tomorrow - Strategic AI Positioning for Trusted Businesses Seminar",
+    alts=["Tomorrow at 4: Ren&eacute; Redwood on Zoom",
+          "Last call for tomorrow's session with Ren&eacute; Redwood",
+          "There is still room for tomorrow afternoon",
+          "Nov. 12th is tomorrow - join us at 4:00 PM Pacific"],
+    preheader="Tomorrow at 4:00 PM Pacific, on Zoom. Free, and there is still room.",
+    send="Wednesday, November 11, 2026, day before",
+    tight=True,
+    masthead=("lba-insights-header.jpg", "LBA Accelerator Insights"),
+    images=["lba-insights-header.jpg", "ai-session3-nologo.jpg"],
+    sections=[
+        # 1 -- TOMORROW
+        section([
+            r_image("ai-session3-nologo.jpg", S3_NOV_ALT, href=RENE_S3),
+            r_text("\n".join([
+                kicker("Building an AI-Ready Trusted Business", W),
+                display("Tomorrow", W),
+                badge("Thu, Nov 12 &middot; 4:00 &ndash; 6:00 PM PT &middot; Zoom &middot; Free", W),
+                lead("Authority Positioning and Strategic Visibility to Yield Market Trust, facilitated by Ren&eacute; Redwood.", W),
+                p("Position your business so the right customers, partners, funders and decision-makers understand your value and trust your expertise.", W),
+                label("In this session, you will:", W),
+                bullets(["Clarify your value proposition and what sets you apart",
+                         "Build credibility with proof, stories, and client results",
+                         "Refine your messaging to speak to the customers that matter",
+                         "Increase visibility with the right audiences and channels",
+                         "Attract better opportunities and support stronger pricing"], W),
+            ]), W, edit="session"),
+            r_text("\n".join([
+                p(f'<strong style="color:{BLUE};">There is still room.</strong> Two hours on Zoom, free to attend, and you do not need to have been at the earlier sessions.', W, 0),
+            ]), W, edit="still_room", pad="22px 40px 0 40px"),
+            r_button("Register Today", RENE_S3, W, pad_top=20),
+            r_pad(30),
+        ]),
+
+        # 2 -- RENE
+        section([
+            r_text("\n".join([
+                kicker("Facilitated By", B),
+                display("Ren&eacute; Redwood", B),
+                p("A recognized leader in strategic initiatives that drive judicial, legislative, commercial and political achievements for organizations in the public and private sectors. Her expertise centers on building trust with internal and external stakeholders, and on winning in the marketplace.", B),
+                label("Selected experience:", B),
+                bullets(["Directed the Presidential Glass Ceiling Commission",
+                         "Served on the court-appointed Coca-Cola Task Force",
+                         "Chaired the Equality Task Force for a National Security Agency",
+                         "Serves on the Ms. Foundation for Women Investment Committee and the Ms. Action Fund"], B),
+            ]), B, edit="rene"),
+            r_button("Save your seat", RENE_S3, B),
+            r_pad(34),
+        ], ground="blue"),
+    ],
+)
+
+
 def build(slug, spec):
     out = os.path.join(HERE, f"{slug}-eblast", "email-package")
     imgs = os.path.join(out, "images")

@@ -509,3 +509,29 @@ someone who skimmed the first send sees the same logistics in the same place.
 No &ldquo;final session&rdquo; framing anywhere, per Vivian. The closing band is now headed
 &ldquo;Everyone is welcome,&rdquo; which states the point the removed overline was working
 against.
+
+---
+
+### 11/11 &mdash; Ren&eacute; Redwood, Session 3 day before
+
+Third send and the shortest: two bands rather than three. Anyone still undecided the day
+before is weighing time and price, not the case for attending, so the date chip and the button
+do the work. The reassurance about the earlier sessions sits beside them instead of in a band
+of its own, and the blue band closes on its own button so the send ends on a link either way.
+
+| Subject line | Chars | Angle |
+|---|---|---|
+| Tomorrow - Strategic AI Positioning for Trusted Businesses Seminar | 65 | **Recommended, currently baked in.** Third in Vivian's pattern: date word, then her title |
+| Tomorrow at 4: Ren&eacute; Redwood on Zoom | 36 | Shortest; the hour is the decision |
+| Last call for tomorrow's session with Ren&eacute; Redwood | 51 | Scarcity, if the seat count warrants it |
+| There is still room for tomorrow afternoon | 42 | The opposite read: open door, not closing one |
+| Nov. 12th is tomorrow - join us at 4:00 PM Pacific | 49 | Ties back to the 11/4 subject for anyone who saw it |
+
+**Preview line:** *Tomorrow at 4:00 PM Pacific, on Zoom. Free, and there is still room.*
+
+The three subjects now run **Nov. 12th &rarr; This Thursday &rarr; Tomorrow**, the same
+sentence with the date word tightening each time, which reads as one voice across the series.
+
+&ldquo;There is still room&rdquo; replaces &ldquo;space is limited&rdquo; here on purpose. The
+day before, the reader's question is whether they have missed it, and the Catalyzer page was
+still taking free registrations when this was built.
